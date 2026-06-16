@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FPT Ôn Tập — Cổng ôn tập đa môn</title>
+<meta name="description" content="Cổng ôn tập đa môn FPT — chọn môn để vào site quiz/flashcard riêng. MLN111 đã có, các môn khác sắp ra mắt.">
+<meta name="theme-color" content="#C8102E">
+<meta property="og:title" content="FPT Ôn Tập — Cổng ôn tập đa môn">
+<meta property="og:description" content="Cổng ôn tập đa môn FPT — chọn môn để vào site quiz/flashcard riêng.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="vi_VN">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F2EBDD'/%3E%3Cpath d='M16 4l3.2 8.3 8.8.4-6.9 5.5 2.4 8.5L16 30l-7.5-3.8 2.4-8.5-6.9-5.5 8.8-.4z' fill='%23C8102E' stroke='%2316130F' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  /* Màu */
+  --paper:     #F2EBDD;
+  --paper-dim: #E8DEC9;
+  --ink:       #16130F;
+  --red:       #C8102E;
+  --red-deep:  #8F0A1F;
+  --gold:      #F2B705;
+  --green:     #1E6E45;
+  --muted:     #6E6450;
+  --paper-soft:#FFFDF6;
+  --dash:      #C9BFA8;
+  /* Shadow brutalist (hard offset, không blur) */
+  --shadow:        5px 5px 0 var(--ink);
+  --shadow-card:   7px 7px 0 var(--red);
+  --shadow-opt:    4px 4px 0 var(--ink);
+  --shadow-btn:    3px 3px 0 var(--ink);
+  --shadow-active: 1px 1px 0 var(--ink);
+  /* Easing */
+  --ease-out:    cubic-bezier(.22,.9,.3,1);
+  --ease-spring: cubic-bezier(.34,1.45,.5,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{font-size:16px;}
+body{
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.5;
+  min-height:100vh;
+  background-image:radial-gradient(rgba(22,19,15,.05) 1px, transparent 1px);
+  background-size:22px 22px;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+button,input,select{font-family:inherit;font-size:1rem;cursor:pointer;color:inherit;touch-action:manipulation;}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{
+  outline:3px solid var(--red);outline-offset:2px;
+}
+
+/* ===== Header ===== */
+.header{
+  background:var(--red);color:var(--paper);
+  border-bottom:3px solid var(--ink);
+  padding:14px 16px 12px;
+}
+.hwrap{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  max-width:760px;margin:0 auto;
+}
+.logo{width:38px;height:38px;flex:0 0 auto;filter:drop-shadow(2px 2px 0 var(--ink));}
+.htext{display:flex;flex-direction:column;}
+h1{font-size:1.3rem;font-weight:900;text-transform:uppercase;letter-spacing:.5px;overflow-wrap:anywhere;}
+.sub{font-size:.78rem;opacity:.92;font-weight:600;}
+.hstats{margin-left:auto;font-weight:800;font-size:.92rem;white-space:nowrap;}
+.hstats b{color:var(--gold);font-weight:800;}
+
+/* ===== Container ===== */
+.container{max-width:760px;margin:0 auto;padding:18px 16px 40px;}
+
+/* ===== Hero ===== */
+.hero{
+  border:3px solid var(--ink);background:var(--paper-soft);
+  box-shadow:var(--shadow-btn);padding:14px 16px;margin-bottom:16px;
+  animation:riseIn .45s var(--ease-out) backwards;
+}
+.hero h2{font-size:1.05rem;font-weight:900;margin-bottom:4px;}
+.hero p{font-size:.86rem;color:var(--muted);font-weight:600;}
+
+/* ===== Controls ===== */
+.controls{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
+  animation:riseIn .45s var(--ease-out) .06s backwards;}
+.searchrow{display:flex;}
+#search{
+  flex:1;border:2.5px solid var(--ink);background:#fff;
+  box-shadow:var(--shadow-btn);padding:10px 14px;min-height:48px;font-weight:600;
+}
+.chips{display:flex;gap:8px;flex-wrap:wrap;}
+.chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  border:2.5px solid var(--ink);background:var(--paper-dim);
+  box-shadow:var(--shadow-btn);padding:8px 14px;font-weight:800;min-height:44px;
+  transition:transform .12s var(--ease-out),box-shadow .12s var(--ease-out);
+}
+.chip.on{background:var(--gold);}
+.chip:active{transform:translate(3px,3px);box-shadow:var(--shadow-active);}
+
+/* ===== Count ===== */
+.count{font-size:.82rem;font-weight:800;color:var(--muted);margin:2px 2px 12px;}
+
+/* ===== Grid ===== */
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));}
+
+/* ===== Card ===== */
+.card{
+  position:relative;display:block;text-decoration:none;color:inherit;
+  border:3px solid var(--ink);background:#fff;box-shadow:var(--shadow-card);
+  padding:18px;padding-top:44px;border-radius:0;
+}
+.card[data-status="available"]{
+  transition:transform .15s var(--ease-out),box-shadow .15s var(--ease-out);
+}
+.card[data-status="available"]:hover{transform:translate(-2px,-2px);}
+.card[data-status="available"]:active{transform:translate(4px,4px);box-shadow:var(--shadow-active);}
+.card.soon{opacity:.55;cursor:default;}
+
+.code{
+  position:absolute;top:-3px;left:-3px;
+  border:3px solid var(--ink);padding:6px 14px;
+  font-weight:900;letter-spacing:.5px;font-size:.95rem;
+}
+.emoji{
+  position:absolute;top:11px;right:14px;font-size:28px;line-height:1;
+  transition:transform .25s var(--ease-spring);
+}
+.card[data-status="available"]:hover .emoji{transform:scale(1.12);}
+.cname{font-size:1.12rem;font-weight:800;padding-right:38px;}
+.cdesc{font-size:.86rem;color:var(--muted);margin-top:6px;font-weight:600;}
+.sem{
+  display:inline-block;margin-top:10px;border:2px solid var(--ink);
+  background:var(--paper-dim);padding:2px 8px;font-size:.78rem;font-weight:700;
+}
+.cfoot{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  margin-top:14px;padding-top:12px;border-top:2px dashed var(--dash);
+}
+.fleft{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.badge{
+  display:inline-flex;align-items:center;border:2.5px solid var(--ink);
+  padding:5px 10px;font-weight:800;font-size:.8rem;box-shadow:var(--shadow-btn);
+}
+.badge.on{background:var(--green);color:#fff;}
+.soon-badge{
+  display:inline-flex;align-items:center;border:3px double var(--red);
+  background:rgba(255,255,255,.6);color:var(--red-deep);
+  padding:5px 12px;font-weight:900;font-size:.8rem;letter-spacing:.5px;
+  transform:rotate(-8deg);
+}
+.cta{font-weight:900;text-transform:uppercase;font-size:.92rem;letter-spacing:.5px;white-space:nowrap;}
+.recent{
+  display:inline-flex;align-items:center;background:var(--gold);color:var(--ink);
+  border:2px solid var(--ink);padding:2px 8px;font-size:.7rem;font-weight:900;
+}
+
+/* ===== Empty ===== */
+.empty{
+  grid-column:1/-1;border:3px dashed var(--ink);padding:34px 18px;
+  text-align:center;font-weight:800;background:rgba(255,255,255,.5);
+}
+
+/* ===== Footer ===== */
+.foot{
+  max-width:760px;margin:30px auto 0;padding:16px;
+  border-top:2px dashed var(--dash);text-align:center;
+  font-size:.8rem;color:var(--muted);font-weight:600;
+}
+.foot a{color:var(--red-deep);font-weight:800;}
+
+/* ===== Toast ===== */
+.toast{
+  position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));
+  transform:translate(-50%,16px);background:var(--ink);color:var(--paper);
+  border:2px solid var(--gold);padding:10px 16px;font-weight:800;font-size:.85rem;
+  opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:50;
+}
+.toast.show{opacity:1;transform:translate(-50%,0);}
+
+/* ===== Animations ===== */
+@keyframes riseIn{0%{opacity:0;transform:translateY(-10px)}100%{opacity:1;transform:none}}
+@keyframes optIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+@keyframes stampIn{
+  0%{transform:scale(2) rotate(-14deg);opacity:0}
+  55%{transform:scale(.92) rotate(-7deg);opacity:1}
+  100%{transform:scale(1) rotate(-8deg)}
+}
+.grid.fresh .card{animation:optIn .3s var(--ease-out) backwards;animation-delay:var(--delay);}
+.grid.fresh .soon-badge{animation:stampIn .45s var(--ease-out) .22s backwards;}
+
+/* ===== Responsive ===== */
+@media (max-width:520px){
+  .grid{grid-template-columns:1fr;}
+  .card{box-shadow:5px 5px 0 var(--red);}
+  .container{padding:16px;}
+}
+@media (max-width:360px){
+  .sub{display:none;}
+  .hstats{margin-left:0;width:100%;}
+  h1{overflow-wrap:anywhere;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-delay:0 !important;
+    animation-iteration-count:1 !important;
+    transition:none !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="hwrap">
+    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 3l3.4 8.8 9.4.4-7.4 5.8 2.6 9L16 31l-8-3.8 2.6-9-7.4-5.8 9.4-.4z"
+            fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/>
+    </svg>
+    <div class="htext">
+      <h1>FPT Ôn Tập</h1>
+      <span class="sub">Cổng ôn tập đa môn</span>
+    </div>
+    <div class="hstats">MÔN: <b id="total">0</b></div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>Chọn môn để bắt đầu ôn tập</h2>
+    <p>Mỗi môn mở trong một tab riêng; tiến độ học được lưu ở từng site con. Các môn chưa có sẽ hiển thị “Sắp có”.</p>
+  </section>
+
+  <div class="controls">
+    <div class="searchrow">
+      <input id="search" type="search" autocomplete="off"
+             placeholder="Tìm môn… (mã hoặc tên)" aria-label="Tìm môn theo mã hoặc tên">
+    </div>
+    <div class="chips" role="group" aria-label="Lọc theo trạng thái">
+      <button class="chip on" data-filter="all" aria-pressed="true">Tất cả</button>
+      <button class="chip" data-filter="available" aria-pressed="false">Đã có</button>
+      <button class="chip" data-filter="coming-soon" aria-pressed="false">Sắp có</button>
+    </div>
+  </div>
+
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer class="foot">
+  Nguyễn Hữu Triết · 2026 · Build với HTML/CSS/JS thuần · Deploy trên GitHub Pages<br>
+  <a href="https://github.com/HuuTriet/fpt-ontap" target="_blank" rel="noopener noreferrer">github.com/HuuTriet/fpt-ontap</a>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== Dữ liệu môn ===== */
+const SUBJECTS = [
+  {
+    code: 'MLN111',
+    name: 'Triết học Mác – Lênin',
+    fullName: 'Triết học Mác – Lênin (MLN111)',
+    semester: 'Kỳ 3',
+    description: '585 câu trắc nghiệm + flashcard ôn thi. Vuốt thẻ, làm quiz, đánh dấu câu sai.',
+    status: 'available',
+    url: 'https://huutriet.github.io/mln111-585-cau/',
+    accent: '#C8102E',
+    emoji: '⚖️'
+  },
+  {
+    code: 'PRN232',
+    name: 'Lập trình Back-End .NET',
+    fullName: 'Building Cross-Platform Back-End Application With .NET (PRN232)',
+    semester: 'Kỳ 7',
+    description: 'Ôn API .NET, REST, Entity Framework Core, minimal API.',
+    status: 'coming-soon',
+    url: '',
+    accent: '#1E6E45',
+    emoji: '🌐'
+  },
+  {
+    code: 'MAS291',
+    name: 'Thống kê & Xác suất',
+    fullName: 'Statistics & Probability (MAS291)',
+    semester: 'Kỳ 5',
+    description: 'Ôn xác suất, phân phối, kiểm định giả thuyết, hồi quy.',
+    status: 'coming-soon',
+    url: '',
+    accent: '#F2B705',
+    emoji: '📊'
+  },
+  {
+    code: 'SWP391',
+    name: 'Đồ án phần mềm',
+    fullName: 'Software Development Project (SWP391)',
+    semester: 'Kỳ 5',
+    description: 'Ôn quy trình phát triển phần mềm, SDLC, UML, Agile/Scrum.',
+    status: 'coming-soon',
+    url: '',
+    accent: '#8F0A1F',
+    emoji: '🛠️'
+  },
+  {
+    code: 'DBI202',
+    name: 'Cơ sở dữ liệu',
+    fullName: 'Introduction to Databases (DBI202)',
+    semester: 'Kỳ 4',
+    description: 'Ôn SQL, mô hình quan hệ, chuẩn hóa, transaction.',
+    status: 'coming-soon',
+    url: '',
+    accent: '#16130F',
+    emoji: '🗄️'
+  }
+];
+
+/* ===== Helpers ===== */
+const $ = sel => document.querySelector(sel);
+const HEX_RE = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+const esc = s => (s == null ? '' : String(s))
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const norm = s => (s || '')
+  .normalize('NFD')
+  .replace(/[̀-ͯ]/g,'')
+  .replace(/đ/g,'d').replace(/Đ/g,'D')
+  .toLowerCase();
+
+function hexToRgb(hex){
+  let h = hex.replace('#','');
+  if(h.length === 3) h = h.split('').map(c => c + c).join('');
+  const n = parseInt(h,16);
+  return { r:(n>>16)&255, g:(n>>8)&255, b:n&255 };
+}
+/* chữ badge tự chọn theo độ sáng accent: sáng -> ink, tối -> kem */
+function textOn(hex){
+  const { r,g,b } = hexToRgb(hex);
+  return (0.299*r + 0.587*g + 0.114*b)/255 > 0.55 ? 'var(--ink)' : 'var(--paper)';
+}
+
+/* ===== Chuẩn hóa + validate (chỉ warn, không chặn render) ===== */
+function prepare(list){
+  const seen = new Set();
+  return list.map(s => {
+    const o = Object.assign({}, s);
+    if(seen.has(o.code)) console.warn('SUBJECTS: trùng code', o.code);
+    seen.add(o.code);
+    if(o.status === 'available' && (!o.url || !/^https?:\/\//i.test(o.url))){
+      console.warn('SUBJECTS: môn available thiếu/sai url ->', o.code, '→ chuyển thành coming-soon');
+      o.status = 'coming-soon';
+    }
+    if(!o.accent || !HEX_RE.test(o.accent)){
+      if(o.accent) console.warn('SUBJECTS: accent không hợp lệ ->', o.code);
+      o.accent = '#C8102E'; /* = var(--red) */
+    }
+    if(!o.emoji) o.emoji = '📚';
+    if(!o.fullName) o.fullName = o.name + ' (' + o.code + ')';
+    return o;
+  });
+}
+const DATA = prepare(SUBJECTS);
+
+let lastOpened = null;
+try { lastOpened = localStorage.getItem('fpt-ontap:last-opened'); } catch(e){}
+
+/* ===== State ===== */
+let statusFilter = 'all';
+let query = '';
+let firstRender = true;
+
+/* ===== Render 1 thẻ ===== */
+function card(s, i){
+  const isAvail = s.status === 'available';
+  const txt = textOn(s.accent);
+  const recent = isAvail && lastOpened === s.code;
+  const el = document.createElement(isAvail ? 'a' : 'div');
+  el.className = 'card' + (isAvail ? '' : ' soon');
+  el.dataset.status = s.status;
+  el.dataset.code = s.code;
+  el.style.setProperty('--delay', (i * 0.05) + 's');
+  if(isAvail){
+    el.href = s.url;
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+    el.setAttribute('aria-label', 'Vào ôn tập ' + s.fullName + ' — mở tab mới');
+  } else {
+    el.setAttribute('role','group');
+    el.setAttribute('aria-disabled','true');
+    el.setAttribute('aria-label', s.fullName + ' — sắp có (chưa mở)');
+  }
+  el.innerHTML =
+    '<span class="code" style="background:' + s.accent + ';color:' + txt + '">' + esc(s.code) + '</span>' +
+    '<span class="emoji" aria-hidden="true">' + esc(s.emoji) + '</span>' +
+    '<h3 class="cname">' + esc(s.name) + '</h3>' +
+    '<p class="cdesc">' + esc(s.description) + '</p>' +
+    (s.semester ? '<span class="sem">' + esc(s.semester) + '</span>' : '') +
+    '<div class="cfoot">' +
+      '<span class="fleft">' +
+        (isAvail
+          ? '<span class="badge on">Đã có</span>' + (recent ? '<span class="recent">Gần đây</span>' : '')
+          : '<span class="soon-badge">Sắp có</span>') +
+      '</span>' +
+      (isAvail ? '<span class="cta">Vào ôn ↗</span>' : '') +
+    '</div>';
+  return el;
+}
+
+/* ===== Lọc (search AND chip) ===== */
+function apply(){
+  const q = norm(query.trim());
+  return DATA.filter(s => {
+    if(statusFilter !== 'all' && s.status !== statusFilter) return false;
+    if(!q) return true;
+    const hay = norm([s.code, s.name, s.fullName, s.description].join(' '));
+    return hay.includes(q);
+  });
+}
+
+/* ===== Bộ đếm (debounce ~250ms) ===== */
+let countTimer = null;
+function updateCount(x){
+  clearTimeout(countTimer);
+  countTimer = setTimeout(function(){
+    $('#count').textContent = 'Hiển thị ' + x + '/' + DATA.length + ' môn';
+  }, 250);
+}
+
+/* ===== Render lưới ===== */
+function render(){
+  const list = apply();
+  const grid = $('#grid');
+  grid.classList.toggle('fresh', firstRender);
+  grid.innerHTML = '';
+  if(!list.length){
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    const q = query.trim();
+    empty.textContent = q
+      ? 'Không tìm thấy môn nào khớp "' + q + '". Thử từ khóa khác.'
+      : 'Chưa có môn nào ở trạng thái này.';
+    grid.appendChild(empty);
+  } else {
+    list.forEach(function(s, i){ grid.appendChild(card(s, i)); });
+  }
+  updateCount(list.length);
+  firstRender = false;
+}
+
+/* ===== Toast ===== */
+let toastTimer = null;
+function toast(msg){
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 1800);
+}
+
+/* ===== Sự kiện ===== */
+$('#search').addEventListener('input', function(e){
+  query = e.target.value;
+  render();
+});
+
+document.querySelectorAll('.chip').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    statusFilter = btn.dataset.filter;
+    document.querySelectorAll('.chip').forEach(function(b){
+      const on = b === btn;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    render();
+  });
+});
+
+$('#grid').addEventListener('click', function(e){
+  const soon = e.target.closest('[data-status="coming-soon"]');
+  if(soon){ toast('Môn này sắp có — chưa mở.'); return; }
+  const avail = e.target.closest('a[data-status="available"]');
+  if(avail){
+    /* KHÔNG preventDefault — để <a target="_blank"> mở tab tự nhiên */
+    try { localStorage.setItem('fpt-ontap:last-opened', avail.dataset.code); } catch(_){}
+  }
+});
+
+/* ===== Init ===== */
+$('#total').textContent = DATA.length;
+render();
+</script>
+</body>
+</html>
