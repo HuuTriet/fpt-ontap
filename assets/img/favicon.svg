@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="FPT Ôn Tập">
+  <defs>
+    <linearGradient id="fav" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0651A0"/>
+      <stop offset=".3" stop-color="#008DDE"/>
+      <stop offset=".55" stop-color="#53B848"/>
+      <stop offset=".8" stop-color="#F37124"/>
+      <stop offset="1" stop-color="#E11B22"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#F7FAFD"/>
+  <text x="16" y="22" font-family="'Be Vietnam Pro',Arial,sans-serif" font-size="15" font-weight="800" text-anchor="middle" fill="url(#fav)">FPT</text>
+</svg>

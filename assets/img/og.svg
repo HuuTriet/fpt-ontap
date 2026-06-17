@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="FPT Ôn Tập — Cổng ôn tập đa môn">
+  <title>FPT Ôn Tập — Cổng ôn tập đa môn</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EEF4FB"/>
+    </linearGradient>
+    <linearGradient id="wm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0651A0"/>
+      <stop offset=".26" stop-color="#008DDE"/>
+      <stop offset=".52" stop-color="#53B848"/>
+      <stop offset=".78" stop-color="#F37124"/>
+      <stop offset="1" stop-color="#E11B22"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0651A0"/>
+      <stop offset="1" stop-color="#008DDE"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1090" cy="120" r="180" fill="#008DDE" opacity=".12"/>
+  <circle cx="120" cy="560" r="150" fill="#53B848" opacity=".12"/>
+  <polygon points="1010,470 1070,560 950,560" fill="#F37124" opacity=".55"/>
+  <!-- flashcard minh hoạ -->
+  <g transform="rotate(-7 880 315)">
+    <rect x="760" y="180" width="320" height="280" rx="26" fill="#FFFFFF" stroke="#D6E2EF" stroke-width="3"/>
+    <rect x="760" y="180" width="320" height="64" rx="26" fill="url(#blue)"/>
+    <rect x="760" y="216" width="320" height="28" fill="url(#blue)"/>
+    <rect x="796" y="200" width="150" height="22" rx="11" fill="#FFFFFF" opacity=".9"/>
+    <rect x="796" y="290" width="248" height="18" rx="9" fill="#3D5872" opacity=".85"/>
+    <rect x="796" y="326" width="200" height="18" rx="9" fill="#3D5872" opacity=".55"/>
+    <rect x="796" y="384" width="96" height="48" rx="14" fill="#53B848"/>
+    <rect x="912" y="384" width="132" height="48" rx="14" fill="#EEF4FB" stroke="#D6E2EF" stroke-width="2"/>
+  </g>
+  <!-- text -->
+  <text x="90" y="250" font-family="'Be Vietnam Pro',Arial,sans-serif" font-size="96" font-weight="800" fill="url(#wm)">FPT</text>
+  <text x="350" y="250" font-family="'Be Vietnam Pro',Arial,sans-serif" font-size="96" font-weight="700" fill="#10243A">Ôn Tập</text>
+  <text x="92" y="330" font-family="'Be Vietnam Pro',Arial,sans-serif" font-size="40" font-weight="600" fill="#3D5872">Cổng ôn tập đa môn — flashcard, trắc nghiệm, lưu tiến độ</text>
+  <text x="92" y="410" font-family="'Be Vietnam Pro',Arial,sans-serif" font-size="30" font-weight="600" fill="#0651A0">Tất cả gói gọn trong một web · MLN111 · 585 câu</text>
+  <text x="92" y="560" font-family="'Be Vietnam Pro',Arial,sans-serif" font-size="24" font-weight="500" fill="#3D5872">Dự án sinh viên — không được FPT chính thức bảo trợ</text>
+</svg>

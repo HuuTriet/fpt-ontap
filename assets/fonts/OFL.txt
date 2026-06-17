@@ -1,0 +1,13 @@
+PLACEHOLDER — SIL OPEN FONT LICENSE 1.1
+=======================================
+
+Đây là file giữ chỗ. Khi bạn tải các file Be Vietnam Pro (.woff2) về thư mục
+này, hãy THAY thế nội dung file OFL.txt này bằng văn bản license OFL 1.1 GỐC
+đi kèm bộ font Be Vietnam Pro (thường có sẵn trong gói tải về / repo gốc).
+
+- Tên license: SIL Open Font License, Version 1.1
+- Toàn văn license: https://openfontlicense.org  (hoặc file OFL.txt trong gói font)
+- Be Vietnam Pro © các tác giả tương ứng, phát hành theo OFL 1.1.
+
+OFL yêu cầu giữ kèm thông báo bản quyền + license khi phân phối lại font.
+Không xoá file này khỏi repo sau khi đã thêm font.

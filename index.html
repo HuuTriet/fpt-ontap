@@ -1,494 +1,1432 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="no-js">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<script>document.documentElement.className='js';</script>
 <title>FPT Ôn Tập — Cổng ôn tập đa môn</title>
-<meta name="description" content="Cổng ôn tập đa môn FPT — chọn môn để vào site quiz/flashcard riêng. MLN111 đã có, các môn khác sắp ra mắt.">
-<meta name="theme-color" content="#C8102E">
+<meta name="description" content="Cổng ôn tập đa môn FPT — chọn môn để vào quiz/flashcard ngay trong một web. MLN111 đã có, các môn khác sắp ra mắt.">
+<meta name="theme-color" content="#0651A0">
 <meta property="og:title" content="FPT Ôn Tập — Cổng ôn tập đa môn">
-<meta property="og:description" content="Cổng ôn tập đa môn FPT — chọn môn để vào site quiz/flashcard riêng.">
+<meta property="og:description" content="Cổng ôn tập đa môn FPT — tất cả trong một web.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="vi_VN">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F2EBDD'/%3E%3Cpath d='M16 4l3.2 8.3 8.8.4-6.9 5.5 2.4 8.5L16 30l-7.5-3.8 2.4-8.5-6.9-5.5 8.8-.4z' fill='%23C8102E' stroke='%2316130F' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta property="og:image" content="assets/img/og.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="assets/img/favicon.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%230651A0'/%3E%3Cstop offset='.3' stop-color='%23008DDE'/%3E%3Cstop offset='.55' stop-color='%2353B848'/%3E%3Cstop offset='.8' stop-color='%23F37124'/%3E%3Cstop offset='1' stop-color='%23E11B22'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='7' fill='%23F7FAFD'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='800' text-anchor='middle' fill='url(%23g)'%3EFPT%3C/text%3E%3C/svg%3E">
 <style>
+/* ===== @font-face Be Vietnam Pro (self-host; user thả file vào assets/fonts/) ===== */
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/be-vietnam-pro-400.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/be-vietnam-pro-500.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/be-vietnam-pro-600.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/be-vietnam-pro-700.woff2') format('woff2')}
+@font-face{font-family:'Be Vietnam Pro';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/be-vietnam-pro-800.woff2') format('woff2')}
 :root{
-  /* Màu */
-  --paper:     #F2EBDD;
-  --paper-dim: #E8DEC9;
-  --ink:       #16130F;
-  --red:       #C8102E;
-  --red-deep:  #8F0A1F;
-  --gold:      #F2B705;
-  --green:     #1E6E45;
-  --muted:     #6E6450;
-  --paper-soft:#FFFDF6;
-  --dash:      #C9BFA8;
-  /* Shadow brutalist (hard offset, không blur) */
-  --shadow:        5px 5px 0 var(--ink);
-  --shadow-card:   7px 7px 0 var(--red);
-  --shadow-opt:    4px 4px 0 var(--ink);
-  --shadow-btn:    3px 3px 0 var(--ink);
-  --shadow-active: 1px 1px 0 var(--ink);
-  /* Easing */
-  --ease-out:    cubic-bezier(.22,.9,.3,1);
-  --ease-spring: cubic-bezier(.34,1.45,.5,1);
-}
+  /* ---- FPT brand ---- */
+  --fpt-blue:#0651A0; --fpt-cerulean:#008DDE; --fpt-green:#53B848;
+  --fpt-orange:#F37124; --fpt-peach:#FBCFB6; --fpt-red:#E11B22; /* fpt-red CHỈ cho wordmark/logo */
+  --fpt-grad:linear-gradient(135deg,#0651A0 0%,#008DDE 30%,#53B848 55%,#F37124 80%,#E11B22 100%);
+  --accent-cta:#F37124;
 
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html{font-size:16px;}
+  /* ---- nền / mực / text ---- */
+  --bg:#F7FAFD; --surface:#FFFFFF; --surface-2:#EEF4FB;
+  --ink:#10243A; --ink-2:#3D5872; --line:#D6E2EF;
+
+  /* ---- token engine GIỮ tên ---- */
+  --paper:#F7FAFD; --paper-dim:#EEF4FB;
+  --red:#0651A0;            /* primary brand = blue FPT (header/nav/accent UI trung tính) */
+  --red-deep:#053E7A; --gold:#F2B705; --green:#1E6E45;
+  --correct:#E4F2E9; --wrong:#FBE3E7;
+  --danger:#D64545;         /* MÀU SAI semantic — .opt.wrong / .verdict.no / .swipetag.unknown */
+
+  /* ---- type scale ---- */
+  --fs-display:clamp(2rem,1.4rem + 3vw,3.25rem);
+  --fs-h1:clamp(1.5rem,1.2rem + 1.4vw,2rem);
+  --fs-h2:1.25rem; --fs-lead:1.0625rem; --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.75rem;
+
+  /* ---- spacing baseline 4px ---- */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-8:64px;
+
+  /* ---- radius & shadow ---- */
+  --r-sm:8px; --r-md:14px; --r-lg:20px; --r-pill:999px;
+  --shadow:5px 5px 0 var(--ink); /* engine giữ tên */
+  --shadow-sm:0 1px 2px rgba(16,36,58,.06),0 2px 6px rgba(16,36,58,.08);
+  --shadow-md:0 6px 16px rgba(16,36,58,.10),0 2px 4px rgba(16,36,58,.06);
+  --shadow-lg:0 18px 40px rgba(6,81,160,.16),0 6px 14px rgba(16,36,58,.10);
+  --shadow-brand:0 14px 34px rgba(243,113,36,.22);
+
+  /* ---- motion ---- */
+  --dur-fast:140ms; --dur:240ms; --dur-slow:420ms;
+  --ease-out:cubic-bezier(.22,.9,.3,1);
+  --ease-spring:cubic-bezier(.34,1.45,.5,1);
+  --ease-soft:cubic-bezier(.4,0,.2,1);
+
+  --font:'Be Vietnam Pro',Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html{font-size:16px}
 body{
-  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.5;
-  min-height:100vh;
-  background-image:radial-gradient(rgba(22,19,15,.05) 1px, transparent 1px);
-  background-size:22px 22px;
+  font-family:var(--font);
+  background:var(--bg); color:var(--ink); line-height:1.55; min-height:100vh;
   padding-bottom:env(safe-area-inset-bottom);
 }
-button,input,select{font-family:inherit;font-size:1rem;cursor:pointer;color:inherit;touch-action:manipulation;}
-button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{
-  outline:3px solid var(--red);outline-offset:2px;
+button{font-family:inherit;cursor:pointer;color:inherit;touch-action:manipulation}
+a,button,input,select,.pf-card{
+  outline-color:var(--fpt-blue);
+}
+:focus-visible{outline:3px solid var(--fpt-blue);outline-offset:2px}
+:focus:not(:focus-visible){outline:none}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--fpt-blue);outline-offset:2px}
+input,select{font-family:inherit;font-size:1rem}
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--fpt-blue);color:#fff;
+  padding:10px 16px;border-radius:0 0 var(--r-sm) 0;font-weight:700;text-decoration:none}
+.skip:focus{left:0}
+
+/* ===== ENTRANCE (một nhịp mở màn, tinh tế) ===== */
+@keyframes riseIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+header{animation:riseIn .45s var(--ease-out) both}
+.tabs{animation:riseIn .45s var(--ease-out) .08s both}
+.controls,.searchrow{animation:riseIn .45s var(--ease-out) .14s both}
+
+/* ===== HEADER (quiz — tông FPT xanh, gradient) ===== */
+header{background:linear-gradient(120deg,#0651A0 0%,#053E7A 60%,#008DDE 130%);color:#fff;
+  border-bottom:1px solid var(--red-deep);padding:14px 16px 12px;
+  padding-top:max(14px, env(safe-area-inset-top))}
+.hwrap{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.star{width:38px;height:38px;flex:none;filter:drop-shadow(0 2px 4px rgba(0,0,0,.25))}
+.star path{fill:var(--gold);stroke:rgba(0,0,0,.25);stroke-width:1.2}
+h1{font-size:1.3rem;font-weight:800;letter-spacing:.3px;text-transform:uppercase;line-height:1.15}
+.sub{font-size:.78rem;font-weight:600;opacity:.92;letter-spacing:.4px}
+.hstats{margin-left:auto;text-align:right;font-weight:700;font-size:.8rem;line-height:1.35;white-space:nowrap}
+.hstats b{color:var(--gold);font-size:1rem;font-variant-numeric:tabular-nums}
+
+/* ===== TABS ===== */
+.tabs{max-width:760px;margin:16px auto 0;padding:0 16px;display:flex;gap:10px}
+.tab{flex:1;border:3px solid var(--ink);background:var(--paper);box-shadow:var(--shadow);
+  padding:10px 8px;font-weight:900;font-size:.95rem;letter-spacing:1px;text-transform:uppercase;
+  transition:transform .1s var(--ease-out),box-shadow .1s,background .2s,color .2s}
+.tab.on{background:var(--ink);color:var(--paper)}
+.tab.on .tk{color:var(--gold)}
+.tab:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+.tk{color:var(--red);margin-right:4px;transition:color .2s}
+
+/* ===== CONTROLS ===== */
+.controls{max-width:760px;margin:14px auto 0;padding:0 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ctl{border:2.5px solid var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);padding:8px 10px;font-weight:700;font-size:.85rem;min-height:42px}
+select.ctl{padding-right:6px;max-width:48vw}
+.chip{display:inline-flex;align-items:center;gap:6px;border:2.5px solid var(--ink);background:var(--paper-dim);
+  box-shadow:3px 3px 0 var(--ink);padding:8px 10px;font-weight:800;font-size:.82rem;min-height:42px;
+  transition:transform .1s var(--ease-out),box-shadow .1s,background .2s}
+.chip:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.chip.on{background:var(--gold)}
+.chip.red{background:#fff}
+.chip.red.on{background:var(--danger);color:#fff}
+.chip:disabled{opacity:.45;cursor:not-allowed}
+.searchrow{max-width:760px;margin:10px auto 0;padding:0 16px;display:flex;gap:8px}
+.searchrow input{flex:1;min-width:0;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:8px 12px;background:#fff}
+.deckinfo{max-width:760px;margin:12px auto 0;padding:0 16px;font-weight:800;font-size:.85rem;display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.deckname{text-transform:uppercase;letter-spacing:.5px}
+.deckname .n{color:var(--red)}
+.bar{max-width:760px;margin:6px auto 0;padding:0 16px}
+.bartrack{height:12px;border:2.5px solid var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);overflow:hidden}
+.barfill{height:100%;background:var(--red);width:0%;transition:width .45s var(--ease-spring)}
+
+/* ===== CARD (grid: 2 mặt cùng ô -> thẻ tự giãn theo nội dung dài) ===== */
+.stage{max-width:760px;margin:20px auto;padding:0 16px}
+.cardbox{perspective:1500px;-webkit-perspective:1500px;position:relative}
+.card{position:relative;display:grid;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;
+  transition:transform .5s ease-in-out;will-change:transform;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:pointer}
+.card.flipped{transform:rotateY(180deg);-webkit-transform:rotateY(180deg)}
+.card.dragging{transition:none}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:3px solid var(--ink);background:#fff;box-shadow:7px 7px 0 var(--red);
+  display:flex;flex-direction:column;padding:54px 22px 18px;min-height:380px;
+  opacity:1;transition:opacity 0s linear .25s}
+.face.back{transform:rotateY(180deg);-webkit-transform:rotateY(180deg);background:var(--surface-2);opacity:0}
+.card.flipped .face.front{opacity:0}
+.card.flipped .face.back{opacity:1}
+.qtab{position:absolute;top:-3px;left:-3px;background:var(--red);color:var(--paper);
+  font-weight:900;font-size:.95rem;padding:6px 14px;border:3px solid var(--ink);letter-spacing:1px;z-index:2}
+.qtab .est{color:var(--gold)}
+.starbtn{position:absolute;top:6px;right:8px;border:none;background:none;font-size:1.7rem;line-height:1;color:var(--line);padding:8px;z-index:2;transition:transform .25s var(--ease-spring),color .2s}
+.starbtn.on{color:var(--gold);text-shadow:1.5px 1.5px 0 var(--ink)}
+@keyframes starPop{0%{transform:scale(.6) rotate(-30deg)}60%{transform:scale(1.35) rotate(8deg)}100%{transform:scale(1)}}
+.starbtn.justOn{animation:starPop .4s var(--ease-spring)}
+.qtext{font-size:1.12rem;font-weight:700;line-height:1.55;flex:none}
+.qmeta{margin-top:8px;font-size:.78rem;font-weight:700;color:var(--red)}
+.hintflip{margin-top:auto;padding-top:14px;text-align:center;font-size:.78rem;font-weight:700;color:var(--ink-2);letter-spacing:.5px;text-transform:uppercase}
+.stamp{position:absolute;top:14px;right:14px;transform:rotate(-8deg);border:3px double var(--red);color:var(--red);
+  font-weight:900;font-size:.85rem;letter-spacing:2.5px;padding:4px 10px;text-transform:uppercase;background:rgba(255,255,255,.6)}
+@keyframes stampIn{0%{transform:scale(2) rotate(-14deg);opacity:0}55%{transform:scale(.92) rotate(-7deg);opacity:1}100%{transform:scale(1) rotate(-8deg)}}
+.card.flipped .stamp{animation:stampIn .45s var(--ease-out) .22s both}
+.ansbig{display:flex;gap:12px;align-items:flex-start;margin-top:6px}
+.anskey{flex:none;width:44px;height:44px;border:3px solid var(--ink);background:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.3rem;box-shadow:3px 3px 0 var(--ink)}
+.anstext{font-size:1.12rem;font-weight:800;line-height:1.5;padding-top:6px}
+.othopts{margin-top:16px;border-top:2px dashed var(--line);padding-top:12px;font-size:.86rem;color:var(--ink-2);line-height:1.7}
+.othopts span{font-weight:800}
+.note{margin-top:12px;background:var(--paper-dim);border-left:4px solid var(--gold);padding:8px 10px;font-size:.8rem;line-height:1.5}
+.estnote{margin-top:10px;font-size:.74rem;font-weight:700;color:var(--red)}
+
+/* chuyển câu: trượt vào theo hướng */
+@keyframes inRight{from{opacity:0;transform:translateX(56px) rotate(2deg)}to{opacity:1;transform:none}}
+@keyframes inLeft{from{opacity:0;transform:translateX(-56px) rotate(-2deg)}to{opacity:1;transform:none}}
+@keyframes popIn{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:none}}
+.anim-right{animation:inRight .34s var(--ease-out) backwards}
+.anim-left{animation:inLeft .34s var(--ease-out) backwards}
+.anim-pop{animation:popIn .34s var(--ease-out) backwards}
+
+/* nhãn vuốt (Quizlet-style) */
+.swipetag{position:absolute;top:18px;z-index:3;pointer-events:none;opacity:0;
+  font-weight:900;font-size:1.05rem;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border:3px solid;background:rgba(255,255,255,.85)}
+.swipetag.known{left:14px;color:var(--green);border-color:var(--green);transform:rotate(-10deg)}
+.swipetag.unknown{right:14px;color:var(--danger);border-color:var(--danger);transform:rotate(10deg)}
+
+/* ===== QUIZ ===== */
+.quizface{position:relative;border:3px solid var(--ink);background:#fff;box-shadow:7px 7px 0 var(--red);
+  display:flex;flex-direction:column;padding:54px 22px 18px;min-height:0}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+@keyframes optIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.opts.fresh .opt{animation:optIn .3s var(--ease-out) both}
+.opts.fresh .opt:nth-child(2){animation-delay:.05s}
+.opts.fresh .opt:nth-child(3){animation-delay:.1s}
+.opts.fresh .opt:nth-child(4){animation-delay:.15s}
+.opts.fresh .opt:nth-child(5){animation-delay:.2s}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;border:2.5px solid var(--ink);
+  background:#fff;box-shadow:4px 4px 0 var(--ink);padding:12px;font-size:.98rem;line-height:1.45;min-height:48px;
+  transition:transform .1s var(--ease-out),box-shadow .1s,background .2s,border-color .2s}
+.opt:not(:disabled):active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.opt .k{flex:none;width:30px;height:30px;border:2.5px solid var(--ink);display:flex;align-items:center;justify-content:center;
+  font-weight:900;background:var(--paper);transition:background .2s,color .2s}
+.opt.sel{background:var(--paper-dim)}
+.opt.sel .k{background:var(--ink);color:var(--paper)}
+@keyframes popRight{0%{transform:scale(1)}45%{transform:scale(1.025)}100%{transform:scale(1)}}
+@keyframes shakeWrong{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(3px)}30%,50%,70%{transform:translateX(-5px)}40%,60%{transform:translateX(5px)}}
+.opt.right{background:var(--correct);border-color:var(--green);box-shadow:4px 4px 0 var(--green);animation:popRight .4s var(--ease-out)}
+.opt.right .k{background:var(--green);border-color:var(--green);color:#fff}
+.opt.wrong{background:var(--wrong);border-color:var(--danger);box-shadow:4px 4px 0 var(--danger);animation:shakeWrong .45s var(--ease-out)}
+.opt.wrong .k{background:var(--danger);border-color:var(--danger);color:#fff}
+.opt:disabled{cursor:default}
+.opt.dim{opacity:.55}
+.verdict{margin-top:14px;font-weight:900;font-size:1.05rem;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:10px;min-height:30px}
+@keyframes verdictStamp{0%{transform:scale(1.9) rotate(-6deg);opacity:0}55%{transform:scale(.94);opacity:1}100%{transform:scale(1)}}
+.verdict.ok,.verdict.no{animation:verdictStamp .42s var(--ease-out) both;transform-origin:left center}
+.verdict.ok{color:var(--green)}
+.verdict.no{color:var(--danger)}
+
+/* ===== ACTIONS ===== */
+.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:3px solid var(--ink);background:#fff;box-shadow:var(--shadow);padding:13px 16px;min-height:50px;
+  font-weight:900;font-size:.92rem;letter-spacing:.8px;text-transform:uppercase;flex:1;min-width:120px;
+  transition:transform .1s var(--ease-out),box-shadow .1s}
+.btn:not(:disabled):active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.red{background:var(--danger);color:#fff}
+.btn.green{background:var(--green);color:#fff}
+.btn.gold{background:var(--gold)}
+.btn.slim{flex:0 1 auto;min-width:64px;padding:13px 14px}
+.kbd{max-width:760px;margin:6px auto 30px;padding:0 16px;font-size:.72rem;color:var(--ink-2);font-weight:600;text-align:center}
+.kbd b{border:1.5px solid var(--line);padding:0 5px;border-radius:3px;background:#fff}
+
+/* ===== SUMMARY ===== */
+.summary{position:relative;border:3px solid var(--ink);background:#fff;box-shadow:7px 7px 0 var(--red);padding:26px 20px;text-align:center;overflow:hidden}
+.summary h2{font-size:1.25rem;font-weight:900;text-transform:uppercase;letter-spacing:1px}
+.score{font-size:3.4rem;font-weight:900;color:var(--red);margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.score small{font-size:1.2rem;color:var(--ink)}
+.sumline{font-weight:700;font-size:.92rem;margin-bottom:16px}
+.sumline .ok{color:var(--green)} .sumline .no{color:var(--danger)}
+.burst{position:absolute;left:50%;top:38%;width:0;height:0;pointer-events:none}
+.burst i{position:absolute;left:0;top:0;font-style:normal;font-size:1.3rem;color:var(--gold);text-shadow:1px 1px 0 var(--ink);
+  animation:burstFly .9s var(--ease-out) forwards}
+@keyframes burstFly{0%{transform:translate(0,0) scale(.4) rotate(0);opacity:1}
+  100%{transform:translate(var(--tx),var(--ty)) scale(1.1) rotate(var(--rot));opacity:0}}
+
+.empty{border:3px dashed var(--ink);padding:34px 18px;text-align:center;font-weight:800;background:rgba(255,255,255,.5)}
+.toast{position:fixed;left:50%;bottom:max(18px, env(safe-area-inset-bottom));transform:translate(-50%,16px);background:var(--ink);color:var(--paper);
+  font-weight:800;font-size:.85rem;padding:10px 16px;border:2px solid var(--gold);opacity:0;pointer-events:none;
+  transition:opacity .3s var(--ease-out),transform .3s var(--ease-out);z-index:50;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.settings{max-width:760px;margin:0 auto 36px;padding:0 16px;text-align:center}
+.linkbtn{background:none;border:none;font-size:.74rem;font-weight:700;color:var(--ink-2);text-decoration:underline;padding:8px}
+
+/* ===== MOBILE ===== */
+@media(max-width:520px){
+  h1{font-size:1.02rem}
+  .sub{font-size:.68rem}
+  .star{width:30px;height:30px}
+  .hstats{font-size:.68rem}
+  .hstats b{font-size:.85rem}
+  .tabs{margin-top:12px;gap:8px}
+  .tab{font-size:.82rem;padding:10px 6px;letter-spacing:.5px}
+  .controls{gap:7px}
+  .ctl,.chip{font-size:.78rem;padding:7px 9px}
+  select.ctl{max-width:44vw}
+  .stage{margin:16px auto}
+  .face,.quizface{padding:48px 14px 14px;min-height:340px}
+  .quizface{min-height:0}
+  .qtext{font-size:1.02rem}
+  .qtab{font-size:.85rem;padding:5px 11px}
+  .anstext{font-size:1.04rem}
+  .opt{font-size:.93rem;padding:11px 10px}
+  .btn{font-size:.84rem;min-width:0;padding:13px 10px}
+  .btn.slim{min-width:54px}
+  .score{font-size:2.8rem}
+  .swipetag{font-size:.9rem}
+}
+@media(max-width:360px){
+  .hstats{display:none}
+  .qtext{font-size:.98rem}
 }
 
-/* ===== Header ===== */
-.header{
-  background:var(--red);color:var(--paper);
-  border-bottom:3px solid var(--ink);
-  padding:14px 16px 12px;
-}
-.hwrap{
-  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-  max-width:760px;margin:0 auto;
-}
-.logo{width:38px;height:38px;flex:0 0 auto;filter:drop-shadow(2px 2px 0 var(--ink));}
-.htext{display:flex;flex-direction:column;}
-h1{font-size:1.3rem;font-weight:900;text-transform:uppercase;letter-spacing:.5px;overflow-wrap:anywhere;}
-.sub{font-size:.78rem;opacity:.92;font-weight:600;}
-.hstats{margin-left:auto;font-weight:800;font-size:.92rem;white-space:nowrap;}
-.hstats b{color:var(--gold);font-weight:800;}
-
-/* ===== Container ===== */
-.container{max-width:760px;margin:0 auto;padding:18px 16px 40px;}
-
-/* ===== Hero ===== */
-.hero{
-  border:3px solid var(--ink);background:var(--paper-soft);
-  box-shadow:var(--shadow-btn);padding:14px 16px;margin-bottom:16px;
-  animation:riseIn .45s var(--ease-out) backwards;
-}
-.hero h2{font-size:1.05rem;font-weight:900;margin-bottom:4px;}
-.hero p{font-size:.86rem;color:var(--muted);font-weight:600;}
-
-/* ===== Controls ===== */
-.controls{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;
-  animation:riseIn .45s var(--ease-out) .06s backwards;}
-.searchrow{display:flex;}
-#search{
-  flex:1;border:2.5px solid var(--ink);background:#fff;
-  box-shadow:var(--shadow-btn);padding:10px 14px;min-height:48px;font-weight:600;
-}
-.chips{display:flex;gap:8px;flex-wrap:wrap;}
-.chip{
-  display:inline-flex;align-items:center;justify-content:center;
-  border:2.5px solid var(--ink);background:var(--paper-dim);
-  box-shadow:var(--shadow-btn);padding:8px 14px;font-weight:800;min-height:44px;
-  transition:transform .12s var(--ease-out),box-shadow .12s var(--ease-out);
-}
-.chip.on{background:var(--gold);}
-.chip:active{transform:translate(3px,3px);box-shadow:var(--shadow-active);}
-
-/* ===== Count ===== */
-.count{font-size:.82rem;font-weight:800;color:var(--muted);margin:2px 2px 12px;}
-
-/* ===== Grid ===== */
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));}
-
-/* ===== Card ===== */
-.card{
-  position:relative;display:block;text-decoration:none;color:inherit;
-  border:3px solid var(--ink);background:#fff;box-shadow:var(--shadow-card);
-  padding:18px;padding-top:44px;border-radius:0;
-}
-.card[data-status="available"]{
-  transition:transform .15s var(--ease-out),box-shadow .15s var(--ease-out);
-}
-.card[data-status="available"]:hover{transform:translate(-2px,-2px);}
-.card[data-status="available"]:active{transform:translate(4px,4px);box-shadow:var(--shadow-active);}
-.card.soon{opacity:.55;cursor:default;}
-
-.code{
-  position:absolute;top:-3px;left:-3px;
-  border:3px solid var(--ink);padding:6px 14px;
-  font-weight:900;letter-spacing:.5px;font-size:.95rem;
-}
-.emoji{
-  position:absolute;top:11px;right:14px;font-size:28px;line-height:1;
-  transition:transform .25s var(--ease-spring);
-}
-.card[data-status="available"]:hover .emoji{transform:scale(1.12);}
-.cname{font-size:1.12rem;font-weight:800;padding-right:38px;}
-.cdesc{font-size:.86rem;color:var(--muted);margin-top:6px;font-weight:600;}
-.sem{
-  display:inline-block;margin-top:10px;border:2px solid var(--ink);
-  background:var(--paper-dim);padding:2px 8px;font-size:.78rem;font-weight:700;
-}
-.cfoot{
-  display:flex;align-items:center;justify-content:space-between;gap:8px;
-  margin-top:14px;padding-top:12px;border-top:2px dashed var(--dash);
-}
-.fleft{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
-.badge{
-  display:inline-flex;align-items:center;border:2.5px solid var(--ink);
-  padding:5px 10px;font-weight:800;font-size:.8rem;box-shadow:var(--shadow-btn);
-}
-.badge.on{background:var(--green);color:#fff;}
-.soon-badge{
-  display:inline-flex;align-items:center;border:3px double var(--red);
-  background:rgba(255,255,255,.6);color:var(--red-deep);
-  padding:5px 12px;font-weight:900;font-size:.8rem;letter-spacing:.5px;
-  transform:rotate(-8deg);
-}
-.cta{font-weight:900;text-transform:uppercase;font-size:.92rem;letter-spacing:.5px;white-space:nowrap;}
-.recent{
-  display:inline-flex;align-items:center;background:var(--gold);color:var(--ink);
-  border:2px solid var(--ink);padding:2px 8px;font-size:.7rem;font-weight:900;
-}
-
-/* ===== Empty ===== */
-.empty{
-  grid-column:1/-1;border:3px dashed var(--ink);padding:34px 18px;
-  text-align:center;font-weight:800;background:rgba(255,255,255,.5);
-}
-
-/* ===== Footer ===== */
-.foot{
-  max-width:760px;margin:30px auto 0;padding:16px;
-  border-top:2px dashed var(--dash);text-align:center;
-  font-size:.8rem;color:var(--muted);font-weight:600;
-}
-.foot a{color:var(--red-deep);font-weight:800;}
-
-/* ===== Toast ===== */
-.toast{
-  position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));
-  transform:translate(-50%,16px);background:var(--ink);color:var(--paper);
-  border:2px solid var(--gold);padding:10px 16px;font-weight:800;font-size:.85rem;
-  opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:50;
-}
-.toast.show{opacity:1;transform:translate(-50%,0);}
-
-/* ===== Animations ===== */
-@keyframes riseIn{0%{opacity:0;transform:translateY(-10px)}100%{opacity:1;transform:none}}
-@keyframes optIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
-@keyframes stampIn{
-  0%{transform:scale(2) rotate(-14deg);opacity:0}
-  55%{transform:scale(.92) rotate(-7deg);opacity:1}
-  100%{transform:scale(1) rotate(-8deg)}
-}
-.grid.fresh .card{animation:optIn .3s var(--ease-out) backwards;animation-delay:var(--delay);}
-.grid.fresh .soon-badge{animation:stampIn .45s var(--ease-out) .22s backwards;}
-
-/* ===== Responsive ===== */
-@media (max-width:520px){
-  .grid{grid-template-columns:1fr;}
-  .card{box-shadow:5px 5px 0 var(--red);}
-  .container{padding:16px;}
-}
-@media (max-width:360px){
-  .sub{display:none;}
-  .hstats{margin-left:0;width:100%;}
-  h1{overflow-wrap:anywhere;}
-}
-
+/* ===== GIẢM CHUYỂN ĐỘNG ===== */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
-    animation-duration:.01ms !important;
-    animation-delay:0 !important;
-    animation-iteration-count:1 !important;
-    transition:none !important;
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important;
   }
+  .reveal{opacity:1 !important;transform:none !important}
+  .lp-aurora{animation:none !important}
+  #burst{opacity:0 !important}
+  .lp-cta-glow{animation:none !important}
+}
+
+/* ===================== LANDING / PORTAL (FPT brand, soft shadow) ===================== */
+#portalView{display:flex;flex-direction:column;min-height:100vh}
+.lp-wrap{width:100%;max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
+
+/* scroll-reveal: chỉ ẩn khi có JS */
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out)}
+.reveal.in-view{opacity:1;transform:none}
+
+/* ---- NAV sticky ---- */
+.lp-nav{position:sticky;top:0;z-index:100;background:var(--surface);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+@supports ((-webkit-backdrop-filter:blur(8px)) or (backdrop-filter:blur(8px))){
+  .lp-nav{background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(140%) blur(8px);backdrop-filter:saturate(140%) blur(8px)}
+}
+.lp-nav-in{display:flex;align-items:center;gap:var(--sp-4);min-height:60px;
+  padding-block:var(--sp-2);padding-top:max(var(--sp-2),env(safe-area-inset-top))}
+.lp-brand{display:inline-flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:44px}
+.lp-logo-svg{height:34px;width:auto;display:block}
+.lp-logo-img{height:36px;width:auto;display:none}
+.lp-tag{font-size:var(--fs-xs);font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:3px 10px;white-space:nowrap}
+.lp-nav-r{margin-left:auto;display:flex;align-items:center;gap:var(--sp-2)}
+.lp-nav-r a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--r-pill);
+  font-size:var(--fs-sm);font-weight:600;color:var(--ink-2);text-decoration:none;transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
+@media (hover:hover) and (pointer:fine){.lp-nav-r a:hover{color:var(--fpt-blue);background:var(--surface-2)}}
+.lp-nav-r a:active{transform:scale(.97)}
+
+/* ---- HERO ---- */
+.lp-hero{position:relative;overflow:hidden;background:var(--surface)}
+.lp-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(38% 50% at 88% 8%,rgba(0,141,222,.16),transparent 70%),
+    radial-gradient(42% 46% at 102% 64%,rgba(83,184,72,.14),transparent 70%),
+    radial-gradient(36% 40% at 8% 96%,rgba(243,113,36,.12),transparent 70%)}
+.lp-aurora{animation:auroraDrift 18s ease-in-out infinite alternate}
+@keyframes auroraDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-12px,10px,0)}}
+.lp-hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:var(--sp-6);
+  align-items:center;padding-block:var(--sp-7)}
+.lp-hero h1{font-size:var(--fs-display);font-weight:800;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.lp-grad-text{background:linear-gradient(to right,#0651A0 0%,#008DDE 26%,#53B848 52%,#F37124 78%,#E11B22 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.lp-lead{margin-top:var(--sp-4);font-size:var(--fs-lead);font-weight:500;color:var(--ink-2);max-width:46ch}
+.lp-cta-row{margin-top:var(--sp-5);display:flex;flex-wrap:wrap;gap:var(--sp-3)}
+.lp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;
+  padding:0 22px;border-radius:var(--r-pill);font-weight:700;font-size:var(--fs-body);
+  text-decoration:none;border:2px solid transparent;cursor:pointer;
+  transition:transform var(--dur) var(--ease-spring)}
+.lp-btn-primary{background:var(--fpt-blue);color:#fff;box-shadow:var(--shadow-brand)}
+.lp-btn-primary{position:relative}
+.lp-btn-primary::after{content:"";position:absolute;inset:-2px;border-radius:inherit;
+  border:2px solid var(--accent-cta);opacity:0;transition:opacity var(--dur) var(--ease-soft);pointer-events:none}
+@media (hover:hover) and (pointer:fine){
+  .lp-btn-primary:hover{transform:translateY(-2px)}
+  .lp-btn-primary:hover::after{opacity:.9}
+  .lp-btn-outline:hover{background:var(--surface-2);transform:translateY(-2px)}
+}
+.lp-btn:active{transform:scale(.97)}
+.lp-btn-outline{background:var(--surface);color:var(--fpt-blue);border-color:var(--fpt-blue)}
+.lp-stats{margin-top:var(--sp-6);display:flex;flex-wrap:wrap;gap:var(--sp-3)}
+.lp-stat{display:inline-flex;align-items:center;gap:8px;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 16px;font-size:var(--fs-sm);font-weight:600;color:var(--ink-2)}
+.lp-stat b{color:var(--fpt-blue);font-size:var(--fs-body);font-weight:800;font-variant-numeric:tabular-nums}
+.lp-illus{width:100%;max-width:480px;justify-self:center}
+.lp-illus svg{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 40px rgba(6,81,160,.16))}
+
+/* ---- SEARCH + CHIPS ---- */
+.lp-section{padding-block:var(--sp-6)}
+.pf-controls{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-4)}
+.pf-searchrow{position:relative;flex:1;min-width:240px}
+.pf-search-ic{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-2);pointer-events:none}
+#pfSearch{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-pill);
+  padding:12px 18px 12px 44px;min-height:48px;font-weight:500;color:var(--ink);box-shadow:var(--shadow-sm)}
+#pfSearch::placeholder{color:var(--ink-2)}
+#pfSearch:focus-visible{outline:3px solid var(--fpt-blue);outline-offset:2px;border-color:var(--fpt-blue)}
+.pf-chips{display:flex;gap:var(--sp-2);flex-wrap:wrap}
+.pf-chip{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);
+  color:var(--ink-2);border-radius:var(--r-pill);padding:0 16px;font-weight:600;font-size:var(--fs-sm);min-height:44px;
+  box-shadow:var(--shadow-sm);transition:transform var(--dur-fast) var(--ease-out),background var(--dur) var(--ease-soft),color var(--dur) var(--ease-soft)}
+.pf-chip.on{background:var(--fpt-blue);color:#fff;border-color:var(--fpt-blue)}
+.pf-chip:active{transform:scale(.97)}
+.pf-count{font-size:var(--fs-sm);font-weight:600;color:var(--ink-2);margin:0 2px var(--sp-4)}
+
+/* ---- GRID ---- */
+.pf-grid{display:grid;gap:var(--sp-5);grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.pf-card{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  border:1px solid var(--line);background:var(--surface);border-radius:var(--r-lg);
+  box-shadow:var(--shadow-md);padding:var(--sp-5);padding-top:var(--sp-6)}
+.pf-card::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:var(--shadow-lg);
+  opacity:0;transition:opacity var(--dur) var(--ease-soft);pointer-events:none;z-index:-1}
+.pf-card[data-status="available"]{transition:transform var(--dur) var(--ease-soft),border-color var(--dur) var(--ease-soft)}
+@media (hover:hover) and (pointer:fine){
+  .pf-card[data-status="available"]:hover{transform:translateY(-6px);border-color:var(--card-accent,var(--fpt-blue));will-change:transform}
+  .pf-card[data-status="available"]:hover::after{opacity:1}
+  .pf-card[data-status="available"]:hover .pf-emoji{transform:scale(1.08)}
+}
+.pf-card[data-status="available"]:active{transform:scale(.985)}
+.pf-card:focus-visible{outline:none;box-shadow:0 0 0 3px var(--fpt-blue),var(--shadow-md)}
+.pf-card.soon{cursor:default}
+.pf-card.soon::before{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(247,250,253,.35);pointer-events:none}
+.pf-code{position:absolute;top:var(--sp-5);left:var(--sp-5);border:none;border-radius:var(--r-pill);
+  padding:5px 12px;font-weight:700;letter-spacing:.3px;font-size:var(--fs-sm);z-index:1}
+.pf-emoji{position:absolute;top:var(--sp-4);right:var(--sp-5);width:48px;height:48px;display:inline-flex;
+  align-items:center;justify-content:center;border-radius:var(--r-md);font-size:26px;line-height:1;
+  background:var(--card-accent-tint,rgba(6,81,160,.10));color:var(--card-accent,var(--fpt-blue));
+  transition:transform var(--dur) var(--ease-soft)}
+.pf-emoji svg{width:26px;height:26px;display:block}
+.pf-name{font-size:var(--fs-h2);font-weight:700;color:var(--ink);margin-top:var(--sp-5);padding-right:56px}
+.pf-desc{font-size:var(--fs-sm);color:var(--ink-2);margin-top:var(--sp-2);font-weight:500;line-height:1.55}
+.pf-sem{display:inline-block;margin-top:var(--sp-3);border:1px solid var(--line);background:var(--surface-2);
+  color:var(--ink-2);border-radius:var(--r-pill);padding:3px 12px;font-size:var(--fs-xs);font-weight:600}
+.pf-foot{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-2);
+  margin-top:auto;padding-top:var(--sp-4);border-top:1px solid var(--line)}
+.pf-foot{margin-top:var(--sp-5)}
+.pf-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:var(--r-pill);
+  padding:5px 12px;font-weight:600;font-size:var(--fs-xs)}
+.pf-badge.on{background:rgba(83,184,72,.14);border-color:transparent;color:#2E7D26}
+.pf-badge.soon{border:1px dashed var(--ink-2);background:transparent;color:var(--ink-2);box-shadow:none}
+.pf-cta{font-weight:700;font-size:var(--fs-sm);color:var(--fpt-blue);white-space:nowrap}
+.pf-empty{grid-column:1/-1;border:1px dashed var(--line);border-radius:var(--r-lg);
+  padding:var(--sp-7) var(--sp-5);text-align:center;font-weight:600;color:var(--ink-2);background:var(--surface)}
+.pf-grid.fresh .pf-card.reveal{transition-delay:var(--d)}
+
+/* ---- FEATURES ---- */
+.lp-features{background:var(--surface-2);border-block:1px solid var(--line)}
+.lp-sec-head{text-align:center;margin-bottom:var(--sp-6)}
+.lp-sec-head h2{font-size:var(--fs-h1);font-weight:700;color:var(--ink)}
+.lp-sec-head p{margin-top:var(--sp-2);color:var(--ink-2);font-size:var(--fs-body)}
+.lp-feat-grid{display:grid;gap:var(--sp-4);grid-template-columns:1fr}
+.lp-feat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:var(--sp-5);box-shadow:var(--shadow-sm)}
+.lp-feat-ic{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:var(--r-sm);background:rgba(6,81,160,.10);color:var(--fpt-blue);margin-bottom:var(--sp-3)}
+.lp-feat-ic svg{width:24px;height:24px}
+.lp-feat h3{font-size:var(--fs-body);font-weight:700;color:var(--ink)}
+.lp-feat p{margin-top:var(--sp-1);font-size:var(--fs-sm);color:var(--ink-2);font-weight:500}
+
+/* ---- FOOTER ---- */
+.lp-footer{margin-top:auto;background:var(--ink);color:#E6EEF6}
+.lp-footer-in{display:grid;grid-template-columns:1fr;gap:var(--sp-5);padding-block:var(--sp-7) var(--sp-5)}
+.lp-foot-logo .lp-logo-svg{height:32px}
+.lp-footer h4{font-size:var(--fs-sm);font-weight:700;color:#fff;margin-bottom:var(--sp-2);text-transform:uppercase;letter-spacing:.5px}
+.lp-footer p{font-size:var(--fs-sm);color:#B9CADC;line-height:1.6;font-weight:500}
+.lp-footer ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.lp-footer a{color:#CFE0F0;text-decoration:none;font-size:var(--fs-sm);font-weight:500;
+  display:inline-flex;align-items:center;min-height:44px}
+@media (hover:hover) and (pointer:fine){.lp-footer a:hover{color:#fff;text-decoration:underline}}
+.lp-footer a:focus-visible{outline:3px solid var(--fpt-cerulean);outline-offset:2px}
+.lp-legal{border-top:1px solid rgba(255,255,255,.12);padding-block:var(--sp-4);
+  font-size:var(--fs-xs);color:#9FB3C9;line-height:1.7}
+.lp-legal a{color:var(--fpt-cerulean);min-height:auto}
+
+/* ---- BACKBAR (quiz) ---- */
+.pf-backbar{max-width:760px;margin:0 auto;padding:10px 16px 0;display:flex;align-items:center;gap:10px}
+.pf-back{border:1px solid var(--line);background:var(--surface);border-radius:var(--r-pill);
+  box-shadow:var(--shadow-sm);padding:8px 16px;font-weight:600;font-size:var(--fs-sm);min-height:44px;color:var(--fpt-blue);
+  transition:transform var(--dur-fast) var(--ease-out)}
+.pf-back:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.pf-back:hover{background:var(--surface-2)}}
+.pf-cur{font-weight:600;font-size:var(--fs-sm);color:var(--ink-2)}
+
+/* ---- chuyển cảnh view (fail-safe: trình duyệt cũ chỉ hiện ngay, không kẹt) ---- */
+#portalView,#quizView{animation:lpViewIn var(--dur-slow) var(--ease-soft) both}
+@keyframes lpViewIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---- breakpoints: tablet / desktop ---- */
+@media(min-width:640px){
+  .pf-grid{grid-template-columns:repeat(2,1fr)}
+  .lp-feat-grid{grid-template-columns:repeat(2,1fr)}
+  .lp-footer-in{grid-template-columns:1.4fr 1fr 1fr}
+}
+@media(min-width:1024px){
+  .pf-grid{grid-template-columns:repeat(3,1fr)}
+  .lp-feat-grid{grid-template-columns:repeat(4,1fr)}
+  .lp-hero-in{grid-template-columns:1.1fr .9fr;gap:var(--sp-8)}
+}
+@media(max-width:360px){
+  .lp-tag{display:none}
+  .lp-stat{font-size:var(--fs-xs)}
 }
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="hwrap">
-    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M16 3l3.4 8.8 9.4.4-7.4 5.8 2.6 9L16 31l-8-3.8 2.6-9-7.4-5.8 9.4-.4z"
-            fill="var(--gold)" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round"/>
-    </svg>
-    <div class="htext">
-      <h1>FPT Ôn Tập</h1>
-      <span class="sub">Cổng ôn tập đa môn</span>
+<!-- ===== Bộ icon SVG dùng chung (symbol/use) ===== -->
+<svg style="display:none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="ic-law" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3v18M7 21h10M5 7h14M9 5l-4 9a3 3 0 0 0 6 0L7 5M19 9l-4 9a3 3 0 0 0 6 0l-4-9"/>
+  </symbol>
+  <symbol id="ic-net" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.4 4 5.7 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.7-4-9s1.4-6.6 4-9z"/>
+  </symbol>
+  <symbol id="ic-stats" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 20V4M4 20h16M8 20v-6M13 20V9M18 20v-9"/>
+  </symbol>
+  <symbol id="ic-project" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14.7 6.3a3.5 3.5 0 0 0-4.9 4.9l-6.1 6.1 2.8 2.8 6.1-6.1a3.5 3.5 0 0 0 4.9-4.9l-2.3 2.3-2.1-2.1 1.6-3z"/>
+  </symbol>
+  <symbol id="ic-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>
+  </symbol>
+</svg>
+
+<a href="#pfGrid" class="skip">Bỏ qua tới danh sách môn</a>
+
+<div id="portalView">
+  <header class="lp-nav" aria-label="Thanh điều hướng">
+    <div class="lp-wrap lp-nav-in">
+      <a class="lp-brand" href="./" aria-label="FPT Ôn Tập — trang chủ">
+        <!-- Wordmark fallback (mặc định); ẩn khi logo thật onload -->
+        <svg class="lp-logo-svg" id="lpLogoWord" viewBox="0 0 168 38" role="img" aria-label="FPT Ôn Tập" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lpFptGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#0651A0"/><stop offset=".26" stop-color="#008DDE"/>
+              <stop offset=".52" stop-color="#53B848"/><stop offset=".78" stop-color="#F37124"/>
+              <stop offset="1" stop-color="#E11B22"/>
+            </linearGradient>
+          </defs>
+          <text x="0" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="800" fill="url(#lpFptGrad)">FPT</text>
+          <text x="60" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="700" fill="#0651A0">Ôn Tập</text>
+        </svg>
+        <img class="lp-logo-img" id="lpLogoImg" src="assets/img/logo-fpt.svg" alt="FPT University" hidden>
+      </a>
+      <span class="lp-tag">Dự án sinh viên</span>
+      <nav class="lp-nav-r" aria-label="Liên kết">
+        <a href="https://github.com/HuuTriet/fpt-ontap" rel="noopener">GitHub</a>
+      </nav>
     </div>
-    <div class="hstats">MÔN: <b id="total">0</b></div>
+  </header>
+
+  <main>
+    <section class="lp-hero" aria-labelledby="lpHeroH">
+      <div class="lp-wrap lp-hero-in">
+        <div class="reveal">
+          <h1 id="lpHeroH"><span class="lp-grad-text">Ôn tập mọi môn FPT</span><br>gọn trong một web.</h1>
+          <p class="lp-lead">Flashcard lật thẻ và trắc nghiệm chấm điểm, tự động lưu tiến độ ngay trên trình duyệt — không cần đăng nhập, không nhảy trang.</p>
+          <div class="lp-cta-row">
+            <a href="#pfGrid" class="lp-btn lp-btn-primary" id="lpStart">Bắt đầu ôn tập</a>
+            <a href="#pfGrid" class="lp-btn lp-btn-outline">Xem các môn</a>
+          </div>
+          <div class="lp-stats" role="list">
+            <span class="lp-stat" role="listitem"><b id="pfTotal">0</b> môn</span>
+            <span class="lp-stat" role="listitem"><b id="pfHeroAvail">0</b> môn đã có</span>
+            <span class="lp-stat" role="listitem"><b id="pfHeroQ">585</b> câu MLN111</span>
+          </div>
+        </div>
+        <div class="lp-illus reveal">
+          <svg class="lp-aurora" viewBox="0 0 480 360" role="img" aria-label="Minh hoạ học tập và công nghệ FPT" xmlns="http://www.w3.org/2000/svg">
+            <title>Minh hoạ học tập và công nghệ FPT</title>
+            <defs>
+              <linearGradient id="hgBlue" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0651A0"/><stop offset="1" stop-color="#008DDE"/>
+              </linearGradient>
+              <linearGradient id="hgWarm" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#53B848"/><stop offset=".6" stop-color="#F37124"/><stop offset="1" stop-color="#E11B22"/>
+              </linearGradient>
+            </defs>
+            <circle cx="372" cy="92" r="78" fill="url(#hgWarm)" opacity=".16"/>
+            <circle cx="96" cy="280" r="60" fill="url(#hgBlue)" opacity=".14"/>
+            <rect x="300" y="220" width="120" height="120" rx="22" fill="url(#hgBlue)" opacity=".18" transform="rotate(12 360 280)"/>
+            <g transform="rotate(-9 200 180)">
+              <rect x="96" y="74" width="208" height="212" rx="20" fill="#fff" stroke="#D6E2EF" stroke-width="2"/>
+              <rect x="96" y="74" width="208" height="46" rx="20" fill="url(#hgBlue)"/>
+              <rect x="96" y="100" width="208" height="20" fill="url(#hgBlue)"/>
+              <rect x="120" y="88" width="92" height="16" rx="8" fill="#fff" opacity=".9"/>
+              <rect x="120" y="146" width="160" height="13" rx="6" fill="#3D5872" opacity=".85"/>
+              <rect x="120" y="172" width="130" height="13" rx="6" fill="#3D5872" opacity=".55"/>
+              <rect x="120" y="206" width="60" height="34" rx="10" fill="#53B848" opacity=".9"/>
+              <rect x="196" y="206" width="84" height="34" rx="10" fill="#EEF4FB" stroke="#D6E2EF" stroke-width="1.5"/>
+            </g>
+            <polygon points="408,250 430,292 386,292" fill="url(#hgWarm)" opacity=".85"/>
+            <circle cx="138" cy="96" r="13" fill="#F37124"/>
+            <g stroke="#F2B705" stroke-width="3" stroke-linecap="round">
+              <path d="M150 60 l14 -14"/><path d="M168 70 l18 -6"/><path d="M158 44 l6 -18"/>
+            </g>
+            <circle cx="356" cy="318" r="9" fill="#008DDE"/><circle cx="64" cy="150" r="7" fill="#53B848"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-section" aria-labelledby="lpGridH">
+      <div class="lp-wrap">
+        <div class="lp-sec-head reveal">
+          <h2 id="lpGridH">Chọn môn để bắt đầu</h2>
+          <p>Bấm vào môn để vào flashcard / trắc nghiệm ngay tại đây.</p>
+        </div>
+        <div class="pf-controls reveal">
+          <div class="pf-searchrow">
+            <svg class="pf-search-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="pfSearch" type="search" autocomplete="off" placeholder="Tìm môn… (mã hoặc tên)" aria-label="Tìm môn theo mã hoặc tên">
+          </div>
+          <div class="pf-chips" role="group" aria-label="Lọc theo trạng thái">
+            <button class="pf-chip on" data-filter="all" aria-pressed="true">Tất cả</button>
+            <button class="pf-chip" data-filter="available" aria-pressed="false">Đã có</button>
+            <button class="pf-chip" data-filter="coming-soon" aria-pressed="false">Sắp có</button>
+          </div>
+        </div>
+        <p class="pf-count" id="pfCount" aria-live="polite"></p>
+        <div class="pf-grid" id="pfGrid"></div>
+      </div>
+    </section>
+
+    <section class="lp-features lp-section" aria-labelledby="lpFeatH">
+      <div class="lp-wrap">
+        <div class="lp-sec-head reveal">
+          <h2 id="lpFeatH">Cách dùng</h2>
+          <p>Bốn tính năng cốt lõi giúp bạn ôn nhanh và nhớ lâu.</p>
+        </div>
+        <div class="lp-feat-grid">
+          <div class="lp-feat reveal">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M12 5v14"/></svg></span>
+            <h3>Flashcard lật thẻ</h3>
+            <p>Vuốt trái/phải để đánh dấu đã thuộc hoặc cần ôn lại.</p>
+          </div>
+          <div class="lp-feat reveal">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+            <h3>Trắc nghiệm chấm điểm</h3>
+            <p>Làm quiz, xem kết quả tức thì và ôn lại các câu sai.</p>
+          </div>
+          <div class="lp-feat reveal">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 4v5h-5"/></svg></span>
+            <h3>Lưu tiến độ tự động</h3>
+            <p>Tiến độ lưu ngay trên máy bạn, mở lại là học tiếp.</p>
+          </div>
+          <div class="lp-feat reveal">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+            <h3>Tìm theo số câu / từ khoá</h3>
+            <p>Nhập số câu hoặc từ khoá để nhảy tới đúng nội dung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lp-footer" aria-label="Chân trang">
+    <div class="lp-wrap lp-footer-in">
+      <div>
+        <div class="lp-foot-logo">
+          <svg class="lp-logo-svg" viewBox="0 0 168 38" role="img" aria-label="FPT Ôn Tập" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="800" fill="url(#lpFptGrad)">FPT</text>
+            <text x="60" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="700" fill="#FFFFFF">Ôn Tập</text>
+          </svg>
+        </div>
+        <p style="margin-top:12px">Cổng ôn tập đa môn dành cho sinh viên FPT — flashcard, trắc nghiệm, lưu tiến độ, tất cả gói trong một web tĩnh.</p>
+      </div>
+      <div>
+        <h4>Liên kết</h4>
+        <ul>
+          <li><a href="https://github.com/HuuTriet/fpt-ontap" rel="noopener">Mã nguồn GitHub</a></li>
+          <li><a href="#mon=MLN111">MLN111 — Triết học Mác – Lênin</a></li>
+          <li><a href="https://fpt.com/en/terms-of-use" rel="noopener">Điều khoản sử dụng FPT</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Về dự án</h4>
+        <p>Thực hiện bởi <strong style="color:#fff">HuuTriet</strong>.<br>Vanilla HTML/CSS/JS · GitHub Pages · 2026.</p>
+      </div>
+    </div>
+    <div class="lp-wrap lp-legal">
+      Đây là dự án của sinh viên (phi thương mại, phục vụ học tập). FPT, FPT University, FPT Education là thương hiệu của FPT Corporation.
+      Sản phẩm KHÔNG được FPT chính thức bảo trợ (not officially endorsed). © FPT Corporation cho các thương hiệu FPT.
+      Trước khi công bố rộng rãi, nên xin phép bằng văn bản từ bộ phận Truyền thông/Thương hiệu FPT University.
+      Tham chiếu: <a href="https://fpt.com/en/terms-of-use" rel="noopener">fpt.com/en/terms-of-use</a>.
+    </div>
+  </footer>
+</div>
+
+<div id="quizView" hidden>
+<div class="pf-backbar"><button class="pf-back" id="backBtn">← Danh sách môn</button><span class="pf-cur" id="curSubj"></span></div>
+
+<header>
+  <div class="hwrap">
+    <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8l3.1 6.5 7.1 1-5.1 5 1.2 7.1L12 18l-6.3 3.4 1.2-7.1-5.1-5 7.1-1z"/></svg>
+    <div>
+      <h1 id="qTitle">MLN111</h1>
+      <div class="sub" id="qSub">Triết học Mác – Lênin</div>
+    </div>
+    <div class="hstats">
+      Đã thuộc <b id="stLearned">0</b>/<span id="stTotal">585</span><br>
+      Câu sai cần ôn <b id="stWrong" style="color:#FFC9CE">0</b>
+    </div>
   </div>
 </header>
 
-<main class="container">
-  <section class="hero">
-    <h2>Chọn môn để bắt đầu ôn tập</h2>
-    <p>Mỗi môn mở trong một tab riêng; tiến độ học được lưu ở từng site con. Các môn chưa có sẽ hiển thị “Sắp có”.</p>
-  </section>
+<nav class="tabs" aria-label="Chế độ học">
+  <button class="tab on" id="tabFlash"><span class="tk">■</span>Flashcard</button>
+  <button class="tab" id="tabQuiz"><span class="tk">■</span>Trắc nghiệm</button>
+</nav>
 
-  <div class="controls">
-    <div class="searchrow">
-      <input id="search" type="search" autocomplete="off"
-             placeholder="Tìm môn… (mã hoặc tên)" aria-label="Tìm môn theo mã hoặc tên">
-    </div>
-    <div class="chips" role="group" aria-label="Lọc theo trạng thái">
-      <button class="chip on" data-filter="all" aria-pressed="true">Tất cả</button>
-      <button class="chip" data-filter="available" aria-pressed="false">Đã có</button>
-      <button class="chip" data-filter="coming-soon" aria-pressed="false">Sắp có</button>
-    </div>
-  </div>
+<div class="controls">
+  <select class="ctl" id="rangeSel" aria-label="Chọn phạm vi câu"></select>
+  <label class="ctl" style="display:flex;gap:6px;align-items:center;background:#fff">
+    <input type="checkbox" id="shuffleChk" style="width:17px;height:17px;accent-color:var(--red)"> Xáo trộn
+  </label>
+  <label class="ctl" id="hideLearnedWrap" style="display:flex;gap:6px;align-items:center;background:#fff">
+    <input type="checkbox" id="hideLearnedChk" style="width:17px;height:17px;accent-color:var(--green)"> Ẩn câu đã thuộc
+  </label>
+  <button class="chip" id="chipStar">★ Đánh dấu <span id="nStar">0</span></button>
+  <button class="chip red" id="chipWrong">✗ Câu sai <span id="nWrong">0</span></button>
+</div>
 
-  <p class="count" id="count" aria-live="polite"></p>
-  <div class="grid" id="grid"></div>
-</main>
+<div class="searchrow">
+  <input id="searchBox" placeholder="Tìm từ khóa hoặc số câu (vd: 132, vật chất...)" aria-label="Tìm kiếm">
+  <button class="chip" id="searchBtn">Tìm</button>
+</div>
 
-<footer class="foot">
-  Nguyễn Hữu Triết · 2026 · Build với HTML/CSS/JS thuần · Deploy trên GitHub Pages<br>
-  <a href="https://github.com/HuuTriet/fpt-ontap" target="_blank" rel="noopener noreferrer">github.com/HuuTriet/fpt-ontap</a>
-</footer>
+<div class="deckinfo">
+  <span class="deckname" id="deckName"></span>
+  <span id="deckPos" style="font-variant-numeric:tabular-nums"></span>
+</div>
+<div class="bar"><div class="bartrack"><div class="barfill" id="barFill"></div></div></div>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<main class="stage" id="stage"></main>
+<p class="kbd" id="kbdHint"></p>
+
+<div class="settings"><button class="linkbtn" id="resetBtn">Xóa toàn bộ tiến độ học</button></div>
+<footer style="max-width:760px;margin:8px auto 28px;padding:0 16px;text-align:center;font-weight:700;font-size:.78rem;letter-spacing:.5px;color:var(--ink-2)">★ Thực hiện bởi <span style="color:var(--fpt-blue)">HuuTriet</span> · MLN111</footer>
+</div><!-- /quizView -->
+
+<div class="toast" id="toast" role="status"></div>
 
 <script>
-/* ===== Dữ liệu môn ===== */
-const SUBJECTS = [
-  {
-    code: 'MLN111',
-    name: 'Triết học Mác – Lênin',
-    fullName: 'Triết học Mác – Lênin (MLN111)',
-    semester: 'Kỳ 3',
-    description: '585 câu trắc nghiệm + flashcard ôn thi. Vuốt thẻ, làm quiz, đánh dấu câu sai.',
-    status: 'available',
-    url: 'https://huutriet.github.io/mln111-585-cau/',
-    accent: '#C8102E',
-    emoji: '⚖️'
-  },
-  {
-    code: 'PRN232',
-    name: 'Lập trình Back-End .NET',
-    fullName: 'Building Cross-Platform Back-End Application With .NET (PRN232)',
-    semester: 'Kỳ 7',
-    description: 'Ôn API .NET, REST, Entity Framework Core, minimal API.',
-    status: 'coming-soon',
-    url: '',
-    accent: '#1E6E45',
-    emoji: '🌐'
-  },
-  {
-    code: 'MAS291',
-    name: 'Thống kê & Xác suất',
-    fullName: 'Statistics & Probability (MAS291)',
-    semester: 'Kỳ 5',
-    description: 'Ôn xác suất, phân phối, kiểm định giả thuyết, hồi quy.',
-    status: 'coming-soon',
-    url: '',
-    accent: '#F2B705',
-    emoji: '📊'
-  },
-  {
-    code: 'SWP391',
-    name: 'Đồ án phần mềm',
-    fullName: 'Software Development Project (SWP391)',
-    semester: 'Kỳ 5',
-    description: 'Ôn quy trình phát triển phần mềm, SDLC, UML, Agile/Scrum.',
-    status: 'coming-soon',
-    url: '',
-    accent: '#8F0A1F',
-    emoji: '🛠️'
-  },
-  {
-    code: 'DBI202',
-    name: 'Cơ sở dữ liệu',
-    fullName: 'Introduction to Databases (DBI202)',
-    semester: 'Kỳ 4',
-    description: 'Ôn SQL, mô hình quan hệ, chuẩn hóa, transaction.',
-    status: 'coming-soon',
-    url: '',
-    accent: '#16130F',
-    emoji: '🗄️'
+let DATA = [];
+/* ================= STATE ================= */
+let qmap = new Map();
+const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isTouch = matchMedia('(hover: none)').matches;
+const S = {
+  mode:'flash', deckDef:{type:'all'},
+  shuffle:false, hideLearned:false,
+  deck:[], pos:0, flipped:false,
+  sel:new Set(), graded:false,
+  runOk:0, runNo:0, done:false,
+  learned:new Set(), starred:new Set(), wrong:new Set(),
+  anim:'pop',          // 'right' | 'left' | 'pop' | null — hiệu ứng vào của thẻ, dùng 1 lần
+  fresh:true,          // câu mới -> stagger đáp án quiz
+  mem:{},
+  answers:{}           // qid -> {sel:[...]} : đáp án từng câu, để quay lại không mất
+};
+
+/* ================= STORAGE (an toàn, fallback bộ nhớ) ================= */
+let KEY='';
+async function loadProgress(){
+  try{
+    if(window.storage && window.storage.get){
+      const r = await window.storage.get(KEY);
+      if(r && r.value) return JSON.parse(r.value);
+    }
+  }catch(e){}
+  try{
+    const v = localStorage.getItem(KEY);
+    if(v) return JSON.parse(v);
+  }catch(e){}
+  return S.mem[KEY] ? JSON.parse(S.mem[KEY]) : null;
+}
+let saveTimer=null;
+function saveProgress(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(async ()=>{
+    const payload = JSON.stringify({
+      learned:[...S.learned], starred:[...S.starred], wrong:[...S.wrong], hideLearned:S.hideLearned,
+      pos:S.pos, deckDef:S.deckDef, mode:S.mode, shuffle:S.shuffle,
+      runOk:S.runOk, runNo:S.runNo, done:S.done, graded:S.graded, sel:[...S.sel], answers:S.answers
+    });
+    S.mem[KEY]=payload;
+    try{ localStorage.setItem(KEY,payload); }catch(e){}
+    try{ if(window.storage && window.storage.set) await window.storage.set(KEY,payload); }catch(e){}
+  },400);
+}
+
+/* ================= DECK ================= */
+function buildDeck(){
+  let ids=[];
+  const d=S.deckDef;
+  if(d.type==='all') ids=DATA.map(q=>q.id);
+  else if(d.type==='range') ids=DATA.filter(q=>q.id>=d.a&&q.id<=d.b).map(q=>q.id);
+  else if(d.type==='starred') ids=DATA.filter(q=>S.starred.has(q.id)).map(q=>q.id);
+  else if(d.type==='wrong') ids=DATA.filter(q=>S.wrong.has(q.id)).map(q=>q.id);
+  else if(d.type==='search'){
+    const t=d.term.toLowerCase();
+    ids=DATA.filter(q=>q.q.toLowerCase().includes(t)||q.opts.some(o=>o.t.toLowerCase().includes(t))).map(q=>q.id);
   }
+  if(S.mode==='flash' && S.hideLearned && d.type!=='starred') ids=ids.filter(id=>!S.learned.has(id));
+  if(S.shuffle){
+    ids=[...ids];
+    for(let i=ids.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]];}
+  }
+  S.deck=ids;S.pos=0;S.flipped=false;S.sel.clear();S.graded=false;
+  S.runOk=0;S.runNo=0;S.done=false;S.anim='pop';S.fresh=true;S.answers={};
+}
+function deckLabel(){
+  const d=S.deckDef;
+  if(d.type==='all') return 'Toàn bộ';
+  if(d.type==='range') return d.a===d.b?`Câu ${d.a}`:`Câu ${d.a}–${d.b}`;
+  if(d.type==='starred') return '★ Câu đánh dấu';
+  if(d.type==='wrong') return '✗ Câu sai';
+  if(d.type==='search') return `Tìm “${d.term}”`;
+  return '';
+}
+
+/* ================= RENDER ================= */
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function renderHeaderStats(){
+  $('stLearned').textContent=S.learned.size;
+  $('stWrong').textContent=S.wrong.size;
+  $('nStar').textContent=S.starred.size;
+  $('nWrong').textContent=S.wrong.size;
+  $('chipStar').disabled=S.starred.size===0;
+  $('chipWrong').disabled=S.wrong.size===0;
+  $('chipStar').classList.toggle('on',S.deckDef.type==='starred');
+  $('chipWrong').classList.toggle('on',S.deckDef.type==='wrong');
+}
+function renderMeta(){
+  $('deckName').innerHTML=`${esc(deckLabel())} <span class="n">· ${S.deck.length} câu</span>`;
+  const cur=S.deck.length?S.pos+1:0;
+  $('deckPos').textContent=S.mode==='quiz'
+    ? `${cur}/${S.deck.length} · Đúng ${S.runOk} · Sai ${S.runNo}`
+    : `${cur}/${S.deck.length}`;
+  $('barFill').style.width=(S.deck.length?(S.pos+(S.done?1:0))/S.deck.length*100:0)+'%';
+  $('hideLearnedWrap').style.display=S.mode==='flash'?'flex':'none';
+  $('kbdHint').innerHTML=S.mode==='flash'
+    ? (isTouch
+        ? 'Chạm thẻ để lật · Vuốt <span style="color:var(--green);font-weight:800">phải = đã thuộc</span> · Vuốt <span style="color:var(--danger);font-weight:800">trái = chưa thuộc</span>'
+        : '<b>Space</b> lật thẻ · <b>←</b><b>→</b> chuyển câu · <b>1</b> chưa thuộc · <b>2</b> đã thuộc · hoặc kéo thẻ sang hai bên')
+    : (isTouch
+        ? 'Chạm đáp án để chọn — câu sai tự lưu vào bộ “✗ Câu sai”'
+        : '<b>1–5</b> chọn đáp án · <b>Enter</b> kiểm tra / câu tiếp · <b>←</b> quay lại');
+}
+function qTabHTML(q){
+  return `<div class="qtab">CÂU ${q.id}${q.est?'<span class="est"> *</span>':''}</div>
+  <button class="starbtn ${S.starred.has(q.id)?'on':''}" data-act="star" aria-label="Đánh dấu câu này">★</button>`;
+}
+function multiBadge(q){
+  return q.ans.length>1?`<div class="qmeta">▸ Câu nhiều đáp án — chọn đủ ${q.ans.length} đáp án</div>`:'';
+}
+function estNote(q){
+  return q.est?`<div class="estnote">* File gốc không đánh dấu đáp án câu này — đáp án do Claude bổ sung theo giáo trình.</div>`:'';
+}
+function noteHTML(q){
+  return q.note?`<div class="note">${esc(q.note)}</div>`:'';
+}
+function consumeAnim(){
+  const a=S.anim;S.anim=null;
+  return a?` anim-${a}`:'';
+}
+
+function render(){
+  renderHeaderStats();renderMeta();
+  const st=$('stage');
+  if(!S.deck.length){
+    st.innerHTML=`<div class="empty anim-pop">Không có câu nào trong bộ này.<br><span style="font-weight:600;font-size:.85rem">Thử đổi phạm vi, tắt “Ẩn câu đã thuộc”, hoặc tìm từ khóa khác.</span></div>`;
+    return;
+  }
+  if(S.done){renderSummary();return;}
+  const q=qmap.get(S.deck[S.pos]);
+  if(S.mode==='flash') renderFlash(q); else renderQuiz(q);
+}
+
+function renderFlash(q){
+  const ansSet=new Set(q.ans);
+  const ansOpts=q.opts.filter(o=>ansSet.has(o.k));
+  const others=q.opts.filter(o=>!ansSet.has(o.k));
+  $('stage').innerHTML=`
+  <div class="cardbox">
+    <div class="swipetag known">Đã thuộc ✓</div>
+    <div class="swipetag unknown">Chưa thuộc</div>
+    <div class="card${S.flipped?' flipped':''}${consumeAnim()}" id="card" tabindex="0" role="button" aria-label="Thẻ học, bấm để lật">
+      <div class="face front">
+        ${qTabHTML(q)}
+        <div class="qtext">${esc(q.q)}</div>
+        ${multiBadge(q)}
+        <div class="othopts" style="border-top:none;padding-top:10px;color:var(--ink-2)">
+          ${q.opts.map(o=>`<div><span>${o.k}.</span> ${esc(o.t)}</div>`).join('')}
+        </div>
+        <div class="hintflip">Bấm vào thẻ để xem đáp án</div>
+      </div>
+      <div class="face back">
+        ${qTabHTML(q)}
+        <div class="stamp">Đáp án</div>
+        ${ansOpts.map(o=>`<div class="ansbig"><div class="anskey">${o.k}</div><div class="anstext">${esc(o.t)}</div></div>`).join('')}
+        ${others.length?`<div class="othopts">${others.map(o=>`<div><span>${o.k}.</span> ${esc(o.t)}</div>`).join('')}</div>`:''}
+        ${noteHTML(q)} ${estNote(q)}
+        <div class="hintflip">Bấm để lật lại</div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="btn slim" data-act="prev" ${S.pos===0?'disabled':''}>←</button>
+    <button class="btn red" data-act="unknown">Chưa thuộc</button>
+    <button class="btn green" data-act="known">Đã thuộc ✓</button>
+    <button class="btn slim" data-act="next">→</button>
+  </div>`;
+  attachSwipe();
+}
+
+function renderQuiz(q){
+  const multi=q.ans.length>1;
+  const ansSet=new Set(q.ans);
+  const fresh=S.fresh&&!S.graded;S.fresh=false;
+  $('stage').innerHTML=`
+  <div class="quizface${consumeAnim()}">
+    ${qTabHTML(q)}
+    <div class="qtext">${esc(q.q)}</div>
+    ${multiBadge(q)}
+    <div class="opts${fresh?' fresh':''}">
+      ${q.opts.map(o=>{
+        let cls='opt';
+        if(!S.graded && S.sel.has(o.k)) cls+=' sel';
+        if(S.graded){
+          if(ansSet.has(o.k)) cls+=' right';
+          else if(S.sel.has(o.k)) cls+=' wrong';
+          else cls+=' dim';
+        }
+        return `<button class="${cls}" data-key="${o.k}" ${S.graded?'disabled':''}>
+          <span class="k">${o.k}</span><span>${esc(o.t)}</span></button>`;
+      }).join('')}
+    </div>
+    <div class="verdict ${S.graded?(isRunCorrect(q)?'ok':'no'):''}" id="verdict">
+      ${S.graded?(isRunCorrect(q)?'✓ Chính xác!':'✗ Chưa đúng'+(multi?' — đáp án: '+q.ans.join(', '):'')):''}
+    </div>
+    ${S.graded?noteHTML(q)+estNote(q):''}
+  </div>
+  <div class="actions">
+    <button class="btn slim" data-act="prev" ${S.pos===0?'disabled':''}>←</button>
+    ${multi&&!S.graded?`<button class="btn gold" data-act="check" ${S.sel.size===0?'disabled':''}>Kiểm tra</button>`:''}
+    ${S.graded?`<button class="btn red" data-act="next">${S.pos===S.deck.length-1?'Kết thúc ▸':'Câu tiếp →'}</button>`:''}
+    ${!multi&&!S.graded?`<button class="btn slim" data-act="skip">Bỏ qua →</button>`:''}
+  </div>`;
+}
+function isRunCorrect(q){
+  const a=new Set(q.ans);
+  if(S.sel.size!==a.size) return false;
+  for(const k of S.sel) if(!a.has(k)) return false;
+  return true;
+}
+
+function renderSummary(){
+  const total=S.runOk+S.runNo;
+  const pct=total?Math.round(S.runOk/total*100):0;
+  $('stage').innerHTML=`
+  <div class="summary anim-pop">
+    <div class="burst" id="burst"></div>
+    <h2>Kết quả lượt ôn</h2>
+    <div class="score"><span id="scoreNum">0</span><small>%</small></div>
+    <div class="sumline"><span class="ok">✓ Đúng ${S.runOk}</span> · <span class="no">✗ Sai ${S.runNo}</span> · ${total}/${S.deck.length} câu</div>
+    <div class="actions" style="margin-top:6px">
+      ${S.wrong.size?`<button class="btn red" data-act="gowrong">Ôn lại câu sai (${S.wrong.size})</button>`:''}
+      <button class="btn gold" data-act="restart">Làm lại bộ này</button>
+    </div>
+  </div>`;
+  countUp($('scoreNum'),pct,()=>{ if(pct>=80) starBurst(); });
+}
+function countUp(el,to,done){
+  if(prefersReduced){el.textContent=to;done&&done();return;}
+  const dur=850;let s=null;
+  function step(t){
+    if(!s)s=t;
+    const p=Math.min((t-s)/dur,1);
+    const e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+    el.textContent=Math.round(to*e);
+    if(p<1)requestAnimationFrame(step);else done&&done();
+  }
+  requestAnimationFrame(step);
+}
+function starBurst(){
+  const b=$('burst');if(!b||prefersReduced)return;
+  let html='';
+  for(let i=0;i<12;i++){
+    const ang=(i/12)*Math.PI*2, r=70+Math.random()*70;
+    const tx=Math.cos(ang)*r, ty=Math.sin(ang)*r-20, rot=(Math.random()*120-60);
+    html+=`<i style="--tx:${tx.toFixed(0)}px;--ty:${ty.toFixed(0)}px;--rot:${rot.toFixed(0)}deg;animation-delay:${(i%4)*40}ms">★</i>`;
+  }
+  b.innerHTML=html;
+  setTimeout(()=>{b.innerHTML='';},1200);
+}
+
+/* ================= VUỐT THẺ (pointer events) ================= */
+let suppressClick=false;
+function attachSwipe(){
+  const card=$('card');if(!card)return;
+  const box=card.parentElement;
+  const tagK=box.querySelector('.swipetag.known');
+  const tagU=box.querySelector('.swipetag.unknown');
+  let sx=0,sy=0,dx=0,dy=0,active=false,horiz=null;
+  const flipPart=()=>S.flipped?' rotateY(180deg)':'';
+
+  card.addEventListener('pointerdown',e=>{
+    if(e.button!==undefined&&e.button>0)return;
+    if(e.target.closest('.starbtn'))return;
+    sx=e.clientX;sy=e.clientY;dx=dy=0;active=true;horiz=null;
+    try{card.setPointerCapture(e.pointerId);}catch(_){}
+  });
+  card.addEventListener('pointermove',e=>{
+    if(!active)return;
+    dx=e.clientX-sx;dy=e.clientY-sy;
+    if(horiz===null&&(Math.abs(dx)>10||Math.abs(dy)>10)){
+      horiz=Math.abs(dx)>Math.abs(dy);
+      if(horiz)card.classList.add('dragging');
+    }
+    if(horiz){
+      card.style.transform=`translateX(${dx}px) rotate(${(dx*0.04).toFixed(2)}deg)`+flipPart();
+      const p=Math.min(Math.abs(dx)/110,1);
+      tagK.style.opacity=dx>0?p:0;
+      tagU.style.opacity=dx<0?p:0;
+    }
+  });
+  function end(e){
+    if(!active)return;active=false;
+    const wasDrag=horiz===true&&Math.abs(dx)>10;
+    tagK.style.opacity=0;tagU.style.opacity=0;
+    if(horiz&&Math.abs(dx)>100){
+      suppressClick=true;
+      flingOut(card,dx>0?1:-1,()=>{markCard(dx>0);});
+      return;
+    }
+    card.classList.remove('dragging');
+    if(wasDrag){
+      suppressClick=true;
+      card.style.transition='transform .35s var(--ease-spring)';
+      card.style.transform=''+ (S.flipped?'rotateY(180deg)':'');
+      setTimeout(()=>{card.style.transition='';card.style.transform='';if(S.flipped)card.classList.add('flipped');suppressClick=false;},360);
+    }
+  }
+  card.addEventListener('pointerup',end);
+  card.addEventListener('pointercancel',end);
+}
+function flingOut(card,dir,after){
+  if(prefersReduced){after();return;}
+  card.classList.add('dragging');
+  card.style.transition='transform .32s cubic-bezier(.5,0,.8,.4), opacity .3s';
+  card.style.transform=`translateX(${dir*(window.innerWidth+120)}px) rotate(${dir*16}deg)`+(S.flipped?' rotateY(180deg)':'');
+  card.style.opacity='0';
+  setTimeout(()=>{suppressClick=false;after();},310);
+}
+function markCard(known){
+  const q=qmap.get(S.deck[S.pos]);
+  if(known){S.learned.add(q.id);toast(`Câu ${q.id}: đã thuộc ✓`);}
+  else{S.learned.delete(q.id);S.wrong.add(q.id);toast(`Câu ${q.id}: đưa vào câu cần ôn`);}
+  saveProgress();
+  if(known && S.mode==='flash' && S.hideLearned){
+    S.deck.splice(S.pos,1);
+    if(!S.deck.length){S.anim='pop';S.flipped=false;render();toast('Đã thuộc hết các câu — quá giỏi!');saveProgress();return;}
+    if(S.pos>=S.deck.length)S.pos=S.deck.length-1;
+    S.anim='right';S.flipped=false;S.sel.clear();S.graded=false;S.fresh=true;render();saveProgress();
+    return;
+  }
+  advance(known?1:-1);
+}
+// nạp lại đáp án đã chọn của câu ở vị trí hiện tại (để quay lại / tiến tới không mất)
+function loadAnswerState(){
+  const q=S.deck.length?qmap.get(S.deck[S.pos]):null;
+  const a=q&&S.answers[q.id];
+  if(a){S.sel=new Set(a.sel);S.graded=true;}
+  else{S.sel=new Set();S.graded=false;}
+}
+function advance(dir){
+  S.anim=dir>=0?'right':'left';
+  if(S.pos>=S.deck.length-1){
+    if(S.mode==='quiz'){S.done=true;}
+    else{S.anim='pop';toast('Hết bộ thẻ — xáo trộn và ôn lại nhé!');}
+  } else S.pos++;
+  S.flipped=false;S.fresh=true;loadAnswerState();render();saveProgress();
+}
+function prev(){
+  if(S.pos>0){S.pos--;S.anim='left';S.flipped=false;S.done=false;S.fresh=true;loadAnswerState();render();saveProgress();}
+}
+
+/* ================= ACTIONS ================= */
+function toast(msg){
+  const t=$('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1600);
+}
+function grade(q){
+  S.graded=true;
+  const ok=isRunCorrect(q);
+  if(ok){
+    S.runOk++;
+    const fresh=!S.learned.has(q.id);
+    S.learned.add(q.id);
+    if(S.wrong.delete(q.id))toast('Đã gỡ khỏi câu sai · tính là đã thuộc ✓');
+    else if(fresh)toast(`Câu ${q.id}: đã thuộc ✓`);
+  }else{
+    S.runNo++;S.wrong.add(q.id);S.learned.delete(q.id);
+  }
+  S.answers[q.id]={sel:[...S.sel]};
+  renderHeaderStats();saveProgress();
+}
+function setDeck(def){S.deckDef=def;buildDeck();syncRangeSel();render();saveProgress();}
+function syncRangeSel(){
+  const sel=$('rangeSel');const d=S.deckDef;
+  let other=sel.querySelector('option[value="__other"]');
+  if(d.type==='all'||d.type==='range'){
+    if(other)other.remove();
+    sel.value=d.type==='all'?'all':`r${d.a}-${d.b}`;
+    if(sel.selectedIndex===-1){
+      if(!other){other=document.createElement('option');other.value='__other';sel.prepend(other);}
+      other.textContent=deckLabel();sel.value='__other';
+    }
+  }else{
+    if(!other){other=document.createElement('option');other.value='__other';sel.prepend(other);}
+    other.textContent=deckLabel();sel.value='__other';
+  }
+}
+
+document.addEventListener('click',e=>{
+  if(currentView!=='quiz')return;
+  const actEl=e.target.closest('[data-act]');
+  const optEl=e.target.closest('.opt');
+  const card=e.target.closest('#card');
+  if(actEl){
+    const act=actEl.dataset.act;
+    const q=S.deck.length&&!S.done?qmap.get(S.deck[S.pos]):null;
+    if(act==='star'&&q){
+      const on=!S.starred.has(q.id);
+      on?S.starred.add(q.id):S.starred.delete(q.id);
+      saveProgress();renderHeaderStats();
+      document.querySelectorAll('.starbtn').forEach(b=>{
+        b.classList.toggle('on',on);b.classList.toggle('justOn',on);
+      });
+      return;
+    }
+    if(act==='prev')return prev();
+    if(act==='next'||act==='skip')return advance(1);
+    if(act==='known'&&q){const c=$('card');c?flingOut(c,1,()=>markCard(true)):markCard(true);return;}
+    if(act==='unknown'&&q){const c=$('card');c?flingOut(c,-1,()=>markCard(false)):markCard(false);return;}
+    if(act==='check'&&q){grade(q);render();return;}
+    if(act==='gowrong'){return setDeck({type:'wrong'});}
+    if(act==='restart'){buildDeck();render();return;}
+    return;
+  }
+  if(optEl&&S.mode==='quiz'&&!S.graded){
+    const q=qmap.get(S.deck[S.pos]);
+    const k=optEl.dataset.key;
+    if(q.ans.length>1){
+      S.sel.has(k)?S.sel.delete(k):S.sel.add(k);
+      render();
+    }else{
+      S.sel=new Set([k]);grade(q);render();
+    }
+    return;
+  }
+  if(card&&S.mode==='flash'){
+    if(suppressClick){suppressClick=false;return;}
+    S.flipped=!S.flipped;card.classList.toggle('flipped',S.flipped);
+  }
+});
+
+/* tabs */
+$('tabFlash').onclick=()=>{if(S.mode!=='flash'){S.mode='flash';$('tabFlash').classList.add('on');$('tabQuiz').classList.remove('on');buildDeck();render();saveProgress();}};
+$('tabQuiz').onclick=()=>{if(S.mode!=='quiz'){S.mode='quiz';$('tabQuiz').classList.add('on');$('tabFlash').classList.remove('on');buildDeck();render();saveProgress();}};
+/* controls */
+$('rangeSel').onchange=e=>{
+  const v=e.target.value;
+  if(v==='all')setDeck({type:'all'});
+  else if(v.startsWith('r')){const[a,b]=v.slice(1).split('-').map(Number);setDeck({type:'range',a,b});}
+};
+$('shuffleChk').onchange=e=>{S.shuffle=e.target.checked;buildDeck();render();saveProgress();};
+$('hideLearnedChk').onchange=e=>{S.hideLearned=e.target.checked;saveProgress();buildDeck();render();};
+$('chipStar').onclick=()=>setDeck({type:'starred'});
+$('chipWrong').onclick=()=>setDeck({type:'wrong'});
+function doSearch(){
+  const t=$('searchBox').value.trim();
+  if(!t)return;
+  if(/^\d{1,3}$/.test(t)){
+    const id=parseInt(t,10);
+    if(qmap.has(id)){setDeck({type:'range',a:id,b:id});$('searchBox').value='';$('searchBox').blur();return;}
+  }
+  setDeck({type:'search',term:t});$('searchBox').blur();
+}
+$('searchBtn').onclick=doSearch;
+$('searchBox').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+$('resetBtn').onclick=async()=>{
+  if(!confirm('Xóa toàn bộ tiến độ (đã thuộc, đánh dấu, câu sai)?'))return;
+  S.learned.clear();S.starred.clear();S.wrong.clear();S.mem={};
+  try{localStorage.removeItem(KEY);}catch(e){}
+  try{if(window.storage&&window.storage.delete)await window.storage.delete(KEY);}catch(e){}
+  buildDeck();render();toast('Đã xóa tiến độ');
+};
+
+/* keyboard */
+document.addEventListener('keydown',e=>{
+  if(currentView!=='quiz')return;
+  if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;
+  const q=S.deck.length&&!S.done?qmap.get(S.deck[S.pos]):null;
+  if(e.key==='ArrowRight'){e.preventDefault();if(S.mode==='quiz'&&q&&!S.graded)return;advance(1);}
+  else if(e.key==='ArrowLeft'){e.preventDefault();prev();}
+  else if(e.key===' '&&S.mode==='flash'){e.preventDefault();const c=$('card');if(c){S.flipped=!S.flipped;c.classList.toggle('flipped',S.flipped);}}
+  else if(e.key==='Enter'){
+    e.preventDefault();
+    if(S.mode==='quiz'&&q){
+      if(S.graded)advance(1);
+      else if(q.ans.length>1&&S.sel.size){grade(q);render();}
+    } else if(S.done){buildDeck();render();}
+  }
+  else if(/^[1-5]$/.test(e.key)){
+    if(S.mode==='quiz'&&q&&!S.graded){
+      const k='ABCDE'[parseInt(e.key,10)-1];
+      if(q.opts.some(o=>o.k===k)){
+        if(q.ans.length>1){S.sel.has(k)?S.sel.delete(k):S.sel.add(k);render();}
+        else{S.sel=new Set([k]);grade(q);render();}
+      }
+    } else if(S.mode==='flash'&&q){
+      const c=$('card');
+      if(e.key==='1'){c?flingOut(c,-1,()=>markCard(false)):markCard(false);}
+      if(e.key==='2'){c?flingOut(c,1,()=>markCard(true)):markCard(true);}
+    }
+  }
+});
+
+/* range options (theo số câu của môn hiện tại) */
+function buildRangeOptions(){
+  const sel=$('rangeSel');
+  const max=DATA.length?Math.max(...DATA.map(q=>q.id)):0;
+  let html=`<option value="all">Toàn bộ (1–${max})</option>`;
+  for(let a=1;a<=max;a+=50){
+    const b=Math.min(a+49,max);
+    html+=`<option value="r${a}-${b}">Câu ${a}–${b}</option>`;
+  }
+  sel.innerHTML=html;
+}
+
+/* init một môn (gọi từ router) */
+async function initSubject(code){
+  const subj=SUBJECTS.find(s=>s.code===code)||{code:code,name:code};
+  KEY='fpt-ontap:progress:'+code;
+  DATA=(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||[];
+  qmap=new Map(DATA.map(q=>[q.id,q]));
+  /* reset toàn bộ state cho môn mới */
+  S.mode='flash';S.deckDef={type:'all'};S.shuffle=false;S.hideLearned=false;
+  S.deck=[];S.pos=0;S.flipped=false;S.sel=new Set();S.graded=false;
+  S.runOk=0;S.runNo=0;S.done=false;
+  S.learned=new Set();S.starred=new Set();S.wrong=new Set();
+  S.anim='pop';S.fresh=true;S.mem={};S.answers={};
+  /* header theo môn */
+  $('qTitle').textContent=subj.code+' · '+DATA.length+' câu';
+  $('qSub').textContent=subj.fullName||subj.name||'';
+  $('stTotal').textContent=DATA.length;
+  $('curSubj').textContent=subj.name||subj.code;
+  $('tabFlash').classList.add('on');$('tabQuiz').classList.remove('on');
+  $('shuffleChk').checked=false;$('hideLearnedChk').checked=false;
+  buildRangeOptions();
+  const p=await loadProgress();
+  if(p){
+    S.learned=new Set(p.learned||[]);S.starred=new Set(p.starred||[]);S.wrong=new Set(p.wrong||[]);
+    S.hideLearned=!!p.hideLearned;$('hideLearnedChk').checked=S.hideLearned;
+    if(p.shuffle){S.shuffle=true;$('shuffleChk').checked=true;}
+    if(p.mode==='quiz'){S.mode='quiz';$('tabQuiz').classList.add('on');$('tabFlash').classList.remove('on');}
+    if(p.deckDef&&p.deckDef.type){S.deckDef=p.deckDef;}
+  }
+  buildDeck();
+  if(p&&Number.isInteger(p.pos)&&p.pos>0&&p.pos<S.deck.length){S.pos=p.pos;S.anim='pop';}
+  if(p){
+    if(p.answers&&typeof p.answers==='object')S.answers=p.answers;
+    if(Number.isInteger(p.runOk))S.runOk=p.runOk;
+    if(Number.isInteger(p.runNo))S.runNo=p.runNo;
+    S.done=!!p.done;
+    loadAnswerState();
+    if(!S.graded&&Array.isArray(p.sel)&&p.sel.length)S.sel=new Set(p.sel);
+  }
+  syncRangeSel();
+  render();
+}
+/* ===================== PORTAL + ROUTER ===================== */
+const SUBJECTS = [
+  { code:'MLN111', name:'Triết học Mác – Lênin', fullName:'Triết học Mác – Lênin (MLN111)', semester:'Kỳ 3',
+    description:'585 câu trắc nghiệm + flashcard. Vuốt thẻ, làm quiz, đánh dấu câu sai.',
+    status:'available', accent:'#0651A0', emoji:'⚖️', iconKey:'law', questionCount:585, gradient:['#0651A0','#008DDE'] },
+  { code:'PRN232', name:'Lập trình Back-End .NET', fullName:'Building Cross-Platform Back-End Application With .NET (PRN232)', semester:'Kỳ 7',
+    description:'Ôn API .NET, REST, Entity Framework Core, minimal API.',
+    status:'coming-soon', accent:'#53B848', emoji:'🌐', iconKey:'net', gradient:['#53B848','#008DDE'] },
+  { code:'MAS291', name:'Thống kê & Xác suất', fullName:'Statistics & Probability (MAS291)', semester:'Kỳ 5',
+    description:'Ôn xác suất, phân phối, kiểm định giả thuyết, hồi quy.',
+    status:'coming-soon', accent:'#008DDE', emoji:'📊', iconKey:'stats', gradient:['#008DDE','#0651A0'] },
+  { code:'SWP391', name:'Đồ án phần mềm', fullName:'Software Development Project (SWP391)', semester:'Kỳ 5',
+    description:'Ôn quy trình phát triển phần mềm, SDLC, UML, Agile/Scrum.',
+    status:'coming-soon', accent:'#F37124', emoji:'🛠️', iconKey:'project', gradient:['#F37124','#E11B22'] },
+  { code:'DBI202', name:'Cơ sở dữ liệu', fullName:'Introduction to Databases (DBI202)', semester:'Kỳ 4',
+    description:'Ôn SQL, mô hình quan hệ, chuẩn hóa, transaction.',
+    status:'coming-soon', accent:'#E11B22', emoji:'🗄️', iconKey:'db', gradient:['#E11B22','#F37124'] }
 ];
 
-/* ===== Helpers ===== */
-const $ = sel => document.querySelector(sel);
-const HEX_RE = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
-const esc = s => (s == null ? '' : String(s))
-  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-const norm = s => (s || '')
-  .normalize('NFD')
-  .replace(/[̀-ͯ]/g,'')
-  .replace(/đ/g,'d').replace(/Đ/g,'D')
-  .toLowerCase();
+let currentView='portal';
+const loadedData=new Set();
+const pf=id=>document.getElementById(id);
+const pfNorm=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase();
+function pfHexToRgb(hex){let h=hex.replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');const n=parseInt(h,16);return{r:(n>>16)&255,g:(n>>8)&255,b:n&255};}
+function pfTextOn(hex){const{r,g,b}=pfHexToRgb(hex);return (0.299*r+0.587*g+0.114*b)/255>0.6?'var(--ink)':'#ffffff';}
+const ICON_KEYS=new Set(['law','net','stats','project','db']);
+function pfHexToRgba(hex,a){const{r,g,b}=pfHexToRgb(hex);return `rgba(${r},${g},${b},${a})`;}
 
-function hexToRgb(hex){
-  let h = hex.replace('#','');
-  if(h.length === 3) h = h.split('').map(c => c + c).join('');
-  const n = parseInt(h,16);
-  return { r:(n>>16)&255, g:(n>>8)&255, b:n&255 };
-}
-/* chữ badge tự chọn theo độ sáng accent: sáng -> ink, tối -> kem */
-function textOn(hex){
-  const { r,g,b } = hexToRgb(hex);
-  return (0.299*r + 0.587*g + 0.114*b)/255 > 0.55 ? 'var(--ink)' : 'var(--paper)';
-}
-
-/* ===== Chuẩn hóa + validate (chỉ warn, không chặn render) ===== */
-function prepare(list){
-  const seen = new Set();
-  return list.map(s => {
-    const o = Object.assign({}, s);
-    if(seen.has(o.code)) console.warn('SUBJECTS: trùng code', o.code);
-    seen.add(o.code);
-    if(o.status === 'available' && (!o.url || !/^https?:\/\//i.test(o.url))){
-      console.warn('SUBJECTS: môn available thiếu/sai url ->', o.code, '→ chuyển thành coming-soon');
-      o.status = 'coming-soon';
-    }
-    if(!o.accent || !HEX_RE.test(o.accent)){
-      if(o.accent) console.warn('SUBJECTS: accent không hợp lệ ->', o.code);
-      o.accent = '#C8102E'; /* = var(--red) */
-    }
-    if(!o.emoji) o.emoji = '📚';
-    if(!o.fullName) o.fullName = o.name + ' (' + o.code + ')';
-    return o;
-  });
-}
-const DATA = prepare(SUBJECTS);
-
-let lastOpened = null;
-try { lastOpened = localStorage.getItem('fpt-ontap:last-opened'); } catch(e){}
-
-/* ===== State ===== */
-let statusFilter = 'all';
-let query = '';
-let firstRender = true;
-
-/* ===== Render 1 thẻ ===== */
-function card(s, i){
-  const isAvail = s.status === 'available';
-  const txt = textOn(s.accent);
-  const recent = isAvail && lastOpened === s.code;
-  const el = document.createElement(isAvail ? 'a' : 'div');
-  el.className = 'card' + (isAvail ? '' : ' soon');
-  el.dataset.status = s.status;
-  el.dataset.code = s.code;
-  el.style.setProperty('--delay', (i * 0.05) + 's');
-  if(isAvail){
-    el.href = s.url;
-    el.target = '_blank';
-    el.rel = 'noopener noreferrer';
-    el.setAttribute('aria-label', 'Vào ôn tập ' + s.fullName + ' — mở tab mới');
-  } else {
-    el.setAttribute('role','group');
-    el.setAttribute('aria-disabled','true');
-    el.setAttribute('aria-label', s.fullName + ' — sắp có (chưa mở)');
-  }
-  el.innerHTML =
-    '<span class="code" style="background:' + s.accent + ';color:' + txt + '">' + esc(s.code) + '</span>' +
-    '<span class="emoji" aria-hidden="true">' + esc(s.emoji) + '</span>' +
-    '<h3 class="cname">' + esc(s.name) + '</h3>' +
-    '<p class="cdesc">' + esc(s.description) + '</p>' +
-    (s.semester ? '<span class="sem">' + esc(s.semester) + '</span>' : '') +
-    '<div class="cfoot">' +
-      '<span class="fleft">' +
-        (isAvail
-          ? '<span class="badge on">Đã có</span>' + (recent ? '<span class="recent">Gần đây</span>' : '')
-          : '<span class="soon-badge">Sắp có</span>') +
-      '</span>' +
-      (isAvail ? '<span class="cta">Vào ôn ↗</span>' : '') +
-    '</div>';
+let pfFilter='all', pfQuery='', pfFirst=true;
+function pfCard(s,i){
+  const avail=s.status==='available';
+  const accent=/^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(s.accent||'')?s.accent:'#0651A0';
+  const el=document.createElement(avail?'a':'div');
+  el.className='pf-card'+(avail?'':' soon')+' reveal';
+  el.dataset.code=s.code; el.dataset.status=s.status;
+  el.style.setProperty('--d',Math.min(i*0.05,0.3)+'s');
+  el.style.setProperty('--card-accent',accent);
+  el.style.setProperty('--card-accent-tint',pfHexToRgba(accent,0.12));
+  if(avail){ el.href='#mon='+s.code; el.setAttribute('aria-label','Vào ôn tập '+(s.fullName||s.name)); }
+  else { el.setAttribute('role','group'); el.setAttribute('aria-disabled','true'); el.setAttribute('aria-label',(s.fullName||s.name)+' — sắp có (chưa mở)'); }
+  const iconInner = (s.iconKey && ICON_KEYS.has(s.iconKey))
+    ? '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-'+s.iconKey+'"></use></svg>'
+    : esc(s.emoji||'📚');
+  el.innerHTML=
+    '<span class="pf-code" style="background:'+accent+';color:'+pfTextOn(accent)+'">'+esc(s.code)+'</span>'+
+    '<span class="pf-emoji" aria-hidden="true">'+iconInner+'</span>'+
+    '<h3 class="pf-name">'+esc(s.name)+'</h3>'+
+    '<p class="pf-desc">'+esc(s.description||'')+'</p>'+
+    (s.semester?'<span class="pf-sem">'+esc(s.semester)+'</span>':'')+
+    '<div class="pf-foot">'+(avail?'<span class="pf-badge on">Đã có</span><span class="pf-cta">Vào ôn →</span>':'<span class="pf-badge soon">Sắp có</span>')+'</div>';
   return el;
 }
-
-/* ===== Lọc (search AND chip) ===== */
-function apply(){
-  const q = norm(query.trim());
-  return DATA.filter(s => {
-    if(statusFilter !== 'all' && s.status !== statusFilter) return false;
-    if(!q) return true;
-    const hay = norm([s.code, s.name, s.fullName, s.description].join(' '));
-    return hay.includes(q);
+function renderPortal(){
+  const q=pfNorm(pfQuery.trim());
+  const list=SUBJECTS.filter(s=>{
+    if(pfFilter!=='all'&&s.status!==pfFilter)return false;
+    if(!q)return true;
+    return pfNorm([s.code,s.name,s.fullName,s.description].join(' ')).includes(q);
   });
-}
-
-/* ===== Bộ đếm (debounce ~250ms) ===== */
-let countTimer = null;
-function updateCount(x){
-  clearTimeout(countTimer);
-  countTimer = setTimeout(function(){
-    $('#count').textContent = 'Hiển thị ' + x + '/' + DATA.length + ' môn';
-  }, 250);
-}
-
-/* ===== Render lưới ===== */
-function render(){
-  const list = apply();
-  const grid = $('#grid');
-  grid.classList.toggle('fresh', firstRender);
-  grid.innerHTML = '';
+  const grid=pf('pfGrid');
+  grid.classList.toggle('fresh',pfFirst);
+  grid.innerHTML='';
   if(!list.length){
-    const empty = document.createElement('div');
-    empty.className = 'empty';
-    const q = query.trim();
-    empty.textContent = q
-      ? 'Không tìm thấy môn nào khớp "' + q + '". Thử từ khóa khác.'
-      : 'Chưa có môn nào ở trạng thái này.';
-    grid.appendChild(empty);
-  } else {
-    list.forEach(function(s, i){ grid.appendChild(card(s, i)); });
-  }
-  updateCount(list.length);
-  firstRender = false;
+    const e=document.createElement('div');e.className='pf-empty';
+    const qq=pfQuery.trim();
+    e.textContent=qq?'Không tìm thấy môn nào khớp "'+qq+'". Thử từ khóa khác.':'Chưa có môn nào ở trạng thái này.';
+    grid.appendChild(e);
+  } else list.forEach((s,i)=>grid.appendChild(pfCard(s,i)));
+  pf('pfCount').textContent='Hiển thị '+list.length+'/'+SUBJECTS.length+' môn';
+  pfFirst=false;
+  pfRevealScan();
 }
-
-/* ===== Toast ===== */
-let toastTimer = null;
-function toast(msg){
-  const t = $('#toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 1800);
+/* nạp dữ liệu môn theo nhu cầu (script tag -> chạy được cả file:// lẫn https) */
+function loadSubjectData(code,cb){
+  if((window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||loadedData.has(code)){cb(true);return;}
+  const sc=document.createElement('script');
+  sc.src='data/'+code.toLowerCase()+'.js';
+  sc.onload=()=>{loadedData.add(code);cb(!!(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code]));};
+  sc.onerror=()=>cb(false);
+  document.head.appendChild(sc);
 }
-
-/* ===== Sự kiện ===== */
-$('#search').addEventListener('input', function(e){
-  query = e.target.value;
-  render();
+function showPortal(){
+  currentView='portal';
+  pf('quizView').hidden=true; pf('portalView').hidden=false;
+  document.title='FPT Ôn Tập — Cổng ôn tập đa môn';
+  window.scrollTo(0,0);
+}
+function openSubject(code){
+  const subj=SUBJECTS.find(s=>s.code===code);
+  if(!subj||subj.status!=='available'){ if(location.hash){location.hash='';}else{showPortal();} return; }
+  loadSubjectData(code,ok=>{
+    if(!ok){ toast('Chưa tải được dữ liệu môn '+code); location.hash=''; return; }
+    currentView='quiz';
+    pf('portalView').hidden=true; pf('quizView').hidden=false;
+    document.title=code+' — FPT Ôn Tập';
+    window.scrollTo(0,0);
+    initSubject(code);
+  });
+}
+function route(){
+  const m=/^#mon=([A-Za-z0-9]+)/.exec(location.hash||'');
+  if(m) openSubject(m[1].toUpperCase());
+  else showPortal();
+}
+window.addEventListener('hashchange',route);
+pf('pfSearch').addEventListener('input',e=>{pfQuery=e.target.value;renderPortal();});
+document.querySelectorAll('.pf-chip').forEach(b=>b.addEventListener('click',()=>{
+  pfFilter=b.dataset.filter;
+  document.querySelectorAll('.pf-chip').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});
+  renderPortal();
+}));
+pf('pfGrid').addEventListener('click',e=>{
+  const soon=e.target.closest('[data-status="coming-soon"]');
+  if(soon) toast('Môn này sắp có — chưa mở.');
 });
+pf('backBtn').addEventListener('click',()=>{ location.hash=''; });
 
-document.querySelectorAll('.chip').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    statusFilter = btn.dataset.filter;
-    document.querySelectorAll('.chip').forEach(function(b){
-      const on = b === btn;
-      b.classList.toggle('on', on);
-      b.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-    render();
+/* ===================== LANDING UX (mới — tiền tố lp/pf, không đụng engine) ===================== */
+const lpReduceMM=matchMedia('(prefers-reduced-motion: reduce)');
+let lpReduce=lpReduceMM.matches;
+try{lpReduceMM.addEventListener('change',e=>{lpReduce=e.matches;});}catch(_){}
+
+/* scroll-reveal: IntersectionObserver + fail-safe + reduced-motion gate */
+let lpObserver=null;
+function lpRevealAll(){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in-view'));}
+if('IntersectionObserver' in window && !lpReduce){
+  lpObserver=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in-view'); obs.unobserve(en.target); } });
+  },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  /* fail-safe: nếu sau 3s observer chưa xử lý hết, hiện tất cả */
+  setTimeout(lpRevealAll,3000);
+}else{
+  /* không hỗ trợ / reduce-motion -> hiện ngay, không set trạng thái ẩn */
+  lpRevealAll();
+}
+function pfRevealScan(){
+  if(!lpObserver){ lpRevealAll(); return; }
+  document.querySelectorAll('.reveal:not(.in-view)').forEach(el=>lpObserver.observe(el));
+}
+pfRevealScan();
+
+/* logo thật: fallback-first — chỉ ẩn wordmark khi <img> load OK */
+(function(){
+  const img=pf('lpLogoImg'), word=pf('lpLogoWord');
+  if(!img||!word)return;
+  img.addEventListener('load',()=>{ if(img.naturalWidth>0){ img.style.display='block'; img.hidden=false; word.style.display='none'; } });
+  img.removeAttribute('hidden'); // cho phép thử load; CSS giữ display:none tới khi onload set lại
+  img.style.display='none';
+})();
+
+/* CTA cuộn xuống lưới môn — tôn trọng reduced-motion */
+document.querySelectorAll('a[href="#pfGrid"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const grid=pf('pfGrid'); if(!grid)return;
+    e.preventDefault();
+    grid.scrollIntoView({behavior:lpReduce?'auto':'smooth',block:'start'});
+    try{history.replaceState(null,'','#pfGrid');}catch(_){}
   });
 });
 
-$('#grid').addEventListener('click', function(e){
-  const soon = e.target.closest('[data-status="coming-soon"]');
-  if(soon){ toast('Môn này sắp có — chưa mở.'); return; }
-  const avail = e.target.closest('a[data-status="available"]');
-  if(avail){
-    /* KHÔNG preventDefault — để <a target="_blank"> mở tab tự nhiên */
-    try { localStorage.setItem('fpt-ontap:last-opened', avail.dataset.code); } catch(_){}
-  }
-});
-
-/* ===== Init ===== */
-$('#total').textContent = DATA.length;
-render();
+/* boot */
+pf('pfTotal').textContent=SUBJECTS.length;
+(function(){
+  const av=SUBJECTS.filter(s=>s.status==='available').length;
+  const ae=pf('pfHeroAvail'); if(ae)ae.textContent=av;
+  const mln=SUBJECTS.find(s=>s.code==='MLN111');
+  const qe=pf('pfHeroQ'); if(qe&&mln&&mln.questionCount)qe.textContent=mln.questionCount;
+})();
+renderPortal();
+route();
 </script>
 </body>
 </html>
