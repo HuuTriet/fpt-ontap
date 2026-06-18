@@ -7,7 +7,6 @@
 <title>Câu chuyện FPT — Hành trình một giấc mơ giáo dục | FPT Ôn Tập</title>
 <meta name="description" content="Trang kể chuyện về Trường Đại học FPT — khởi nguồn, hoài bão và hành trình. Trang phụ của dự án sinh viên FPT Ôn Tập.">
 <meta name="theme-color" content="#0651A0">
-<meta name="theme-color" content="#0B1726" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Câu chuyện FPT — Hành trình một giấc mơ giáo dục">
 <meta property="og:description" content="Trang kể chuyện về Trường Đại học FPT. Trang phụ của dự án sinh viên FPT Ôn Tập.">
 <meta property="og:type" content="article">
@@ -67,19 +66,14 @@
   /* ---- ảnh phủ hero ---- */
   --hero-overlay:linear-gradient(180deg,rgba(6,81,160,.30) 0%,rgba(16,36,58,.10) 38%,rgba(16,36,58,.62) 100%);
   --on-media:#FFFFFF;          /* chữ trên ảnh/nền tối */
+  /* ---- lớp gradient mesh on-brand cho hero (đặt chồng nhẹ, tạo chiều sâu) ---- */
+  --hero-mesh:radial-gradient(60% 55% at 12% 18%,rgba(0,141,222,.30),transparent 60%),
+              radial-gradient(50% 50% at 88% 8%,rgba(83,184,72,.22),transparent 62%),
+              radial-gradient(60% 60% at 80% 100%,rgba(243,113,36,.26),transparent 60%);
 }
 
 /* ===== DARK MODE — chỉ đảo biến, mọi component chạy nguyên ===== */
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#0B1726; --surface:#10243A; --surface-2:#16314E;
-    --ink:#EAF2FB; --ink-2:#A9BFD6; --line:#274463;
-    --shadow-sm:0 1px 2px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.36);
-    --shadow-md:0 6px 18px rgba(0,0,0,.46),0 2px 6px rgba(0,0,0,.34);
-    --shadow-lg:0 20px 44px rgba(0,0,0,.55),0 6px 16px rgba(0,0,0,.4);
-    --hero-overlay:linear-gradient(180deg,rgba(6,30,55,.50) 0%,rgba(5,16,28,.46) 38%,rgba(5,12,20,.82) 100%);
-  }
-}
+/* (dark-mode đã gỡ — trang luôn dùng tông SÁNG đồng bộ với portal index.html) */
 
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 [hidden]{display:none!important}
@@ -165,47 +159,60 @@ img,svg{max-width:100%}
 .js .cs-rev-s{opacity:0;transform:translateY(20px) scale(.96)}
 .cs-rev.in-view,.cs-rev-l.in-view,.cs-rev-r.in-view,.cs-rev-s.in-view{opacity:1;transform:none}
 
-/* ===== HERO (ảnh campus full-screen + parallax/zoom) ===== */
+/* ===== HERO (ảnh campus full-screen + Ken Burns + parallax nhiều lớp + mesh) ===== */
 .cs-hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;
   background:var(--surface-2)}
 /* khung ảnh: nền gradient on-brand (fallback luôn có); ảnh thật swap khi onload OK.
-   aspect-ratio + nền phủ kín = không CLS dù ảnh load muộn */
-.cs-hero-media{position:absolute;inset:0;z-index:0;will-change:transform;aspect-ratio:16/9;
+   aspect-ratio + nền phủ kín = không CLS dù ảnh load muộn.
+   .cs-hero-media = LỚP PARALLAX (JS dịch theo cuộn); ảnh con tự chạy Ken Burns. */
+.cs-hero-media{position:absolute;inset:-6% -2%;z-index:0;will-change:transform;aspect-ratio:16/9;
   background:linear-gradient(150deg,#0651A0 0%,#008DDE 30%,#53B848 58%,#F37124 84%,#E11B22 100%)}
 .cs-hero-media::after{content:"";position:absolute;inset:0;
   background:radial-gradient(120% 90% at 80% 0%,rgba(255,255,255,.16),transparent 60%)}
-/* blur-up: ảnh vào ở trạng thái mờ + opacity 0 -> sắc nét khi load OK (300ms) */
+/* blur-up: ảnh vào ở trạng thái mờ + opacity 0 -> sắc nét khi load OK; sau đó Ken Burns (zoom chậm) */
 .cs-hero-media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:0;filter:blur(14px);transform:scale(1.04);
-  transition:opacity 300ms var(--ease-out),filter 300ms var(--ease-out),transform 300ms var(--ease-out)}
-.cs-hero-media.has-img>img{opacity:1;filter:none;transform:none}
-.cs-hero-overlay{position:absolute;inset:0;z-index:1;background:var(--hero-overlay)}
-.cs-hero-in{position:relative;z-index:2;width:100%;max-width:920px;margin:0 auto;
-  padding-inline:clamp(16px,5vw,32px);padding-block:var(--sp-8)}
+  opacity:0;filter:blur(14px);transform:scale(1.06);transform-origin:60% 40%;
+  transition:opacity 500ms var(--ease-out),filter 500ms var(--ease-out)}
+.cs-hero-media.has-img>img{opacity:1;filter:none}
+.js .cs-hero-media.has-img>img{animation:csKenBurns 26s var(--ease-soft) both}
+@keyframes csKenBurns{
+  0%{transform:scale(1.06) translate3d(0,0,0)}
+  100%{transform:scale(1.16) translate3d(-1.5%,-1.6%,0)}
+}
+/* lớp gradient mesh on-brand (parallax chậm hơn ảnh -> chiều sâu) */
+.cs-hero-mesh{position:absolute;inset:-8%;z-index:1;pointer-events:none;
+  background:var(--hero-mesh);mix-blend-mode:screen;opacity:.7;will-change:transform}
+/* hạt sáng tinh tế (grain mềm) — chỉ là 1 lớp gradient lặp rất nhạt */
+.cs-hero-overlay{position:absolute;inset:0;z-index:2;background:var(--hero-overlay)}
+.cs-hero-in{position:relative;z-index:3;width:100%;max-width:920px;margin:0 auto;
+  padding-inline:clamp(16px,5vw,32px);padding-block:clamp(40px,8vh,72px)}
 .cs-hero .cs-eyebrow{color:#FFD9C2;text-shadow:0 1px 10px rgba(5,16,28,.55)}
 .cs-hero .cs-eyebrow::before{background:var(--fpt-orange)}
 .cs-hero h1{color:var(--on-media);font-size:var(--fs-mega);font-weight:800;line-height:1.08;
-  letter-spacing:-.015em;margin-top:var(--sp-4);max-width:18ch;text-shadow:0 2px 24px rgba(5,16,28,.45)}
+  letter-spacing:-.015em;margin-top:var(--sp-4);max-width:20ch;text-shadow:0 2px 24px rgba(5,16,28,.45)}
 .cs-hero h1 .accent{color:#FFB089}
-/* placeholder trên hero tối: giữ chữ peach + nền/nét kẻ trong suốt để vẫn nổi rõ là "chỗ điền" */
-.cs-hero .cs-placeholder{color:#FFB089;background:rgba(255,255,255,.14);border-bottom-color:rgba(255,255,255,.55)}
+/* REVEAL TỪNG DÒNG tiêu đề: mỗi dòng bọc .ln, mask/clip + translate, stagger.
+   Mỗi .ln là display:block để xuống dòng có chủ đích (mobile vẫn wrap tự nhiên trong từng dòng). */
+.cs-hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.js .cs-hero h1 .ln>span{display:inline-block;transform:translateY(112%);
+  -webkit-clip-path:inset(0 0 -10% 0);clip-path:inset(0 0 -10% 0);
+  animation:csLineUp var(--dur-hero) var(--ease-out) both;animation-delay:var(--ld,0s)}
+@keyframes csLineUp{to{transform:translateY(0)}}
 .cs-hero-lead{color:rgba(255,255,255,.92);font-size:var(--fs-lead);font-weight:500;
   margin-top:var(--sp-5);max-width:48ch;text-shadow:0 1px 14px rgba(5,16,28,.5)}
 .cs-hero-note{margin-top:var(--sp-4);font-size:var(--fs-xs);color:rgba(255,255,255,.72);font-weight:500}
 /* gợi ý cuộn */
 .cs-scroll-cue{display:inline-flex;align-items:center;gap:10px;margin-top:var(--sp-6);
-  color:rgba(255,255,255,.92);font-size:var(--fs-sm);font-weight:600;text-decoration:none}
+  color:rgba(255,255,255,.92);font-size:var(--fs-sm);font-weight:600;text-decoration:none;min-height:44px}
 .cs-scroll-cue svg{width:22px;height:22px;animation:csBob 1.8s var(--ease-soft) infinite}
 @keyframes csBob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-/* fade-in từng phần của hero — đồng bộ 1 duration (--dur-hero 600ms) + stagger đều 0.12s,
-   tổng 600+480ms = 1080ms mượt, không overlap/jank */
-.js .cs-hero h1,.js .cs-hero-lead,.js .cs-hero .cs-eyebrow,.js .cs-hero-note,.js .cs-scroll-cue{
+/* fade-in từng phần của hero (eyebrow/lead/note/cue); tiêu đề có animation riêng (line reveal) */
+.js .cs-hero-lead,.js .cs-hero .cs-eyebrow,.js .cs-hero-note,.js .cs-scroll-cue{
   opacity:0;transform:translateY(16px);animation:csHeroIn var(--dur-hero) var(--ease-out) forwards}
 .js .cs-hero .cs-eyebrow{animation-delay:0s}
-.js .cs-hero h1{animation-delay:.12s}
-.js .cs-hero-lead{animation-delay:.24s}
-.js .cs-hero-note{animation-delay:.36s}
-.js .cs-scroll-cue{animation-delay:.48s}
+.js .cs-hero-lead{animation-delay:.5s}
+.js .cs-hero-note{animation-delay:.62s}
+.js .cs-scroll-cue{animation-delay:.72s}
 @keyframes csHeroIn{to{opacity:1;transform:none}}
 
 /* ===== KHỞI NGUỒN — bài toán khoảng cách ===== */
@@ -214,11 +221,8 @@ img,svg{max-width:100%}
   color:var(--ink);margin-top:var(--sp-5);max-width:30ch;
   border-left:3px solid var(--fpt-orange);padding-left:var(--sp-5)}
 
-/* ===== HOÀI BÃO (tuyên ngôn lớn) ===== */
+/* ===== HOÀI BÃO (tuyên ngôn lớn — pinned) ===== */
 .cs-vision{background:var(--surface-2);border-block:1px solid var(--line);text-align:center}
-.cs-vision .cs-eyebrow{justify-content:center}
-.cs-vision .cs-manifesto{font-size:var(--fs-display);font-weight:800;line-height:1.18;
-  letter-spacing:-.01em;color:var(--ink);margin-top:var(--sp-5);max-width:18ch;margin-inline:auto}
 .cs-grad-text{color:var(--fpt-blue); /* fallback: luôn hiển thị xanh nếu clip-text tắt/không hỗ trợ */
   background:linear-gradient(100deg,#0651A0 0%,#008DDE 22%,#53B848 44%,#F37124 66%,#E11B22 84%,#0651A0 100%);
   background-size:220% 100%;background-position:0% 50%;
@@ -228,7 +232,19 @@ img,svg{max-width:100%}
   .cs-grad-text{-webkit-text-fill-color:currentColor;background:none}
 }
 @keyframes csShimmer{from{background-position:0% 50%}to{background-position:-200% 50%}}
-.cs-pillars{margin-top:var(--sp-7);display:grid;gap:var(--sp-5);grid-template-columns:1fr;text-align:left}
+/* HOÀI BÃO: phần PINNED — câu tuyên ngôn dính lại 1 nhịp tạo điểm nhấn.
+   Mobile: bỏ pin để nội dung thở, không kẹt cuộn. Pin chỉ bật từ >=760px + đủ cao. */
+.cs-vision{padding-block:0}
+.cs-vision-pin{display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding-block:var(--sp-sec)}
+@media(min-width:760px) and (min-height:640px){
+  .cs-vision-pin{position:sticky;top:0;min-height:100svh;padding-block:var(--sp-8)}
+}
+.cs-vision .cs-eyebrow{justify-content:center}
+.cs-vision .cs-manifesto{font-size:var(--fs-display);font-weight:800;line-height:1.18;
+  letter-spacing:-.01em;color:var(--ink);margin-top:var(--sp-5);max-width:18ch;margin-inline:auto}
+.cs-pillars{margin-top:var(--sp-7);display:grid;gap:var(--sp-5);grid-template-columns:1fr;text-align:left;
+  width:100%;max-width:920px;margin-inline:auto}
 @media(min-width:680px){.cs-pillars{grid-template-columns:repeat(3,1fr)}}
 .cs-pillar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
   padding:var(--sp-5);box-shadow:var(--shadow-sm);
@@ -243,52 +259,103 @@ img,svg{max-width:100%}
 .cs-pillar h3{font-size:clamp(1rem,.95rem + .4vw,1.125rem);font-weight:700;color:var(--ink);line-height:1.3}
 .cs-pillar p{margin-top:var(--sp-2);font-size:var(--fs-sm);color:var(--ink-2);font-weight:500}
 
-/* ===== HÀNH TRÌNH (timeline dọc) ===== */
+/* ===== HÀNH TRÌNH (timeline dọc + đường kẻ VẼ DẦN theo cuộn) ===== */
 .cs-journey{background:var(--surface)}
-.cs-timeline{position:relative;margin-top:var(--sp-6);padding-left:34px}
-.cs-timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
-  background:linear-gradient(180deg,var(--fpt-blue),var(--fpt-cerulean),var(--fpt-green),var(--fpt-orange))}
+.cs-timeline{position:relative;margin-top:var(--sp-7);padding-left:42px}
+/* rãnh nền mờ của đường kẻ */
+.cs-timeline::before{content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;
+  background:color-mix(in srgb,var(--line) 80%,transparent);border-radius:2px}
+/* đường kẻ MÀU vẽ dần: scaleY 0->1 theo cuộn (JS đặt --line-grow, hoặc scroll-timeline) */
+.cs-tl-progress{position:absolute;left:10px;top:6px;bottom:6px;width:2px;border-radius:2px;
+  background:linear-gradient(180deg,var(--fpt-blue),var(--fpt-cerulean),var(--fpt-green),var(--fpt-orange),var(--fpt-red));
+  transform-origin:top center;transform:scaleY(var(--line-grow,0));
+  transition:transform 120ms linear}
 .cs-mile{position:relative;padding-bottom:var(--sp-mile)}
 .cs-mile:last-child{padding-bottom:0}
-.cs-mile::before{content:"";position:absolute;left:-34px;top:4px;width:18px;height:18px;border-radius:50%;
-  background:var(--surface);border:3px solid var(--fpt-orange);box-shadow:0 0 0 4px color-mix(in srgb,var(--fpt-orange) 18%,transparent)}
-.cs-mile-year{font-size:1.4rem;font-weight:800;color:var(--fpt-blue);font-variant-numeric:tabular-nums;line-height:1.1}
+.cs-mile::before{content:"";position:absolute;left:-42px;top:3px;width:20px;height:20px;border-radius:50%;z-index:1;
+  background:var(--surface);border:3px solid var(--line);
+  transition:border-color var(--dur) var(--ease-out),box-shadow var(--dur) var(--ease-out),background var(--dur) var(--ease-out)}
+/* khi mốc đã reveal -> chấm "sáng" lên on-brand */
+.cs-mile.in-view::before{border-color:var(--fpt-orange);background:var(--surface);
+  box-shadow:0 0 0 5px color-mix(in srgb,var(--fpt-orange) 18%,transparent)}
+.cs-mile-year{font-size:clamp(1.5rem,1.2rem + 1.2vw,2rem);font-weight:800;color:var(--fpt-blue);
+  font-variant-numeric:tabular-nums;line-height:1.05;letter-spacing:-.01em}
 .cs-mile-body{margin-top:var(--sp-2);font-size:var(--fs-body);color:var(--ink-2);font-weight:500;max-width:54ch}
 .cs-mile-body b{color:var(--ink);font-weight:700}
+/* TAG nhỏ trong mốc (loại sự kiện) */
+.cs-mile-tag{display:inline-block;margin-top:8px;font-size:var(--fs-xs);font-weight:700;letter-spacing:.04em;
+  color:var(--fpt-blue);background:color-mix(in srgb,var(--fpt-blue) 10%,transparent);
+  border-radius:var(--r-pill);padding:3px 10px}
 
-/* ===== THÀNH TỰU (số liệu) ===== */
-.cs-stats{background:var(--surface-2);border-block:1px solid var(--line)}
-.cs-stat-grid{margin-top:var(--sp-6);display:grid;gap:var(--sp-4);grid-template-columns:repeat(2,1fr)}
+/* ===== KHỐI ẢNH (clip-path wipe + blur-up, chống CLS) — dùng chung nhiều section ===== */
+.cs-figure{position:relative;margin-top:var(--sp-6);border-radius:var(--r-lg);overflow:hidden;
+  background:var(--surface-2);box-shadow:var(--shadow-md);aspect-ratio:16/10}
+.cs-figure::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 55%,rgba(16,36,58,.42) 100%)}
+.cs-figure>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;filter:blur(16px);transform:scale(1.05);
+  transition:opacity 450ms var(--ease-out),filter 450ms var(--ease-out),transform 8s var(--ease-soft)}
+.cs-figure.has-img>img{opacity:1;filter:none;transform:scale(1.05)}
+/* clip-path wipe: ảnh "lộ ra" từ dưới lên khi vào tầm nhìn */
+.js .cs-figure{-webkit-clip-path:inset(0 0 100% 0 round var(--r-lg));clip-path:inset(0 0 100% 0 round var(--r-lg));
+  transition:-webkit-clip-path var(--dur-slow) var(--ease-out),clip-path var(--dur-slow) var(--ease-out)}
+.js .cs-figure.in-view{-webkit-clip-path:inset(0 0 0 0 round var(--r-lg));clip-path:inset(0 0 0 0 round var(--r-lg))}
+/* khi đã hiện ảnh: cho Ken Burns nhẹ chậm trong khung */
+.js .cs-figure.in-view.has-img>img{transform:scale(1.12)}
+.cs-figure-cap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:var(--sp-4) var(--sp-5);
+  color:#fff;font-size:var(--fs-sm);font-weight:600;text-shadow:0 1px 10px rgba(5,16,28,.6)}
+
+/* ===== SỨC SỐNG SINH VIÊN (khối ảnh + chữ xen kẽ) ===== */
+.cs-life{background:var(--surface-2);border-block:1px solid var(--line)}
+.cs-life-grid{margin-top:var(--sp-6);display:grid;gap:var(--sp-5);grid-template-columns:1fr;align-items:center}
+@media(min-width:760px){.cs-life-grid{grid-template-columns:1.05fr .95fr;gap:var(--sp-7)}}
+.cs-life .cs-figure{margin-top:0;aspect-ratio:4/3}
+
+/* ===== THÀNH TỰU (số liệu) — count-up + thanh tiến độ tinh tế ===== */
+.cs-stats{background:var(--surface);position:relative}
+.cs-stat-grid{margin-top:var(--sp-7);display:grid;gap:var(--sp-4);grid-template-columns:repeat(2,1fr)}
 @media(min-width:680px){.cs-stat-grid{grid-template-columns:repeat(4,1fr)}}
-.cs-stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
-  padding:var(--sp-5);box-shadow:var(--shadow-sm)}
-.cs-stat b{display:block;font-size:clamp(1.6rem,1.2rem + 1.6vw,2.4rem);font-weight:800;
-  color:var(--fpt-blue);font-variant-numeric:tabular-nums;line-height:1.1}
-/* placeholder số chưa có: hiển thị tĩnh, nhạt hơn, KHÔNG đếm */
-.cs-stat b.is-placeholder{font-size:1.05rem;color:var(--ink-2);font-weight:700;letter-spacing:0}
-.cs-stat span{display:block;margin-top:var(--sp-2);font-size:var(--fs-sm);color:var(--ink-2);font-weight:600}
+.cs-stat{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:var(--sp-5) var(--sp-5) var(--sp-6);box-shadow:var(--shadow-sm);overflow:hidden;
+  transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft)}
+@media (hover:hover) and (pointer:fine){.cs-stat:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}}
+/* thanh tiến độ tinh tế dưới đáy ô — chạy 0->100% khi vào tầm nhìn (cùng nhịp count-up) */
+.cs-stat::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--fpt-blue),var(--fpt-cerulean),var(--fpt-green),var(--fpt-orange));
+  transition:transform var(--count-dur,1100ms) var(--ease-out)}
+.cs-stat.is-on::after{transform:scaleX(1)}
+.cs-stat b{display:flex;align-items:baseline;font-size:clamp(1.7rem,1.2rem + 1.9vw,2.6rem);font-weight:800;
+  color:var(--fpt-blue);font-variant-numeric:tabular-nums;line-height:1.05;letter-spacing:-.02em}
+.cs-stat .cs-stat-pre{font-size:.66em;margin-right:.06em;color:var(--ink-2);font-weight:800}
+.cs-stat span{display:block;margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--ink-2);font-weight:600;line-height:1.4}
 
 /* ===== CHỨNG NHẬN & XẾP HẠNG (logo wall = slot) ===== */
 .cs-trust{background:var(--surface)}
-.cs-logo-grid{margin-top:var(--sp-6);display:grid;gap:var(--sp-4);
-  grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-/* mỗi ô là 1 IMAGE-SLOT cho LOGO CHÍNH THỨC người dùng cung cấp.
-   Mặc định: ô viền mảnh + nhãn [TÊN]. KHÔNG tự vẽ logo / KHÔNG logo giả. */
-.cs-logo-slot{position:relative;aspect-ratio:3/2;border:1px dashed var(--line);border-radius:var(--r-md);
-  background:var(--surface-2);display:flex;align-items:center;justify-content:center;text-align:center;
-  padding:var(--sp-3);overflow:hidden;
+.cs-logo-grid{margin-top:var(--sp-7);display:grid;gap:var(--sp-4);
+  grid-template-columns:1fr}
+@media(min-width:560px){.cs-logo-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:880px){.cs-logo-grid{grid-template-columns:repeat(3,1fr)}}
+/* THẺ UY TÍN: tên THẬT + mô tả THẬT + ô logo (slot ảnh, fallback-first, KHÔNG logo giả). */
+.cs-cred{position:relative;display:flex;gap:var(--sp-4);align-items:flex-start;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:var(--sp-4);box-shadow:var(--shadow-sm);
   transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft),border-color var(--dur) var(--ease-soft)}
 @media (hover:hover) and (pointer:fine){
-  .cs-logo-slot:hover{transform:translateY(-4px);border-color:var(--fpt-blue);box-shadow:var(--shadow-md)}
+  .cs-cred:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--fpt-blue) 35%,var(--line));box-shadow:var(--shadow-md)}
 }
-.cs-logo-slot .cs-logo-label{font-size:var(--fs-xs);font-weight:700;color:var(--ink-2);line-height:1.4}
-/* nhãn slot trống cũng mang phong cách "placeholder" để dễ nhận biết chỗ cần điền */
-.cs-logo-slot:not(.has-img) .cs-logo-label{border-bottom:1px dashed var(--ink-2);padding-bottom:2px}
-.cs-logo-slot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:var(--sp-4);display:none}
-.cs-logo-slot.has-img{border-style:solid;background:var(--surface)}
+/* stagger reveal cho từng thẻ (qua --d set inline) */
+/* ô logo bên trái: IMAGE-SLOT cho LOGO CHÍNH THỨC. Mặc định: viền mảnh + chữ viết tắt mờ (KHÔNG phải logo). */
+.cs-logo-slot{position:relative;flex:0 0 auto;width:64px;height:64px;border:1px dashed var(--line);border-radius:var(--r-sm);
+  background:var(--surface-2);display:flex;align-items:center;justify-content:center;text-align:center;
+  overflow:hidden;padding:6px}
+.cs-logo-slot .cs-logo-label{font-size:var(--fs-xs);font-weight:800;color:var(--ink-2);line-height:1.1;letter-spacing:.02em}
+.cs-logo-slot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8px;display:none}
+.cs-logo-slot.has-img{border-style:solid;background:#fff}
 .cs-logo-slot.has-img>img{display:block}
 .cs-logo-slot.has-img .cs-logo-label{display:none}
-.cs-trust-note{margin-top:var(--sp-5);font-size:var(--fs-xs);color:var(--ink-2);font-weight:500;max-width:62ch}
+.cs-cred-body h3{font-size:clamp(1rem,.95rem + .35vw,1.125rem);font-weight:800;color:var(--ink);line-height:1.25}
+.cs-cred-body p{margin-top:6px;font-size:var(--fs-sm);color:var(--ink-2);font-weight:500;line-height:1.5}
+.cs-trust-note{margin-top:var(--sp-5);font-size:var(--fs-xs);color:var(--ink-2);font-weight:500;max-width:64ch}
 
 /* ===== KẾT & CTA ===== */
 .cs-end{position:relative;overflow:hidden;
@@ -319,7 +386,6 @@ img,svg{max-width:100%}
 
 /* ===== FOOTER (đồng bộ disclaimer portal) ===== */
 .cs-footer{background:var(--ink);color:#E6EEF6}
-@media (prefers-color-scheme: dark){.cs-footer{background:#060F1B}}
 .cs-footer-in{display:grid;grid-template-columns:1fr;gap:var(--sp-5);padding-block:var(--sp-7) var(--sp-5)}
 .cs-foot-logo .cs-logo-svg{height:32px}
 .cs-footer p{font-size:var(--fs-sm);color:#B9CADC;line-height:1.6;font-weight:500;margin-top:var(--sp-3)}
@@ -332,10 +398,44 @@ img,svg{max-width:100%}
 .cs-footer a:focus-visible{outline:3px solid var(--fpt-cerulean);outline-offset:2px}
 .cs-foot-badge{display:inline-block;border:1px solid rgba(255,255,255,.2);border-radius:var(--r-pill);
   padding:4px 12px;font-size:var(--fs-xs);font-weight:600;color:#CFE0F0}
+/* logo FPT chính thức (bổ trợ) trong footer — KHÔNG thay wordmark */
+.cs-foot-credit{display:flex;align-items:center;gap:10px;margin-top:var(--sp-4)}
+.cs-foot-credit img{height:30px;width:auto;background:#fff;border-radius:6px;padding:4px;box-shadow:var(--shadow-sm)}
+.cs-foot-credit span{font-size:var(--fs-xs);color:#9FB3C9;font-weight:600}
+.cs-src{font-size:var(--fs-xs);color:#9FB3C9;line-height:1.7;margin-top:0}
 .cs-legal{border-top:1px solid rgba(255,255,255,.12);padding-block:var(--sp-4);
   font-size:var(--fs-xs);color:#9FB3C9;line-height:1.7}
 .cs-legal a{color:var(--fpt-cerulean);min-height:auto}
 @media(min-width:760px){.cs-footer-in{grid-template-columns:1.4fr 1fr 1fr}}
+
+/* ===== HEADING SHINE — gradient wipe tinh tế khi cuộn tới cụm chữ lớn ===== */
+.cs-shine{position:relative;background-image:linear-gradient(100deg,
+    currentColor 0%,currentColor 38%,
+    color-mix(in srgb,var(--fpt-cerulean) 92%,#fff) 50%,
+    currentColor 62%,currentColor 100%);
+  background-size:240% 100%;background-position:120% 0;
+  -webkit-background-clip:text;background-clip:text}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .cs-shine.in-view{-webkit-text-fill-color:transparent;
+    transition:background-position 1.1s var(--ease-out);background-position:-30% 0}
+}
+
+/* ===== SCROLL-DRIVEN ANIMATIONS (tiến bộ tăng tiến) =====
+   Khi trình duyệt hỗ trợ animation-timeline -> dùng scroll/view timeline NHẸ NHÀNG
+   để bù/cường hoá hiệu ứng JS (đường timeline vẽ theo cuộn, ảnh figure tự lộ).
+   IO trong JS vẫn là nền tảng -> nội dung LUÔN hiện kể cả khi không hỗ trợ. */
+@supports (animation-timeline:view()) or (animation-timeline:scroll()){
+  /* đường kẻ timeline tự vẽ theo tiến độ cuộn qua section (mượt, không cần JS) */
+  .cs-tl-progress{animation:csGrowY linear both;
+    animation-timeline:view();animation-range:cover 0% cover 78%;
+    transform:scaleY(0)}
+  @keyframes csGrowY{to{transform:scaleY(1)}}
+  /* lớp mesh hero trôi rất nhẹ theo cuộn của hero */
+  .cs-hero-mesh{animation:csMeshDrift linear both;
+    animation-timeline:scroll(root);animation-range:0 70vh}
+  @keyframes csMeshDrift{to{transform:translate3d(0,-7%,0) scale(1.05)}}
+  /* mỗi figure tự "lộ" theo view-timeline (kết hợp class in-view của JS — cái nào tới trước thắng) */
+}
 
 /* ===== GIẢM CHUYỂN ĐỘNG — tắt MỌI animation/parallax/zoom/count-up; nội dung vẫn hiện đủ ===== */
 @media (prefers-reduced-motion:reduce){
@@ -347,11 +447,25 @@ img,svg{max-width:100%}
   .cs-rev,.cs-rev-l,.cs-rev-r,.cs-rev-s{opacity:1 !important;transform:none !important}
   .js .cs-sec{opacity:1 !important;transform:none !important}   /* tắt section fade-in */
   .cs-hero h1,.cs-hero-lead,.cs-hero .cs-eyebrow,.cs-hero-note,.cs-scroll-cue{opacity:1 !important;transform:none !important;animation:none !important}
-  .cs-hero-media{transform:none !important}        /* tắt parallax/zoom hero */
-  .cs-hero-media>img{opacity:1 !important;filter:none !important;transform:none !important;transition:none !important} /* ảnh hiện ngay, không blur-up */
+  .cs-hero h1 .ln>span{transform:none !important;animation:none !important;-webkit-clip-path:none !important;clip-path:none !important} /* tắt line-reveal */
+  .cs-hero-media{transform:none !important;inset:0 !important}        /* tắt parallax */
+  .cs-hero-media>img,.js .cs-hero-media.has-img>img{opacity:1 !important;filter:none !important;transform:none !important;transition:none !important;animation:none !important} /* tắt Ken Burns + blur-up */
+  .cs-hero-mesh{transform:none !important;animation:none !important}  /* tắt mesh drift */
   /* gradient text: tắt shimmer NHƯNG vẫn hiển thị (đổ về màu fallback xanh, không biến mất) */
   .cs-grad-text{animation:none !important;background:none !important;
     -webkit-text-fill-color:currentColor !important;color:var(--fpt-blue) !important}
+  /* heading shine: tắt wipe, hiện chữ bình thường */
+  .cs-shine{animation:none !important;background:none !important;-webkit-text-fill-color:currentColor !important}
+  /* timeline: hiện đường kẻ đầy đủ ngay (không vẽ dần) */
+  .cs-tl-progress{transform:scaleY(1) !important;animation:none !important;transition:none !important}
+  .cs-mile::before{border-color:var(--fpt-orange) !important}
+  /* figure: hiện ngay, không wipe/blur/zoom */
+  .js .cs-figure{-webkit-clip-path:none !important;clip-path:none !important;transition:none !important}
+  .cs-figure>img,.js .cs-figure.in-view.has-img>img{opacity:1 !important;filter:none !important;transform:none !important;transition:none !important}
+  /* stat progress bar: hiện đầy ngay */
+  .cs-stat::after{transform:scaleX(1) !important;transition:none !important}
+  /* pinned vision: bỏ dính để không kẹt cuộn */
+  .cs-vision-pin{position:static !important;min-height:0 !important;padding-block:var(--sp-sec) !important}
   .cs-scroll-cue svg{animation:none !important}
   .cs-nav-r a::after{transition:none !important}
   .cs-progress{display:none !important}
@@ -391,7 +505,7 @@ img,svg{max-width:100%}
         <text x="0" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="800" fill="url(#csFptGrad)">FPT</text>
         <text x="60" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="700" fill="#0651A0">Ôn Tập</text>
       </svg>
-      <img class="cs-logo-img" id="csLogoImg" src="assets/img/logo-fpt.svg" alt="FPT University" hidden>
+      <img class="cs-logo-img" id="csLogoImg" src="assets/img/wordmark-fpt-ontap.svg" alt="FPT Ôn Tập" hidden>
     </a>
     <span class="cs-tag">Câu chuyện</span>
     <nav class="cs-nav-r" aria-label="Liên kết">
@@ -411,11 +525,16 @@ img,svg{max-width:100%}
   <section class="cs-hero" id="hero" aria-labelledby="csHeroH">
     <div class="cs-hero-media" id="csHeroMedia" data-img-slot="assets/img/story-hero.jpg"
          data-alt="Khuôn viên Trường Đại học FPT trong nắng sớm" aria-hidden="true"></div>
+    <div class="cs-hero-mesh" id="csHeroMesh" aria-hidden="true"></div>
     <div class="cs-hero-overlay" aria-hidden="true"></div>
     <div class="cs-hero-in">
       <span class="cs-eyebrow">Câu chuyện FPT</span>
-      <h1 id="csHeroH">Năm <span class="accent cs-placeholder">[NĂM THÀNH LẬP]</span>, một giấc mơ giáo dục bắt đầu.</h1>
-      <p class="cs-hero-lead">Không phải từ một toà nhà, mà từ một câu hỏi: làm sao để người trẻ Việt học xong là làm được, và làm được ở bất cứ đâu trên thế giới?</p>
+      <h1 id="csHeroH">
+        <span class="ln" style="--ld:.12s"><span>Năm <span class="accent">2006</span>,</span></span>
+        <span class="ln" style="--ld:.24s"><span>một giấc mơ giáo dục</span></span>
+        <span class="ln" style="--ld:.36s"><span>bắt đầu.</span></span>
+      </h1>
+      <p class="cs-hero-lead">Không phải từ một toà nhà, mà từ một câu hỏi: làm sao để người trẻ Việt học xong là làm được, và làm được ở bất cứ đâu trên thế giới? Đó là khởi đầu của <b>trường đại học đầu tiên do một doanh nghiệp Việt Nam (FPT) thành lập</b>.</p>
       <p class="cs-hero-note">Cuộn xuống để đọc hành trình ấy.</p>
       <a class="cs-scroll-cue" href="#origin">
         Cuộn để khám phá
@@ -433,8 +552,11 @@ img,svg{max-width:100%}
       <span class="cs-eyebrow cs-rev">Khởi nguồn</span>
       <h2 class="cs-h2 cs-rev measure" id="csOriginH">Khoảng cách giữa giảng đường và công việc thật.</h2>
       <p class="cs-p cs-rev measure">Có một thời, không ít sinh viên ra trường với tấm bằng trong tay nhưng vẫn bỡ ngỡ trước công việc đầu tiên: kiến thức thì có, nhưng kỹ năng thực chiến, ngoại ngữ và tư duy nghề nghiệp lại là một khoảng trống. Doanh nghiệp phải đào tạo lại từ đầu; người trẻ mất thêm thời gian để bắt nhịp.</p>
-      <p class="cs-p cs-rev measure">Trường Đại học FPT ra đời để trả lời chính bài toán đó — thu hẹp khoảng cách giữa những gì được học và những gì cuộc sống nghề nghiệp thật sự cần. Một ngôi trường sinh ra từ doanh nghiệp, hiểu doanh nghiệp, và đặt người học vào trung tâm.</p>
+      <p class="cs-p cs-rev measure">Ngày <b>08/9/2006</b>, theo Quyết định <b>208/2006/QĐ-TTg</b>, Trường Đại học FPT chính thức ra đời — <b>trường đại học đầu tiên do một doanh nghiệp Việt Nam (FPT) thành lập</b>. Một ngôi trường sinh ra từ doanh nghiệp, hiểu doanh nghiệp, và đặt người học vào trung tâm để thu hẹp khoảng cách giữa những gì được học và những gì nghề nghiệp thật sự cần.</p>
       <p class="cs-origin cs-pull cs-rev">“Học để làm được, chứ không chỉ để biết.”</p>
+      <figure class="cs-figure cs-rev" data-img-slot="assets/img/fpt-presence.jpg" data-alt="Bảng hiệu Trường Đại học FPT">
+        <figcaption class="cs-figure-cap">Một dấu ấn của Trường Đại học FPT trên hành trình hơn hai thập kỷ.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -445,7 +567,7 @@ img,svg{max-width:100%}
        đưa trí tuệ Việt ra toàn cầu, học qua thực hành, chuẩn quốc tế.
        ============================================================ -->
   <section class="cs-sec cs-vision" id="vision" aria-labelledby="csVisionH">
-    <div class="wrap">
+    <div class="wrap cs-vision-pin">
       <span class="cs-eyebrow cs-rev">Hoài bão</span>
       <h2 class="cs-manifesto cs-rev" id="csVisionH">
         Đưa <span class="cs-grad-text">trí tuệ Việt</span> ra với thế giới — bằng tri thức thật và bản lĩnh thật.
@@ -478,86 +600,149 @@ img,svg{max-width:100%}
   <section class="cs-sec cs-journey" id="journey" aria-labelledby="csJourneyH">
     <div class="wrap">
       <span class="cs-eyebrow cs-rev">Hành trình</span>
-      <h2 class="cs-h2 cs-rev measure" id="csJourneyH">Từng cột mốc, từng bước trưởng thành.</h2>
-      <p class="cs-p cs-rev measure">Mỗi năm tháng là một lớp người trẻ trưởng thành, một cánh cửa mới mở ra. Dưới đây là những cột mốc của hành trình — hãy điền năm và sự kiện đã được xác minh vào từng chỗ trống.</p>
+      <h2 class="cs-h2 cs-rev measure cs-shine" id="csJourneyH">Từng cột mốc, từng bước trưởng thành.</h2>
+      <p class="cs-p cs-rev measure">Mỗi năm tháng là một lớp người trẻ trưởng thành, một cánh cửa mới mở ra. Dưới đây là những cột mốc đã được ghi nhận trên hành trình của Trường Đại học FPT.</p>
       <ol class="cs-timeline">
+        <span class="cs-tl-progress" id="csTlProgress" aria-hidden="true"></span>
         <li class="cs-mile cs-rev-l" style="--d:0s">
-          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
-          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Cột mốc khởi đầu: ngôi trường chính thức được hình thành, đặt nền móng cho một triết lý đào tạo mới.</p>
+          <div class="cs-mile-year">1999</div>
+          <p class="cs-mile-body">FPT bắt đầu đào tạo công nghệ thông tin theo giáo trình <b>Aptech</b> — tiền thân của Tổ chức Giáo dục FPT, đặt nền móng cho một triết lý "học để làm được".</p>
+          <span class="cs-mile-tag">Khởi nguồn</span>
         </li>
-        <li class="cs-mile cs-rev-l" style="--d:.08s">
-          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
-          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Những lứa sinh viên đầu tiên, những ngành học đầu tiên, và niềm tin đầu tiên được gây dựng.</p>
+        <li class="cs-mile cs-rev-l" style="--d:.06s">
+          <div class="cs-mile-year">2006</div>
+          <p class="cs-mile-body"><b>Thành lập Trường Đại học FPT</b> (QĐ 208/2006/QĐ-TTg) — đại học đầu tiên do một doanh nghiệp Việt Nam thành lập.</p>
+          <span class="cs-mile-tag">Thành lập</span>
         </li>
-        <li class="cs-mile cs-rev-l" style="--d:.16s">
-          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
-          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Mở rộng quy mô và ngành đào tạo; trải nghiệm học tập gắn chặt hơn với doanh nghiệp.</p>
+        <li class="cs-mile cs-rev-l" style="--d:.12s">
+          <div class="cs-mile-year">2009</div>
+          <p class="cs-mile-body">Khai giảng <b>Campus Hà Nội</b> tại Khu Công nghệ cao Hoà Lạc — không gian học tập gắn liền môi trường công nghệ.</p>
+          <span class="cs-mile-tag">Cơ sở vật chất</span>
+        </li>
+        <li class="cs-mile cs-rev-l" style="--d:.18s">
+          <div class="cs-mile-year">2012</div>
+          <p class="cs-mile-body">Trở thành <b>đại học đầu tiên Việt Nam được QS Stars đánh giá</b> — dấu mốc khẳng định chất lượng theo chuẩn quốc tế.</p>
+          <span class="cs-mile-tag">Xếp hạng</span>
         </li>
         <li class="cs-mile cs-rev-l" style="--d:.24s">
-          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
-          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Vươn ra quốc tế: hợp tác, trao đổi và những dấu ấn vượt ra ngoài biên giới.</p>
+          <div class="cs-mile-year">2013</div>
+          <p class="cs-mile-body">Bắt đầu <b>tuyển sinh sinh viên quốc tế</b> — môi trường học tập mở, đa văn hoá.</p>
+          <span class="cs-mile-tag">Quốc tế hoá</span>
         </li>
-        <li class="cs-mile cs-rev-l" style="--d:.32s">
-          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
-          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Cột mốc gần đây nhất bạn muốn kể: hãy thay bằng thông tin đã xác minh.</p>
+        <li class="cs-mile cs-rev-l" style="--d:.30s">
+          <div class="cs-mile-year">2018</div>
+          <p class="cs-mile-body">Trở thành <b>thành viên AACSB</b> và mở rộng hệ thống campus trên cả nước.</p>
+          <span class="cs-mile-tag">Kiểm định</span>
+        </li>
+        <li class="cs-mile cs-rev-l" style="--d:.36s">
+          <div class="cs-mile-year">2019</div>
+          <p class="cs-mile-body">Chương trình Quản trị Kinh doanh đạt chuẩn <b>ACBSP</b>; khởi công <b>Campus AI Quy Nhơn</b>.</p>
+          <span class="cs-mile-tag">Kiểm định</span>
+        </li>
+        <li class="cs-mile cs-rev-l" style="--d:.42s">
+          <div class="cs-mile-year">2024</div>
+          <p class="cs-mile-body">Kiểm định chương trình CNTT theo chuẩn <b>AQAS</b> và kiểm định cấp cơ sở giáo dục (<b>CEA</b>, Chu kỳ 2).</p>
+          <span class="cs-mile-tag">Kiểm định</span>
+        </li>
+        <li class="cs-mile cs-rev-l" style="--d:.48s">
+          <div class="cs-mile-year">2025</div>
+          <p class="cs-mile-body"><b>THE Impact Rankings</b>: Top 80 thế giới về SDG 8 — Việc làm tốt &amp; Tăng trưởng kinh tế.</p>
+          <span class="cs-mile-tag">Xếp hạng</span>
         </li>
       </ol>
     </div>
   </section>
 
   <!-- ============================================================
-       5) THÀNH TỰU (số liệu) — bộ đếm đếm lên KHI vào tầm nhìn (CHỈ 1 LẦN),
-       và CHỈ khi data-count là SỐ thật. Vì là placeholder:
-       data-count="0" + hiển thị nhãn placeholder tĩnh, KHÔNG đếm.
-       Khi người dùng điền SỐ thật vào data-count + đặt text số -> tự count-up.
+       4b) SỨC SỐNG SINH VIÊN — khối ảnh thật (campus-life.jpg) + chữ.
        ============================================================ -->
-  <section class="cs-sec cs-stats" id="stats" aria-labelledby="csStatsH">
+  <section class="cs-sec cs-life" id="life" aria-labelledby="csLifeH">
     <div class="wrap">
-      <span class="cs-eyebrow cs-rev">Thành tựu</span>
-      <h2 class="cs-h2 cs-rev measure" id="csStatsH">Những con số kể phần còn lại của câu chuyện.</h2>
-      <p class="cs-p cs-rev measure">Các ô dưới đây đang để trống chờ số liệu đã được kiểm chứng. Khi bạn điền số thật, bộ đếm sẽ tự đếm lên một lần khi phần này lọt vào màn hình.</p>
-      <div class="cs-stat-grid" id="csStatGrid">
-        <div class="cs-stat cs-rev-s" style="--d:0s">
-          <b class="is-placeholder" data-count="0" data-suffix=""><span class="cs-placeholder">[SỐ SINH VIÊN]</span></b>
-          <span>Sinh viên & học viên</span>
-        </div>
-        <div class="cs-stat cs-rev-s" style="--d:.08s">
-          <b class="is-placeholder" data-count="0" data-suffix="%"><span class="cs-placeholder">[TỈ LỆ CÓ VIỆC LÀM]</span></b>
-          <span>Tỉ lệ có việc làm sau tốt nghiệp</span>
-        </div>
-        <div class="cs-stat cs-rev-s" style="--d:.16s">
-          <b class="is-placeholder" data-count="0" data-suffix=""><span class="cs-placeholder">[SỐ QUỐC GIA]</span></b>
-          <span>Quốc gia có cựu sinh viên</span>
-        </div>
-        <div class="cs-stat cs-rev-s" style="--d:.24s">
-          <b class="is-placeholder" data-count="0" data-suffix=""><span class="cs-placeholder">[SỐ ĐỐI TÁC DN]</span></b>
-          <span>Doanh nghiệp đối tác</span>
+      <div class="cs-life-grid">
+        <figure class="cs-figure cs-rev-l" data-img-slot="assets/img/campus-life.jpg" data-alt="Sinh viên Trường Đại học FPT trong một sự kiện sôi động">
+          <figcaption class="cs-figure-cap">Tinh thần trẻ trung, năng động — một phần làm nên trải nghiệm FPT.</figcaption>
+        </figure>
+        <div>
+          <span class="cs-eyebrow cs-rev">Sức sống sinh viên</span>
+          <h2 class="cs-h2 cs-rev measure" id="csLifeH">Không chỉ học — mà còn sống trọn tuổi trẻ.</h2>
+          <p class="cs-p cs-rev measure">Phía sau những con số là một cộng đồng <b>56.000+</b> sinh viên và học viên đang học tập, sáng tạo và trưởng thành mỗi ngày trên khắp <b>5 campus</b> toàn quốc. Câu lạc bộ, sự kiện, dự án thật — những điều ấy nuôi dưỡng cả tài năng lẫn bản lĩnh.</p>
+          <p class="cs-p cs-rev measure">Để rồi khi rời giảng đường, họ sẵn sàng bắt nhịp công việc — nhiều người trong số đó vươn ra làm việc tại các quốc gia phát triển như Mỹ, Anh, Đức, Nhật Bản, Canada, Australia, Singapore...</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       6) CHỨNG NHẬN & XẾP HẠNG — "bức tường uy tín": lưới LOGO/huy hiệu.
-       MỖI Ô LÀ IMAGE-SLOT cho LOGO CHÍNH THỨC do người dùng cung cấp.
-       Placeholder = ô viền mảnh ghi [TÊN KIỂM ĐỊNH / XẾP HẠNG].
-       TUYỆT ĐỐI KHÔNG tự vẽ logo / KHÔNG tạo logo giả.
+       5) THÀNH TỰU (số liệu) — bộ đếm đếm lên KHI vào tầm nhìn (CHỈ 1 LẦN).
+       Số THẬT, đã có nguồn (xem mục "Nguồn số liệu" ở footer).
+       data-count = số đích để đếm; data-pre = tiền tố (không đếm, vd "~");
+       data-suffix = hậu tố (vd "+", "%"). Số > 0 -> tự count-up.
+       ============================================================ -->
+  <section class="cs-sec cs-stats" id="stats" aria-labelledby="csStatsH">
+    <div class="wrap">
+      <span class="cs-eyebrow cs-rev">Thành tựu</span>
+      <h2 class="cs-h2 cs-rev measure cs-shine" id="csStatsH">Những con số kể phần còn lại của câu chuyện.</h2>
+      <p class="cs-p cs-rev measure">Hơn hai thập kỷ, hành trình ấy được kể lại bằng những con số biết nói — đếm lên ngay khi phần này lọt vào màn hình.</p>
+      <div class="cs-stat-grid" id="csStatGrid">
+        <div class="cs-stat cs-rev-s" style="--d:0s">
+          <b data-count="56000" data-suffix="+">56.000+</b>
+          <span>Sinh viên &amp; học viên</span>
+        </div>
+        <div class="cs-stat cs-rev-s" style="--d:.08s">
+          <b data-count="96" data-suffix="%">96%</b>
+          <span>Có việc làm sau tốt nghiệp</span>
+        </div>
+        <div class="cs-stat cs-rev-s" style="--d:.16s">
+          <b data-count="400" data-suffix="+">400+</b>
+          <span>Doanh nghiệp đối tác (tại 40+ quốc gia)</span>
+        </div>
+        <div class="cs-stat cs-rev-s" style="--d:.24s">
+          <b data-count="5" data-suffix="">5</b>
+          <span>Campus trên toàn quốc</span>
+        </div>
+      </div>
+      <p class="cs-trust-note cs-rev">Thông tin thêm: lương khởi điểm trung bình khoảng 8,3 triệu đồng/tháng; khoảng 19% cựu sinh viên làm việc ở nước ngoài. Đối tác mở rộng tới 1.000+ doanh nghiệp tại Khu Công nghệ cao TP.HCM và hợp tác với 200+ trường đại học tại 33 quốc gia. (Xem "Nguồn số liệu" ở chân trang.)</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6) CHỨNG NHẬN & XẾP HẠNG — "bức tường uy tín": THẺ uy tín có TÊN THẬT
+       + mô tả thật + ô logo (IMAGE-SLOT cho LOGO CHÍNH THỨC người dùng thả vào).
+       Ô logo mặc định chỉ là chữ viết tắt mờ — TUYỆT ĐỐI KHÔNG tự vẽ / tạo logo giả.
        ============================================================ -->
   <section class="cs-sec cs-trust" id="trust" aria-labelledby="csTrustH">
     <div class="wrap">
       <span class="cs-eyebrow cs-rev">Uy tín</span>
-      <h2 class="cs-h2 cs-rev measure" id="csTrustH">Được ghi nhận bởi những tổ chức uy tín.</h2>
-      <p class="cs-p cs-rev measure">Mỗi ô dưới đây là một chỗ để gắn LOGO CHÍNH THỨC của tổ chức kiểm định hoặc bảng xếp hạng. Hãy thay nhãn trong ngoặc bằng tên thật và đặt file logo chính thức vào đúng đường dẫn ảnh.</p>
-      <div class="cs-logo-grid cs-rev">
-        <!-- Thả file logo CHÍNH THỨC vào assets/img/logo-trust-1.png ... để swap. KHÔNG dùng logo giả. -->
-        <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-1.png" data-alt="[TÊN KIỂM ĐỊNH / XẾP HẠNG]"><span class="cs-logo-label">[TÊN KIỂM ĐỊNH / XẾP HẠNG]</span></div>
-        <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-2.png" data-alt="[TÊN KIỂM ĐỊNH / XẾP HẠNG]"><span class="cs-logo-label">[TÊN KIỂM ĐỊNH / XẾP HẠNG]</span></div>
-        <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-3.png" data-alt="[TÊN KIỂM ĐỊNH / XẾP HẠNG]"><span class="cs-logo-label">[TÊN KIỂM ĐỊNH / XẾP HẠNG]</span></div>
-        <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-4.png" data-alt="[TÊN KIỂM ĐỊNH / XẾP HẠNG]"><span class="cs-logo-label">[TÊN KIỂM ĐỊNH / XẾP HẠNG]</span></div>
-        <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-5.png" data-alt="[TÊN KIỂM ĐỊNH / XẾP HẠNG]"><span class="cs-logo-label">[TÊN KIỂM ĐỊNH / XẾP HẠNG]</span></div>
-        <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-6.png" data-alt="[TÊN KIỂM ĐỊNH / XẾP HẠNG]"><span class="cs-logo-label">[TÊN KIỂM ĐỊNH / XẾP HẠNG]</span></div>
+      <h2 class="cs-h2 cs-rev measure cs-shine" id="csTrustH">Được ghi nhận bởi những tổ chức uy tín.</h2>
+      <p class="cs-p cs-rev measure">Những dấu mốc kiểm định và xếp hạng dưới đây là tên THẬT. Mỗi thẻ có một ô để gắn LOGO CHÍNH THỨC của tổ chức (thả file vào đúng đường dẫn ảnh) — trang này không tự tạo hay phỏng dựng bất kỳ logo nào.</p>
+      <div class="cs-logo-grid">
+        <!-- Thả LOGO CHÍNH THỨC vào assets/img/logo-trust-1.png ... để hiển thị thay chữ viết tắt. -->
+        <div class="cs-cred cs-rev-s" style="--d:0s">
+          <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-1.png" data-alt="Logo QS Stars"><span class="cs-logo-label">QS</span></div>
+          <div class="cs-cred-body"><h3>QS Stars</h3><p>Đại học ĐẦU TIÊN Việt Nam được QS Stars đánh giá — 5 sao ở 4 lĩnh vực: Giảng dạy, Việc làm, Trách nhiệm xã hội, Cơ sở vật chất.</p></div>
+        </div>
+        <div class="cs-cred cs-rev-s" style="--d:.06s">
+          <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-2.png" data-alt="Logo AACSB"><span class="cs-logo-label">AACSB</span></div>
+          <div class="cs-cred-body"><h3>AACSB</h3><p>Trở thành thành viên AACSB (2018) — mạng lưới kiểm định giáo dục kinh doanh uy tín toàn cầu.</p></div>
+        </div>
+        <div class="cs-cred cs-rev-s" style="--d:.12s">
+          <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-3.png" data-alt="Logo ACBSP"><span class="cs-logo-label">ACBSP</span></div>
+          <div class="cs-cred-body"><h3>ACBSP</h3><p>Chương trình Quản trị Kinh doanh đạt chuẩn ACBSP (2019).</p></div>
+        </div>
+        <div class="cs-cred cs-rev-s" style="--d:.18s">
+          <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-4.png" data-alt="Logo AQAS"><span class="cs-logo-label">AQAS</span></div>
+          <div class="cs-cred-body"><h3>AQAS</h3><p>Kiểm định chương trình Công nghệ thông tin theo chuẩn AQAS (2024).</p></div>
+        </div>
+        <div class="cs-cred cs-rev-s" style="--d:.24s">
+          <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-5.png" data-alt="Logo CEA - Trung tâm Kiểm định CLGD Sài Gòn"><span class="cs-logo-label">CEA</span></div>
+          <div class="cs-cred-body"><h3>CEA – Sài Gòn</h3><p>Kiểm định cấp cơ sở giáo dục (Chu kỳ 2, 2024).</p></div>
+        </div>
+        <div class="cs-cred cs-rev-s" style="--d:.30s">
+          <div class="cs-logo-slot" data-img-slot="assets/img/logo-trust-6.png" data-alt="Logo Times Higher Education Impact Rankings"><span class="cs-logo-label">THE</span></div>
+          <div class="cs-cred-body"><h3>THE Impact Rankings 2025</h3><p>Top 80 thế giới về SDG 8 — Việc làm tốt &amp; Tăng trưởng kinh tế.</p></div>
+        </div>
       </div>
-      <p class="cs-trust-note">Lưu ý: logo và huy hiệu kiểm định/xếp hạng là tài sản của tổ chức sở hữu. Chỉ sử dụng hình ảnh CHÍNH THỨC khi được phép; trang này không tự tạo hay phỏng dựng bất kỳ logo nào.</p>
+      <p class="cs-trust-note">Lưu ý: logo và huy hiệu kiểm định/xếp hạng là tài sản của tổ chức sở hữu — chỉ sử dụng hình ảnh CHÍNH THỨC khi được phép. Trang này nêu QS Stars (không phải QS World University Rankings) và không tự tạo hay phỏng dựng bất kỳ logo nào.</p>
     </div>
   </section>
 
@@ -597,6 +782,10 @@ img,svg{max-width:100%}
       </div>
       <p>Trang "Câu chuyện FPT" là phần kể chuyện thuộc dự án sinh viên FPT Ôn Tập — viết để truyền cảm hứng, không phải trang chính thức của Trường Đại học FPT.</p>
       <p style="margin-top:10px"><span class="cs-foot-badge">Dự án sinh viên · phi thương mại</span></p>
+      <div class="cs-foot-credit">
+        <img src="assets/img/fpt-edu-logo.png" alt="Logo Trường Đại học FPT" loading="lazy" decoding="async">
+        <span>Lấy cảm hứng từ Trường Đại học FPT.</span>
+      </div>
     </div>
     <div>
       <h4>Liên kết</h4>
@@ -604,19 +793,21 @@ img,svg{max-width:100%}
         <li><a href="index.html">Cổng ôn tập</a></li>
         <li><a href="index.html#pfGrid">Danh sách môn</a></li>
         <li><a href="#hero">Đầu trang</a></li>
+        <li><a href="https://daihoc.fpt.edu.vn" rel="noopener">Trang chính thức ĐH FPT</a></li>
         <li><a href="https://fpt.com/en/terms-of-use" rel="noopener">Điều khoản sử dụng FPT</a></li>
       </ul>
     </div>
     <div>
-      <h4>Về trang</h4>
-      <p>Trang phụ kể chuyện của FPT Ôn Tập.<br>Vanilla HTML/CSS/JS · GitHub Pages · 2026.</p>
+      <h4>Nguồn số liệu</h4>
+      <p class="cs-src">Tổng hợp từ daihoc.fpt.edu.vn, fpt.com, chinhphu.vn, Times Higher Education và QS (2024–2026). Cập nhật: 06/2026.</p>
+      <p class="cs-src" style="margin-top:8px">Vanilla HTML/CSS/JS · GitHub Pages.</p>
     </div>
   </div>
   <div class="wrap cs-legal">
     Đây là dự án của sinh viên (phi thương mại, phục vụ học tập) — <strong>không phải trang chính thức của Trường Đại học FPT</strong>.
     FPT, FPT University, FPT Education là thương hiệu của FPT Corporation.
     Sản phẩm KHÔNG được FPT chính thức bảo trợ (not officially endorsed). © FPT Corporation cho các thương hiệu FPT.
-    Mọi số liệu, năm, giải thưởng, thứ hạng và kiểm định cần được điền bằng thông tin đã xác minh trước khi công bố.
+    Mọi số liệu, năm, giải thưởng, thứ hạng và kiểm định được tổng hợp từ các nguồn công khai (xem "Nguồn số liệu") và có thể thay đổi theo thời gian.
     Trước khi công bố rộng rãi, nên xin phép bằng văn bản từ bộ phận Truyền thông/Thương hiệu FPT University.
     Tham chiếu: <a href="https://fpt.com/en/terms-of-use" rel="noopener">fpt.com/en/terms-of-use</a>.
   </div>
@@ -681,7 +872,8 @@ img,svg{max-width:100%}
 
   /* ===== (C) IMAGE-SLOT fallback-first: nạp <img>; chỉ swap khi onload OK (an toàn file://) =====
      - .cs-hero-media: thêm <img>, gắn .has-img khi load OK (giữ gradient on-brand làm fallback)
-     - .cs-logo-slot : thêm <img>, gắn .has-img khi load OK (giữ ô [TÊN] làm fallback) */
+     - .cs-logo-slot : thêm <img>, gắn .has-img khi load OK (giữ chữ viết tắt làm fallback)
+     - .cs-figure    : thêm <img>, gắn .has-img khi load OK (giữ nền + clip-path wipe) */
   (function(){
     function mount(host){
       var src=host.getAttribute('data-img-slot'); if(!src)return;
@@ -773,23 +965,31 @@ img,svg{max-width:100%}
   })();
 
   /* ===== (G) COUNT-UP số liệu — CHỈ 1 LẦN, CHỈ khi data-count là SỐ thật ( >0 ).
-     Placeholder (data-count="0" + .is-placeholder) -> KHÔNG đếm, giữ text tĩnh. ===== */
+     Định dạng kiểu Việt Nam (dấu "." ngăn nghìn). Đồng thời bật thanh tiến độ (.is-on). ===== */
   (function(){
     var boxes=Array.prototype.slice.call(document.querySelectorAll('#csStatGrid b[data-count]'));
     if(!boxes.length)return;
-    /* chỉ count-up cho ô có SỐ thật > 0 (người dùng đã điền data-count + bỏ class .is-placeholder hoặc đặt số) */
     function isRealNumber(b){
       var n=parseInt(b.getAttribute('data-count'),10);
       return !isNaN(n) && n>0;
     }
+    /* nhóm nghìn bằng dấu "." (vi-VN): 56000 -> "56.000" */
+    function fmt(n){
+      var s=String(Math.round(n)), out='', c=0, i;
+      for(i=s.length-1;i>=0;i--){ out=s.charAt(i)+out; if(++c%3===0 && i>0) out='.'+out; }
+      return out;
+    }
+    function render(b,val){
+      b.textContent=(b.getAttribute('data-pre')||'')+fmt(val)+(b.getAttribute('data-suffix')||'');
+    }
+    function onParent(b){ var p=b.parentNode; if(p&&p.classList) p.classList.add('is-on'); }
     function setFinal(b){
-      if(!isRealNumber(b))return; /* placeholder: giữ nguyên text trong [ ] */
-      b.textContent=(parseInt(b.getAttribute('data-count'),10)||0)+(b.getAttribute('data-suffix')||'');
+      if(!isRealNumber(b))return;
+      render(b,parseInt(b.getAttribute('data-count'),10)||0); onParent(b);
     }
     var counters=boxes.filter(isRealNumber);
-    if(!counters.length)return;      /* toàn placeholder -> không làm gì, giữ tĩnh */
+    if(!counters.length)return;
     if(reduce || !hasIO){ counters.forEach(setFinal); return; }
-    /* duration đọc từ token --count-dur (đã set sớm theo reduced-motion); fallback 1100ms */
     function countDur(){
       var v=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--count-dur'),10);
       return (!isNaN(v)&&v>0)?v:1100;
@@ -797,18 +997,60 @@ img,svg{max-width:100%}
     var io=new IntersectionObserver(function(entries,obs){
       entries.forEach(function(en){
         if(!en.isIntersecting||en.intersectionRatio<0.6)return; /* chắc chắn đã cuộn tới mới đếm */
-        var b=en.target, to=parseInt(b.getAttribute('data-count'),10)||0, sfx=b.getAttribute('data-suffix')||'';
+        var b=en.target, to=parseInt(b.getAttribute('data-count'),10)||0;
+        onParent(b);
         var dur=countDur(), t0=performance.now();
         (function step(now){
           var p=Math.min((now-t0)/dur,1), e=1-Math.pow(1-p,3); /* easeOutCubic */
-          b.textContent=Math.round(to*e)+sfx;
-          if(p<1) requestAnimationFrame(step); else b.textContent=to+sfx;
+          render(b,to*e);
+          if(p<1) requestAnimationFrame(step); else render(b,to);
         })(performance.now());
         obs.unobserve(b); /* CHỈ 1 LẦN */
       });
     },{threshold:[0.6]});
     counters.forEach(function(b){ io.observe(b); });
     setTimeout(function(){ counters.forEach(setFinal); },3500); /* fail-safe */
+  })();
+
+  /* ===== (H) ĐƯỜNG TIMELINE VẼ DẦN theo cuộn (rAF, passive) — FALLBACK cho trình duyệt
+     KHÔNG hỗ trợ animation-timeline. Nếu hỗ trợ scroll-driven CSS hoặc reduced-motion
+     -> bỏ qua (CSS lo). Đặt --line-grow 0..1 theo tiến độ cuộn qua khối timeline. ===== */
+  (function(){
+    var bar=$('csTlProgress'); if(!bar)return;
+    var ol=bar.parentNode; if(!ol)return;
+    var supportsST=false;
+    try{ supportsST=(CSS && CSS.supports && (CSS.supports('animation-timeline','view()')||CSS.supports('animation-timeline','scroll()'))); }catch(_){}
+    if(reduce){ bar.style.setProperty('--line-grow','1'); return; } /* hiện đầy ngay */
+    if(supportsST) return; /* CSS scroll-timeline đảm nhiệm */
+    var raf=0;
+    function read(){
+      raf=0;
+      var r=ol.getBoundingClientRect();
+      var vh=window.innerHeight||1;
+      /* bắt đầu vẽ khi đỉnh khối tới ~78% viewport, đầy khi đáy tới ~22% viewport */
+      var start=vh*0.78, end=vh*0.22;
+      var p=(start-r.top)/((r.height)+(start-end));
+      p=Math.min(Math.max(p,0),1);
+      bar.style.setProperty('--line-grow',p.toFixed(4));
+    }
+    function onScroll(){ if(!raf) raf=requestAnimationFrame(read); }
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
+    read();
+  })();
+
+  /* ===== (I) FIGURE clip-path WIPE — dùng chung IO reveal: thêm class in-view ===== */
+  (function(){
+    var figs=Array.prototype.slice.call(document.querySelectorAll('.cs-figure'));
+    if(!figs.length)return;
+    if(reduce || !hasIO){ figs.forEach(function(f){ f.classList.add('in-view'); }); return; }
+    var io=new IntersectionObserver(function(entries,obs){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in-view'); obs.unobserve(en.target); }
+      });
+    },{threshold:0.16,rootMargin:'0px 0px -6% 0px'});
+    figs.forEach(function(f){ io.observe(f); });
+    setTimeout(function(){ figs.forEach(function(f){ f.classList.add('in-view'); }); },3500); /* fail-safe */
   })();
 
 })();
