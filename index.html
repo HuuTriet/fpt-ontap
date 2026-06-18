@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <script>document.documentElement.className='js';</script>
 <title>FPT Ôn Tập — Cổng ôn tập đa môn</title>
-<meta name="description" content="Cổng ôn tập đa môn FPT — chọn môn để vào quiz/flashcard ngay trong một web. MLN111 đã có, các môn khác sắp ra mắt.">
+<meta name="description" content="Cổng ôn tập đa môn FPT — chọn môn để vào quiz/flashcard ngay trong một web. Nền tảng ôn nhiều môn, liên tục cập nhật.">
 <meta name="theme-color" content="#0651A0">
 <meta property="og:title" content="FPT Ôn Tập — Cổng ôn tập đa môn">
 <meta property="og:description" content="Cổng ôn tập đa môn FPT — tất cả trong một web.">
@@ -67,7 +67,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 [hidden]{display:none!important}
-html{font-size:16px}
+html{font-size:16px;scroll-behavior:smooth}
 body{
   font-family:var(--font);
   background:var(--bg); color:var(--ink); line-height:1.55; min-height:100vh;
@@ -298,6 +298,15 @@ select.ctl{padding-right:6px;max-width:48vw}
   .lp-illus,.lp-aurora{transform:none !important}
   .pf-card[data-status="available"].lp-tilting{transform:none !important}
   .pf-card[data-status="available"]::before{opacity:0 !important}
+  /* ---- tắt hết hiệu ứng cuộn/tương tác MỚI ---- */
+  .lp-progress{display:none !important}
+  .lp-nav{transition:none !important}
+  .lp-prx{transform:none !important}
+  .lp-totop{transition:none !important}
+  .lp-ripple{display:none !important}
+  .lp-magnetic{transform:none !important;transition:none !important}
+  .reveal,.reveal-l,.reveal-r,.reveal-s{opacity:1 !important;transform:none !important}
+  .pf-grid.lp-refiltering .pf-card{opacity:1 !important;transform:none !important}
 }
 
 /* ===================== LANDING / PORTAL (FPT brand, soft shadow) ===================== */
@@ -350,8 +359,8 @@ select.ctl{padding-right:6px;max-width:48vw}
 @keyframes meshA{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-7%,9%,0) scale(1.12)}}
 @keyframes meshB{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(9%,-6%,0) scale(1.1)}}
 @keyframes meshC{from{transform:translate3d(0,0,0) scale(1.05)}to{transform:translate3d(-6%,-8%,0) scale(.92)}}
-/* parallax: dịch nhẹ blob/illustration theo con trỏ (JS set --plx/--ply) */
-.lp-mesh{transform:translate3d(calc(var(--plx,0)*14px),calc(var(--ply,0)*14px),0);transition:transform .4s var(--ease-soft)}
+/* parallax: dịch nhẹ blob/illustration theo con trỏ (--plx/--ply) + theo cuộn (--sy) */
+.lp-mesh{transform:translate3d(calc(var(--plx,0)*14px),calc(var(--ply,0)*14px + var(--sy,0px)*.18),0);transition:transform .4s var(--ease-soft)}
 .lp-aurora{animation:auroraDrift 18s ease-in-out infinite alternate}
 @keyframes auroraDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-12px,10px,0)}}
 .lp-hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:var(--sp-6);
@@ -368,10 +377,10 @@ select.ctl{padding-right:6px;max-width:48vw}
   padding:0 22px;border-radius:var(--r-pill);font-weight:700;font-size:var(--fs-body);
   text-decoration:none;border:2px solid transparent;cursor:pointer;
   transition:transform var(--dur) var(--ease-spring)}
-.lp-btn-primary{background:var(--fpt-blue);color:#fff;box-shadow:var(--shadow-brand)}
-.lp-btn-primary{position:relative}
-.lp-btn-primary::after{content:"";position:absolute;inset:-2px;border-radius:inherit;
-  border:2px solid var(--accent-cta);opacity:0;transition:opacity var(--dur) var(--ease-soft);pointer-events:none}
+.lp-btn-primary{background:var(--fpt-blue);color:#fff;position:relative;box-shadow:var(--shadow-brand)}
+/* glow viền cam đặt INSET (không bị overflow:hidden cắt), transition opacity (không transition box-shadow) */
+.lp-btn-primary::after{content:"";position:absolute;inset:1px;border-radius:inherit;
+  border:2px solid var(--accent-cta);opacity:0;transition:opacity var(--dur) var(--ease-soft);pointer-events:none;z-index:1}
 @media (hover:hover) and (pointer:fine){
   .lp-btn-primary:hover{transform:translateY(-2px)}
   .lp-btn-primary:hover::after{opacity:.9}
@@ -384,7 +393,7 @@ select.ctl{padding-right:6px;max-width:48vw}
   border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 16px;font-size:var(--fs-sm);font-weight:600;color:var(--ink-2)}
 .lp-stat b{color:var(--fpt-blue);font-size:var(--fs-body);font-weight:800;font-variant-numeric:tabular-nums}
 .lp-illus{width:100%;max-width:480px;justify-self:center;
-  transform:translate3d(calc(var(--plx,0)*-10px),calc(var(--ply,0)*-10px),0);transition:transform .4s var(--ease-soft)}
+  transform:translate3d(calc(var(--plx,0)*-10px),calc(var(--ply,0)*-10px + var(--sy,0px)*-.10),0);transition:transform .4s var(--ease-soft)}
 .lp-illus svg{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 40px rgba(6,81,160,.16))}
 
 /* ---- SEARCH + CHIPS ---- */
@@ -439,23 +448,7 @@ select.ctl{padding-right:6px;max-width:48vw}
   .pf-card[data-status="available"]>.pf-foot{position:relative;z-index:1}
 }
 
-/* ---- BENTO: thẻ NỔI BẬT (môn available đầu tiên / featured) ---- */
-.pf-card--feat{}
-.pf-card--feat .pf-emoji{width:60px;height:60px;font-size:34px}
-.pf-card--feat .pf-emoji svg{width:34px;height:34px}
-.pf-card--feat .pf-name{font-size:var(--fs-h1)}
-.pf-card--feat .pf-desc{font-size:var(--fs-body)}
-@media(min-width:1024px){
-  /* trên desktop: thẻ nổi bật chiếm 2 cột + nội dung 2 hàng phong phú */
-  .pf-card--feat{grid-column:span 2;
-    background:
-      radial-gradient(120% 140% at 100% 0,var(--card-accent-tint,rgba(6,81,160,.12)),transparent 55%),
-      var(--surface)}
-  .pf-card--feat .pf-emoji{width:72px;height:72px;font-size:40px}
-  .pf-card--feat .pf-emoji svg{width:40px;height:40px}
-  .pf-card--feat .pf-name{font-size:var(--fs-h1);padding-right:104px}
-  .pf-card--feat .pf-desc{max-width:52ch}
-}
+/* (Đã bỏ logo featured/bento: tất cả thẻ môn đồng đều, không thẻ nào to/nổi hơn) */
 .pf-card:focus-visible{outline:none;box-shadow:0 0 0 3px var(--fpt-blue),var(--shadow-md)}
 .pf-card.soon{cursor:default}
 .pf-card.soon::before{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(247,250,253,.35);pointer-events:none}
@@ -482,11 +475,11 @@ select.ctl{padding-right:6px;max-width:48vw}
   padding:var(--sp-7) var(--sp-5);text-align:center;font-weight:600;color:var(--ink-2);background:var(--surface)}
 .pf-grid.fresh .pf-card.reveal{transition-delay:var(--d)}
 
-/* stagger nhẹ cho lưới tính năng */
-.lp-feat-grid .reveal:nth-child(1){--d:0s}
-.lp-feat-grid .reveal:nth-child(2){--d:.06s}
-.lp-feat-grid .reveal:nth-child(3){--d:.12s}
-.lp-feat-grid .reveal:nth-child(4){--d:.18s}
+/* stagger nhẹ cho lưới tính năng (mọi biến thể reveal) */
+.lp-feat-grid>*:nth-child(1){--d:0s}
+.lp-feat-grid>*:nth-child(2){--d:.08s}
+.lp-feat-grid>*:nth-child(3){--d:.16s}
+.lp-feat-grid>*:nth-child(4){--d:.24s}
 
 /* ---- FEATURES ---- */
 .lp-features{position:relative;background:var(--surface-2);border-block:1px solid var(--line)}
@@ -549,6 +542,85 @@ select.ctl{padding-right:6px;max-width:48vw}
   .lp-tag{display:none}
   .lp-stat{font-size:var(--fs-xs)}
 }
+
+/* ===================== HIỆU ỨNG CUỘN + TƯƠNG TÁC (mới — chỉ landing) ===================== */
+/* 1) Scroll-progress bar (gradient FPT, rộng theo % cuộn) */
+.lp-progress{position:fixed;left:0;top:0;height:3px;width:100%;z-index:300;pointer-events:none;
+  transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,#0651A0,#008DDE,#53B848,#F37124,#E11B22);
+  box-shadow:0 1px 4px rgba(6,81,160,.25)}
+
+/* 2) Parallax nhiều lớp theo cuộn (JS set --py; biên độ qua --pspeed) */
+.lp-prx{will-change:transform;transform:translate3d(0,calc(var(--py,0px)*var(--pspeed,0)),0)}
+
+/* 3) Scroll-reveal đa hướng (chỉ ẩn khi có JS, hiện khi .in-view) */
+.js .reveal-l{opacity:0;transform:translateX(-36px);
+  transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out);transition-delay:var(--d,0s)}
+.js .reveal-r{opacity:0;transform:translateX(36px);
+  transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out);transition-delay:var(--d,0s)}
+.js .reveal-s{opacity:0;transform:scale(.9);
+  transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out);transition-delay:var(--d,0s)}
+.reveal-l.in-view,.reveal-r.in-view,.reveal-s.in-view{opacity:1;transform:none}
+/* section header trượt nhẹ từ trên (biến thể qua class .reveal-down) */
+.js .reveal.reveal-down{transform:translateY(-22px) scale(1)}
+
+/* 4) Nav đổi trạng thái khi cuốn (thu gọn + bóng mượt) */
+.lp-nav{transition:box-shadow var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
+.lp-nav-in{transition:min-height var(--dur) var(--ease-soft),padding-block var(--dur) var(--ease-soft)}
+.lp-nav.lp-scrolled{box-shadow:0 6px 18px rgba(16,36,58,.12)}
+@supports ((-webkit-backdrop-filter:blur(8px)) or (backdrop-filter:blur(8px))){
+  .lp-nav.lp-scrolled{background:rgba(255,255,255,.92)}
+}
+.lp-nav.lp-scrolled .lp-nav-in{min-height:50px;padding-block:var(--sp-1)}
+.lp-nav.lp-scrolled .lp-logo-svg{height:30px;transition:height var(--dur) var(--ease-soft)}
+.lp-logo-svg{transition:height var(--dur) var(--ease-soft)}
+
+/* 5) Nút lên đầu trang */
+.lp-totop{position:fixed;right:clamp(14px,4vw,28px);
+  bottom:max(clamp(14px,4vw,28px),env(safe-area-inset-bottom));z-index:120;
+  width:48px;height:48px;border-radius:var(--r-pill);border:none;
+  background:var(--fpt-blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 22px rgba(6,81,160,.30);
+  opacity:0;visibility:hidden;transform:translateY(14px) scale(.9);
+  transition:opacity var(--dur) var(--ease-soft),transform var(--dur) var(--ease-soft),visibility var(--dur)}
+.lp-totop.show{opacity:1;visibility:visible;transform:none}
+.lp-totop svg{width:22px;height:22px}
+.lp-totop:active{transform:scale(.92)}
+@media (hover:hover) and (pointer:fine){.lp-totop:hover{background:var(--red-deep);transform:translateY(-3px)}}
+.lp-totop:focus-visible{outline:3px solid var(--fpt-cerulean);outline-offset:3px}
+
+/* 6) Magnetic CTA + ripple */
+.lp-magnetic{transition:transform var(--dur) var(--ease-spring)}
+.lp-magnetic.lp-pulling{transition:transform var(--dur-fast) var(--ease-soft)}
+.lp-ripple-host{position:relative;overflow:hidden}
+.lp-ripple{position:absolute;border-radius:50%;pointer-events:none;
+  background:rgba(255,255,255,.55);transform:scale(0);opacity:.6;
+  animation:lpRipple .6s var(--ease-out) forwards;z-index:2}
+.pf-chip .lp-ripple,.lp-btn-outline .lp-ripple{background:rgba(6,81,160,.22)}
+@keyframes lpRipple{to{transform:scale(2.4);opacity:0}}
+
+/* 7) Tương tác mượt khi lọc (fade/scale lại lưới sau renderPortal) */
+.pf-grid.lp-refiltering .pf-card{animation:lpCardIn var(--dur) var(--ease-out) both}
+@keyframes lpCardIn{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
+
+/* 8) Micro-interaction: gạch chân động cho nav link + footer link */
+.lp-nav-r a{position:relative}
+.lp-nav-r a::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:2px;
+  background:var(--fpt-blue);border-radius:2px;transform:scaleX(0);transform-origin:0 50%;
+  transition:transform var(--dur) var(--ease-soft)}
+@media (hover:hover) and (pointer:fine){.lp-nav-r a:hover::after{transform:scaleX(1)}}
+.lp-footer a{position:relative}
+.lp-footer a::after{content:"";position:absolute;left:0;bottom:8px;height:1.5px;width:100%;
+  background:currentColor;transform:scaleX(0);transform-origin:0 50%;opacity:.7;
+  transition:transform var(--dur) var(--ease-soft)}
+@media (hover:hover) and (pointer:fine){
+  .lp-footer a:hover::after{transform:scaleX(1)}
+  .lp-footer a:hover{text-decoration:none}
+  .lp-feat:hover .lp-feat-ic{transform:translateY(-2px) scale(1.06)}
+}
+.lp-feat-ic{transition:transform var(--dur) var(--ease-soft)}
+.lp-feat{transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft)}
+@media (hover:hover) and (pointer:fine){.lp-feat:hover{transform:translateY(-4px)}}
 </style>
 </head>
 <body>
@@ -575,6 +647,10 @@ select.ctl{padding-right:6px;max-width:48vw}
 <a href="#pfGrid" class="skip">Bỏ qua tới danh sách môn</a>
 
 <div id="portalView">
+  <div class="lp-progress" id="lpProgress" aria-hidden="true"></div>
+  <button class="lp-totop" id="lpToTop" type="button" aria-label="Lên đầu trang">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
   <header class="lp-nav" aria-label="Thanh điều hướng">
     <div class="lp-wrap lp-nav-in">
       <a class="lp-brand" href="./" aria-label="FPT Ôn Tập — trang chủ">
@@ -603,20 +679,20 @@ select.ctl{padding-right:6px;max-width:48vw}
     <section class="lp-hero" aria-labelledby="lpHeroH">
       <div class="lp-mesh" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
       <div class="lp-wrap lp-hero-in">
-        <div class="reveal">
+        <div class="reveal-l">
           <h1 id="lpHeroH"><span class="lp-grad-text">Ôn tập mọi môn FPT</span><br>gọn trong một web.</h1>
           <p class="lp-lead">Flashcard lật thẻ và trắc nghiệm chấm điểm, tự động lưu tiến độ ngay trên trình duyệt — không cần đăng nhập, không nhảy trang.</p>
           <div class="lp-cta-row">
-            <a href="#pfGrid" class="lp-btn lp-btn-primary" id="lpStart">Bắt đầu ôn tập</a>
-            <a href="#pfGrid" class="lp-btn lp-btn-outline">Xem các môn</a>
+            <a href="#pfGrid" class="lp-btn lp-btn-primary lp-magnetic lp-ripple-host" id="lpStart">Bắt đầu ôn tập</a>
+            <a href="#pfGrid" class="lp-btn lp-btn-outline lp-magnetic lp-ripple-host">Xem các môn</a>
           </div>
           <div class="lp-stats" role="list">
             <span class="lp-stat" role="listitem"><b id="pfTotal">0</b> môn</span>
             <span class="lp-stat" role="listitem"><b id="pfHeroAvail">0</b> môn đã có</span>
-            <span class="lp-stat" role="listitem"><b id="pfHeroQ">585</b> câu MLN111</span>
+            <span class="lp-stat" role="listitem">còn lại đang cập nhật</span>
           </div>
         </div>
-        <div class="lp-illus reveal">
+        <div class="lp-illus reveal-r">
           <svg class="lp-aurora" viewBox="0 0 480 360" role="img" aria-label="Minh hoạ học tập và công nghệ FPT" xmlns="http://www.w3.org/2000/svg">
             <title>Minh hoạ học tập và công nghệ FPT</title>
             <defs>
@@ -653,7 +729,7 @@ select.ctl{padding-right:6px;max-width:48vw}
 
     <section class="lp-section" aria-labelledby="lpGridH">
       <div class="lp-wrap">
-        <div class="lp-sec-head reveal">
+        <div class="lp-sec-head reveal reveal-down">
           <h2 id="lpGridH">Chọn môn để bắt đầu</h2>
           <p>Bấm vào môn để vào flashcard / trắc nghiệm ngay tại đây.</p>
         </div>
@@ -663,9 +739,9 @@ select.ctl{padding-right:6px;max-width:48vw}
             <input id="pfSearch" type="search" autocomplete="off" placeholder="Tìm môn… (mã hoặc tên)" aria-label="Tìm môn theo mã hoặc tên">
           </div>
           <div class="pf-chips" role="group" aria-label="Lọc theo trạng thái">
-            <button class="pf-chip on" data-filter="all" aria-pressed="true">Tất cả</button>
-            <button class="pf-chip" data-filter="available" aria-pressed="false">Đã có</button>
-            <button class="pf-chip" data-filter="coming-soon" aria-pressed="false">Sắp có</button>
+            <button class="pf-chip lp-ripple-host on" data-filter="all" aria-pressed="true">Tất cả</button>
+            <button class="pf-chip lp-ripple-host" data-filter="available" aria-pressed="false">Đã có</button>
+            <button class="pf-chip lp-ripple-host" data-filter="coming-soon" aria-pressed="false">Sắp có</button>
           </div>
         </div>
         <p class="pf-count" id="pfCount" aria-live="polite"></p>
@@ -675,27 +751,27 @@ select.ctl{padding-right:6px;max-width:48vw}
 
     <section class="lp-features lp-section" aria-labelledby="lpFeatH">
       <div class="lp-wrap">
-        <div class="lp-sec-head reveal">
+        <div class="lp-sec-head reveal reveal-down">
           <h2 id="lpFeatH">Cách dùng</h2>
           <p>Bốn tính năng cốt lõi giúp bạn ôn nhanh và nhớ lâu.</p>
         </div>
         <div class="lp-feat-grid">
-          <div class="lp-feat reveal">
+          <div class="lp-feat reveal-s">
             <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M12 5v14"/></svg></span>
             <h3>Flashcard lật thẻ</h3>
             <p>Vuốt trái/phải để đánh dấu đã thuộc hoặc cần ôn lại.</p>
           </div>
-          <div class="lp-feat reveal">
+          <div class="lp-feat reveal-s">
             <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
             <h3>Trắc nghiệm chấm điểm</h3>
             <p>Làm quiz, xem kết quả tức thì và ôn lại các câu sai.</p>
           </div>
-          <div class="lp-feat reveal">
+          <div class="lp-feat reveal-s">
             <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 4v5h-5"/></svg></span>
             <h3>Lưu tiến độ tự động</h3>
             <p>Tiến độ lưu ngay trên máy bạn, mở lại là học tiếp.</p>
           </div>
-          <div class="lp-feat reveal">
+          <div class="lp-feat reveal-s">
             <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
             <h3>Tìm theo số câu / từ khoá</h3>
             <p>Nhập số câu hoặc từ khoá để nhảy tới đúng nội dung.</p>
@@ -1364,19 +1440,12 @@ const ICON_KEYS=new Set(['law','net','stats','project','db']);
 function pfHexToRgba(hex,a){const{r,g,b}=pfHexToRgb(hex);return `rgba(${r},${g},${b},${a})`;}
 
 let pfFilter='all', pfQuery='', pfFirst=true;
-/* Thẻ NỔI BẬT (bento): ưu tiên field optional featured:true; nếu không có thì
-   coi MÔN AVAILABLE ĐẦU TIÊN là featured. Tính 1 lần từ SUBJECTS gốc. */
-const pfFeatCode=(function(){
-  const f=SUBJECTS.find(s=>s.status==='available'&&s.featured===true);
-  if(f)return f.code;
-  const a=SUBJECTS.find(s=>s.status==='available');
-  return a?a.code:null;
-})();
+/* Nền tảng ôn NHIỀU môn: tất cả thẻ môn đồng đều, không làm nổi bật/“to” môn nào. */
 function pfCard(s,i){
   const avail=s.status==='available';
   const accent=/^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(s.accent||'')?s.accent:'#0651A0';
   const el=document.createElement(avail?'a':'div');
-  el.className='pf-card'+(avail?'':' soon')+(avail&&s.code===pfFeatCode?' pf-card--feat':'')+' reveal';
+  el.className='pf-card'+(avail?'':' soon')+' reveal';
   el.dataset.code=s.code; el.dataset.status=s.status;
   el.style.setProperty('--d',Math.min(i*0.05,0.3)+'s');
   el.style.setProperty('--card-accent',accent);
@@ -1467,7 +1536,7 @@ try{lpReduceMM.addEventListener('change',e=>{lpReduce=e.matches;});}catch(_){}
 
 /* scroll-reveal: IntersectionObserver + fail-safe + reduced-motion gate */
 let lpObserver=null;
-function lpRevealAll(){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in-view'));}
+function lpRevealAll(){document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-s').forEach(el=>el.classList.add('in-view'));}
 if('IntersectionObserver' in window && !lpReduce){
   lpObserver=new IntersectionObserver((entries,obs)=>{
     entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in-view'); obs.unobserve(en.target); } });
@@ -1508,13 +1577,11 @@ pf('pfTotal').textContent=SUBJECTS.length;
 (function(){
   const av=SUBJECTS.filter(s=>s.status==='available').length;
   const ae=pf('pfHeroAvail'); if(ae)ae.textContent=av;
-  const mln=SUBJECTS.find(s=>s.code==='MLN111');
-  const qe=pf('pfHeroQ'); if(qe&&mln&&mln.questionCount)qe.textContent=mln.questionCount;
 })();
 
 /* ===== COUNT-UP số liệu hero (rAF, kích hoạt khi hero vào viewport) ===== */
 (function(){
-  const els=['pfTotal','pfHeroAvail','pfHeroQ'].map(id=>pf(id)).filter(Boolean);
+  const els=['pfTotal','pfHeroAvail'].map(id=>pf(id)).filter(Boolean);
   if(!els.length)return;
   // mục tiêu = giá trị chốt boot vừa ghi vào (giữ nguyên nguồn dữ liệu engine/landing)
   const items=els.map(el=>({el,to:parseInt(el.textContent,10)||0}));
@@ -1601,6 +1668,123 @@ pf('pfTotal').textContent=SUBJECTS.length;
     if(!raf)raf=requestAnimationFrame(apply);
   });
   hero.addEventListener('pointerleave',()=>{ nx=0;ny=0; if(!raf)raf=requestAnimationFrame(apply); });
+})();
+
+/* ===== 1) SCROLL-PROGRESS BAR (rAF, passive) ===== */
+/* ===== 2) PARALLAX nhiều lớp theo cuộn (rAF, passive) ===== */
+/* ===== 4) NAV đổi trạng thái khi cuốn (rAF, passive) ===== */
+(function(){
+  const bar=pf('lpProgress'), nav=document.querySelector('.lp-nav'), hero=document.querySelector('.lp-hero');
+  const toTop=pf('lpToTop');
+  // các lớp parallax phụ (mesh + illus đã tự nhận --sy qua CSS); set --sy trên hero để CSS tính
+  let raf=0;
+  function read(){
+    raf=0;
+    const doc=document.documentElement;
+    const sc=window.pageYOffset||doc.scrollTop||0;
+    const max=(doc.scrollHeight-doc.clientHeight)||1;
+    const ratio=Math.min(Math.max(sc/max,0),1);
+    // progress bar
+    if(bar) bar.style.transform='scaleX('+ratio.toFixed(4)+')';
+    // nav scrolled state
+    if(nav) nav.classList.toggle('lp-scrolled', sc>8);
+    // back-to-top hiện khi cuộn xuống
+    if(toTop) toTop.classList.toggle('show', sc>420);
+    // parallax theo cuộn: chỉ cần truyền độ cuộn vào hero (CSS nhân hệ số nhỏ)
+    if(hero && !lpReduce){ hero.style.setProperty('--sy', sc+'px'); }
+  }
+  function onScroll(){ if(!raf) raf=requestAnimationFrame(read); }
+  if(!lpReduce){
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
+  }
+  read(); // trạng thái ban đầu (cả khi reduce: vẫn set progress/nav/back-to-top tĩnh)
+})();
+
+/* ===== 5) NÚT LÊN ĐẦU TRANG (cuộn mượt, tôn trọng reduced-motion) ===== */
+(function(){
+  const btn=pf('lpToTop'); if(!btn)return;
+  btn.addEventListener('click',()=>{
+    try{ window.scrollTo({top:0,behavior:lpReduce?'auto':'smooth'}); }
+    catch(_){ window.scrollTo(0,0); }
+  });
+})();
+
+/* ===== 6) MAGNETIC CTA (chỉ hover:hover, rAF) + RIPPLE (trang trí) ===== */
+(function(){
+  const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  // --- magnetic ---
+  if(fine && !lpReduce){
+    const PULL=10; // biên độ hút (px)
+    document.querySelectorAll('.lp-magnetic').forEach(el=>{
+      let raf=0,tx=0,ty=0,inside=false;
+      function apply(){ raf=0; el.style.transform='translate('+tx.toFixed(1)+'px,'+ty.toFixed(1)+'px)'; }
+      el.addEventListener('pointerenter',()=>{ inside=true; el.classList.add('lp-pulling'); });
+      el.addEventListener('pointermove',e=>{
+        if(!inside)return;
+        const r=el.getBoundingClientRect();
+        tx=((e.clientX-r.left)/r.width-0.5)*2*PULL;
+        ty=((e.clientY-r.top)/r.height-0.5)*2*PULL;
+        if(!raf)raf=requestAnimationFrame(apply);
+      });
+      el.addEventListener('pointerleave',()=>{
+        inside=false; el.classList.remove('lp-pulling');
+        tx=0;ty=0; el.style.transform=''; if(raf){cancelAnimationFrame(raf);raf=0;}
+      });
+      // không phá keyboard: khi rời/blur trả về vị trí gốc
+      el.addEventListener('blur',()=>{ el.style.transform=''; });
+    });
+  }
+  // --- ripple (thuần trang trí; tắt khi reduce) ---
+  if(!lpReduce){
+    function ripple(e){
+      const host=e.currentTarget;
+      const r=host.getBoundingClientRect();
+      const size=Math.max(r.width,r.height);
+      const x=(e.clientX!=null?e.clientX:r.left+r.width/2)-r.left-size/2;
+      const y=(e.clientY!=null?e.clientY:r.top+r.height/2)-r.top-size/2;
+      const span=document.createElement('span');
+      span.className='lp-ripple';
+      span.setAttribute('aria-hidden','true');
+      span.style.width=span.style.height=size+'px';
+      span.style.left=x+'px'; span.style.top=y+'px';
+      host.appendChild(span);
+      span.addEventListener('animationend',()=>span.remove());
+      setTimeout(()=>{ if(span.parentNode)span.remove(); },800); // fail-safe
+    }
+    document.querySelectorAll('.lp-ripple-host').forEach(h=>{
+      h.addEventListener('pointerdown',ripple);
+    });
+  }
+})();
+
+/* ===== 3) SCROLL-REVEAL đa hướng: mở rộng selector cho mọi biến thể ===== */
+/* (lpRevealAll/pfRevealScan đã định nghĩa ở trên — bổ sung quét biến thể) */
+(function(){
+  const SEL='.reveal,.reveal-l,.reveal-r,.reveal-s';
+  function revealAllVariants(){ document.querySelectorAll(SEL).forEach(el=>el.classList.add('in-view')); }
+  if(!lpObserver){ revealAllVariants(); return; }
+  document.querySelectorAll(SEL+':not(.in-view)').forEach(el=>{
+    if(!el.classList.contains('reveal')) lpObserver.observe(el); // .reveal đã được pfRevealScan quét
+  });
+})();
+
+/* ===== 7) HOOK sau lọc/search: flash fade-scale lưới (KHÔNG sửa renderPortal) ===== */
+(function(){
+  const grid=pf('pfGrid'); if(!grid)return;
+  let t=null;
+  function flash(){
+    if(lpReduce)return;
+    grid.classList.remove('lp-refiltering');
+    void grid.offsetWidth; // reflow để restart animation
+    grid.classList.add('lp-refiltering');
+    clearTimeout(t);
+    t=setTimeout(()=>grid.classList.remove('lp-refiltering'),400);
+  }
+  // listener MỚI chạy SAU listener gốc (đã renderPortal xong) -> chỉ gắn hiệu ứng
+  const search=pf('pfSearch');
+  if(search) search.addEventListener('input',flash);
+  document.querySelectorAll('.pf-chip').forEach(b=>b.addEventListener('click',flash));
 })();
 
 renderPortal();
