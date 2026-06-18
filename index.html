@@ -291,14 +291,23 @@ select.ctl{padding-right:6px;max-width:48vw}
   .lp-aurora{animation:none !important}
   #burst{opacity:0 !important}
   .lp-cta-glow{animation:none !important}
+  /* tắt mọi motion mới: mesh loop, shimmer, parallax, tilt */
+  .lp-mesh,.lp-mesh span{animation:none !important;transform:none !important}
+  .lp-mesh{display:none !important}
+  .lp-grad-text{animation:none !important;background-position:0% 50% !important}
+  .lp-illus,.lp-aurora{transform:none !important}
+  .pf-card[data-status="available"].lp-tilting{transform:none !important}
+  .pf-card[data-status="available"]::before{opacity:0 !important}
 }
 
 /* ===================== LANDING / PORTAL (FPT brand, soft shadow) ===================== */
 #portalView{display:flex;flex-direction:column;min-height:100vh}
 .lp-wrap{width:100%;max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
 
-/* scroll-reveal: chỉ ẩn khi có JS */
-.js .reveal{opacity:0;transform:translateY(16px);transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out)}
+/* scroll-reveal: chỉ ẩn khi có JS (chiều sâu: scale + rise + fade, stagger qua --d) */
+.js .reveal{opacity:0;transform:translateY(20px) scale(.96);
+  transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out);
+  transition-delay:var(--d,0s)}
 .reveal.in-view{opacity:1;transform:none}
 
 /* ---- NAV sticky ---- */
@@ -322,18 +331,37 @@ select.ctl{padding-right:6px;max-width:48vw}
 
 /* ---- HERO ---- */
 .lp-hero{position:relative;overflow:hidden;background:var(--surface)}
+/* nền tĩnh fallback (luôn có) */
 .lp-hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
     radial-gradient(38% 50% at 88% 8%,rgba(0,141,222,.16),transparent 70%),
     radial-gradient(42% 46% at 102% 64%,rgba(83,184,72,.14),transparent 70%),
     radial-gradient(36% 40% at 8% 96%,rgba(243,113,36,.12),transparent 70%)}
+/* gradient-mesh động: nhiều khối blob trôi chậm bằng transform */
+.lp-mesh{position:absolute;inset:-12%;z-index:0;pointer-events:none;overflow:hidden}
+.lp-mesh span{position:absolute;display:block;border-radius:50%;filter:blur(46px);opacity:.5;
+  will-change:transform;transform:translate3d(0,0,0)}
+.lp-mesh .b1{width:38vw;max-width:460px;aspect-ratio:1;left:62%;top:-6%;
+  background:radial-gradient(circle at 50% 50%,rgba(0,141,222,.55),transparent 70%);animation:meshA 22s ease-in-out infinite alternate}
+.lp-mesh .b2{width:34vw;max-width:420px;aspect-ratio:1;left:-8%;top:42%;
+  background:radial-gradient(circle at 50% 50%,rgba(83,184,72,.42),transparent 70%);animation:meshB 26s ease-in-out infinite alternate}
+.lp-mesh .b3{width:30vw;max-width:380px;aspect-ratio:1;left:70%;top:58%;
+  background:radial-gradient(circle at 50% 50%,rgba(243,113,36,.38),transparent 70%);animation:meshC 30s ease-in-out infinite alternate}
+@keyframes meshA{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-7%,9%,0) scale(1.12)}}
+@keyframes meshB{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(9%,-6%,0) scale(1.1)}}
+@keyframes meshC{from{transform:translate3d(0,0,0) scale(1.05)}to{transform:translate3d(-6%,-8%,0) scale(.92)}}
+/* parallax: dịch nhẹ blob/illustration theo con trỏ (JS set --plx/--ply) */
+.lp-mesh{transform:translate3d(calc(var(--plx,0)*14px),calc(var(--ply,0)*14px),0);transition:transform .4s var(--ease-soft)}
 .lp-aurora{animation:auroraDrift 18s ease-in-out infinite alternate}
 @keyframes auroraDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-12px,10px,0)}}
 .lp-hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:var(--sp-6);
   align-items:center;padding-block:var(--sp-7)}
 .lp-hero h1{font-size:var(--fs-display);font-weight:800;line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
-.lp-grad-text{background:linear-gradient(to right,#0651A0 0%,#008DDE 26%,#53B848 52%,#F37124 78%,#E11B22 100%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.lp-grad-text{background:linear-gradient(100deg,#0651A0 0%,#008DDE 22%,#53B848 44%,#F37124 66%,#E11B22 84%,#0651A0 100%);
+  background-size:220% 100%;background-position:0% 50%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  animation:gradShimmer 9s linear infinite}
+@keyframes gradShimmer{from{background-position:0% 50%}to{background-position:-200% 50%}}
 .lp-lead{margin-top:var(--sp-4);font-size:var(--fs-lead);font-weight:500;color:var(--ink-2);max-width:46ch}
 .lp-cta-row{margin-top:var(--sp-5);display:flex;flex-wrap:wrap;gap:var(--sp-3)}
 .lp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;
@@ -355,7 +383,8 @@ select.ctl{padding-right:6px;max-width:48vw}
 .lp-stat{display:inline-flex;align-items:center;gap:8px;background:var(--surface-2);
   border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 16px;font-size:var(--fs-sm);font-weight:600;color:var(--ink-2)}
 .lp-stat b{color:var(--fpt-blue);font-size:var(--fs-body);font-weight:800;font-variant-numeric:tabular-nums}
-.lp-illus{width:100%;max-width:480px;justify-self:center}
+.lp-illus{width:100%;max-width:480px;justify-self:center;
+  transform:translate3d(calc(var(--plx,0)*-10px),calc(var(--ply,0)*-10px),0);transition:transform .4s var(--ease-soft)}
 .lp-illus svg{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 40px rgba(6,81,160,.16))}
 
 /* ---- SEARCH + CHIPS ---- */
@@ -389,6 +418,44 @@ select.ctl{padding-right:6px;max-width:48vw}
   .pf-card[data-status="available"]:hover .pf-emoji{transform:scale(1.08)}
 }
 .pf-card[data-status="available"]:active{transform:scale(.985)}
+
+/* ---- TILT 3D + GLOW SPOTLIGHT (chỉ thiết bị có chuột thật) ---- */
+.pf-grid{perspective:1200px}
+@media (hover:hover) and (pointer:fine){
+  /* khi đang tilt (JS gắn .lp-tilting): gộp lift + tilt vào 1 transform qua biến */
+  .pf-card[data-status="available"].lp-tilting{
+    transform:translateY(var(--lift,0)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+    transition:transform var(--dur-fast) var(--ease-soft);will-change:transform}
+  /* glow spotlight theo con trỏ qua ::before (không transition box-shadow) */
+  .pf-card[data-status="available"]::before{content:"";position:absolute;inset:0;border-radius:inherit;
+    z-index:0;pointer-events:none;opacity:0;transition:opacity var(--dur) var(--ease-soft);
+    background:radial-gradient(180px 180px at var(--mx,50%) var(--my,50%),
+      var(--card-accent-tint,rgba(6,81,160,.12)),transparent 60%)}
+  .pf-card[data-status="available"].lp-tilting::before{opacity:1}
+  /* giữ nội dung (in-flow) nổi trên lớp glow; .pf-code/.pf-emoji giữ absolute+z-index:1 sẵn có */
+  .pf-card[data-status="available"]>.pf-name,
+  .pf-card[data-status="available"]>.pf-desc,
+  .pf-card[data-status="available"]>.pf-sem,
+  .pf-card[data-status="available"]>.pf-foot{position:relative;z-index:1}
+}
+
+/* ---- BENTO: thẻ NỔI BẬT (môn available đầu tiên / featured) ---- */
+.pf-card--feat{}
+.pf-card--feat .pf-emoji{width:60px;height:60px;font-size:34px}
+.pf-card--feat .pf-emoji svg{width:34px;height:34px}
+.pf-card--feat .pf-name{font-size:var(--fs-h1)}
+.pf-card--feat .pf-desc{font-size:var(--fs-body)}
+@media(min-width:1024px){
+  /* trên desktop: thẻ nổi bật chiếm 2 cột + nội dung 2 hàng phong phú */
+  .pf-card--feat{grid-column:span 2;
+    background:
+      radial-gradient(120% 140% at 100% 0,var(--card-accent-tint,rgba(6,81,160,.12)),transparent 55%),
+      var(--surface)}
+  .pf-card--feat .pf-emoji{width:72px;height:72px;font-size:40px}
+  .pf-card--feat .pf-emoji svg{width:40px;height:40px}
+  .pf-card--feat .pf-name{font-size:var(--fs-h1);padding-right:104px}
+  .pf-card--feat .pf-desc{max-width:52ch}
+}
 .pf-card:focus-visible{outline:none;box-shadow:0 0 0 3px var(--fpt-blue),var(--shadow-md)}
 .pf-card.soon{cursor:default}
 .pf-card.soon::before{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(247,250,253,.35);pointer-events:none}
@@ -415,8 +482,18 @@ select.ctl{padding-right:6px;max-width:48vw}
   padding:var(--sp-7) var(--sp-5);text-align:center;font-weight:600;color:var(--ink-2);background:var(--surface)}
 .pf-grid.fresh .pf-card.reveal{transition-delay:var(--d)}
 
+/* stagger nhẹ cho lưới tính năng */
+.lp-feat-grid .reveal:nth-child(1){--d:0s}
+.lp-feat-grid .reveal:nth-child(2){--d:.06s}
+.lp-feat-grid .reveal:nth-child(3){--d:.12s}
+.lp-feat-grid .reveal:nth-child(4){--d:.18s}
+
 /* ---- FEATURES ---- */
-.lp-features{background:var(--surface-2);border-block:1px solid var(--line)}
+.lp-features{position:relative;background:var(--surface-2);border-block:1px solid var(--line)}
+/* nhịp phân cách tinh tế giữa hero và section */
+.lp-section.lp-features::before{content:"";position:absolute;left:50%;top:-1px;width:64px;height:3px;
+  transform:translateX(-50%);border-radius:var(--r-pill);
+  background:linear-gradient(90deg,#0651A0,#008DDE,#53B848,#F37124,#E11B22)}
 .lp-sec-head{text-align:center;margin-bottom:var(--sp-6)}
 .lp-sec-head h2{font-size:var(--fs-h1);font-weight:700;color:var(--ink)}
 .lp-sec-head p{margin-top:var(--sp-2);color:var(--ink-2);font-size:var(--fs-body)}
@@ -524,6 +601,7 @@ select.ctl{padding-right:6px;max-width:48vw}
 
   <main>
     <section class="lp-hero" aria-labelledby="lpHeroH">
+      <div class="lp-mesh" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
       <div class="lp-wrap lp-hero-in">
         <div class="reveal">
           <h1 id="lpHeroH"><span class="lp-grad-text">Ôn tập mọi môn FPT</span><br>gọn trong một web.</h1>
@@ -1286,11 +1364,19 @@ const ICON_KEYS=new Set(['law','net','stats','project','db']);
 function pfHexToRgba(hex,a){const{r,g,b}=pfHexToRgb(hex);return `rgba(${r},${g},${b},${a})`;}
 
 let pfFilter='all', pfQuery='', pfFirst=true;
+/* Thẻ NỔI BẬT (bento): ưu tiên field optional featured:true; nếu không có thì
+   coi MÔN AVAILABLE ĐẦU TIÊN là featured. Tính 1 lần từ SUBJECTS gốc. */
+const pfFeatCode=(function(){
+  const f=SUBJECTS.find(s=>s.status==='available'&&s.featured===true);
+  if(f)return f.code;
+  const a=SUBJECTS.find(s=>s.status==='available');
+  return a?a.code:null;
+})();
 function pfCard(s,i){
   const avail=s.status==='available';
   const accent=/^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(s.accent||'')?s.accent:'#0651A0';
   const el=document.createElement(avail?'a':'div');
-  el.className='pf-card'+(avail?'':' soon')+' reveal';
+  el.className='pf-card'+(avail?'':' soon')+(avail&&s.code===pfFeatCode?' pf-card--feat':'')+' reveal';
   el.dataset.code=s.code; el.dataset.status=s.status;
   el.style.setProperty('--d',Math.min(i*0.05,0.3)+'s');
   el.style.setProperty('--card-accent',accent);
@@ -1425,6 +1511,98 @@ pf('pfTotal').textContent=SUBJECTS.length;
   const mln=SUBJECTS.find(s=>s.code==='MLN111');
   const qe=pf('pfHeroQ'); if(qe&&mln&&mln.questionCount)qe.textContent=mln.questionCount;
 })();
+
+/* ===== COUNT-UP số liệu hero (rAF, kích hoạt khi hero vào viewport) ===== */
+(function(){
+  const els=['pfTotal','pfHeroAvail','pfHeroQ'].map(id=>pf(id)).filter(Boolean);
+  if(!els.length)return;
+  // mục tiêu = giá trị chốt boot vừa ghi vào (giữ nguyên nguồn dữ liệu engine/landing)
+  const items=els.map(el=>({el,to:parseInt(el.textContent,10)||0}));
+  if(lpReduce){ items.forEach(it=>{it.el.textContent=it.to;}); return; } // reduce -> chốt ngay
+  function run(){
+    const dur=1100, t0=performance.now();
+    function step(now){
+      const p=Math.min((now-t0)/dur,1);
+      const e=1-Math.pow(1-p,3); // easeOutCubic
+      items.forEach(it=>{ it.el.textContent=Math.round(it.to*e); });
+      if(p<1)requestAnimationFrame(step);
+      else items.forEach(it=>{it.el.textContent=it.to;});
+    }
+    requestAnimationFrame(step);
+  }
+  const hero=document.querySelector('.lp-hero');
+  if('IntersectionObserver' in window && hero){
+    let fired=false;
+    const io=new IntersectionObserver((ents,obs)=>{
+      ents.forEach(en=>{ if(en.isIntersecting&&!fired){ fired=true; items.forEach(it=>it.el.textContent='0'); run(); obs.disconnect(); } });
+    },{threshold:0.25});
+    io.observe(hero);
+    setTimeout(()=>{ if(!fired){ fired=true; items.forEach(it=>{it.el.textContent=it.to;}); io.disconnect(); } },3000); // fail-safe
+  } else { items.forEach(it=>{it.el.textContent=it.to;}); }
+})();
+
+/* ===== TILT 3D + GLOW SPOTLIGHT cho thẻ môn (chỉ chuột thật, rAF throttle) ===== */
+(function(){
+  const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(!fine||lpReduce)return;
+  const MAX=6; // độ nghiêng tối đa ~±6deg
+  let raf=0, cur=null, lastE=null;
+  function apply(){
+    raf=0;
+    if(!cur||!lastE)return;
+    const r=cur.getBoundingClientRect();
+    const px=(lastE.clientX-r.left)/r.width;   // 0..1
+    const py=(lastE.clientY-r.top)/r.height;   // 0..1
+    const ry=(px-0.5)*2*MAX;                   // rotateY theo X
+    const rx=-(py-0.5)*2*MAX;                  // rotateX theo Y
+    cur.style.setProperty('--ry',ry.toFixed(2)+'deg');
+    cur.style.setProperty('--rx',rx.toFixed(2)+'deg');
+    cur.style.setProperty('--lift','-6px');
+    cur.style.setProperty('--mx',(px*100).toFixed(1)+'%');
+    cur.style.setProperty('--my',(py*100).toFixed(1)+'%');
+  }
+  function onMove(e){ lastE=e; if(!raf)raf=requestAnimationFrame(apply); }
+  function reset(card){
+    card.classList.remove('lp-tilting');
+    card.style.removeProperty('--rx');card.style.removeProperty('--ry');
+    card.style.removeProperty('--lift');card.style.removeProperty('--mx');card.style.removeProperty('--my');
+  }
+  // uỷ quyền theo grid (DOM thẻ được render lại bởi pfCard)
+  const grid=pf('pfGrid');
+  if(!grid)return;
+  grid.addEventListener('pointerenter',e=>{
+    const card=e.target.closest('.pf-card[data-status="available"]');
+    if(!card)return;
+    if(cur&&cur!==card)reset(cur);
+    cur=card; card.classList.add('lp-tilting');
+    card.addEventListener('pointermove',onMove);
+  },true);
+  grid.addEventListener('pointerleave',e=>{
+    const card=e.target.closest('.pf-card[data-status="available"]');
+    if(!card)return;
+    card.removeEventListener('pointermove',onMove);
+    reset(card);
+    if(cur===card)cur=null;
+    if(raf){cancelAnimationFrame(raf);raf=0;}
+  },true);
+})();
+
+/* ===== PARALLAX hero theo con trỏ (biên độ nhỏ, rAF throttle) ===== */
+(function(){
+  const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const hero=document.querySelector('.lp-hero');
+  if(!fine||lpReduce||!hero)return;
+  let raf=0, nx=0, ny=0;
+  function apply(){ raf=0; hero.style.setProperty('--plx',nx.toFixed(3)); hero.style.setProperty('--ply',ny.toFixed(3)); }
+  hero.addEventListener('pointermove',e=>{
+    const r=hero.getBoundingClientRect();
+    nx=((e.clientX-r.left)/r.width-0.5)*2;   // -1..1
+    ny=((e.clientY-r.top)/r.height-0.5)*2;
+    if(!raf)raf=requestAnimationFrame(apply);
+  });
+  hero.addEventListener('pointerleave',()=>{ nx=0;ny=0; if(!raf)raf=requestAnimationFrame(apply); });
+})();
+
 renderPortal();
 route();
 </script>
