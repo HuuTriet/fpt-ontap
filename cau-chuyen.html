@@ -38,10 +38,13 @@
   --fs-display:clamp(2rem,1.4rem + 3vw,3.25rem);
   --fs-mega:clamp(2.4rem,1.4rem + 5vw,4.5rem);
   --fs-h1:clamp(1.5rem,1.2rem + 1.4vw,2rem);
-  --fs-h2:1.25rem; --fs-lead:1.0625rem; --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.75rem;
+  --fs-h2:clamp(1.125rem,1rem + .8vw,1.5rem); --fs-lead:1.0625rem; --fs-body:1rem; --fs-sm:.875rem; --fs-xs:.75rem;
 
   /* ---- spacing baseline 4px ---- */
   --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-8:64px;
+  /* ---- nhịp section linh hoạt (chống "khó thở" trên mobile) ---- */
+  --sp-sec:clamp(40px,5vw,80px);
+  --sp-mile:clamp(32px,3vw,64px);
 
   /* ---- radius & shadow ---- */
   --r-sm:8px; --r-md:14px; --r-lg:20px; --r-pill:999px;
@@ -50,11 +53,14 @@
   --shadow-lg:0 18px 40px rgba(6,81,160,.16),0 6px 14px rgba(16,36,58,.10);
   --shadow-brand:0 14px 34px rgba(243,113,36,.22);
 
-  /* ---- motion ---- */
-  --dur-fast:140ms; --dur:240ms; --dur-slow:420ms;
+  /* ---- motion (1 bộ token dùng nhất quán toàn trang) ---- */
+  --dur-fast:140ms; --dur:240ms; --dur-slow:420ms; --dur-hero:600ms;
   --ease-out:cubic-bezier(.22,.9,.3,1);
   --ease-spring:cubic-bezier(.34,1.45,.5,1);
   --ease-soft:cubic-bezier(.4,0,.2,1);
+  --ease-move:cubic-bezier(.44,1.17,.52,.9);    /* overshoot mềm — cho CTA/hover */
+  --ease-elastic:cubic-bezier(.68,-.55,.27,1.55);/* bật nhẹ — dùng tiết chế */
+  --count-dur:1100ms;                            /* JS hạ xuống khi reduced-motion */
 
   --font:'Be Vietnam Pro',Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 
@@ -82,7 +88,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1
   overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom)}
 a{color:var(--fpt-blue)}
 button{font-family:inherit;cursor:pointer;color:inherit;touch-action:manipulation;background:none;border:none}
-:focus-visible{outline:3px solid var(--fpt-blue);outline-offset:2px}
+:focus-visible{outline:2px solid var(--fpt-blue);outline-offset:3px;border-radius:2px}
 :focus:not(:focus-visible){outline:none}
 img,svg{max-width:100%}
 .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--fpt-blue);color:#fff;
@@ -106,10 +112,16 @@ img,svg{max-width:100%}
 .cs-tag{font-size:var(--fs-xs);font-weight:600;color:var(--ink-2);
   border:1px solid var(--line);border-radius:var(--r-pill);padding:3px 10px;white-space:nowrap}
 .cs-nav-r{margin-left:auto;display:flex;align-items:center;gap:var(--sp-2)}
-.cs-nav-r a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--r-pill);
+.cs-nav-r a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--r-pill);
   font-size:var(--fs-sm);font-weight:600;color:var(--ink-2);text-decoration:none;
   transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
-@media (hover:hover) and (pointer:fine){.cs-nav-r a:hover{color:var(--fpt-blue);background:var(--surface-2)}}
+.cs-nav-r a::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;
+  background:var(--fpt-blue);border-radius:2px;transform:scaleX(0);transform-origin:left center;
+  transition:transform 240ms var(--ease-out)}
+@media (hover:hover) and (pointer:fine){
+  .cs-nav-r a:hover{color:var(--fpt-blue);background:var(--surface-2)}
+  .cs-nav-r a:hover::after{transform:scaleX(1)}
+}
 .cs-nav-r a:active{transform:scale(.97)}
 
 /* ===== THANH TIẾN TRÌNH ĐỌC (trên cùng) ===== */
@@ -126,11 +138,20 @@ img,svg{max-width:100%}
 @media (max-width:760px){.cs-dots{display:none}}
 
 /* ===== SECTION CHUNG ===== */
-.cs-sec{position:relative;padding-block:var(--sp-8)}
+.cs-sec{position:relative;padding-block:var(--sp-sec);
+  content-visibility:auto;contain-intrinsic-size:auto 640px}
+/* micro-interaction: từng section nhẹ nhàng "thở" vào khi có JS (mô liên kết giữa các phần) */
+.js .cs-sec{opacity:0;transform:translateY(12px);
+  transition:opacity var(--dur-slow) var(--ease-out),transform var(--dur-slow) var(--ease-out)}
+.js .cs-sec.sec-in{opacity:1;transform:none}
 .cs-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-xs);font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;color:var(--fpt-orange)}
 .cs-eyebrow::before{content:"";width:28px;height:2px;background:var(--fpt-orange);display:inline-block}
-.cs-h2{font-size:var(--fs-h1);font-weight:800;line-height:1.18;letter-spacing:-.01em;color:var(--ink);margin-top:var(--sp-3)}
+.cs-h2{font-size:var(--fs-h2);font-weight:800;line-height:1.25;letter-spacing:-.01em;color:var(--ink);margin-top:var(--sp-3)}
+/* nhãn placeholder dữ liệu — phân biệt rõ "chỗ cần điền" mà vẫn tinh tế */
+.cs-placeholder{border-bottom:1px dashed var(--line);background:var(--surface-2);
+  border-radius:3px;padding-inline:4px;color:var(--ink-2);font-weight:700;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
 .cs-p{font-size:var(--fs-lead);color:var(--ink-2);font-weight:500;margin-top:var(--sp-4)}
 .cs-p + .cs-p{margin-top:var(--sp-3)}
 .cs-rule{height:1px;background:var(--line);border:0;margin:0}
@@ -147,13 +168,17 @@ img,svg{max-width:100%}
 /* ===== HERO (ảnh campus full-screen + parallax/zoom) ===== */
 .cs-hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;
   background:var(--surface-2)}
-/* khung ảnh: nền gradient on-brand (fallback luôn có); ảnh thật swap khi onload OK */
-.cs-hero-media{position:absolute;inset:0;z-index:0;will-change:transform;
+/* khung ảnh: nền gradient on-brand (fallback luôn có); ảnh thật swap khi onload OK.
+   aspect-ratio + nền phủ kín = không CLS dù ảnh load muộn */
+.cs-hero-media{position:absolute;inset:0;z-index:0;will-change:transform;aspect-ratio:16/9;
   background:linear-gradient(150deg,#0651A0 0%,#008DDE 30%,#53B848 58%,#F37124 84%,#E11B22 100%)}
 .cs-hero-media::after{content:"";position:absolute;inset:0;
   background:radial-gradient(120% 90% at 80% 0%,rgba(255,255,255,.16),transparent 60%)}
-.cs-hero-media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
-.cs-hero-media.has-img>img{display:block}
+/* blur-up: ảnh vào ở trạng thái mờ + opacity 0 -> sắc nét khi load OK (300ms) */
+.cs-hero-media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;filter:blur(14px);transform:scale(1.04);
+  transition:opacity 300ms var(--ease-out),filter 300ms var(--ease-out),transform 300ms var(--ease-out)}
+.cs-hero-media.has-img>img{opacity:1;filter:none;transform:none}
 .cs-hero-overlay{position:absolute;inset:0;z-index:1;background:var(--hero-overlay)}
 .cs-hero-in{position:relative;z-index:2;width:100%;max-width:920px;margin:0 auto;
   padding-inline:clamp(16px,5vw,32px);padding-block:var(--sp-8)}
@@ -162,6 +187,8 @@ img,svg{max-width:100%}
 .cs-hero h1{color:var(--on-media);font-size:var(--fs-mega);font-weight:800;line-height:1.08;
   letter-spacing:-.015em;margin-top:var(--sp-4);max-width:18ch;text-shadow:0 2px 24px rgba(5,16,28,.45)}
 .cs-hero h1 .accent{color:#FFB089}
+/* placeholder trên hero tối: giữ chữ peach + nền/nét kẻ trong suốt để vẫn nổi rõ là "chỗ điền" */
+.cs-hero .cs-placeholder{color:#FFB089;background:rgba(255,255,255,.14);border-bottom-color:rgba(255,255,255,.55)}
 .cs-hero-lead{color:rgba(255,255,255,.92);font-size:var(--fs-lead);font-weight:500;
   margin-top:var(--sp-5);max-width:48ch;text-shadow:0 1px 14px rgba(5,16,28,.5)}
 .cs-hero-note{margin-top:var(--sp-4);font-size:var(--fs-xs);color:rgba(255,255,255,.72);font-weight:500}
@@ -170,14 +197,15 @@ img,svg{max-width:100%}
   color:rgba(255,255,255,.92);font-size:var(--fs-sm);font-weight:600;text-decoration:none}
 .cs-scroll-cue svg{width:22px;height:22px;animation:csBob 1.8s var(--ease-soft) infinite}
 @keyframes csBob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-/* fade-in từng phần của hero */
+/* fade-in từng phần của hero — đồng bộ 1 duration (--dur-hero 600ms) + stagger đều 0.12s,
+   tổng 600+480ms = 1080ms mượt, không overlap/jank */
 .js .cs-hero h1,.js .cs-hero-lead,.js .cs-hero .cs-eyebrow,.js .cs-hero-note,.js .cs-scroll-cue{
-  opacity:0;transform:translateY(16px);animation:csHeroIn .8s var(--ease-out) forwards}
-.js .cs-hero .cs-eyebrow{animation-delay:.1s}
-.js .cs-hero h1{animation-delay:.25s}
-.js .cs-hero-lead{animation-delay:.5s}
-.js .cs-hero-note{animation-delay:.7s}
-.js .cs-scroll-cue{animation-delay:.85s}
+  opacity:0;transform:translateY(16px);animation:csHeroIn var(--dur-hero) var(--ease-out) forwards}
+.js .cs-hero .cs-eyebrow{animation-delay:0s}
+.js .cs-hero h1{animation-delay:.12s}
+.js .cs-hero-lead{animation-delay:.24s}
+.js .cs-hero-note{animation-delay:.36s}
+.js .cs-scroll-cue{animation-delay:.48s}
 @keyframes csHeroIn{to{opacity:1;transform:none}}
 
 /* ===== KHỞI NGUỒN — bài toán khoảng cách ===== */
@@ -191,28 +219,36 @@ img,svg{max-width:100%}
 .cs-vision .cs-eyebrow{justify-content:center}
 .cs-vision .cs-manifesto{font-size:var(--fs-display);font-weight:800;line-height:1.18;
   letter-spacing:-.01em;color:var(--ink);margin-top:var(--sp-5);max-width:18ch;margin-inline:auto}
-.cs-grad-text{background:linear-gradient(100deg,#0651A0 0%,#008DDE 22%,#53B848 44%,#F37124 66%,#E11B22 84%,#0651A0 100%);
+.cs-grad-text{color:var(--fpt-blue); /* fallback: luôn hiển thị xanh nếu clip-text tắt/không hỗ trợ */
+  background:linear-gradient(100deg,#0651A0 0%,#008DDE 22%,#53B848 44%,#F37124 66%,#E11B22 84%,#0651A0 100%);
   background-size:220% 100%;background-position:0% 50%;
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   animation:csShimmer 9s linear infinite}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .cs-grad-text{-webkit-text-fill-color:currentColor;background:none}
+}
 @keyframes csShimmer{from{background-position:0% 50%}to{background-position:-200% 50%}}
-.cs-pillars{margin-top:var(--sp-7);display:grid;gap:var(--sp-4);grid-template-columns:1fr;text-align:left}
+.cs-pillars{margin-top:var(--sp-7);display:grid;gap:var(--sp-5);grid-template-columns:1fr;text-align:left}
 @media(min-width:680px){.cs-pillars{grid-template-columns:repeat(3,1fr)}}
 .cs-pillar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
-  padding:var(--sp-5);box-shadow:var(--shadow-sm)}
+  padding:var(--sp-5);box-shadow:var(--shadow-sm);
+  transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft),border-color var(--dur) var(--ease-soft)}
+@media (hover:hover) and (pointer:fine){
+  .cs-pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:color-mix(in srgb,var(--fpt-blue) 35%,var(--line))}
+}
 .cs-pillar-ic{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;
   border-radius:var(--r-sm);background:color-mix(in srgb,var(--fpt-blue) 12%,transparent);
   color:var(--fpt-blue);margin-bottom:var(--sp-3)}
 .cs-pillar-ic svg{width:24px;height:24px}
-.cs-pillar h3{font-size:var(--fs-body);font-weight:700;color:var(--ink)}
+.cs-pillar h3{font-size:clamp(1rem,.95rem + .4vw,1.125rem);font-weight:700;color:var(--ink);line-height:1.3}
 .cs-pillar p{margin-top:var(--sp-2);font-size:var(--fs-sm);color:var(--ink-2);font-weight:500}
 
 /* ===== HÀNH TRÌNH (timeline dọc) ===== */
 .cs-journey{background:var(--surface)}
-.cs-timeline{position:relative;margin-top:var(--sp-7);padding-left:34px}
+.cs-timeline{position:relative;margin-top:var(--sp-6);padding-left:34px}
 .cs-timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
   background:linear-gradient(180deg,var(--fpt-blue),var(--fpt-cerulean),var(--fpt-green),var(--fpt-orange))}
-.cs-mile{position:relative;padding-bottom:var(--sp-6)}
+.cs-mile{position:relative;padding-bottom:var(--sp-mile)}
 .cs-mile:last-child{padding-bottom:0}
 .cs-mile::before{content:"";position:absolute;left:-34px;top:4px;width:18px;height:18px;border-radius:50%;
   background:var(--surface);border:3px solid var(--fpt-orange);box-shadow:0 0 0 4px color-mix(in srgb,var(--fpt-orange) 18%,transparent)}
@@ -240,9 +276,14 @@ img,svg{max-width:100%}
    Mặc định: ô viền mảnh + nhãn [TÊN]. KHÔNG tự vẽ logo / KHÔNG logo giả. */
 .cs-logo-slot{position:relative;aspect-ratio:3/2;border:1px dashed var(--line);border-radius:var(--r-md);
   background:var(--surface-2);display:flex;align-items:center;justify-content:center;text-align:center;
-  padding:var(--sp-3);overflow:hidden;transition:transform var(--dur) var(--ease-soft),border-color var(--dur)}
-@media (hover:hover) and (pointer:fine){.cs-logo-slot:hover{transform:translateY(-3px);border-color:var(--fpt-blue)}}
+  padding:var(--sp-3);overflow:hidden;
+  transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft),border-color var(--dur) var(--ease-soft)}
+@media (hover:hover) and (pointer:fine){
+  .cs-logo-slot:hover{transform:translateY(-4px);border-color:var(--fpt-blue);box-shadow:var(--shadow-md)}
+}
 .cs-logo-slot .cs-logo-label{font-size:var(--fs-xs);font-weight:700;color:var(--ink-2);line-height:1.4}
+/* nhãn slot trống cũng mang phong cách "placeholder" để dễ nhận biết chỗ cần điền */
+.cs-logo-slot:not(.has-img) .cs-logo-label{border-bottom:1px dashed var(--ink-2);padding-bottom:2px}
 .cs-logo-slot>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:var(--sp-4);display:none}
 .cs-logo-slot.has-img{border-style:solid;background:var(--surface)}
 .cs-logo-slot.has-img>img{display:block}
@@ -265,13 +306,15 @@ img,svg{max-width:100%}
 .cs-cta-row{margin-top:var(--sp-6);display:flex;flex-wrap:wrap;gap:var(--sp-3);justify-content:center}
 .cs-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;
   padding:0 24px;border-radius:var(--r-pill);font-weight:700;font-size:var(--fs-body);
-  text-decoration:none;border:2px solid transparent;transition:transform var(--dur) var(--ease-spring)}
+  text-decoration:none;border:2px solid transparent;
+  transition:transform var(--dur) var(--ease-move),box-shadow var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
 .cs-btn:active{transform:scale(.97)}
 .cs-btn-primary{background:var(--fpt-orange);color:#fff;box-shadow:var(--shadow-brand)}
 .cs-btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
 @media (hover:hover) and (pointer:fine){
-  .cs-btn-primary:hover{transform:translateY(-2px)}
-  .cs-btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+  .cs-btn-primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:var(--shadow-lg)}
+  .cs-btn-ghost:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.85);
+    transform:translateY(-2px);box-shadow:var(--shadow-md)}
 }
 
 /* ===== FOOTER (đồng bộ disclaimer portal) ===== */
@@ -302,10 +345,15 @@ img,svg{max-width:100%}
   }
   html{scroll-behavior:auto !important}
   .cs-rev,.cs-rev-l,.cs-rev-r,.cs-rev-s{opacity:1 !important;transform:none !important}
+  .js .cs-sec{opacity:1 !important;transform:none !important}   /* tắt section fade-in */
   .cs-hero h1,.cs-hero-lead,.cs-hero .cs-eyebrow,.cs-hero-note,.cs-scroll-cue{opacity:1 !important;transform:none !important;animation:none !important}
   .cs-hero-media{transform:none !important}        /* tắt parallax/zoom hero */
-  .cs-grad-text{animation:none !important;background-position:0% 50% !important}
+  .cs-hero-media>img{opacity:1 !important;filter:none !important;transform:none !important;transition:none !important} /* ảnh hiện ngay, không blur-up */
+  /* gradient text: tắt shimmer NHƯNG vẫn hiển thị (đổ về màu fallback xanh, không biến mất) */
+  .cs-grad-text{animation:none !important;background:none !important;
+    -webkit-text-fill-color:currentColor !important;color:var(--fpt-blue) !important}
   .cs-scroll-cue svg{animation:none !important}
+  .cs-nav-r a::after{transition:none !important}
   .cs-progress{display:none !important}
 }
 </style>
@@ -366,7 +414,7 @@ img,svg{max-width:100%}
     <div class="cs-hero-overlay" aria-hidden="true"></div>
     <div class="cs-hero-in">
       <span class="cs-eyebrow">Câu chuyện FPT</span>
-      <h1 id="csHeroH">Năm <span class="accent">[NĂM THÀNH LẬP]</span>, một giấc mơ giáo dục bắt đầu.</h1>
+      <h1 id="csHeroH">Năm <span class="accent cs-placeholder">[NĂM THÀNH LẬP]</span>, một giấc mơ giáo dục bắt đầu.</h1>
       <p class="cs-hero-lead">Không phải từ một toà nhà, mà từ một câu hỏi: làm sao để người trẻ Việt học xong là làm được, và làm được ở bất cứ đâu trên thế giới?</p>
       <p class="cs-hero-note">Cuộn xuống để đọc hành trình ấy.</p>
       <a class="cs-scroll-cue" href="#origin">
@@ -433,25 +481,25 @@ img,svg{max-width:100%}
       <h2 class="cs-h2 cs-rev measure" id="csJourneyH">Từng cột mốc, từng bước trưởng thành.</h2>
       <p class="cs-p cs-rev measure">Mỗi năm tháng là một lớp người trẻ trưởng thành, một cánh cửa mới mở ra. Dưới đây là những cột mốc của hành trình — hãy điền năm và sự kiện đã được xác minh vào từng chỗ trống.</p>
       <ol class="cs-timeline">
-        <li class="cs-mile cs-rev-l">
-          <div class="cs-mile-year">[NĂM]</div>
-          <p class="cs-mile-body"><b>[SỰ KIỆN]</b> — Cột mốc khởi đầu: ngôi trường chính thức được hình thành, đặt nền móng cho một triết lý đào tạo mới.</p>
+        <li class="cs-mile cs-rev-l" style="--d:0s">
+          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
+          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Cột mốc khởi đầu: ngôi trường chính thức được hình thành, đặt nền móng cho một triết lý đào tạo mới.</p>
         </li>
-        <li class="cs-mile cs-rev-l">
-          <div class="cs-mile-year">[NĂM]</div>
-          <p class="cs-mile-body"><b>[SỰ KIỆN]</b> — Những lứa sinh viên đầu tiên, những ngành học đầu tiên, và niềm tin đầu tiên được gây dựng.</p>
+        <li class="cs-mile cs-rev-l" style="--d:.08s">
+          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
+          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Những lứa sinh viên đầu tiên, những ngành học đầu tiên, và niềm tin đầu tiên được gây dựng.</p>
         </li>
-        <li class="cs-mile cs-rev-l">
-          <div class="cs-mile-year">[NĂM]</div>
-          <p class="cs-mile-body"><b>[SỰ KIỆN]</b> — Mở rộng quy mô và ngành đào tạo; trải nghiệm học tập gắn chặt hơn với doanh nghiệp.</p>
+        <li class="cs-mile cs-rev-l" style="--d:.16s">
+          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
+          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Mở rộng quy mô và ngành đào tạo; trải nghiệm học tập gắn chặt hơn với doanh nghiệp.</p>
         </li>
-        <li class="cs-mile cs-rev-l">
-          <div class="cs-mile-year">[NĂM]</div>
-          <p class="cs-mile-body"><b>[SỰ KIỆN]</b> — Vươn ra quốc tế: hợp tác, trao đổi và những dấu ấn vượt ra ngoài biên giới.</p>
+        <li class="cs-mile cs-rev-l" style="--d:.24s">
+          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
+          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Vươn ra quốc tế: hợp tác, trao đổi và những dấu ấn vượt ra ngoài biên giới.</p>
         </li>
-        <li class="cs-mile cs-rev-l">
-          <div class="cs-mile-year">[NĂM]</div>
-          <p class="cs-mile-body"><b>[SỰ KIỆN]</b> — Cột mốc gần đây nhất bạn muốn kể: hãy thay bằng thông tin đã xác minh.</p>
+        <li class="cs-mile cs-rev-l" style="--d:.32s">
+          <div class="cs-mile-year cs-placeholder">[NĂM]</div>
+          <p class="cs-mile-body"><b class="cs-placeholder">[SỰ KIỆN]</b> — Cột mốc gần đây nhất bạn muốn kể: hãy thay bằng thông tin đã xác minh.</p>
         </li>
       </ol>
     </div>
@@ -470,19 +518,19 @@ img,svg{max-width:100%}
       <p class="cs-p cs-rev measure">Các ô dưới đây đang để trống chờ số liệu đã được kiểm chứng. Khi bạn điền số thật, bộ đếm sẽ tự đếm lên một lần khi phần này lọt vào màn hình.</p>
       <div class="cs-stat-grid" id="csStatGrid">
         <div class="cs-stat cs-rev-s" style="--d:0s">
-          <b class="is-placeholder" data-count="0" data-suffix="">[SỐ SINH VIÊN]</b>
+          <b class="is-placeholder" data-count="0" data-suffix=""><span class="cs-placeholder">[SỐ SINH VIÊN]</span></b>
           <span>Sinh viên & học viên</span>
         </div>
         <div class="cs-stat cs-rev-s" style="--d:.08s">
-          <b class="is-placeholder" data-count="0" data-suffix="%">[TỈ LỆ CÓ VIỆC LÀM]</b>
+          <b class="is-placeholder" data-count="0" data-suffix="%"><span class="cs-placeholder">[TỈ LỆ CÓ VIỆC LÀM]</span></b>
           <span>Tỉ lệ có việc làm sau tốt nghiệp</span>
         </div>
         <div class="cs-stat cs-rev-s" style="--d:.16s">
-          <b class="is-placeholder" data-count="0" data-suffix="">[SỐ QUỐC GIA]</b>
+          <b class="is-placeholder" data-count="0" data-suffix=""><span class="cs-placeholder">[SỐ QUỐC GIA]</span></b>
           <span>Quốc gia có cựu sinh viên</span>
         </div>
         <div class="cs-stat cs-rev-s" style="--d:.24s">
-          <b class="is-placeholder" data-count="0" data-suffix="">[SỐ ĐỐI TÁC DN]</b>
+          <b class="is-placeholder" data-count="0" data-suffix=""><span class="cs-placeholder">[SỐ ĐỐI TÁC DN]</span></b>
           <span>Doanh nghiệp đối tác</span>
         </div>
       </div>
@@ -587,11 +635,17 @@ img,svg{max-width:100%}
 
   var hasIO=('IntersectionObserver' in window);
 
-  /* ===== (A) SCROLL-REVEAL — IntersectionObserver + fail-safe + unobserve ===== */
+  /* ===== (0) THIẾT LẬP SỚM — count-up duration tôn trọng reduced-motion ngay khi DOM ready ===== */
+  document.documentElement.style.setProperty('--count-dur',reduce?'100ms':'1100ms');
+
+  /* ===== (A) SCROLL-REVEAL + SECTION FADE — IntersectionObserver + fail-safe + unobserve ===== */
   var REV_SEL='.cs-rev,.cs-rev-l,.cs-rev-r,.cs-rev-s';
+  var SEC_SEL='.cs-sec';
   function revealAll(){
     var els=document.querySelectorAll(REV_SEL);
     for(var i=0;i<els.length;i++) els[i].classList.add('in-view');
+    var secs=document.querySelectorAll(SEC_SEL);
+    for(var k=0;k<secs.length;k++) secs[k].classList.add('sec-in');
   }
   if(reduce || !hasIO){
     revealAll(); /* reduce / không hỗ trợ -> hiện ngay, đủ nội dung */
@@ -603,6 +657,14 @@ img,svg{max-width:100%}
     },{threshold:0.14,rootMargin:'0px 0px -8% 0px'});
     var revEls=document.querySelectorAll(REV_SEL);
     for(var j=0;j<revEls.length;j++) revObs.observe(revEls[j]);
+    /* section fade-in: mô liên kết tinh tế giữa các phần (sớm hơn reveal nội dung 1 chút) */
+    var secObsF=new IntersectionObserver(function(entries,obs){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('sec-in'); obs.unobserve(en.target); }
+      });
+    },{threshold:0.04,rootMargin:'0px 0px -4% 0px'});
+    var secEls=document.querySelectorAll(SEC_SEL);
+    for(var s=0;s<secEls.length;s++) secObsF.observe(secEls[s]);
     setTimeout(revealAll,3000); /* fail-safe */
   }
 
@@ -634,24 +696,35 @@ img,svg{max-width:100%}
     for(var i=0;i<slots.length;i++) mount(slots[i]);
   })();
 
-  /* ===== (D) HERO PARALLAX + ZOOM theo cuộn (rAF, passive) — tắt khi reduced-motion ===== */
+  /* ===== (D) HERO PARALLAX + ZOOM theo cuộn (rAF, passive) — tắt khi reduced-motion =====
+     Mobile-aware: <680px giảm mạnh parallax/zoom để tránh visual turbulence + motion sickness. */
   (function(){
     var media=$('csHeroMedia'), hero=$('hero');
     if(!media||!hero||reduce)return;
-    var raf=0;
+    var raf=0, txMax, zoomBase, zoomRange;
+    function calc(){
+      var mobile=window.innerWidth<680;
+      txMax    = mobile?3:8;        /* trôi tối đa %: mobile 3, desktop 8 */
+      zoomBase = mobile?1.02:1.06;  /* mức zoom nền */
+      zoomRange= mobile?0.02:0.06;  /* biên độ zoom thêm */
+    }
     function read(){
       raf=0;
       var r=hero.getBoundingClientRect();
       var h=hero.offsetHeight||1;
       /* tiến độ cuộn qua hero: 0 (mới vào) .. 1 (đã trôi hết) */
       var p=Math.min(Math.max(-r.top/h,0),1);
-      var ty=(p*8).toFixed(2);          /* trôi nhẹ xuống tối đa 8% chiều cao */
-      var sc=(1.06 + p*0.06).toFixed(4);/* zoom 1.06 -> 1.12 */
+      var ty=(p*txMax).toFixed(2);
+      var sc=(zoomBase + p*zoomRange).toFixed(4);
       media.style.transform='translate3d(0,'+ty+'%,0) scale('+sc+')';
+      /* will-change tạm thời: chỉ bật khi hero còn trong tầm nhìn */
+      media.style.willChange = (r.bottom>0 && r.top<window.innerHeight) ? 'transform' : 'auto';
     }
     function onScroll(){ if(!raf) raf=requestAnimationFrame(read); }
+    function onResize(){ calc(); onScroll(); }
+    calc();
     window.addEventListener('scroll',onScroll,{passive:true});
-    window.addEventListener('resize',onScroll,{passive:true});
+    window.addEventListener('resize',onResize,{passive:true});
     read();
   })();
 
@@ -716,11 +789,16 @@ img,svg{max-width:100%}
     var counters=boxes.filter(isRealNumber);
     if(!counters.length)return;      /* toàn placeholder -> không làm gì, giữ tĩnh */
     if(reduce || !hasIO){ counters.forEach(setFinal); return; }
+    /* duration đọc từ token --count-dur (đã set sớm theo reduced-motion); fallback 1100ms */
+    function countDur(){
+      var v=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--count-dur'),10);
+      return (!isNaN(v)&&v>0)?v:1100;
+    }
     var io=new IntersectionObserver(function(entries,obs){
       entries.forEach(function(en){
-        if(!en.isIntersecting)return;
+        if(!en.isIntersecting||en.intersectionRatio<0.6)return; /* chắc chắn đã cuộn tới mới đếm */
         var b=en.target, to=parseInt(b.getAttribute('data-count'),10)||0, sfx=b.getAttribute('data-suffix')||'';
-        var dur=1100, t0=performance.now();
+        var dur=countDur(), t0=performance.now();
         (function step(now){
           var p=Math.min((now-t0)/dur,1), e=1-Math.pow(1-p,3); /* easeOutCubic */
           b.textContent=Math.round(to*e)+sfx;
@@ -728,7 +806,7 @@ img,svg{max-width:100%}
         })(performance.now());
         obs.unobserve(b); /* CHỈ 1 LẦN */
       });
-    },{threshold:0.45});
+    },{threshold:[0.6]});
     counters.forEach(function(b){ io.observe(b); });
     setTimeout(function(){ counters.forEach(setFinal); },3500); /* fail-safe */
   })();
