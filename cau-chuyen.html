@@ -372,31 +372,34 @@ img,svg{max-width:100%}
   border-radius:var(--r-pill);padding:6px 13px}
 
 /* ===== THÀNH TỰU (số liệu) — count-up ===== */
-.cs-stats{background:var(--surface);position:relative}
-.cs-stat-grid{margin-top:var(--sp-7);display:grid;gap:var(--sp-4);grid-template-columns:repeat(2,1fr)}
-@media(min-width:760px){.cs-stat-grid{grid-template-columns:repeat(4,1fr)}}
-.cs-stat{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:var(--sp-5) var(--sp-4) var(--sp-6);box-shadow:var(--shadow-sm);
-  transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft),border-color var(--dur) var(--ease-soft)}
-.cs-stat::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:radial-gradient(130% 100% at 100% 0%,color-mix(in srgb,var(--ac,var(--fpt-blue)) 13%,transparent),transparent 62%)}
-@media (hover:hover) and (pointer:fine){.cs-stat:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);
-  border-color:color-mix(in srgb,var(--ac,var(--fpt-blue)) 45%,var(--line))}
-  .cs-stat:hover .cs-stat-ic{transform:translateY(-2px) scale(1.07)}}
-.cs-stat-ic{position:relative;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;
-  border-radius:14px;font-size:25px;line-height:1;margin-bottom:var(--sp-4);
-  transition:transform var(--dur) var(--ease-spring);
-  background:color-mix(in srgb,var(--ac,var(--fpt-blue)) 14%,#fff);
-  box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ac,var(--fpt-blue)) 24%,transparent)}
-.cs-stat::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;transform:scaleX(0);transform-origin:left;
-  background:linear-gradient(90deg,var(--ac,var(--fpt-blue)),color-mix(in srgb,var(--ac,var(--fpt-blue)) 35%,#fff));
-  transition:transform var(--count-dur,1100ms) var(--ease-out)}
-.cs-stat.is-on::after{transform:scaleX(1)}
-.cs-stat b{position:relative;display:flex;align-items:baseline;font-family:var(--font);
-  font-size:clamp(1.75rem,1rem + 2.1vw,2.5rem);font-weight:800;white-space:nowrap;
-  color:var(--ac,var(--fpt-blue));font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.03em}
-.cs-stat .cs-stat-pre{font-size:.62em;margin-right:.06em;color:var(--ink-2);font-weight:800}
-.cs-stat span{position:relative;display:block;margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--ink-2);font-weight:600;line-height:1.45}
+.cs-stats{background:var(--surface);position:relative;overflow:hidden}
+/* nền trừu tượng: mesh gradient mềm nhiều màu */
+.cs-stats::before{content:"";position:absolute;inset:-14% -8%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(42% 52% at 14% 24%,color-mix(in srgb,var(--fpt-blue) 18%,transparent),transparent 70%),
+    radial-gradient(40% 50% at 86% 76%,color-mix(in srgb,var(--fpt-orange) 15%,transparent),transparent 70%),
+    radial-gradient(38% 48% at 64% 6%,color-mix(in srgb,var(--fpt-green) 13%,transparent),transparent 70%),
+    radial-gradient(34% 44% at 36% 92%,color-mix(in srgb,var(--fpt-cerulean) 12%,transparent),transparent 70%);
+  filter:blur(4px)}
+.cs-stats>.wrap{position:relative;z-index:1}
+.cs-stat-ic{display:none}
+/* dải số: borderless, lớn, so le, đan nhau */
+.cs-stat-grid{margin-top:clamp(36px,6vw,72px);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  column-gap:clamp(20px,5vw,72px);row-gap:clamp(24px,4vw,40px)}
+.cs-stat{position:relative;flex:0 1 auto;min-width:0;text-align:center}
+.cs-stat:nth-child(1){transform:translateY(12px)}
+.cs-stat:nth-child(2){transform:translateY(-22px)}
+.cs-stat:nth-child(3){transform:translateY(14px)}
+.cs-stat:nth-child(4){transform:translateY(-10px)}
+.cs-stat b{display:block;font-family:var(--font);font-weight:800;line-height:.8;letter-spacing:-.045em;
+  font-size:clamp(2.8rem,1.4rem + 5.4vw,5.2rem);font-variant-numeric:tabular-nums;white-space:nowrap;
+  background:linear-gradient(158deg,var(--ac,var(--fpt-blue)),color-mix(in srgb,var(--ac,var(--fpt-blue)) 48%,#fff));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  mix-blend-mode:multiply}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .cs-stat b{-webkit-text-fill-color:currentColor;color:var(--ac,var(--fpt-blue));background:none;mix-blend-mode:normal}}
+.cs-stat .cs-stat-pre{font-size:.6em}
+.cs-stat span{display:block;margin-top:var(--sp-2);font-size:var(--fs-sm);color:var(--ink-2);font-weight:600;line-height:1.4;letter-spacing:.02em}
 .cs-stat-foot{margin-top:var(--sp-5);font-size:var(--fs-sm);color:var(--ink-2);font-weight:500;text-align:center;max-width:62ch;margin-inline:auto}
 
 /* ===== CHỨNG NHẬN & XẾP HẠNG ===== */
