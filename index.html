@@ -658,12 +658,13 @@ select.ctl{padding-right:6px;max-width:48vw}
 
 /* ===================== MARQUEE / TICKER (chỉ chữ, 2 hàng ngược chiều, fade mép) ===================== */
 .mq{
-  --mq-fg:#AEC0D6;                 /* chữ phụ sáng trên nền tối */
-  --mq-name:#8AA0BD;               /* tên môn xám dịu */
-  --mq-sep:rgba(174,192,214,.35);  /* separator nhạt */
-  --mq-rule:rgba(255,255,255,.12); /* đường kẻ mảnh */
-  position:relative;overflow:hidden;background:#0E2138;  /* dải băng nền tối (deep navy on-brand) */
-  border-top:.5px solid var(--mq-rule);border-bottom:.5px solid var(--mq-rule);padding-block:18px;
+  --mq-fg:var(--ink-2,#3D5872);     /* chữ phụ — đồng bộ text phụ của trang */
+  --mq-name:#6E83A0;                /* tên môn xám dịu */
+  --mq-sep:#B9C7DA;                 /* separator nhạt */
+  --mq-rule:var(--line,#D6E2EF);    /* đường kẻ mảnh */
+  --mq-bg:var(--surface-2,#EEF4FB); /* dải băng sáng, đồng bộ tông trang */
+  position:relative;overflow:hidden;background:var(--mq-bg);padding-block:18px;
+  border-top:.5px solid var(--mq-rule);border-bottom:.5px solid var(--mq-rule);
   -webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);
           mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);
 }
@@ -968,18 +969,18 @@ select.ctl{padding-right:6px;max-width:48vw}
       <div class="mq__row">
         <div class="mq__track mq__track--right">
           <span class="mq__group">
-            <span class="mq__code" style="--c:#4F9FE0">MLN111</span><span class="mq__name">Triết học</span><span class="mq__sep">·</span>
-            <span class="mq__code" style="--c:#5FC65A">PRN232</span><span class="mq__name">Back-End .NET</span><span class="mq__sep">·</span>
-            <span class="mq__code" style="--c:#29A8EA">MAS291</span><span class="mq__name">Thống kê &amp; Xác suất</span><span class="mq__sep">·</span>
-            <span class="mq__code" style="--c:#FF8A3D">SWP391</span><span class="mq__name">Đồ án phần mềm</span><span class="mq__sep">·</span>
-            <span class="mq__code" style="--c:#FF5B61">DBI202</span><span class="mq__name">Cơ sở dữ liệu</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#0651A0">MLN111</span><span class="mq__name">Triết học</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#1F8B3A">PRN232</span><span class="mq__name">Back-End .NET</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#0E72B8">MAS291</span><span class="mq__name">Thống kê &amp; Xác suất</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#D65A12">SWP391</span><span class="mq__name">Đồ án phần mềm</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#C8102E">DBI202</span><span class="mq__name">Cơ sở dữ liệu</span><span class="mq__sep">·</span>
           </span>
           <span class="mq__group" aria-hidden="true">
-            <span class="mq__code" style="--c:#4F9FE0">MLN111</span><span class="mq__name">Triết học</span><span class="mq__sep">·</span>
-            <span class="mq__code" style="--c:#5FC65A">PRN232</span><span class="mq__name">Back-End .NET</span><span class="mq__sep">·</span>
-            <span class="mq__code" style="--c:#29A8EA">MAS291</span><span class="mq__name">Thống kê &amp; Xác suất</span><span class="mq__sep">·</span>
-            <span class="mq__code" style="--c:#FF8A3D">SWP391</span><span class="mq__name">Đồ án phần mềm</span><span class="mq__sep">·</span>
-            <span class="mq__code" style="--c:#FF5B61">DBI202</span><span class="mq__name">Cơ sở dữ liệu</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#0651A0">MLN111</span><span class="mq__name">Triết học</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#1F8B3A">PRN232</span><span class="mq__name">Back-End .NET</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#0E72B8">MAS291</span><span class="mq__name">Thống kê &amp; Xác suất</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#D65A12">SWP391</span><span class="mq__name">Đồ án phần mềm</span><span class="mq__sep">·</span>
+            <span class="mq__code" style="--c:#C8102E">DBI202</span><span class="mq__name">Cơ sở dữ liệu</span><span class="mq__sep">·</span>
           </span>
         </div>
       </div>
