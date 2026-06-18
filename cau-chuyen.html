@@ -375,18 +375,26 @@ img,svg{max-width:100%}
 .cs-stats{background:var(--surface);position:relative}
 .cs-stat-grid{margin-top:var(--sp-7);display:grid;gap:var(--sp-4);grid-template-columns:repeat(2,1fr)}
 @media(min-width:760px){.cs-stat-grid{grid-template-columns:repeat(4,1fr)}}
-.cs-stat{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:var(--sp-6) var(--sp-5) var(--sp-6);box-shadow:var(--shadow-sm);overflow:hidden;
-  transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft)}
-@media (hover:hover) and (pointer:fine){.cs-stat:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}}
-.cs-stat::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;transform:scaleX(0);transform-origin:left;
-  background:linear-gradient(90deg,var(--fpt-blue),var(--fpt-cerulean),var(--fpt-green),var(--fpt-orange));
+.cs-stat{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--sp-5) var(--sp-5) var(--sp-6);box-shadow:var(--shadow-sm);
+  transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft),border-color var(--dur) var(--ease-soft)}
+.cs-stat::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(130% 100% at 100% 0%,color-mix(in srgb,var(--ac,var(--fpt-blue)) 13%,transparent),transparent 62%)}
+@media (hover:hover) and (pointer:fine){.cs-stat:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);
+  border-color:color-mix(in srgb,var(--ac,var(--fpt-blue)) 45%,var(--line))}}
+.cs-stat-ic{position:relative;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;
+  border-radius:14px;font-size:25px;line-height:1;margin-bottom:var(--sp-4);
+  background:color-mix(in srgb,var(--ac,var(--fpt-blue)) 14%,#fff);
+  box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ac,var(--fpt-blue)) 24%,transparent)}
+.cs-stat::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--ac,var(--fpt-blue)),color-mix(in srgb,var(--ac,var(--fpt-blue)) 35%,#fff));
   transition:transform var(--count-dur,1100ms) var(--ease-out)}
 .cs-stat.is-on::after{transform:scaleX(1)}
-.cs-stat b{display:flex;align-items:baseline;font-size:clamp(2rem,1.2rem + 2.6vw,3.2rem);font-weight:800;
-  color:var(--fpt-blue);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.03em}
+.cs-stat b{position:relative;display:flex;align-items:baseline;font-family:var(--font);
+  font-size:clamp(2.2rem,1.2rem + 3.1vw,3.5rem);font-weight:800;
+  color:var(--ac,var(--fpt-blue));font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.03em}
 .cs-stat .cs-stat-pre{font-size:.62em;margin-right:.06em;color:var(--ink-2);font-weight:800}
-.cs-stat span{display:block;margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--ink-2);font-weight:600;line-height:1.45}
+.cs-stat span{position:relative;display:block;margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--ink-2);font-weight:600;line-height:1.45}
 .cs-stat-foot{margin-top:var(--sp-5);font-size:var(--fs-sm);color:var(--ink-2);font-weight:500;text-align:center;max-width:62ch;margin-inline:auto}
 
 /* ===== CHỨNG NHẬN & XẾP HẠNG ===== */
@@ -779,19 +787,23 @@ img,svg{max-width:100%}
       <h2 class="cs-h2 cs-rev measure cs-shine" id="csStatsH">Những con số kể phần còn lại của câu chuyện.</h2>
       <p class="cs-p cs-rev measure">Hơn hai thập kỷ, hành trình ấy được kể lại bằng những con số biết nói — đếm lên ngay khi phần này lọt vào màn hình.</p>
       <div class="cs-stat-grid" id="csStatGrid">
-        <div class="cs-stat cs-rev-s" style="--d:0s">
+        <div class="cs-stat cs-rev-s" style="--d:0s;--ac:#0651A0">
+          <span class="cs-stat-ic" aria-hidden="true">🎓</span>
           <b data-count="56000" data-suffix="+">56.000+</b>
           <span>Sinh viên &amp; học viên</span>
         </div>
-        <div class="cs-stat cs-rev-s" style="--d:.08s">
+        <div class="cs-stat cs-rev-s" style="--d:.08s;--ac:#178A3A">
+          <span class="cs-stat-ic" aria-hidden="true">💼</span>
           <b data-count="96" data-suffix="%">96%</b>
           <span>Có việc làm sau tốt nghiệp</span>
         </div>
-        <div class="cs-stat cs-rev-s" style="--d:.16s">
+        <div class="cs-stat cs-rev-s" style="--d:.16s;--ac:#D45A12">
+          <span class="cs-stat-ic" aria-hidden="true">🤝</span>
           <b data-count="400" data-suffix="+">400+</b>
           <span>Doanh nghiệp đối tác</span>
         </div>
-        <div class="cs-stat cs-rev-s" style="--d:.24s">
+        <div class="cs-stat cs-rev-s" style="--d:.24s;--ac:#C8102E">
+          <span class="cs-stat-ic" aria-hidden="true">🏛️</span>
           <b data-count="5" data-suffix="">5</b>
           <span>Campus trên toàn quốc</span>
         </div>
