@@ -158,7 +158,7 @@ select.ctl{padding-right:6px;max-width:48vw}
 .qtext{font-size:1.12rem;font-weight:700;line-height:1.55;flex:none}
 .qmeta{margin-top:8px;font-size:.78rem;font-weight:700;color:var(--red)}
 .hintflip{margin-top:auto;padding-top:14px;text-align:center;font-size:.78rem;font-weight:700;color:var(--ink-2);letter-spacing:.5px;text-transform:uppercase}
-.stamp{position:absolute;top:14px;right:14px;transform:rotate(-8deg);border:3px double var(--red);color:var(--red);
+.stamp{position:absolute;top:14px;right:14px;transform:rotate(-8deg);border:3px double var(--accent-cta);color:var(--accent-cta);
   font-weight:900;font-size:.85rem;letter-spacing:2.5px;padding:4px 10px;text-transform:uppercase;background:rgba(255,255,255,.6)}
 @keyframes stampIn{0%{transform:scale(2) rotate(-14deg);opacity:0}55%{transform:scale(.92) rotate(-7deg);opacity:1}100%{transform:scale(1) rotate(-8deg)}}
 .card.flipped .stamp{animation:stampIn .45s var(--ease-out) .22s both}
@@ -295,7 +295,8 @@ select.ctl{padding-right:6px;max-width:48vw}
   .lp-mesh,.lp-mesh span{animation:none !important;transform:none !important}
   .lp-mesh{display:none !important}
   .lp-grad-text{animation:none !important;background-position:0% 50% !important}
-  .lp-illus,.lp-aurora{transform:none !important}
+  .lp-illus,.lp-mock,.lp-aurora{transform:none !important}
+  .lp-aurora{animation:none !important}
   .pf-card[data-status="available"].lp-tilting{transform:none !important}
   .pf-card[data-status="available"]::before{opacity:0 !important}
   /* ---- tắt hết hiệu ứng cuộn/tương tác MỚI ---- */
@@ -621,6 +622,175 @@ select.ctl{padding-right:6px;max-width:48vw}
 .lp-feat-ic{transition:transform var(--dur) var(--ease-soft)}
 .lp-feat{transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft)}
 @media (hover:hover) and (pointer:fine){.lp-feat:hover{transform:translateY(-4px)}}
+
+/* ===================== TÀI NGUYÊN HÌNH (image slot fallback-first) ===================== */
+/* .lp-media: phần tử hiển thị placeholder SVG on-brand mặc định; <img> ẩn tới khi onload OK */
+.lp-media{position:relative;display:block;overflow:hidden;border-radius:var(--r-lg);
+  background:var(--surface-2);line-height:0}
+.lp-media>svg.lp-ph{display:block;width:100%;height:auto}
+.lp-media>img.lp-real{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.lp-media.lp-has-img>svg.lp-ph{display:none}
+.lp-media.lp-has-img>img.lp-real{display:block;position:static;height:auto}
+.lp-foot-badge{display:inline-block;border:1px solid rgba(255,255,255,.2);border-radius:var(--r-pill);
+  padding:4px 12px;font-size:var(--fs-xs);font-weight:600;color:#CFE0F0}
+
+/* ===================== MOCKUP SẢN PHẨM (hero visual mặc định) ===================== */
+.lp-mock{width:100%;max-width:480px;justify-self:center;position:relative;
+  transform:translate3d(calc(var(--plx,0)*-10px),calc(var(--ply,0)*-10px + var(--sy,0px)*-.10),0) perspective(900px) rotateY(var(--mry,0deg)) rotateX(var(--mrx,0deg));
+  transition:transform .4s var(--ease-soft);transform-style:preserve-3d}
+.lp-mock svg{width:100%;height:auto;display:block;filter:drop-shadow(0 22px 48px rgba(6,81,160,.20))}
+/* slot ảnh thật trong hero: ẩn tới khi <img> load OK (JS thêm .lp-has-real) */
+.lp-mock-imgslot{display:none}
+.lp-mock.lp-has-real .lp-mock-svg{display:none}
+.lp-mock.lp-has-real .lp-mock-imgslot{display:block;line-height:0}
+.lp-mock.lp-has-real .lp-mock-imgslot img{width:100%;height:auto;display:block;border-radius:var(--r-lg);
+  box-shadow:0 22px 48px rgba(6,81,160,.20)}
+
+/* ===================== HERO PARTICLES + SPOTLIGHT ===================== */
+.lp-spot{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;
+  transition:opacity var(--dur) var(--ease-soft);
+  background:radial-gradient(420px 420px at var(--spx,50%) var(--spy,50%),
+    rgba(0,141,222,.18),rgba(83,184,72,.10) 38%,transparent 64%)}
+.lp-hero.lp-spot-on .lp-spot{opacity:1}
+.lp-particles{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.lp-particles i{position:absolute;display:block;border-radius:50%;opacity:.55;
+  will-change:transform;transform:translate3d(0,0,0);transition:transform .5s var(--ease-soft)}
+
+/* ===================== MARQUEE BANNER (2 dải, ngược chiều, pause hover) ===================== */
+.lp-marquee{position:relative;overflow:hidden;background:var(--surface);
+  border-block:1px solid var(--line);padding-block:var(--sp-5)}
+.lp-marquee::before,.lp-marquee::after{content:"";position:absolute;top:0;bottom:0;width:64px;z-index:2;pointer-events:none}
+.lp-marquee::before{left:0;background:linear-gradient(90deg,var(--surface),transparent)}
+.lp-marquee::after{right:0;background:linear-gradient(270deg,var(--surface),transparent)}
+.lp-mq-row{display:flex;width:max-content;gap:var(--sp-3);will-change:transform}
+.lp-mq-row+.lp-mq-row{margin-top:var(--sp-3)}
+.lp-mq-a{animation:lpMqLeft 38s linear infinite}
+.lp-mq-b{animation:lpMqRight 44s linear infinite}
+@keyframes lpMqLeft{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes lpMqRight{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+@media (hover:hover) and (pointer:fine){.lp-marquee:hover .lp-mq-row{animation-play-state:paused}}
+.lp-mq-chip{flex:none;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+  border:1px solid var(--line);background:var(--surface-2);border-radius:var(--r-pill);
+  padding:9px 18px;font-weight:600;font-size:var(--fs-sm);color:var(--ink)}
+.lp-mq-chip .d{width:8px;height:8px;border-radius:50%;flex:none}
+.lp-mq-chip.code{font-variant-numeric:tabular-nums;font-weight:700;color:var(--fpt-blue);
+  background:rgba(6,81,160,.07);border-color:rgba(6,81,160,.18)}
+
+/* ===================== FLIP-ON-SCROLL CARDS ===================== */
+.lp-flip-grid{display:grid;gap:var(--sp-4);grid-template-columns:1fr}
+@media(min-width:640px){.lp-flip-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.lp-flip-grid{grid-template-columns:repeat(4,1fr)}}
+.lp-flip{perspective:1100px;min-height:172px}
+.lp-flip-in{position:relative;width:100%;height:100%;min-height:inherit;
+  transform-style:preserve-3d;transition:transform var(--dur-slow) var(--ease-spring)}
+/* mặc định (có JS) — úp mặt sau; chỉ khi vào viewport (.lp-flipped) mới lật ra mặt trước */
+.js .lp-flip-in{transform:rotateY(180deg)}
+.js .lp-flip.lp-flipped .lp-flip-in{transform:rotateY(0deg)}
+.lp-flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;border-radius:var(--r-md);
+  padding:var(--sp-5);border:1px solid var(--line)}
+.lp-flip-front{background:var(--surface);box-shadow:var(--shadow-sm)}
+.lp-flip-back{transform:rotateY(180deg);color:#fff;
+  background:linear-gradient(135deg,var(--fc,#0651A0),var(--fc2,#008DDE))}
+.lp-flip-back .lp-flip-ic{color:#fff;background:rgba(255,255,255,.18)}
+.lp-flip-ic{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:var(--r-sm);background:rgba(6,81,160,.10);color:var(--fpt-blue);margin-bottom:var(--sp-2)}
+.lp-flip-ic svg{width:24px;height:24px}
+.lp-flip h3{font-size:var(--fs-body);font-weight:700}
+.lp-flip p{margin-top:var(--sp-1);font-size:var(--fs-sm);font-weight:500;line-height:1.5}
+.lp-flip-front p{color:var(--ink-2)}
+
+/* ===================== MARKETING: hàng xen kẽ ảnh/chữ ===================== */
+.lp-alt{display:grid;grid-template-columns:1fr;gap:var(--sp-5);align-items:center;margin-bottom:var(--sp-7)}
+.lp-alt:last-child{margin-bottom:0}
+@media(min-width:900px){
+  .lp-alt{grid-template-columns:1fr 1fr;gap:var(--sp-8)}
+  .lp-alt.lp-alt-rev .lp-alt-media{order:2}
+}
+.lp-alt-media{width:100%}
+.lp-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-xs);font-weight:700;
+  letter-spacing:.6px;text-transform:uppercase;color:var(--fpt-blue);
+  background:rgba(6,81,160,.08);border-radius:var(--r-pill);padding:5px 12px;margin-bottom:var(--sp-3)}
+.lp-alt-body h3{font-size:var(--fs-h1);font-weight:700;color:var(--ink);line-height:1.2}
+.lp-alt-body p{margin-top:var(--sp-3);color:var(--ink-2);font-size:var(--fs-body);line-height:1.65}
+.lp-benefits{list-style:none;margin-top:var(--sp-4);display:flex;flex-direction:column;gap:var(--sp-2)}
+.lp-benefits li{display:flex;gap:10px;align-items:flex-start;font-size:var(--fs-sm);font-weight:500;color:var(--ink)}
+.lp-benefits svg{flex:none;width:20px;height:20px;color:var(--fpt-green);margin-top:1px}
+
+/* ===================== STATS STRIP ===================== */
+.lp-statband{background:linear-gradient(135deg,#0651A0 0%,#053E7A 55%,#008DDE 130%);color:#fff}
+.lp-statband-in{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-5);
+  padding-block:var(--sp-7);text-align:center}
+@media(min-width:640px){.lp-statband-in{grid-template-columns:repeat(4,1fr)}}
+.lp-statbox b{display:block;font-size:clamp(1.8rem,1.2rem+2vw,2.6rem);font-weight:800;
+  line-height:1;font-variant-numeric:tabular-nums}
+.lp-statbox span{display:block;margin-top:var(--sp-2);font-size:var(--fs-sm);font-weight:500;color:#CFE6FB}
+
+/* ===================== CÁCH DÙNG 1-2-3 ===================== */
+.lp-steps{display:grid;grid-template-columns:1fr;gap:var(--sp-5);counter-reset:lpstep}
+@media(min-width:640px){.lp-steps{grid-template-columns:repeat(3,1fr)}}
+.lp-step{position:relative;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-md);padding:var(--sp-6) var(--sp-5) var(--sp-5);box-shadow:var(--shadow-sm)}
+.lp-step::before{counter-increment:lpstep;content:counter(lpstep);position:absolute;top:-18px;left:var(--sp-5);
+  width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.1rem;color:#fff;background:var(--fpt-blue);box-shadow:var(--shadow-brand)}
+.lp-step h3{margin-top:var(--sp-2);font-size:var(--fs-body);font-weight:700;color:var(--ink)}
+.lp-step p{margin-top:var(--sp-2);font-size:var(--fs-sm);color:var(--ink-2);font-weight:500;line-height:1.6}
+
+/* ===================== TẠI SAO CHỌN ===================== */
+.lp-why-grid{display:grid;grid-template-columns:1fr;gap:var(--sp-4)}
+@media(min-width:640px){.lp-why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.lp-why-grid{grid-template-columns:repeat(3,1fr)}}
+.lp-why{display:flex;gap:var(--sp-3);background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-md);padding:var(--sp-5);box-shadow:var(--shadow-sm)}
+.lp-why .lp-feat-ic{margin-bottom:0;flex:none}
+.lp-why h3{font-size:var(--fs-body);font-weight:700;color:var(--ink)}
+.lp-why p{margin-top:var(--sp-1);font-size:var(--fs-sm);color:var(--ink-2);font-weight:500;line-height:1.55}
+
+/* ===================== FAQ ===================== */
+.lp-faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:var(--sp-3)}
+.lp-faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  box-shadow:var(--shadow-sm);overflow:hidden}
+.lp-faq summary{cursor:pointer;list-style:none;padding:var(--sp-4) var(--sp-5);min-height:52px;
+  display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);
+  font-weight:600;font-size:var(--fs-body);color:var(--ink)}
+.lp-faq summary::-webkit-details-marker{display:none}
+.lp-faq summary::after{content:"";flex:none;width:12px;height:12px;border-right:2px solid var(--ink-2);
+  border-bottom:2px solid var(--ink-2);transform:rotate(45deg);transition:transform var(--dur) var(--ease-soft)}
+.lp-faq details[open] summary::after{transform:rotate(-135deg)}
+.lp-faq summary:focus-visible{outline:3px solid var(--fpt-blue);outline-offset:-3px}
+.lp-faq p{padding:0 var(--sp-5) var(--sp-4);color:var(--ink-2);font-size:var(--fs-sm);line-height:1.65}
+
+/* ===================== DẢI CTA CUỐI ===================== */
+.lp-cta-final{position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#0651A0 0%,#008DDE 45%,#53B848 110%);color:#fff;text-align:center}
+.lp-cta-final::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(50% 60% at 80% 0%,rgba(255,255,255,.18),transparent 60%),
+    radial-gradient(40% 50% at 10% 100%,rgba(243,113,36,.22),transparent 60%)}
+.lp-cta-final-in{position:relative;z-index:1;padding-block:var(--sp-8)}
+.lp-cta-final h2{font-size:var(--fs-h1);font-weight:800}
+.lp-cta-final p{margin-top:var(--sp-3);font-size:var(--fs-lead);color:#E6F2FB;max-width:52ch;margin-inline:auto}
+.lp-cta-final .lp-cta-row{justify-content:center;margin-top:var(--sp-5)}
+.lp-btn-light{background:#fff;color:var(--fpt-blue)}
+.lp-btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+@media (hover:hover) and (pointer:fine){
+  .lp-btn-light:hover{transform:translateY(-2px)}
+  .lp-btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+}
+
+/* ===================== REDUCED-MOTION: tắt HẾT motion mới ===================== */
+@media (prefers-reduced-motion:reduce){
+  .lp-mq-row{animation:none !important;transform:none !important}
+  .lp-spot{display:none !important}
+  .lp-particles{display:none !important}
+  .lp-mock{transform:none !important}
+  .js .lp-flip-in{transform:none !important;transition:none !important}
+  .js .lp-flip.lp-flipped .lp-flip-in{transform:none !important}
+  /* reduce: hiện thẳng mặt TRƯỚC, không lật, không úp ngược */
+  .lp-flip-in{transform:none !important}
+  .lp-flip-back{display:none !important}
+  .lp-faq summary::after,.lp-faq details[open] summary::after{transition:none !important}
+}
 </style>
 </head>
 <body>
@@ -670,7 +840,8 @@ select.ctl{padding-right:6px;max-width:48vw}
       </a>
       <span class="lp-tag">Dự án sinh viên</span>
       <nav class="lp-nav-r" aria-label="Liên kết">
-        <a href="https://github.com/HuuTriet/fpt-ontap" rel="noopener">GitHub</a>
+        <a href="#pfGrid">Các môn</a>
+        <a href="#lpFeatH">Tính năng</a>
       </nav>
     </div>
   </header>
@@ -678,6 +849,8 @@ select.ctl{padding-right:6px;max-width:48vw}
   <main>
     <section class="lp-hero" aria-labelledby="lpHeroH">
       <div class="lp-mesh" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+      <div class="lp-spot" aria-hidden="true"></div>
+      <div class="lp-particles" id="lpParticles" aria-hidden="true"></div>
       <div class="lp-wrap lp-hero-in">
         <div class="reveal-l">
           <h1 id="lpHeroH"><span class="lp-grad-text">Ôn tập mọi môn FPT</span><br>gọn trong một web.</h1>
@@ -692,9 +865,12 @@ select.ctl{padding-right:6px;max-width:48vw}
             <span class="lp-stat" role="listitem">còn lại đang cập nhật</span>
           </div>
         </div>
-        <div class="lp-illus reveal-r">
-          <svg class="lp-aurora" viewBox="0 0 480 360" role="img" aria-label="Minh hoạ học tập và công nghệ FPT" xmlns="http://www.w3.org/2000/svg">
-            <title>Minh hoạ học tập và công nghệ FPT</title>
+        <div class="lp-mock reveal-r" id="lpMock">
+          <!-- MOCKUP SẢN PHẨM (flashcard/quiz cách điệu) — visual hero mặc định khi chưa có ảnh thật -->
+          <!-- slot ảnh thật: thả assets/img/hero.jpg để swap (fallback-first, onload mới hiện) -->
+          <span class="lp-mock-imgslot" data-img-slot="assets/img/hero.jpg" data-alt="Ảnh minh hoạ ứng dụng FPT Ôn Tập"></span>
+          <svg class="lp-aurora lp-mock-svg" viewBox="0 0 480 360" role="img" aria-label="Giao diện flashcard và trắc nghiệm FPT Ôn Tập" xmlns="http://www.w3.org/2000/svg">
+            <title>Giao diện flashcard và trắc nghiệm FPT Ôn Tập</title>
             <defs>
               <linearGradient id="hgBlue" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#0651A0"/><stop offset="1" stop-color="#008DDE"/>
@@ -703,27 +879,75 @@ select.ctl{padding-right:6px;max-width:48vw}
                 <stop offset="0" stop-color="#53B848"/><stop offset=".6" stop-color="#F37124"/><stop offset="1" stop-color="#E11B22"/>
               </linearGradient>
             </defs>
-            <circle cx="372" cy="92" r="78" fill="url(#hgWarm)" opacity=".16"/>
-            <circle cx="96" cy="280" r="60" fill="url(#hgBlue)" opacity=".14"/>
-            <rect x="300" y="220" width="120" height="120" rx="22" fill="url(#hgBlue)" opacity=".18" transform="rotate(12 360 280)"/>
-            <g transform="rotate(-9 200 180)">
-              <rect x="96" y="74" width="208" height="212" rx="20" fill="#fff" stroke="#D6E2EF" stroke-width="2"/>
-              <rect x="96" y="74" width="208" height="46" rx="20" fill="url(#hgBlue)"/>
-              <rect x="96" y="100" width="208" height="20" fill="url(#hgBlue)"/>
-              <rect x="120" y="88" width="92" height="16" rx="8" fill="#fff" opacity=".9"/>
-              <rect x="120" y="146" width="160" height="13" rx="6" fill="#3D5872" opacity=".85"/>
-              <rect x="120" y="172" width="130" height="13" rx="6" fill="#3D5872" opacity=".55"/>
-              <rect x="120" y="206" width="60" height="34" rx="10" fill="#53B848" opacity=".9"/>
-              <rect x="196" y="206" width="84" height="34" rx="10" fill="#EEF4FB" stroke="#D6E2EF" stroke-width="1.5"/>
+            <!-- khối nền geometric -->
+            <circle cx="392" cy="78" r="74" fill="url(#hgWarm)" opacity=".15"/>
+            <circle cx="70" cy="296" r="56" fill="url(#hgBlue)" opacity=".13"/>
+            <rect x="312" y="232" width="118" height="118" rx="24" fill="url(#hgBlue)" opacity=".16" transform="rotate(14 371 291)"/>
+            <!-- thẻ phía sau (chồng lớp -> chiều sâu) -->
+            <g transform="rotate(-7 250 200)" opacity=".55">
+              <rect x="150" y="64" width="206" height="232" rx="20" fill="#fff" stroke="#D6E2EF" stroke-width="2"/>
             </g>
-            <polygon points="408,250 430,292 386,292" fill="url(#hgWarm)" opacity=".85"/>
-            <circle cx="138" cy="96" r="13" fill="#F37124"/>
+            <!-- THẺ CHÍNH: flashcard nghiêng -->
+            <g transform="rotate(-9 200 190)">
+              <rect x="92" y="58" width="216" height="246" rx="22" fill="#fff" stroke="#D6E2EF" stroke-width="2"/>
+              <!-- header thẻ gradient -->
+              <rect x="92" y="58" width="216" height="52" rx="22" fill="url(#hgBlue)"/>
+              <rect x="92" y="86" width="216" height="24" fill="url(#hgBlue)"/>
+              <rect x="112" y="74" width="78" height="18" rx="9" fill="#fff" opacity=".92"/>
+              <circle cx="288" cy="83" r="11" fill="#F2B705"/>
+              <path d="M288 76 l2.2 4.5 5 .7 -3.6 3.5 .9 5 -4.5-2.4 -4.5 2.4 .9-5 -3.6-3.5 5-.7z" fill="#fff"/>
+              <!-- nội dung câu hỏi -->
+              <rect x="112" y="132" width="176" height="14" rx="7" fill="#3D5872" opacity=".85"/>
+              <rect x="112" y="156" width="150" height="14" rx="7" fill="#3D5872" opacity=".55"/>
+              <!-- đáp án: 1 đúng (xanh-lục), các đáp án khác trung tính -->
+              <rect x="112" y="190" width="176" height="30" rx="9" fill="#E4F2E9" stroke="#53B848" stroke-width="1.5"/>
+              <circle cx="128" cy="205" r="6" fill="#53B848"/><path d="M125.4 205 l1.8 1.8 3.4-3.6" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="142" y="199" width="120" height="11" rx="5" fill="#1E6E45" opacity=".7"/>
+              <rect x="112" y="228" width="176" height="30" rx="9" fill="#EEF4FB" stroke="#D6E2EF" stroke-width="1.5"/>
+              <circle cx="128" cy="243" r="6" fill="#D6E2EF"/>
+              <rect x="142" y="237" width="104" height="11" rx="5" fill="#3D5872" opacity=".45"/>
+              <!-- thanh tiến độ -->
+              <rect x="112" y="276" width="176" height="8" rx="4" fill="#EEF4FB"/>
+              <rect x="112" y="276" width="118" height="8" rx="4" fill="url(#hgBlue)"/>
+            </g>
+            <!-- huy hiệu điểm số nổi -->
+            <g transform="translate(330 244)">
+              <rect x="-4" y="-4" width="92" height="64" rx="16" fill="#fff" stroke="#D6E2EF" stroke-width="2"/>
+              <text x="42" y="30" font-family="'Be Vietnam Pro',Inter,sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#53B848">92%</text>
+              <text x="42" y="48" font-family="'Be Vietnam Pro',Inter,sans-serif" font-size="9" font-weight="600" text-anchor="middle" fill="#3D5872">điểm quiz</text>
+            </g>
+            <!-- tia trang trí -->
             <g stroke="#F2B705" stroke-width="3" stroke-linecap="round">
-              <path d="M150 60 l14 -14"/><path d="M168 70 l18 -6"/><path d="M158 44 l6 -18"/>
+              <path d="M340 130 l16 -12"/><path d="M356 144 l18 -4"/><path d="M348 112 l6 -18"/>
             </g>
-            <circle cx="356" cy="318" r="9" fill="#008DDE"/><circle cx="64" cy="150" r="7" fill="#53B848"/>
+            <circle cx="60" cy="120" r="8" fill="#F37124"/><circle cx="420" cy="300" r="7" fill="#53B848"/>
+            <circle cx="44" cy="220" r="5" fill="#008DDE"/>
           </svg>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== MARQUEE: 2 dải chạy ngang ngược chiều, pause khi hover ===== -->
+    <section class="lp-marquee" aria-label="Tính năng và môn học nổi bật">
+      <div class="lp-mq-row lp-mq-a" id="lpMqA" aria-hidden="true">
+        <span class="lp-mq-chip"><span class="d" style="background:#0651A0"></span>Flashcard lật thẻ</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#53B848"></span>Trắc nghiệm chấm điểm</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#F37124"></span>Lưu tiến độ tự động</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#008DDE"></span>Vuốt thẻ trái / phải</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#E11B22"></span>Đánh dấu câu sai</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#0651A0"></span>Tìm theo số câu</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#53B848"></span>Hoạt động offline</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#F37124"></span>Không cần đăng nhập</span>
+      </div>
+      <div class="lp-mq-row lp-mq-b" id="lpMqB" aria-hidden="true">
+        <span class="lp-mq-chip code">MLN111</span>
+        <span class="lp-mq-chip code">PRN232</span>
+        <span class="lp-mq-chip code">MAS291</span>
+        <span class="lp-mq-chip code">SWP391</span>
+        <span class="lp-mq-chip code">DBI202</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#008DDE"></span>585 câu MLN111</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#53B848"></span>Ôn lại câu sai</span>
+        <span class="lp-mq-chip"><span class="d" style="background:#F37124"></span>Mở là học tiếp</span>
       </div>
     </section>
 
@@ -749,33 +973,269 @@ select.ctl{padding-right:6px;max-width:48vw}
       </div>
     </section>
 
+    <!-- ===== TÍNH NĂNG: thẻ lật-khi-cuộn ===== -->
     <section class="lp-features lp-section" aria-labelledby="lpFeatH">
       <div class="lp-wrap">
         <div class="lp-sec-head reveal reveal-down">
-          <h2 id="lpFeatH">Cách dùng</h2>
-          <p>Bốn tính năng cốt lõi giúp bạn ôn nhanh và nhớ lâu.</p>
+          <h2 id="lpFeatH">Tính năng nổi bật</h2>
+          <p>Bốn tính năng cốt lõi giúp bạn ôn nhanh và nhớ lâu — các thẻ lật mở khi bạn cuộn tới.</p>
         </div>
-        <div class="lp-feat-grid">
-          <div class="lp-feat reveal-s">
-            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M12 5v14"/></svg></span>
-            <h3>Flashcard lật thẻ</h3>
-            <p>Vuốt trái/phải để đánh dấu đã thuộc hoặc cần ôn lại.</p>
+        <div class="lp-flip-grid">
+          <div class="lp-flip reveal-s" data-flip>
+            <div class="lp-flip-in">
+              <div class="lp-flip-face lp-flip-front">
+                <span class="lp-flip-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M12 5v14"/></svg></span>
+                <h3>Flashcard lật thẻ</h3>
+                <p>Vuốt trái/phải để đánh dấu đã thuộc hoặc cần ôn lại.</p>
+              </div>
+              <div class="lp-flip-face lp-flip-back" style="--fc:#0651A0;--fc2:#008DDE">
+                <span class="lp-flip-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M12 5v14"/></svg></span>
+                <h3>Lật & vuốt mượt</h3>
+                <p>Hiệu ứng vuốt như Quizlet, tách rõ đã thuộc / chưa thuộc.</p>
+              </div>
+            </div>
           </div>
-          <div class="lp-feat reveal-s">
-            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
-            <h3>Trắc nghiệm chấm điểm</h3>
-            <p>Làm quiz, xem kết quả tức thì và ôn lại các câu sai.</p>
+          <div class="lp-flip reveal-s" data-flip>
+            <div class="lp-flip-in">
+              <div class="lp-flip-face lp-flip-front">
+                <span class="lp-flip-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+                <h3>Trắc nghiệm chấm điểm</h3>
+                <p>Làm quiz, xem kết quả tức thì và ôn lại các câu sai.</p>
+              </div>
+              <div class="lp-flip-face lp-flip-back" style="--fc:#008DDE;--fc2:#53B848">
+                <span class="lp-flip-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+                <h3>Điểm tức thì</h3>
+                <p>Hỗ trợ câu nhiều đáp án; xem % điểm và ôn riêng câu sai.</p>
+              </div>
+            </div>
           </div>
-          <div class="lp-feat reveal-s">
-            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 4v5h-5"/></svg></span>
-            <h3>Lưu tiến độ tự động</h3>
-            <p>Tiến độ lưu ngay trên máy bạn, mở lại là học tiếp.</p>
+          <div class="lp-flip reveal-s" data-flip>
+            <div class="lp-flip-in">
+              <div class="lp-flip-face lp-flip-front">
+                <span class="lp-flip-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 4v5h-5"/></svg></span>
+                <h3>Lưu tiến độ tự động</h3>
+                <p>Tiến độ lưu ngay trên máy bạn, mở lại là học tiếp.</p>
+              </div>
+              <div class="lp-flip-face lp-flip-back" style="--fc:#53B848;--fc2:#0651A0">
+                <span class="lp-flip-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 4v5h-5"/></svg></span>
+                <h3>Lưu cục bộ</h3>
+                <p>Dùng localStorage — không tài khoản, không gửi dữ liệu đi đâu.</p>
+              </div>
+            </div>
           </div>
-          <div class="lp-feat reveal-s">
-            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
-            <h3>Tìm theo số câu / từ khoá</h3>
-            <p>Nhập số câu hoặc từ khoá để nhảy tới đúng nội dung.</p>
+          <div class="lp-flip reveal-s" data-flip>
+            <div class="lp-flip-in">
+              <div class="lp-flip-face lp-flip-front">
+                <span class="lp-flip-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+                <h3>Tìm theo số câu / từ khoá</h3>
+                <p>Nhập số câu hoặc từ khoá để nhảy tới đúng nội dung.</p>
+              </div>
+              <div class="lp-flip-face lp-flip-back" style="--fc:#F37124;--fc2:#E11B22">
+                <span class="lp-flip-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+                <h3>Nhảy tới ngay</h3>
+                <p>Gõ "132" để mở đúng câu, hoặc từ khoá để lọc nội dung.</p>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MARKETING: hàng xen kẽ ảnh/chữ (feature + lợi ích) ===== -->
+    <section class="lp-section" aria-labelledby="lpAltH">
+      <div class="lp-wrap">
+        <h2 id="lpAltH" class="skip">Tính năng chi tiết</h2>
+        <div class="lp-alt">
+          <div class="lp-alt-media reveal-l">
+            <!-- slot ảnh thật: assets/img/feature-1.jpg -->
+            <span class="lp-media" data-img-slot="assets/img/feature-1.jpg" data-alt="Màn hình flashcard lật thẻ">
+              <svg class="lp-ph" viewBox="0 0 480 320" role="img" aria-label="Minh hoạ flashcard lật thẻ" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="phg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0651A0"/><stop offset="1" stop-color="#008DDE"/></linearGradient></defs>
+                <rect width="480" height="320" fill="#EEF4FB"/>
+                <rect x="120" y="56" width="240" height="208" rx="18" fill="#fff" stroke="#D6E2EF" stroke-width="2" transform="rotate(-5 240 160)"/>
+                <rect x="140" y="78" width="200" height="44" rx="12" fill="url(#phg1)" transform="rotate(-5 240 160)"/>
+                <rect x="150" y="150" width="180" height="12" rx="6" fill="#3D5872" opacity=".7" transform="rotate(-5 240 160)"/>
+                <rect x="150" y="176" width="140" height="12" rx="6" fill="#3D5872" opacity=".45" transform="rotate(-5 240 160)"/>
+                <g stroke="#53B848" stroke-width="3" stroke-linecap="round"><path d="M360 120 l26 -10"/><path d="M372 140 l24 4"/></g>
+                <circle cx="96" cy="232" r="9" fill="#F37124"/>
+              </svg>
+            </span>
+          </div>
+          <div class="lp-alt-body reveal-r">
+            <span class="lp-eyebrow">Flashcard</span>
+            <h3>Học bằng thẻ — vuốt là nhớ</h3>
+            <p>Lật thẻ để xem đáp án, vuốt sang phải khi đã thuộc, sang trái nếu cần ôn lại. Mọi thao tác phản hồi tức thì, mượt trên cả điện thoại.</p>
+            <ul class="lp-benefits">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Vuốt trái/phải đánh dấu đã thuộc</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ẩn câu đã thuộc để tập trung câu khó</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Xáo trộn thẻ chống học vẹt thứ tự</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lp-alt lp-alt-rev">
+          <div class="lp-alt-media reveal-r">
+            <!-- slot ảnh thật: assets/img/feature-2.jpg -->
+            <span class="lp-media" data-img-slot="assets/img/feature-2.jpg" data-alt="Màn hình trắc nghiệm chấm điểm">
+              <svg class="lp-ph" viewBox="0 0 480 320" role="img" aria-label="Minh hoạ trắc nghiệm chấm điểm" xmlns="http://www.w3.org/2000/svg">
+                <rect width="480" height="320" fill="#EEF4FB"/>
+                <rect x="96" y="48" width="288" height="224" rx="18" fill="#fff" stroke="#D6E2EF" stroke-width="2"/>
+                <rect x="120" y="72" width="180" height="14" rx="7" fill="#3D5872" opacity=".75"/>
+                <rect x="120" y="108" width="240" height="34" rx="10" fill="#E4F2E9" stroke="#53B848" stroke-width="1.6"/>
+                <circle cx="138" cy="125" r="7" fill="#53B848"/><path d="M134.8 125 l2.2 2.2 4-4.2" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="120" y="152" width="240" height="34" rx="10" fill="#FBE3E7" stroke="#D64545" stroke-width="1.6"/>
+                <circle cx="138" cy="169" r="7" fill="#D64545"/><path d="M135 166 l6 6 M141 166 l-6 6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+                <rect x="120" y="196" width="240" height="34" rx="10" fill="#EEF4FB" stroke="#D6E2EF" stroke-width="1.5"/>
+                <rect x="120" y="244" width="120" height="12" rx="6" fill="#0651A0" opacity=".5"/>
+              </svg>
+            </span>
+          </div>
+          <div class="lp-alt-body reveal-l">
+            <span class="lp-eyebrow">Trắc nghiệm</span>
+            <h3>Làm quiz, chấm điểm ngay</h3>
+            <p>Chọn đáp án và biết đúng/sai tức thì — đúng tô xanh-lục, sai tô đỏ. Câu sai tự gom vào một bộ để bạn ôn lại đến khi thuộc.</p>
+            <ul class="lp-benefits">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hỗ trợ câu nhiều đáp án</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Tổng kết % điểm sau mỗi lượt</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ôn riêng "Câu sai cần ôn"</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lp-alt">
+          <div class="lp-alt-media reveal-l">
+            <!-- slot ảnh thật: assets/img/feature-3.jpg -->
+            <span class="lp-media" data-img-slot="assets/img/feature-3.jpg" data-alt="Lưu tiến độ và hoạt động offline">
+              <svg class="lp-ph" viewBox="0 0 480 320" role="img" aria-label="Minh hoạ lưu tiến độ và offline" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="phg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0651A0"/><stop offset="1" stop-color="#008DDE"/></linearGradient></defs>
+                <rect width="480" height="320" fill="#EEF4FB"/>
+                <circle cx="240" cy="160" r="88" fill="none" stroke="#D6E2EF" stroke-width="16"/>
+                <path d="M240 72 a88 88 0 0 1 76 132" fill="none" stroke="url(#phg3)" stroke-width="16" stroke-linecap="round"/>
+                <text x="240" y="172" font-family="'Be Vietnam Pro',Inter,sans-serif" font-size="34" font-weight="800" text-anchor="middle" fill="#0651A0">68%</text>
+                <text x="240" y="196" font-family="'Be Vietnam Pro',Inter,sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#3D5872">đã ôn</text>
+                <g stroke="#53B848" stroke-width="3" stroke-linecap="round"><path d="M360 90 l22 -8"/><path d="M96 230 l-22 8"/></g>
+              </svg>
+            </span>
+          </div>
+          <div class="lp-alt-body reveal-r">
+            <span class="lp-eyebrow">Tiến độ & Offline</span>
+            <h3>Mở lại là học tiếp — kể cả khi mất mạng</h3>
+            <p>Tiến độ, câu đánh dấu và câu sai được lưu ngay trên trình duyệt. Trang là web tĩnh nên một khi đã mở, bạn có thể ôn offline.</p>
+            <ul class="lp-benefits">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Lưu tự động, không cần bấm Save</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Không đăng nhập, không thu thập dữ liệu</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hoạt động được khi offline</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS STRIP ===== -->
+    <section class="lp-statband" aria-label="Số liệu">
+      <div class="lp-wrap lp-statband-in">
+        <div class="lp-statbox reveal-s"><b id="lpStTotal" data-count="585">585</b><span>câu hỏi MLN111</span></div>
+        <div class="lp-statbox reveal-s"><b data-count="2">2</b><span>chế độ học</span></div>
+        <div class="lp-statbox reveal-s"><b id="lpStSubj" data-count="5">5</b><span>môn trên nền tảng</span></div>
+        <div class="lp-statbox reveal-s"><b data-count="100" data-suffix="%">100%</b><span>miễn phí, không quảng cáo</span></div>
+      </div>
+    </section>
+
+    <!-- ===== CÁCH DÙNG 1-2-3 ===== -->
+    <section class="lp-section" aria-labelledby="lpHowH">
+      <div class="lp-wrap">
+        <div class="lp-sec-head reveal reveal-down">
+          <h2 id="lpHowH">Cách dùng — 3 bước</h2>
+          <p>Không cài đặt, không đăng ký. Mở trang là học được ngay.</p>
+        </div>
+        <div class="lp-steps">
+          <div class="lp-step reveal-s">
+            <h3>Chọn môn</h3>
+            <p>Bấm vào thẻ môn (vd MLN111) ở danh sách phía trên để mở.</p>
+          </div>
+          <div class="lp-step reveal-s">
+            <h3>Chọn chế độ</h3>
+            <p>Flashcard để lật thẻ, hoặc Trắc nghiệm để làm quiz và chấm điểm.</p>
+          </div>
+          <div class="lp-step reveal-s">
+            <h3>Ôn & lưu</h3>
+            <p>Đánh dấu câu sai, ôn lại đến khi thuộc — tiến độ tự lưu trên máy bạn.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TẠI SAO CHỌN ===== -->
+    <section class="lp-features lp-section" aria-labelledby="lpWhyH">
+      <div class="lp-wrap">
+        <div class="lp-sec-head reveal reveal-down">
+          <h2 id="lpWhyH">Vì sao chọn FPT Ôn Tập?</h2>
+          <p>Nhẹ, riêng tư và bám sát cách thi của sinh viên FPT.</p>
+        </div>
+        <div class="lp-why-grid">
+          <div class="lp-why reveal-s">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+            <div><h3>Mở là chạy</h3><p>Web tĩnh, không server, tải tức thì — kể cả mạng yếu.</p></div>
+          </div>
+          <div class="lp-why reveal-s">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <div><h3>Riêng tư</h3><p>Tiến độ chỉ nằm trên máy bạn, không gửi đi đâu.</p></div>
+          </div>
+          <div class="lp-why reveal-s">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h12"/></svg></span>
+            <div><h3>Sát đề thi</h3><p>Nội dung bám giáo trình, gom đúng câu cần ôn.</p></div>
+          </div>
+          <div class="lp-why reveal-s">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span>
+            <div><h3>Mọi thiết bị</h3><p>Tối ưu cho điện thoại, máy tính bảng và máy tính.</p></div>
+          </div>
+          <div class="lp-why reveal-s">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><h3>Tiết kiệm thời gian</h3><p>Nhảy thẳng tới câu cần ôn theo số câu hoặc từ khoá.</p></div>
+          </div>
+          <div class="lp-why reveal-s">
+            <span class="lp-feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h6"/><path d="m9 11 3 3L22 4"/></svg></span>
+            <div><h3>Miễn phí</h3><p>Không quảng cáo, không phí ẩn — phục vụ học tập.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="lp-section" aria-labelledby="lpFaqH">
+      <div class="lp-wrap">
+        <div class="lp-sec-head reveal reveal-down">
+          <h2 id="lpFaqH">Câu hỏi thường gặp</h2>
+        </div>
+        <div class="lp-faq reveal">
+          <details>
+            <summary>Có cần đăng ký tài khoản không?</summary>
+            <p>Không. Bạn mở trang và học ngay. Tiến độ được lưu cục bộ trên trình duyệt của bạn (localStorage), không cần đăng nhập.</p>
+          </details>
+          <details>
+            <summary>Dữ liệu tiến độ của tôi lưu ở đâu?</summary>
+            <p>Lưu trực tiếp trên máy bạn. Không có máy chủ nào nhận dữ liệu — đổi máy/trình duyệt sẽ bắt đầu lại từ đầu.</p>
+          </details>
+          <details>
+            <summary>Có dùng được khi mất mạng không?</summary>
+            <p>Có. Đây là web tĩnh; sau khi mở lần đầu, các thao tác ôn tập chạy ngay trên trình duyệt, không phụ thuộc kết nối.</p>
+          </details>
+          <details>
+            <summary>Khi nào có thêm môn mới?</summary>
+            <p>Các môn "Sắp có" sẽ được mở dần. Mỗi môn là một bộ dữ liệu riêng, nạp khi bạn mở môn đó.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DẢI CTA CUỐI ===== -->
+    <section class="lp-cta-final" aria-labelledby="lpFinalH">
+      <div class="lp-wrap lp-cta-final-in">
+        <h2 id="lpFinalH" class="reveal">Sẵn sàng ôn tập chưa?</h2>
+        <p class="reveal">Chọn môn, bật flashcard hoặc trắc nghiệm, và để tiến độ tự lo phần còn lại.</p>
+        <div class="lp-cta-row reveal">
+          <a href="#pfGrid" class="lp-btn lp-btn-light lp-magnetic lp-ripple-host">Bắt đầu ngay</a>
+          <a href="#mon=MLN111" class="lp-btn lp-btn-ghost lp-magnetic lp-ripple-host">Vào MLN111</a>
         </div>
       </div>
     </section>
@@ -795,10 +1255,12 @@ select.ctl{padding-right:6px;max-width:48vw}
       <div>
         <h4>Liên kết</h4>
         <ul>
-          <li><a href="https://github.com/HuuTriet/fpt-ontap" rel="noopener">Mã nguồn GitHub</a></li>
+          <li><a href="#pfGrid">Danh sách môn</a></li>
           <li><a href="#mon=MLN111">MLN111 — Triết học Mác – Lênin</a></li>
+          <li><a href="#lpFeatH">Tính năng</a></li>
           <li><a href="https://fpt.com/en/terms-of-use" rel="noopener">Điều khoản sử dụng FPT</a></li>
         </ul>
+        <p style="margin-top:10px"><span class="lp-foot-badge">Dự án sinh viên · phi thương mại</span></p>
       </div>
       <div>
         <h4>Về dự án</h4>
@@ -1785,6 +2247,153 @@ pf('pfTotal').textContent=SUBJECTS.length;
   const search=pf('pfSearch');
   if(search) search.addEventListener('input',flash);
   document.querySelectorAll('.pf-chip').forEach(b=>b.addEventListener('click',flash));
+})();
+
+/* ===================== YÊU CẦU MỚI 1-5 (tiền tố lp/pf, không đụng engine) ===================== */
+
+/* ===== (1) IMAGE SLOT — fallback-first: chỉ swap sang ảnh thật khi onload OK ===== */
+/* Placeholder SVG on-brand hiển thị mặc định; nạp <img> từ /assets/img; KHÔNG dựa onerror. */
+(function(){
+  // a) Slot dạng .lp-media (marketing): chèn <img.lp-real>, thêm .lp-has-img khi load OK
+  document.querySelectorAll('.lp-media[data-img-slot]').forEach(host=>{
+    const src=host.getAttribute('data-img-slot'); if(!src)return;
+    const alt=host.getAttribute('data-alt')||'';
+    const img=document.createElement('img');
+    img.className='lp-real'; img.loading='lazy'; img.decoding='async'; img.alt=alt;
+    img.addEventListener('load',()=>{ if(img.naturalWidth>0) host.classList.add('lp-has-img'); });
+    img.src=src; // nếu thiếu file -> load không bao giờ fire -> giữ placeholder (an toàn file://)
+    host.appendChild(img);
+  });
+  // b) Slot hero mockup (.lp-mock-imgslot): swap cả khối SVG mockup sang ảnh khi load OK
+  document.querySelectorAll('.lp-mock-imgslot[data-img-slot]').forEach(slot=>{
+    const src=slot.getAttribute('data-img-slot'); if(!src)return;
+    const mock=slot.closest('.lp-mock'); if(!mock)return;
+    const img=new Image();
+    img.addEventListener('load',()=>{ if(img.naturalWidth>0){
+      const real=document.createElement('img');
+      real.src=src; real.alt=slot.getAttribute('data-alt')||'';
+      real.decoding='async';
+      slot.appendChild(real); mock.classList.add('lp-has-real');
+    }});
+    img.src=src;
+  });
+})();
+
+/* ===== (3) MARQUEE — duplicate nội dung để loop liền mạch; gate reduced-motion ===== */
+(function(){
+  const rows=[document.getElementById('lpMqA'),document.getElementById('lpMqB')].filter(Boolean);
+  if(!rows.length)return;
+  // nhân đôi nội dung (animation dịch -50% -> loop liền mạch)
+  rows.forEach(r=>{
+    const kids=[...r.children];
+    kids.forEach(k=>{ const c=k.cloneNode(true); c.setAttribute('aria-hidden','true'); r.appendChild(c); });
+  });
+  if(lpReduce){ rows.forEach(r=>{ r.style.animation='none'; r.style.transform='none'; }); }
+})();
+
+/* ===== (4) FLIP-ON-SCROLL — lật thẻ khi vào viewport; reduce -> hiện thẳng (CSS lo) ===== */
+(function(){
+  const flips=[...document.querySelectorAll('[data-flip]')];
+  if(!flips.length)return;
+  if(lpReduce || !('IntersectionObserver' in window)){
+    flips.forEach(f=>f.classList.add('lp-flipped')); // reduce/không hỗ trợ: hiện ngay (CSS bỏ lật)
+    return;
+  }
+  const io=new IntersectionObserver((ents,obs)=>{
+    ents.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('lp-flipped'); obs.unobserve(en.target); } });
+  },{threshold:0.35,rootMargin:'0px 0px -6% 0px'});
+  flips.forEach(f=>io.observe(f));
+  setTimeout(()=>flips.forEach(f=>f.classList.add('lp-flipped')),3500); // fail-safe
+})();
+
+/* ===== (5) COUNT-UP cho stats strip (đồng bộ số môn động từ SUBJECTS) ===== */
+(function(){
+  // số môn động: gắn vào lpStSubj nếu có
+  const subjEl=pf('lpStSubj'); if(subjEl) subjEl.setAttribute('data-count',String(SUBJECTS.length));
+  const boxes=[...document.querySelectorAll('.lp-statbox b[data-count]')];
+  if(!boxes.length)return;
+  function setFinal(b){ b.textContent=(parseInt(b.getAttribute('data-count'),10)||0)+(b.getAttribute('data-suffix')||''); }
+  if(lpReduce || !('IntersectionObserver' in window)){ boxes.forEach(setFinal); return; }
+  const io=new IntersectionObserver((ents,obs)=>{
+    ents.forEach(en=>{
+      if(!en.isIntersecting)return;
+      const b=en.target, to=parseInt(b.getAttribute('data-count'),10)||0, sfx=b.getAttribute('data-suffix')||'';
+      const dur=1100, t0=performance.now();
+      (function step(now){
+        const p=Math.min((now-t0)/dur,1), e=1-Math.pow(1-p,3);
+        b.textContent=Math.round(to*e)+sfx;
+        if(p<1)requestAnimationFrame(step); else b.textContent=to+sfx;
+      })(performance.now());
+      obs.unobserve(b);
+    });
+  },{threshold:0.4});
+  boxes.forEach(b=>io.observe(b));
+  setTimeout(()=>boxes.forEach(setFinal),3500); // fail-safe
+})();
+
+/* ===== (2) HERO: spotlight bám con trỏ + hạt repel/parallax + mockup nghiêng theo con trỏ ===== */
+(function(){
+  const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const hero=document.querySelector('.lp-hero');
+  const mock=pf('lpMock');
+  const pbox=pf('lpParticles');
+  if(!fine||lpReduce||!hero) return;
+
+  // tạo hạt trang trí (on-brand) trong hero
+  const COLORS=['#0651A0','#008DDE','#53B848','#F37124','#E11B22'];
+  const parts=[];
+  if(pbox){
+    const N=14;
+    for(let i=0;i<N;i++){
+      const s=6+Math.random()*16;
+      const x=Math.random()*100, y=Math.random()*100;
+      const i_=document.createElement('i');
+      i_.style.width=i_.style.height=s.toFixed(0)+'px';
+      i_.style.left=x.toFixed(2)+'%'; i_.style.top=y.toFixed(2)+'%';
+      i_.style.background=COLORS[i%COLORS.length];
+      i_.style.opacity=(0.18+Math.random()*0.32).toFixed(2);
+      pbox.appendChild(i_);
+      parts.push({el:i_,bx:x,by:y,depth:0.4+Math.random()*1.1});
+    }
+  }
+
+  let raf=0, mx=0.5, my=0.5, px=50, py=50, has=false;
+  function apply(){
+    raf=0;
+    // spotlight
+    hero.style.setProperty('--spx',px.toFixed(1)+'%');
+    hero.style.setProperty('--spy',py.toFixed(1)+'%');
+    // mockup nghiêng nhẹ theo con trỏ (±5deg)
+    if(mock){
+      mock.style.setProperty('--mry',((mx-0.5)*2*5).toFixed(2)+'deg');
+      mock.style.setProperty('--mrx',(-(my-0.5)*2*5).toFixed(2)+'deg');
+    }
+    // hạt: parallax + repel khỏi con trỏ
+    const r=hero.getBoundingClientRect();
+    parts.forEach(p=>{
+      const ox=(mx-0.5)*16*p.depth;            // parallax theo con trỏ
+      const oy=(my-0.5)*16*p.depth;
+      // repel: đẩy hạt ra xa vị trí con trỏ (theo %)
+      const dx=p.bx-px, dy=p.by-py, dist=Math.hypot(dx,dy)||1;
+      const force=Math.max(0,(26-dist))/26;     // chỉ ảnh hưởng khi gần
+      const rxp=(dx/dist)*force*18, ryp=(dy/dist)*force*18;
+      p.el.style.transform='translate3d('+(ox+rxp).toFixed(1)+'px,'+(oy+ryp).toFixed(1)+'px,0)';
+    });
+  }
+  hero.addEventListener('pointermove',e=>{
+    const r=hero.getBoundingClientRect();
+    mx=(e.clientX-r.left)/r.width; my=(e.clientY-r.top)/r.height;
+    px=mx*100; py=my*100; has=true;
+    hero.classList.add('lp-spot-on');
+    if(!raf)raf=requestAnimationFrame(apply);
+  },{passive:true});
+  hero.addEventListener('pointerleave',()=>{
+    has=false; hero.classList.remove('lp-spot-on');
+    mx=0.5;my=0.5;px=50;py=50;
+    if(mock){ mock.style.setProperty('--mry','0deg'); mock.style.setProperty('--mrx','0deg'); }
+    parts.forEach(p=>{p.el.style.transform='translate3d(0,0,0)';});
+    if(raf){cancelAnimationFrame(raf);raf=0;}
+  });
 })();
 
 renderPortal();

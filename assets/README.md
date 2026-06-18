@@ -30,6 +30,23 @@ Khi chưa có file thật, trang vẫn chạy nhờ **fallback inline SVG** (wor
   3. Đổi trong `index.html`: `content="assets/img/og.svg"` → `content="assets/img/og.png"`.
 - **Không** sinh file `.png` nhị phân thủ công ở đây — hãy tự export.
 
+## 3b. Ảnh thật (image slot — tái sử dụng, fallback-first)
+
+Trang dùng **cơ chế image slot**: mỗi vị trí ảnh hiển thị **placeholder SVG on-brand đẹp** mặc định. Khi bạn thả file ảnh thật **đúng tên** vào `img/`, trang sẽ thử nạp qua `<img>` và **chỉ swap sang ảnh thật khi tải THÀNH CÔNG** (`onload`). Nếu thiếu file, placeholder vẫn giữ nguyên — **không bao giờ hiện "broken image"**, chạy được cả `file://`. (Không dùng `onerror`.)
+
+Thả ảnh vào đúng các tên sau (tất cả **không bắt buộc** — thiếu thì dùng placeholder):
+
+| File | Vị trí trên trang | Kích thước khuyến nghị | Ghi chú |
+|---|---|---|---|
+| `img/hero.jpg` | Visual lớn ở **hero** (thay mockup SVG) | **1200×900** (4:3) | Ảnh chụp app / minh hoạ; sẽ phủ kín khối hero |
+| `img/feature-1.jpg` | Hàng marketing "Flashcard" | **960×640** (3:2) | Màn hình flashcard / lật thẻ |
+| `img/feature-2.jpg` | Hàng marketing "Trắc nghiệm" | **960×640** (3:2) | Màn hình quiz chấm điểm |
+| `img/feature-3.jpg` | Hàng marketing "Tiến độ & Offline" | **960×640** (3:2) | Biểu đồ tiến độ / màn hình kết quả |
+
+- **Định dạng:** ưu tiên `.jpg`/`.webp` nén tốt (≤ ~200KB mỗi ảnh). Nếu muốn dùng `.webp`/`.png`, đổi đuôi trong `index.html` tại thuộc tính `data-img-slot="assets/img/<tên>"`.
+- **A11y:** mỗi slot đã có `data-alt` mô tả — sửa text trong `index.html` cho khớp ảnh thật của bạn.
+- (Tuỳ chọn) Nếu sau này cần avatar/sao chứng thực: thêm slot mới dạng `<span class="lp-media" data-img-slot="assets/img/avatar-1.jpg" data-alt="...">` kèm placeholder SVG, kích thước vuông **160×160**.
+
 ## 4. Font — `fonts/` (Be Vietnam Pro, self-host)
 
 - Xem `fonts/README-fonts.txt`. Cần **5 file WOFF2**:
@@ -44,6 +61,8 @@ Khi chưa có file thật, trang vẫn chạy nhờ **fallback inline SVG** (wor
 | `logo-fpt.svg` / `logo-fpt-white.svg` | SVG vector; hiển thị cao ~32–40px ở nav |
 | `favicon.svg` | vuông, viewBox 32×32 |
 | `og.svg` / `og.png` | **1200×630** |
+| `hero.jpg` | **1200×900** (4:3) |
+| `feature-1.jpg` / `feature-2.jpg` / `feature-3.jpg` | **960×640** (3:2) |
 | font WOFF2 | full charset/weight, tránh subset thiếu dấu |
 
 ## 6. Legal / Trademark FPT (BẮT BUỘC)
