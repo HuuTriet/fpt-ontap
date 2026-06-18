@@ -376,14 +376,16 @@ img,svg{max-width:100%}
 .cs-stat-grid{margin-top:var(--sp-7);display:grid;gap:var(--sp-4);grid-template-columns:repeat(2,1fr)}
 @media(min-width:760px){.cs-stat-grid{grid-template-columns:repeat(4,1fr)}}
 .cs-stat{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:var(--sp-5) var(--sp-5) var(--sp-6);box-shadow:var(--shadow-sm);
+  padding:var(--sp-5) var(--sp-4) var(--sp-6);box-shadow:var(--shadow-sm);
   transition:transform var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft),border-color var(--dur) var(--ease-soft)}
 .cs-stat::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
   background:radial-gradient(130% 100% at 100% 0%,color-mix(in srgb,var(--ac,var(--fpt-blue)) 13%,transparent),transparent 62%)}
 @media (hover:hover) and (pointer:fine){.cs-stat:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);
-  border-color:color-mix(in srgb,var(--ac,var(--fpt-blue)) 45%,var(--line))}}
+  border-color:color-mix(in srgb,var(--ac,var(--fpt-blue)) 45%,var(--line))}
+  .cs-stat:hover .cs-stat-ic{transform:translateY(-2px) scale(1.07)}}
 .cs-stat-ic{position:relative;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;
   border-radius:14px;font-size:25px;line-height:1;margin-bottom:var(--sp-4);
+  transition:transform var(--dur) var(--ease-spring);
   background:color-mix(in srgb,var(--ac,var(--fpt-blue)) 14%,#fff);
   box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ac,var(--fpt-blue)) 24%,transparent)}
 .cs-stat::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;transform:scaleX(0);transform-origin:left;
@@ -391,7 +393,7 @@ img,svg{max-width:100%}
   transition:transform var(--count-dur,1100ms) var(--ease-out)}
 .cs-stat.is-on::after{transform:scaleX(1)}
 .cs-stat b{position:relative;display:flex;align-items:baseline;font-family:var(--font);
-  font-size:clamp(2.2rem,1.2rem + 3.1vw,3.5rem);font-weight:800;
+  font-size:clamp(1.75rem,1rem + 2.1vw,2.5rem);font-weight:800;white-space:nowrap;
   color:var(--ac,var(--fpt-blue));font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.03em}
 .cs-stat .cs-stat-pre{font-size:.62em;margin-right:.06em;color:var(--ink-2);font-weight:800}
 .cs-stat span{position:relative;display:block;margin-top:var(--sp-3);font-size:var(--fs-sm);color:var(--ink-2);font-weight:600;line-height:1.45}
