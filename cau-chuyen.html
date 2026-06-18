@@ -305,14 +305,14 @@ img,svg{max-width:100%}
 
 /* ===== HÀNH TRÌNH (timeline xen kẽ + đường vẽ dần) ===== */
 .cs-journey{background:var(--surface);overflow:hidden}
-.cs-timeline{position:relative;margin-top:var(--sp-8);padding-left:46px}
+.cs-timeline{position:relative;margin-top:var(--sp-8);padding-left:46px;list-style:none}
 .cs-timeline::before{content:"";position:absolute;left:12px;top:8px;bottom:8px;width:2px;
   background:color-mix(in srgb,var(--line) 85%,transparent);border-radius:2px}
 .cs-tl-progress{position:absolute;left:12px;top:8px;bottom:8px;width:2px;border-radius:2px;
   background:linear-gradient(180deg,var(--fpt-blue),var(--fpt-cerulean),var(--fpt-green),var(--fpt-orange),var(--fpt-red));
   transform-origin:top center;transform:scaleY(var(--line-grow,0));transition:transform 120ms linear}
 .cs-tl-dot{position:absolute;left:13px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--fpt-orange);transform:translate(-50%,0);z-index:3;box-shadow:0 0 0 4px color-mix(in srgb,var(--fpt-orange) 20%,transparent)}
-.cs-mile{position:relative;padding-bottom:var(--sp-mile)}
+.cs-mile{position:relative;padding-bottom:var(--sp-mile);list-style:none}
 .cs-mile:last-child{padding-bottom:0}
 .cs-mile-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
   padding:var(--sp-5);box-shadow:var(--shadow-sm);
