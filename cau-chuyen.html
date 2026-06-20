@@ -300,7 +300,7 @@ img,svg{max-width:100%}
   animation:csShimmer 9s linear infinite}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){.cs-grad-text{-webkit-text-fill-color:currentColor;background:none}}
 @keyframes csShimmer{from{background-position:0% 50%}to{background-position:-200% 50%}}
-.cs-pillars{margin-top:var(--sp-7);display:flex;flex-direction:column;gap:35vh;text-align:left;
+.cs-pillars{margin-top:var(--sp-7);display:flex;flex-direction:column;gap:16vh;text-align:left;
   width:100%;max-width:860px;margin-inline:auto;padding-bottom:10vh}
 .cs-pillar{position:sticky;background:var(--surface);border:1px solid var(--line);border-radius:24px;
   padding:36px 40px;box-shadow:0 12px 32px rgba(6,81,160,0.06);overflow:hidden;
@@ -329,6 +329,9 @@ img,svg{max-width:100%}
 .cs-pillar-text{flex:1 1 auto;min-width:0}
 .cs-pillar h3{font-size:1.4rem;font-weight:800;color:var(--ink);line-height:1.2;margin-bottom:8px}
 .cs-pillar p{margin-top:0;font-size:1.05rem;color:var(--ink-2);font-weight:500;line-height:1.6}
+.cs-pillar-list{margin-top:16px;display:flex;flex-direction:column;gap:9px;list-style:none}
+.cs-pillar-list li{position:relative;padding-left:28px;font-size:.98rem;font-weight:600;color:var(--ink);line-height:1.45;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2353B848' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") left .12em/18px 18px no-repeat}
 @media(max-width:680px){
   .cs-pillar{flex-direction:column;align-items:flex-start;gap:20px;padding:28px}
   .cs-pillar-ic{flex:0 0 64px;width:64px;height:64px;border-radius:16px}
@@ -710,6 +713,11 @@ img,svg{max-width:100%}
               <div class="cs-pillar-text">
                 <h3>Học qua thực hành</h3>
                 <p>Kiến thức gắn liền dự án thật, làm việc thật — để sau tốt nghiệp là bắt tay vào nghề ngay.</p>
+                <ul class="cs-pillar-list">
+                  <li>Đồ án nhóm, sản phẩm thật ngay từ sớm</li>
+                  <li>Kỳ thực tập tại doanh nghiệp (OJT)</li>
+                  <li>Học đi đôi với làm — sẵn sàng đi làm ngay</li>
+                </ul>
               </div>
             </div>
             <div class="cs-pillar cs-rev-s" style="--d:.08s">
@@ -717,6 +725,11 @@ img,svg{max-width:100%}
               <div class="cs-pillar-text">
                 <h3>Chuẩn quốc tế</h3>
                 <p>Ngoại ngữ, tư duy toàn cầu và môi trường mở — để người trẻ Việt tự tin sánh vai bè bạn năm châu.</p>
+                <ul class="cs-pillar-list">
+                  <li>Chuẩn ngoại ngữ đầu ra</li>
+                  <li>Cơ hội trao đổi, học kỳ ở nước ngoài</li>
+                  <li>Kiểm định quốc tế: AACSB, ACBSP, AQAS…</li>
+                </ul>
               </div>
             </div>
             <div class="cs-pillar cs-rev-s" style="--d:.16s">
@@ -724,6 +737,11 @@ img,svg{max-width:100%}
               <div class="cs-pillar-text">
                 <h3>Con người là gốc</h3>
                 <p>Khơi dậy đam mê, kỷ luật và tinh thần dấn thân — bồi đắp cả tài năng lẫn nhân cách.</p>
+                <ul class="cs-pillar-list">
+                  <li>Vovinam &amp; nhạc cụ dân tộc rèn bản lĩnh</li>
+                  <li>Câu lạc bộ, hoạt động cộng đồng sôi nổi</li>
+                  <li>Kỷ luật, đam mê và tinh thần dấn thân</li>
+                </ul>
               </div>
             </div>
           </div>
