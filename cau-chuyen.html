@@ -77,7 +77,7 @@
 [hidden]{display:none!important}
 html{font-size:16px;scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;min-height:100vh;
-  overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom)}
+  overflow-x:clip;padding-bottom:env(safe-area-inset-bottom)}
 a{color:var(--fpt-blue)}
 button{font-family:inherit;cursor:pointer;color:inherit;touch-action:manipulation;background:none;border:none}
 :focus-visible{outline:3px solid var(--fpt-blue);outline-offset:3px;border-radius:3px}
@@ -239,13 +239,15 @@ img,svg{max-width:100%}
 @keyframes csHeroIn{to{opacity:1;transform:none}}
 
 /* ===== KHỞI NGUỒN ===== */
-/* Khởi nguồn = lớp ảnh HNT cover (lấp đầy) + parallax như hero (ảnh trôi rất chậm ≈ đứng yên) + phủ tối + chữ trắng; object-position canh mặt bác (chỉ cắt phần chân) */
-.cs-origin{position:relative;overflow:hidden;isolation:isolate;background:#081626}
-.cs-origin-media{position:absolute;inset:-8% -2%;z-index:0;will-change:transform}
-.cs-origin-media>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+/* Khởi nguồn = STICKY-PIN: ảnh HNT ghim 1 màn hình (ĐỨNG YÊN tuyệt đối), nội dung cuộn đè lên. cover lấp đầy + object-position canh mặt bác */
+.cs-origin{position:relative;background:#081626;padding-block:0}
+.cs-origin-pin{position:sticky;top:0;height:100vh;overflow:hidden;z-index:0}
+.cs-origin-pin>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%}
 .cs-origin-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(105deg,rgba(6,17,32,.82) 0%,rgba(6,17,32,.6) 55%,rgba(6,17,32,.52) 100%)}
-.cs-origin>.wrap{position:relative;z-index:2}
+.cs-origin-content{position:relative;z-index:2;margin-top:-100vh;min-height:125vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding-top:clamp(5rem,16vh,9rem);padding-bottom:clamp(3rem,9vh,6rem)}
 /* chữ sáng trên nền tối */
 .cs-origin .cs-eyebrow{color:#FFD9C2;text-shadow:0 1px 10px rgba(5,16,28,.5)}
 .cs-origin .cs-h2{color:#fff;text-shadow:0 2px 22px rgba(5,16,28,.45)}
@@ -257,8 +259,16 @@ img,svg{max-width:100%}
 .cs-origin .cs-pull cite{color:rgba(255,255,255,.82);text-shadow:none}
 .cs-origin .cs-decree{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.28);color:#fff;
   -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
-/* mobile: tắt parallax (media phủ kín), canh mặt bác cao hơn */
-@media(max-width:859px){.cs-origin-media{inset:0}.cs-origin-media>img{object-position:center 14%}}
+/* mobile: bỏ sticky-pin (iOS hay giật) → ảnh phủ kín tĩnh, canh mặt bác cao hơn */
+@media(max-width:859px){
+  .cs-origin-pin{position:absolute;inset:0;height:100%}
+  .cs-origin-pin>img{object-position:center 14%}
+  .cs-origin-content{margin-top:0;min-height:auto;padding-block:var(--sp-sec)}
+}
+@media(prefers-reduced-motion:reduce){
+  .cs-origin-pin{position:absolute;inset:0;height:100%}
+  .cs-origin-content{margin-top:0;min-height:auto;padding-block:var(--sp-sec)}
+}
 .cs-origin-grid{display:grid;gap:var(--sp-6);grid-template-columns:1fr;align-items:start;margin-top:var(--sp-6)}
 @media(min-width:860px){.cs-origin-grid{grid-template-columns:1fr 1fr;gap:var(--sp-8);align-items:center}}
 .cs-pull{font-size:clamp(1.4rem,1rem + 1.8vw,2.2rem);font-weight:700;line-height:1.4;
@@ -640,9 +650,8 @@ img,svg{max-width:100%}
        2) KHỞI NGUỒN — bài toán khoảng cách đào tạo–doanh nghiệp.
        ============================================================ -->
   <section class="cs-sec cs-origin" id="origin" aria-labelledby="csOriginH">
-    <div class="cs-origin-media" id="csOriginMedia" aria-hidden="true"><img src="assets/img/founder-hnt.jpg" alt="" loading="lazy" decoding="async"></div>
-    <div class="cs-origin-overlay" aria-hidden="true"></div>
-    <div class="wrap">
+    <div class="cs-origin-pin" aria-hidden="true"><img src="assets/img/founder-hnt.jpg" alt="" loading="lazy" decoding="async"><div class="cs-origin-overlay"></div></div>
+    <div class="wrap cs-origin-content">
       <span class="cs-eyebrow cs-rev"><span class="num">01</span> Khởi nguồn</span>
       <h2 class="cs-h2 cs-rev measure" id="csOriginH">Khoảng cách giữa giảng đường và công việc thật.</h2>
       <div class="cs-origin-grid">
@@ -1087,25 +1096,6 @@ img,svg{max-width:100%}
     calc();
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',onResize,{passive:true});
-    read();
-  })();
-
-  /* ===== (E2) PARALLAX nền "Khởi nguồn" — ảnh trôi rất chậm (≈ đứng yên), nội dung cuộn đè lên ===== */
-  (function(){
-    var media=$('csOriginMedia'), sec=$('origin');
-    if(!media||!sec||reduce)return;
-    var raf=0;
-    function read(){ raf=0;
-      if(window.innerWidth<860){ media.style.transform=''; return; }
-      var r=sec.getBoundingClientRect(), vh=window.innerHeight||1;
-      if(r.bottom<0||r.top>vh)return;
-      var prog=(vh - r.top)/(vh + r.height);   /* 0..1 khi section đi qua màn hình */
-      var ty=((prog-0.5)*-12).toFixed(2);        /* ±6% → ảnh dịch rất ít so với nội dung */
-      media.style.transform='translate3d(0,'+ty+'%,0)';
-    }
-    function onScroll(){ if(!raf) raf=requestAnimationFrame(read); }
-    window.addEventListener('scroll',onScroll,{passive:true});
-    window.addEventListener('resize',onScroll,{passive:true});
     read();
   })();
 
