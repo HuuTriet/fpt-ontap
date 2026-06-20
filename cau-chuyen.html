@@ -384,15 +384,18 @@ img,svg{max-width:100%}
 .cs-stats>.wrap{position:relative;z-index:1}
 .cs-stat-ic{display:none}
 /* dải số: borderless, lớn, so le, đan nhau */
-.cs-stat-grid{margin-top:clamp(36px,6vw,72px);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
-  column-gap:clamp(20px,5vw,72px);row-gap:clamp(24px,4vw,40px)}
-.cs-stat{position:relative;flex:0 1 auto;min-width:0;text-align:center}
-.cs-stat:nth-child(1){transform:translateY(12px)}
-.cs-stat:nth-child(2){transform:translateY(-22px)}
-.cs-stat:nth-child(3){transform:translateY(14px)}
-.cs-stat:nth-child(4){transform:translateY(-10px)}
+.cs-stat-grid{margin-top:clamp(36px,6vw,72px);display:grid;grid-template-columns:1fr;justify-items:center;align-items:center;
+  gap:clamp(30px,5vw,52px) clamp(28px,6vw,72px);max-width:900px;margin-inline:auto}
+@media(min-width:560px){.cs-stat-grid{grid-template-columns:repeat(2,1fr)}}
+.cs-stat{position:relative;text-align:center}
+@media(min-width:560px){
+  .cs-stat:nth-child(1){transform:translateY(10px)}
+  .cs-stat:nth-child(2){transform:translateY(-10px)}
+  .cs-stat:nth-child(3){transform:translateY(-10px)}
+  .cs-stat:nth-child(4){transform:translateY(10px)}
+}
 .cs-stat b{display:block;font-family:var(--font);font-weight:800;line-height:.8;letter-spacing:-.045em;
-  font-size:clamp(2.8rem,1.4rem + 5.4vw,5.2rem);font-variant-numeric:tabular-nums;white-space:nowrap;
+  font-size:clamp(2.6rem,1.6rem + 4.2vw,4.4rem);font-variant-numeric:tabular-nums;white-space:nowrap;
   background:linear-gradient(158deg,var(--ac,var(--fpt-blue)),color-mix(in srgb,var(--ac,var(--fpt-blue)) 48%,#fff));
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
   mix-blend-mode:multiply}
@@ -793,22 +796,18 @@ img,svg{max-width:100%}
       <p class="cs-p cs-rev measure">Hơn hai thập kỷ, hành trình ấy được kể lại bằng những con số biết nói — đếm lên ngay khi phần này lọt vào màn hình.</p>
       <div class="cs-stat-grid" id="csStatGrid">
         <div class="cs-stat cs-rev-s" style="--d:0s;--ac:#0651A0">
-          <span class="cs-stat-ic" aria-hidden="true">🎓</span>
           <b data-count="56000" data-suffix="+">56.000+</b>
           <span>Sinh viên &amp; học viên</span>
         </div>
         <div class="cs-stat cs-rev-s" style="--d:.08s;--ac:#178A3A">
-          <span class="cs-stat-ic" aria-hidden="true">💼</span>
           <b data-count="96" data-suffix="%">96%</b>
           <span>Có việc làm sau tốt nghiệp</span>
         </div>
         <div class="cs-stat cs-rev-s" style="--d:.16s;--ac:#D45A12">
-          <span class="cs-stat-ic" aria-hidden="true">🤝</span>
           <b data-count="400" data-suffix="+">400+</b>
           <span>Doanh nghiệp đối tác</span>
         </div>
         <div class="cs-stat cs-rev-s" style="--d:.24s;--ac:#C8102E">
-          <span class="cs-stat-ic" aria-hidden="true">🏛️</span>
           <b data-count="5" data-suffix="">5</b>
           <span>Campus trên toàn quốc</span>
         </div>
