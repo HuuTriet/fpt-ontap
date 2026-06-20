@@ -121,7 +121,13 @@ img,svg{max-width:100%}
   .cs-nav-cta:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg)}
 }
 .cs-nav-r a:active{transform:scale(.97)}
-@media (max-width:560px){.cs-nav-r a:not(.cs-nav-cta){display:none}}
+@media (max-width:560px){
+  .cs-nav-r a:not(.cs-nav-cta){display:none}
+  .cs-tag{display:none}
+  .cs-nav-in{gap:var(--sp-2)}
+  .cs-logo-svg{height:27px}
+  .cs-nav-cta{white-space:nowrap;padding:0 14px}
+}
 
 /* ===== THANH TIẾN TRÌNH ĐỌC (trên cùng) ===== */
 .cs-progress{position:fixed;left:0;top:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;

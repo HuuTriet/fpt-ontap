@@ -339,6 +339,16 @@ select.ctl{padding-right:6px;max-width:48vw}
   font-size:var(--fs-sm);font-weight:600;color:var(--ink-2);text-decoration:none;transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
 @media (hover:hover) and (pointer:fine){.lp-nav-r a:hover{color:var(--fpt-blue);background:var(--surface-2)}}
 .lp-nav-r a:active{transform:scale(.97)}
+/* ---- NAV mobile: thu gọn cho vừa màn nhỏ (chống tràn/cắt) ---- */
+@media(max-width:640px){
+  .lp-nav-in{gap:var(--sp-2);min-height:54px}
+  .lp-logo-svg{height:27px}
+  .lp-tag{display:none}
+  .lp-nav-r{gap:0}
+  .lp-nav-r a{padding:0 8px;font-size:.78rem;min-height:40px}
+  .lp-nav-r a[href="#lpFeatH"]{display:none}
+}
+@media(max-width:390px){ .lp-nav-r a[href="#pfGrid"]{display:none} }
 
 /* ---- HERO ---- */
 .lp-hero{position:relative;overflow:hidden;background:var(--surface)}
@@ -651,6 +661,13 @@ select.ctl{padding-right:6px;max-width:48vw}
 .lp-media.lp-has-img>svg.lp-ph{display:none}
 /* blur-up fade-in: ảnh thật mờ rồi nét, không nhảy layout (cover trong khung aspect-ratio) */
 .lp-media.lp-has-img>img.lp-real{display:block;opacity:1}
+/* khung mockup thiết bị cho ảnh screenshot tính năng: bao trọn ảnh (không cắt) + viền/bóng premium */
+.lp-media.lp-browser{aspect-ratio:auto !important;max-width:500px;margin-inline:auto;background:#fff;
+  border:7px solid #fff;border-radius:26px;overflow:hidden;line-height:0;
+  box-shadow:0 0 0 1px var(--line),0 26px 56px rgba(6,81,160,.18),0 8px 22px rgba(16,36,58,.12)}
+.lp-media.lp-browser>img.lp-real{position:static !important;inset:auto !important;width:100% !important;height:auto !important;
+  display:block !important;object-fit:contain !important;border-radius:20px;opacity:1 !important}
+.lp-media.lp-browser>svg.lp-ph{display:none}
 .lp-foot-badge{display:inline-block;border:1px solid rgba(255,255,255,.2);border-radius:var(--r-pill);
   padding:4px 12px;font-size:var(--fs-xs);font-weight:600;color:#CFE0F0}
 
@@ -1139,7 +1156,7 @@ select.ctl{padding-right:6px;max-width:48vw}
         <div class="lp-alt">
           <div class="lp-alt-media reveal-l">
             <!-- slot ảnh thật: assets/img/feature-1.jpg -->
-            <span class="lp-media lp-has-img" style="--ar:1/1" data-alt="Màn hình học bằng thẻ (flashcard)"><img class="lp-real lp-shot" src="assets/img/feature-1.jpg" alt="Màn hình học bằng thẻ (flashcard) của FPT Ôn Tập" loading="lazy" decoding="async">
+            <span class="lp-media lp-has-img lp-browser" style="--ar:1/1" data-alt="Màn hình học bằng thẻ (flashcard)"><img class="lp-real lp-shot" src="assets/img/feature-1.jpg" alt="Màn hình học bằng thẻ (flashcard) của FPT Ôn Tập" loading="lazy" decoding="async">
               <svg class="lp-ph" viewBox="0 0 480 320" role="img" aria-label="Minh hoạ flashcard lật thẻ" xmlns="http://www.w3.org/2000/svg">
                 <defs><linearGradient id="phg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0651A0"/><stop offset="1" stop-color="#008DDE"/></linearGradient></defs>
                 <rect width="480" height="320" fill="#EEF4FB"/>
@@ -1167,7 +1184,7 @@ select.ctl{padding-right:6px;max-width:48vw}
         <div class="lp-alt lp-alt-rev">
           <div class="lp-alt-media reveal-r">
             <!-- slot ảnh thật: assets/img/feature-2.jpg -->
-            <span class="lp-media lp-has-img" style="--ar:1/1" data-alt="Màn hình làm quiz (trắc nghiệm)"><img class="lp-real lp-shot" src="assets/img/feature-2.jpg" alt="Màn hình làm quiz (trắc nghiệm) của FPT Ôn Tập" loading="lazy" decoding="async">
+            <span class="lp-media lp-has-img lp-browser" style="--ar:1/1" data-alt="Màn hình làm quiz (trắc nghiệm)"><img class="lp-real lp-shot" src="assets/img/feature-2.jpg" alt="Màn hình làm quiz (trắc nghiệm) của FPT Ôn Tập" loading="lazy" decoding="async">
               <svg class="lp-ph" viewBox="0 0 480 320" role="img" aria-label="Minh hoạ trắc nghiệm chấm điểm" xmlns="http://www.w3.org/2000/svg">
                 <rect width="480" height="320" fill="#EEF4FB"/>
                 <rect x="96" y="48" width="288" height="224" rx="18" fill="#fff" stroke="#D6E2EF" stroke-width="2"/>
