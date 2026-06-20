@@ -310,17 +310,16 @@ img,svg{max-width:100%}
 .cs-pillar:nth-child(1){top:12vh;z-index:1}
 .cs-pillar:nth-child(2){top:15vh;background:var(--surface-2);z-index:2}
 .cs-pillar:nth-child(3){top:18vh;background:color-mix(in srgb, var(--surface) 60%, var(--surface-2));z-index:3}
-@supports (animation-timeline:view()) or (animation-timeline:scroll()){
-  .cs-pillar{animation:csPillarIn linear both;animation-timeline:view();animation-range:entry 5% cover 35%}
-  @keyframes csPillarIn{0%{opacity:0;transform:translateY(120px) scale(0.92)}100%{opacity:1;transform:translateY(0) scale(1)}}
-  .js .cs-pillar.cs-rev-s{opacity:1 !important;transform:none !important;transition:none !important}
-}
+/* thẻ trụ cột HIỆN DẦN khi cuộn tới (không hiện sẵn): ẩn + trượt lên, reveal khi vào tầm nhìn */
+.js .cs-pillar{opacity:0;transform:translateY(72px) scale(.97);
+  transition:opacity .7s var(--ease-out),transform .7s var(--ease-out),box-shadow var(--dur) var(--ease-soft),border-color var(--dur) var(--ease-soft)}
+.js .cs-pillar.in-view{opacity:1;transform:none}
 .cs-pillar::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;
   background:linear-gradient(90deg,var(--fpt-blue),var(--fpt-cerulean),var(--fpt-green));transform:scaleX(0);transform-origin:left;
   transition:transform var(--dur-slow) var(--ease-out)}
 .cs-pillar.in-view::before{transform:scaleX(1)}
 @media (hover:hover) and (pointer:fine){
-  .cs-pillar:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(6,81,160,0.12);border-color:color-mix(in srgb,var(--fpt-blue) 35%,var(--line))}
+  .cs-pillar.in-view:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(6,81,160,0.12);border-color:color-mix(in srgb,var(--fpt-blue) 35%,var(--line))}
 }
 .cs-pillar-ic{flex:0 0 80px;width:80px;height:80px;display:inline-flex;align-items:center;justify-content:center;
   border-radius:20px;background:linear-gradient(135deg,color-mix(in srgb,var(--fpt-blue) 12%,#fff),color-mix(in srgb,var(--fpt-cerulean) 12%,#fff));
