@@ -61,7 +61,7 @@
   --ease-move:cubic-bezier(.44,1.17,.52,.9);
   --ease-elastic:cubic-bezier(.68,-.55,.27,1.55);
   --ease-cine:cubic-bezier(.16,1,.3,1);          /* glide điện ảnh — reveal lớn */
-  --count-dur:1100ms;
+  --count-dur:1900ms;
 
   --font:'Be Vietnam Pro',Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 
@@ -940,7 +940,7 @@ img,svg{max-width:100%}
   var hasIO=('IntersectionObserver' in window);
 
   /* count-up duration tôn trọng reduced-motion ngay khi DOM ready */
-  document.documentElement.style.setProperty('--count-dur',reduce?'100ms':'1100ms');
+  document.documentElement.style.setProperty('--count-dur',reduce?'100ms':'1900ms');
 
   /* ===== (A) SPLIT-TEXT — bọc mỗi TỪ trong .cs-split thành .w>span (cho hiệu ứng trượt) =====
      Giữ nguyên các phần tử con (vd <span class="cs-grad-text">): chỉ tách text node thành từ. */
@@ -1172,8 +1172,9 @@ img,svg{max-width:100%}
 
   /* ===== (J) COUNT-UP số liệu — CHỈ 1 LẦN, định dạng vi-VN ===== */
   (function(){
-    var boxes=Array.prototype.slice.call(document.querySelectorAll('#csStatGrid b[data-count]'));
-    if(!boxes.length)return;
+    var grid=document.getElementById('csStatGrid');
+    if(!grid)return;
+    var boxes=Array.prototype.slice.call(grid.querySelectorAll('b[data-count]'));
     function isRealNumber(b){ var n=parseInt(b.getAttribute('data-count'),10); return !isNaN(n)&&n>0; }
     function fmt(n){
       var s=String(Math.round(n)), out='', c=0, i;
@@ -1186,26 +1187,31 @@ img,svg{max-width:100%}
     var counters=boxes.filter(isRealNumber);
     if(!counters.length)return;
     if(reduce || !hasIO){ counters.forEach(setFinal); return; }
-    function countDur(){
+    function durMs(){
       var v=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--count-dur'),10);
-      return (!isNaN(v)&&v>0)?v:1100;
+      return (!isNaN(v)&&v>0)?v:1900;
     }
+    /* đếm ĐỒNG LOẠT khi khối vào màn — mượt, liền mạch (easeInOutCubic) */
+    function run(){
+      counters.forEach(onParent);
+      var D=durMs(), t0=performance.now(),
+          tg=counters.map(function(b){ return parseInt(b.getAttribute('data-count'),10)||0; });
+      (function step(now){
+        var p=Math.min((now-t0)/D,1),
+            e=p<0.5 ? 4*p*p*p : 1-Math.pow(-2*p+2,3)/2;
+        for(var i=0;i<counters.length;i++) render(counters[i], tg[i]*e);
+        if(p<1) requestAnimationFrame(step);
+        else for(var j=0;j<counters.length;j++) render(counters[j], tg[j]);
+      })(performance.now());
+    }
+    var fired=false;
     var io=new IntersectionObserver(function(entries,obs){
       entries.forEach(function(en){
-        if(!en.isIntersecting||en.intersectionRatio<0.6)return;
-        var b=en.target, to=parseInt(b.getAttribute('data-count'),10)||0;
-        onParent(b);
-        var dur=countDur(), t0=performance.now();
-        (function step(now){
-          var p=Math.min((now-t0)/dur,1), e=1-Math.pow(1-p,3);
-          render(b,to*e);
-          if(p<1) requestAnimationFrame(step); else render(b,to);
-        })(performance.now());
-        obs.unobserve(b);
+        if(en.isIntersecting && en.intersectionRatio>=0.35 && !fired){ fired=true; run(); obs.disconnect(); }
       });
-    },{threshold:[0.6]});
-    counters.forEach(function(b){ io.observe(b); });
-    setTimeout(function(){ counters.forEach(setFinal); },3500);
+    },{threshold:[0.35]});
+    io.observe(grid);
+    setTimeout(function(){ if(!fired) counters.forEach(setFinal); },4000);
   })();
 
   /* ===== (K) ĐƯỜNG TIMELINE VẼ DẦN — FALLBACK cho trình duyệt không hỗ trợ animation-timeline ===== */
