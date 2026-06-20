@@ -243,7 +243,7 @@ img,svg{max-width:100%}
 .cs-origin>.wrap{position:relative;z-index:1}
 /* ảnh nền mờ Hoàng Nam Tiến — bên phải, grayscale + opacity thấp + mask fade trái → chữ trái/quote vẫn nổi rõ */
 .cs-origin::before{content:"";position:absolute;top:0;right:0;bottom:0;width:min(60%,760px);z-index:0;pointer-events:none;
-  background:url("assets/img/founder-hnt.jpg") center right/cover no-repeat;
+  background:url("assets/img/founder-hnt.jpg") right center/contain no-repeat;
   filter:grayscale(.85) contrast(1.03);opacity:.2;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 42%,#000 100%);
           mask-image:linear-gradient(90deg,transparent 0,#000 42%,#000 100%)}
