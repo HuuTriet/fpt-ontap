@@ -365,16 +365,31 @@ img,svg{max-width:100%}
 .cs-mile-tag{display:inline-block;margin-top:var(--sp-3);font-size:var(--fs-xs);font-weight:800;letter-spacing:.06em;
   text-transform:uppercase;color:var(--fpt-blue);background:color-mix(in srgb,var(--fpt-blue) 9%,transparent);
   border-radius:var(--r-pill);padding:4px 11px}
+/* khung ảnh đối diện mỗi cột mốc — hiện ra khi cuộn */
+.cs-mile-visual{margin-top:var(--sp-4)}
+.cs-mv-frame{position:relative;display:block;border-radius:var(--r-lg);overflow:hidden;background:#fff;
+  border:1px solid var(--line);box-shadow:var(--shadow-sm);aspect-ratio:4/3;line-height:0}
+.cs-mv-frame>img{position:absolute;inset:0;width:100%;height:100%}
+.cs-mile-visual.photo .cs-mv-frame>img{object-fit:cover}
+.cs-mile-visual.logo .cs-mv-frame{background:linear-gradient(180deg,#fff,#F3F8FD)}
+.cs-mile-visual.logo .cs-mv-frame>img{object-fit:contain;padding:13% 15%}
+.js .cs-mile-visual{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out) .08s,transform .6s var(--ease-out) .08s}
+.js .cs-mile.in-view .cs-mile-visual{opacity:1;transform:none !important}
 /* desktop: xen kẽ trái–phải quanh đường giữa */
 @media(min-width:840px){
   .cs-timeline{padding-left:0;max-width:1080px;margin-inline:auto}
   .cs-timeline::before,.cs-tl-progress{left:50%;transform:translateX(-50%) scaleY(var(--line-grow,0))}
   .cs-tl-dot{left:50%;transform:translate(-50%,0)}
   .cs-timeline::before{transform:translateX(-50%)}
-  .cs-mile{width:calc(50% - 36px);padding-bottom:var(--sp-mile)}
-  .cs-mile.l{margin-right:auto;text-align:right}
-  .cs-mile.r{margin-left:auto;text-align:left}
+  .cs-mile{width:100%;padding-bottom:var(--sp-mile);display:grid;grid-template-columns:1fr 1fr;column-gap:76px;align-items:center}
+  .cs-mile.l>.cs-mile-card{grid-column:1;justify-self:end;text-align:right}
+  .cs-mile.l>.cs-mile-visual{grid-column:2;justify-self:start}
+  .cs-mile.r>.cs-mile-card{grid-column:2;justify-self:start;text-align:left}
+  .cs-mile.r>.cs-mile-visual{grid-column:1;justify-self:end}
   .cs-mile.l .cs-mile-tag{margin-left:auto}
+  .cs-mile-visual{margin-top:0;width:100%;max-width:360px}
+  .js .cs-mile.l .cs-mile-visual{transform:translateX(30px)}
+  .js .cs-mile.r .cs-mile-visual{transform:translateX(-30px)}
 }
 
 /* ===== KHỐI ẢNH (clip-path wipe + blur-up) ===== */
@@ -735,6 +750,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body">FPT bắt đầu đào tạo công nghệ thông tin theo giáo trình <b>Aptech</b> — tiền thân của Tổ chức Giáo dục FPT, đặt nền móng cho triết lý “học để làm được”.</p>
             <span class="cs-mile-tag">Khởi nguồn</span>
           </div>
+          <div class="cs-mile-visual logo"><span class="cs-mv-frame"><img src="assets/img/fpt-edu-logo.png" alt="Logo Tổ chức Giáo dục FPT" loading="lazy" decoding="async"></span></div>
         </li>
         <li class="cs-mile r cs-rev-s" style="--d:.04s">
           <div class="cs-mile-card">
@@ -742,6 +758,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body"><b>Thành lập Trường Đại học FPT</b> (QĐ 208/2006/QĐ-TTg) — đại học đầu tiên do một doanh nghiệp Việt Nam thành lập.</p>
             <span class="cs-mile-tag">Thành lập</span>
           </div>
+          <div class="cs-mile-visual photo"><span class="cs-mv-frame"><img src="assets/img/story-hero.jpg" alt="Khuôn viên Trường Đại học FPT" loading="lazy" decoding="async"></span></div>
         </li>
         <li class="cs-mile l cs-rev-s" style="--d:.04s">
           <div class="cs-mile-card">
@@ -749,6 +766,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body">Khai giảng <b>Campus Hà Nội</b> tại Khu Công nghệ cao Hoà Lạc — không gian học tập gắn liền môi trường công nghệ.</p>
             <span class="cs-mile-tag">Cơ sở vật chất</span>
           </div>
+          <div class="cs-mile-visual photo"><span class="cs-mv-frame"><img src="assets/img/hero.jpg" alt="Campus Trường Đại học FPT" loading="lazy" decoding="async"></span></div>
         </li>
         <li class="cs-mile r cs-rev-s" style="--d:.04s">
           <div class="cs-mile-card">
@@ -756,6 +774,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body">Trở thành <b>đại học đầu tiên Việt Nam được QS Stars đánh giá</b> — dấu mốc khẳng định chất lượng theo chuẩn quốc tế.</p>
             <span class="cs-mile-tag">Xếp hạng</span>
           </div>
+          <div class="cs-mile-visual logo"><span class="cs-mv-frame"><img src="assets/img/logo-trust-1.png" alt="Logo QS Stars" loading="lazy" decoding="async"></span></div>
         </li>
         <li class="cs-mile l cs-rev-s" style="--d:.04s">
           <div class="cs-mile-card">
@@ -763,6 +782,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body">Bắt đầu <b>tuyển sinh sinh viên quốc tế</b> — môi trường học tập mở, đa văn hoá.</p>
             <span class="cs-mile-tag">Quốc tế hoá</span>
           </div>
+          <div class="cs-mile-visual photo"><span class="cs-mv-frame"><img src="assets/img/campus-life.jpg" alt="Sinh viên FPT học theo dự án" loading="lazy" decoding="async"></span></div>
         </li>
         <li class="cs-mile r cs-rev-s" style="--d:.04s">
           <div class="cs-mile-card">
@@ -770,6 +790,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body">Trở thành <b>thành viên AACSB</b> và mở rộng hệ thống campus trên cả nước.</p>
             <span class="cs-mile-tag">Kiểm định</span>
           </div>
+          <div class="cs-mile-visual logo"><span class="cs-mv-frame"><img src="assets/img/logo-trust-2.png" alt="Logo AACSB" loading="lazy" decoding="async"></span></div>
         </li>
         <li class="cs-mile l cs-rev-s" style="--d:.04s">
           <div class="cs-mile-card">
@@ -777,6 +798,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body">Chương trình Quản trị Kinh doanh đạt chuẩn <b>ACBSP</b>; khởi công <b>Campus AI Quy Nhơn</b>.</p>
             <span class="cs-mile-tag">Kiểm định</span>
           </div>
+          <div class="cs-mile-visual logo"><span class="cs-mv-frame"><img src="assets/img/logo-trust-3.png" alt="Logo ACBSP" loading="lazy" decoding="async"></span></div>
         </li>
         <li class="cs-mile r cs-rev-s" style="--d:.04s">
           <div class="cs-mile-card">
@@ -784,6 +806,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body">Kiểm định chương trình CNTT theo chuẩn <b>AQAS</b> và kiểm định cấp cơ sở giáo dục (<b>CEA</b>, Chu kỳ 2).</p>
             <span class="cs-mile-tag">Kiểm định</span>
           </div>
+          <div class="cs-mile-visual logo"><span class="cs-mv-frame"><img src="assets/img/logo-trust-4.png" alt="Logo AQAS" loading="lazy" decoding="async"></span></div>
         </li>
         <li class="cs-mile l cs-rev-s" style="--d:.04s">
           <div class="cs-mile-card">
@@ -791,6 +814,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body"><b>THE Impact Rankings</b>: Top 80 thế giới về SDG 8 — Việc làm tốt &amp; Tăng trưởng kinh tế.</p>
             <span class="cs-mile-tag">Xếp hạng</span>
           </div>
+          <div class="cs-mile-visual logo"><span class="cs-mv-frame"><img src="assets/img/logo-trust-6.png" alt="Logo Times Higher Education" loading="lazy" decoding="async"></span></div>
         </li>
       </ol>
     </div>
