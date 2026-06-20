@@ -240,9 +240,8 @@ img,svg{max-width:100%}
 
 /* ===== KHỞI NGUỒN ===== */
 /* Khởi nguồn = section nền ảnh Hoàng Nam Tiến + phủ tối + parallax (ảnh trôi chậm, chữ trắng) */
-.cs-origin{position:relative;overflow:hidden;isolation:isolate;background:#081626}
-.cs-origin-media{position:absolute;inset:-14% 0;z-index:0;will-change:transform;
-  background:url("assets/img/founder-hnt.jpg") center 38%/cover no-repeat}
+.cs-origin{position:relative;overflow:hidden;isolation:isolate;
+  background:#081626 url("assets/img/founder-hnt.jpg") center 25%/cover no-repeat fixed}
 .cs-origin-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(105deg,rgba(6,17,32,.9) 0%,rgba(6,17,32,.76) 50%,rgba(6,17,32,.6) 100%)}
 .cs-origin>.wrap{position:relative;z-index:2}
@@ -257,8 +256,8 @@ img,svg{max-width:100%}
 .cs-origin .cs-pull cite{color:rgba(255,255,255,.82);text-shadow:none}
 .cs-origin .cs-decree{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.28);color:#fff;
   -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
-@media(max-width:859px){.cs-origin-media{inset:0}}
-@media(prefers-reduced-motion:reduce){.cs-origin-media{transform:none!important}}
+/* mobile: background-attachment:fixed hay lỗi/giật trên iOS → cho cuộn thường */
+@media(max-width:859px){.cs-origin{background-attachment:scroll;background-position:center 22%}}
 .cs-origin-grid{display:grid;gap:var(--sp-6);grid-template-columns:1fr;align-items:start;margin-top:var(--sp-6)}
 @media(min-width:860px){.cs-origin-grid{grid-template-columns:1fr 1fr;gap:var(--sp-8);align-items:center}}
 .cs-pull{font-size:clamp(1.4rem,1rem + 1.8vw,2.2rem);font-weight:700;line-height:1.4;
@@ -640,7 +639,6 @@ img,svg{max-width:100%}
        2) KHỞI NGUỒN — bài toán khoảng cách đào tạo–doanh nghiệp.
        ============================================================ -->
   <section class="cs-sec cs-origin" id="origin" aria-labelledby="csOriginH">
-    <div class="cs-origin-media" id="csOriginMedia" aria-hidden="true"></div>
     <div class="cs-origin-overlay" aria-hidden="true"></div>
     <div class="wrap">
       <span class="cs-eyebrow cs-rev"><span class="num">01</span> Khởi nguồn</span>
@@ -1087,25 +1085,6 @@ img,svg{max-width:100%}
     calc();
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',onResize,{passive:true});
-    read();
-  })();
-
-  /* ===== (E2) PARALLAX nền "Khởi nguồn" — ảnh trôi chậm, nội dung cuộn lên (rAF, passive) ===== */
-  (function(){
-    var media=$('csOriginMedia'), sec=$('origin');
-    if(!media||!sec||reduce)return;
-    var raf=0;
-    function read(){ raf=0;
-      if(window.innerWidth<860){ media.style.transform=''; return; }
-      var r=sec.getBoundingClientRect(), vh=window.innerHeight||1;
-      if(r.bottom<0||r.top>vh)return;
-      var p=(vh - r.top)/(vh + r.height);
-      var ty=((0.5 - p)*16).toFixed(2);
-      media.style.transform='translate3d(0,'+ty+'%,0)';
-    }
-    function onScroll(){ if(!raf) raf=requestAnimationFrame(read); }
-    window.addEventListener('scroll',onScroll,{passive:true});
-    window.addEventListener('resize',onScroll,{passive:true});
     read();
   })();
 
