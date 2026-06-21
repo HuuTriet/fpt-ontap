@@ -383,11 +383,15 @@ img,svg{max-width:100%}
   .cs-timeline::before,.cs-tl-progress{left:50%;transform:translateX(-50%) scaleY(var(--line-grow,0))}
   .cs-tl-dot{left:50%;transform:translate(-50%,0)}
   .cs-timeline::before{transform:translateX(-50%)}
-  .cs-mile{width:100%;padding-bottom:var(--sp-mile);display:grid;grid-template-columns:1fr 1fr;column-gap:76px;align-items:center}
-  .cs-mile.l>.cs-mile-card{grid-column:1;grid-row:1;justify-self:end;text-align:right}
-  .cs-mile.l>.cs-mile-visual{grid-column:2;grid-row:1;justify-self:start}
-  .cs-mile.r>.cs-mile-card{grid-column:2;grid-row:1;justify-self:start;text-align:left}
-  .cs-mile.r>.cs-mile-visual{grid-column:1;grid-row:1;justify-self:end}
+  .cs-mile{width:100%;padding-bottom:var(--sp-mile);display:grid;grid-template-columns:1fr 1fr;column-gap:76px;align-items:start}
+  .cs-mile.l{grid-template-areas:"card visual"}
+  .cs-mile.r{grid-template-areas:"visual card"}
+  .cs-mile>.cs-mile-card{grid-area:card}
+  .cs-mile>.cs-mile-visual{grid-area:visual}
+  .cs-mile.l>.cs-mile-card{justify-self:end;text-align:right}
+  .cs-mile.l>.cs-mile-visual{justify-self:start}
+  .cs-mile.r>.cs-mile-card{justify-self:start;text-align:left}
+  .cs-mile.r>.cs-mile-visual{justify-self:end}
   .cs-mile.l .cs-mile-tag{margin-left:auto}
   .cs-mile-visual{margin-top:0;width:100%;max-width:360px}
   .js .cs-mile.l .cs-mile-visual{transform:translateX(30px)}
@@ -783,7 +787,7 @@ img,svg{max-width:100%}
             <p class="cs-mile-body">Khai giảng <b>Campus Hà Nội</b> tại Khu Công nghệ cao Hoà Lạc — không gian học tập gắn liền môi trường công nghệ.</p>
             <span class="cs-mile-tag">Cơ sở vật chất</span>
           </div>
-          <div class="cs-mile-visual photo"><span class="cs-mv-frame"><img src="assets/img/hero.jpg" alt="Campus Trường Đại học FPT" loading="lazy" decoding="async"></span></div>
+          <div class="cs-mile-visual photo"><span class="cs-mv-frame"><img src="assets/img/dhfpt.jpg" alt="Trường Đại học FPT" loading="lazy" decoding="async"></span></div>
         </li>
         <li class="cs-mile r cs-rev-s" style="--d:.04s">
           <div class="cs-mile-card">
