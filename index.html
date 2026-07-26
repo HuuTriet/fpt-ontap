@@ -1675,7 +1675,7 @@ function render(){
 }
 
 function formatCloze(text) {
-    return text.replace(/\[\[(.*?)\]\]/g, '<span class="cloze" onclick="this.classList.toggle(\'revealed\')">$1</span>');
+    return text.replace(/\[\[(.*?)\]\]/g, '<span class="cloze" data-cloze="1">$1</span>');
   }
   function renderFlash(q){
   if(S.mode==='tuluan'){
@@ -1840,6 +1840,7 @@ function attachSwipe(){
   card.addEventListener('pointerdown',e=>{
     if(e.button!==undefined&&e.button>0)return;
     if(e.target.closest('.starbtn'))return;
+    if(e.target.closest('#tuluanBtns')||e.target.closest('.cloze'))return;
     sx=e.clientX;sy=e.clientY;dx=dy=0;active=true;horiz=null;
     try{card.setPointerCapture(e.pointerId);}catch(_){}
   });
@@ -1970,6 +1971,7 @@ function syncRangeSel(){
 }
 
 document.addEventListener('click',e=>{
+  if(e.target.closest('.cloze')){e.target.closest('.cloze').classList.toggle('revealed');e.stopPropagation();return;}
   if(currentView!=='quiz')return;
   const actEl=e.target.closest('[data-act]');
   const optEl=e.target.closest('.opt');
@@ -2008,6 +2010,7 @@ document.addEventListener('click',e=>{
   }
   if(card&&(S.mode==='flash'||S.mode==='tuluan')){
     if(suppressClick){suppressClick=false;return;}
+    if(e.target.closest('.cloze')||e.target.closest('#btnTlQuen')||e.target.closest('#btnTlMo')||e.target.closest('#btnTlThuoc')||e.target.closest('#tuluanBtns'))return;
     S.flipped=!S.flipped;card.classList.toggle('flipped',S.flipped);
   }
 });
