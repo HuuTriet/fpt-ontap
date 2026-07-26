@@ -2042,6 +2042,13 @@ function switchMode(m){
   if(S.mode===m)return;
   S.mpos[S.mode]=S.deck.length?S.deck[S.pos]:null;
   S.mode=m;
+  let code = KEY.replace('fpt-ontap:progress:', '');
+  if(m==='tuluan'){
+    DATA = window.__SUBJECT_DATA[code + '_TULUAN'] || [];
+  } else {
+    DATA = window.__SUBJECT_DATA[code] || [];
+  }
+  buildRangeOptions();
   $('tabFlash').classList.toggle('on',m==='flash');
   $('tabQuiz').classList.toggle('on',m==='quiz');
   if($('tabTuluan')) $('tabTuluan').classList.toggle('on',m==='tuluan');
@@ -2146,6 +2153,12 @@ async function initSubject(code){
   const subj=SUBJECTS.find(s=>s.code===code)||{code:code,name:code};
   KEY='fpt-ontap:progress:'+code;
   DATA=(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||[];
+  let DATA_TULUAN = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN'];
+  if(DATA_TULUAN && DATA_TULUAN.length > 0) {
+    if(document.getElementById('tabTuluan')) document.getElementById('tabTuluan').style.display = 'inline-flex';
+  } else {
+    if(document.getElementById('tabTuluan')) document.getElementById('tabTuluan').style.display = 'none';
+  }
   qmap=new Map(DATA.map(q=>[q.id,q]));
   /* reset toàn bộ state cho môn mới */
   S.mode='flash';S.deckDef={type:'all'};S.shuffle=false;S.hideLearned=false;

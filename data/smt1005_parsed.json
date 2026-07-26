@@ -378,7 +378,7 @@
       },
       {
         "k": "C",
-        "t": "Dân cư. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Dân cư."
       },
       {
         "k": "D",
@@ -399,7 +399,7 @@
         "t": "Là mục tiêu"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Là tiêu chuẩn kiểm tra chân lý"
       },
       {
@@ -407,11 +407,11 @@
         "t": "Dân cư."
       },
       {
-        "k": "B",
+        "k": "D",
         "t": "Là phương tiện phụ trợ"
       },
       {
-        "k": "D",
+        "k": "E",
         "t": "Không liên quan đến nhận thức"
       }
     ],
@@ -507,16 +507,16 @@
         "t": "Cách thể hiện của hiện tượng."
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Tập hợp các yếu tố tạo thành sự vật."
       },
       {
-        "k": "B",
+        "k": "C",
         "t": "Yếu tố vật chất trong hiện tượng."
       },
       {
         "k": "D",
-        "t": "Những khía cạnh không quan trọng Đề số 2 Đề 202 (2024 - 2025)"
+        "t": "Những khía cạnh không quan trọng Đề số 2"
       }
     ],
     "ans": [
@@ -564,7 +564,7 @@
       },
       {
         "k": "C",
-        "t": "Não người. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Não người."
       },
       {
         "k": "D",
@@ -902,7 +902,7 @@
       },
       {
         "k": "C",
-        "t": "Độ By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Độ"
       },
       {
         "k": "D",
@@ -984,7 +984,7 @@
       },
       {
         "k": "D",
-        "t": "Khả tri. Đề số 3 Đề 304 (2024 - 2025)"
+        "t": "Khả tri. Đề số 3"
       }
     ],
     "ans": [
@@ -1036,7 +1036,7 @@
       },
       {
         "k": "D",
-        "t": "Những đặc điểm riêng By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Những đặc điểm riêng"
       }
     ],
     "ans": [
@@ -1049,11 +1049,11 @@
     "q": "Với việc cho rằng. \"Ý niệm tuyệt đối\" là tính thứ nhất, là bản nguyên của thế giới, Hegel là nhà triết học thuộc trường phái nào sau đây?",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Chủ nghĩa duy vật cổ đại"
       },
       {
-        "k": "A",
+        "k": "B",
         "t": "Chủ nghĩa duy vật"
       },
       {
@@ -1158,7 +1158,7 @@
       },
       {
         "k": "B",
-        "t": "Công cụ lao động By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Công cụ lao động"
       },
       {
         "k": "C",
@@ -1462,18 +1462,18 @@
   {
     "id": 57,
     "chapter": "Đề 204 (2024 - 2025)",
-    "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng, các sự vật hiện tượng trong thế giới tồn tại:",
+    "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng, các sự vật hiện tượng trong thế giới tồn tại: A Không phát triển.",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Cô lập, tách rời nhau."
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Liên hệ tác động qua lại."
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Cả A và B."
       }
     ],
@@ -1751,11 +1751,11 @@
         "t": "Nguyên lý mối liên hệ phổ biến."
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Nguyên lý phát triển."
       },
       {
-        "k": "B",
+        "k": "C",
         "t": "Quy luật phủ định của phủ định."
       },
       {
@@ -1777,16 +1777,16 @@
         "t": "Thực tiễn."
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Sự lôgic ."
       },
       {
-        "k": "B",
+        "k": "C",
         "t": "Sự hợp lý."
       },
       {
         "k": "D",
-        "t": "Được đa số đồng ý. Đề số 5 Đề 103 (2022 - 2023)"
+        "t": "Được đa số đồng ý. Đề số 5"
       }
     ],
     "ans": [
@@ -1968,7 +1968,7 @@
       },
       {
         "k": "D",
-        "t": "Sáng tạo"
+        "t": "Sáng tạo Càu 8. Hình thái tư duy lý luận về thế giới đầu tiên của nhân loại là:"
       }
     ],
     "ans": [
@@ -1981,15 +1981,15 @@
     "q": "Triết học",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Thần thoại"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Totem giáo"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Tôn giáo"
       }
     ],
@@ -2004,7 +2004,7 @@
     "opts": [
       {
         "k": "A",
-        "t": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Đồng nhất vật chất nói chung với một dạng cụ thể hữu hình, cảm tính của vật chất."
       },
       {
         "k": "B",
@@ -2198,7 +2198,7 @@
       },
       {
         "k": "D",
-        "t": "Hoạt động quan sát và thực nghiệm khoa học, By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Hoạt động quan sát và thực nghiệm khoa học,"
       }
     ],
     "ans": [
@@ -2271,7 +2271,7 @@
         "t": "Chất là tổng hợp các thuộc tính, trong đó có thuộc tính cơ bản và thuộc tính không cơ bản. C  Thuộc tính của sự vật là những đặc tính vốn có của sự vật."
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Thuộc tính của sự vật bộc lộ thông qua sự tác động giữa các sự vật."
       }
     ],
@@ -2376,7 +2376,7 @@
       },
       {
         "k": "D",
-        "t": "Hoạt động thực tiễn của con người By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Hoạt động thực tiễn của con người"
       }
     ],
     "ans": [
@@ -2792,7 +2792,7 @@
       },
       {
         "k": "D",
-        "t": "Sản phẩm của trí tưởng tượng By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Sản phẩm của trí tưởng tượng"
       }
     ],
     "ans": [
@@ -2887,11 +2887,11 @@
         "t": "Thời kỳ Cổ đại (B.) Thời kỳ Trung cổ"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Thời kỳ Phục hưng"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Triết học Mác – Lênin vào nửa cuối thế kỷ XIX, đầu thế kỷ XX"
       }
     ],
@@ -3009,15 +3009,15 @@
     "q": "Trường phái triết học nào mang nặng tính trực quan, ngây thơ, chất phác: (A.) Chủ nghĩa duy vật thời cổ đại   => trang 8 giáo trình.",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Chủ nghĩa duy vật siêu hình thế kỷ XVII, XVIII"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Chủ nghĩa duy vật biện chứng"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Chủ nghĩa duy tâm khách quan"
       }
     ],
@@ -3057,15 +3057,15 @@
     "q": "Tôn giáo thường sử dụng học thuyết nào làm cơ sở lý luận để luận chứng cho các quan điểm của mình? ( A). Chủ nghĩa duy tâm => tôn giáo là duy tâm.",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Chủ nghĩa duy vật siêu hình"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Chủ nghĩa duy vật biện chứng"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Chủ nghĩa duy vật cổ đại"
       }
     ],
@@ -3106,7 +3106,7 @@
     "opts": [
       {
         "k": "A",
-        "t": "Con người có khả năng nhận thức được thế giới không? By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Con người có khả năng nhận thức được thế giới không?"
       },
       {
         "k": "B",
@@ -3300,7 +3300,7 @@
       },
       {
         "k": "D",
-        "t": "Nhận thức đối tượng ở trạng thái tĩnh By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Nhận thức đối tượng ở trạng thái tĩnh"
       }
     ],
     "ans": [
@@ -3347,7 +3347,7 @@
         "t": "Chủ nghĩa duy vật siêu hình © Chủ nghĩa duy tâm"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "chủ nghĩa duy vật thời cổ đại"
       }
     ],
@@ -3369,7 +3369,7 @@
         "t": "Làm nền tảng cho quan niệm duy tâm phát triển C  Kìm hãm sự phát triển tư tưởng khoa học về thế giới."
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Chống quan niệm duy tâm tôn giáo và thúc đẩy sự phát triển tư tưởng khoa học về thế giới."
       }
     ],
@@ -3444,7 +3444,7 @@
       },
       {
         "k": "C",
-        "t": "Những năm 40 của thế kỷ XIX By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Những năm 40 của thế kỷ XIX"
       },
       {
         "k": "D",
@@ -3461,15 +3461,15 @@
     "q": "Câu nói: “Các triết gia không lạc lên như nấm từ trái đất; họ là sản phẩm của thời đại của mình, của dân tộc mình, mà dòng sữa tinh tế nhất, quý giá và vô hình được tập trung lại trong những tư tưởng triết học” của ai? (А).С.Мас",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Ph.Angghen"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "VILênin"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Ph.Heghen"
       }
     ],
@@ -3592,15 +3592,11 @@
       },
       {
         "k": "B",
-        "t": "Thế giới quan duy tâm và phương pháp luận biện chứng By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Thế giới quan duy tâm và phương pháp luận biện chứng"
       },
       {
         "k": "C",
         "t": "Thế giới quan duy vật và phương pháp luận biện chứng"
-      },
-      {
-        "k": "D",
-        "t": "Thế giới quan duy tâm và phương pháp luận biện chứng"
       }
     ],
     "ans": [
@@ -3613,15 +3609,15 @@
     "q": "Tìm đáp án đúng nhất về chức năng của triết học Mác- Lênin: ( A). Cung cấp thế giới quan và phương pháp luận => trang 20 giáo trình.",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Cung cấp tri thức về tự nhiên cho con người"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Cung cấp phương pháp tư duy cho con người"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Cung cấp tri thức về xã hội cho con người"
       }
     ],
@@ -3691,11 +3687,11 @@
         "t": "Chủ nghĩa duy tâm ( B). Chủ nghĩa duy vật thời cổ đại"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Chủ nghĩa duy vật thế kỷ XVII-XVIII"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Chủ nghĩa duy vật biện chứng"
       }
     ],
@@ -3722,8 +3718,18 @@
       },
       {
         "k": "D",
-        "t": "Heraclit  Câu: 53. Đặc điểm chung của quan niệm duy vật về vật chất ở thời cổ đại là gì?"
-      },
+        "t": "Heraclit"
+      }
+    ],
+    "ans": [
+      "C"
+    ]
+  },
+  {
+    "id": 146,
+    "chapter": "TUẦN 1",
+    "q": "Câu: 53. Đặc điểm chung của quan niệm duy vật về vật chất ở thời cổ đại là gì?",
+    "opts": [
       {
         "k": "A",
         "t": "vật chất nói chung với ý niệm tuyệt đối"
@@ -3738,15 +3744,15 @@
       },
       {
         "k": "D",
-        "t": "vật chất với ý thức By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "vật chất với ý thức"
       }
     ],
     "ans": [
-      "C"
+      "B"
     ]
   },
   {
-    "id": 146,
+    "id": 147,
     "chapter": "TUẦN 1",
     "q": "Quan điểm cho rằng chỉ có một hình thức vận động duy nhất là vận động cơ học, đó là quan điểm của:",
     "opts": [
@@ -3772,7 +3778,7 @@
     ]
   },
   {
-    "id": 147,
+    "id": 148,
     "chapter": "TUẦN 1",
     "q": "Định nghĩa về vật chất của Lênin được nêu trong tác phẩm nào?",
     "opts": [
@@ -3798,7 +3804,7 @@
     ]
   },
   {
-    "id": 148,
+    "id": 149,
     "chapter": "TUẦN 1",
     "q": "Thêm cụm từ thích hợp vào câu sau đó được định nghĩa về vật chất của Lênin: Vật chất là .......(1)........ dùng để chỉ .....(2).. được đem lại cho con người trong cảm giác, được cảm giác của chúng ta chép lại, chụp lại, phản ảnh và tồn tại không lệ thuộc vào cảm giác.",
     "opts": [
@@ -3807,15 +3813,11 @@
         "t": "1- Vật thể, 2- hoạt động (B,)1- Phạm trù triết học, 2- Thực tại khách quan"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "1- Phạm trù triết học, 2 - Một vật thể"
       },
       {
-        "k": "D",
-        "t": "1- Phạm trù triết học, 2 - các sự vật"
-      },
-      {
-        "k": "D",
+        "k": "C",
         "t": "1- Phạm trù triết học, 2 - các sự vật"
       }
     ],
@@ -3824,7 +3826,7 @@
     ]
   },
   {
-    "id": 149,
+    "id": 150,
     "chapter": "TUẦN 1",
     "q": "Quan điểm: “Bản chất thế giới là ý thức” là quan điểm của trường phái triết học nào",
     "opts": [
@@ -3850,7 +3852,7 @@
     ]
   },
   {
-    "id": 150,
+    "id": 151,
     "chapter": "TUẦN 1",
     "q": "Trong định nghĩa vật chất của Lênin, thuộc tính cơ bản nhất để phân biệt vật chất với ý thức là:",
     "opts": [
@@ -3876,13 +3878,13 @@
     ]
   },
   {
-    "id": 151,
+    "id": 152,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng, không gian:",
     "opts": [
       {
         "k": "A",
-        "t": "Mang tính chủ quan By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Mang tính chủ quan"
       },
       {
         "k": "B",
@@ -3902,7 +3904,7 @@
     ]
   },
   {
-    "id": 152,
+    "id": 153,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng, vật chất với tư cách là phạm trù triết học có nghĩa là:",
     "opts": [
@@ -3928,7 +3930,7 @@
     ]
   },
   {
-    "id": 153,
+    "id": 154,
     "chapter": "TUẦN 1",
     "q": "Định nghĩa Vật chất của Lênin khẳng định:",
     "opts": [
@@ -3954,7 +3956,7 @@
     ]
   },
   {
-    "id": 154,
+    "id": 155,
     "chapter": "TUẦN 1",
     "q": "Theo định nghĩa vật chất của Lênin, khẳng định nào sau đây là đúng?",
     "opts": [
@@ -3980,7 +3982,7 @@
     ]
   },
   {
-    "id": 155,
+    "id": 156,
     "chapter": "TUẦN 1",
     "q": "“Vật chất là cái được cảm giác chúng ta chép lại, phản ánh lại” được hiểu như thế nào?",
     "opts": [
@@ -4006,7 +4008,7 @@
     ]
   },
   {
-    "id": 156,
+    "id": 157,
     "chapter": "TUẦN 1",
     "q": "Quan điểm triết học nào tách rời vật chất với vận động?",
     "opts": [
@@ -4032,7 +4034,7 @@
     ]
   },
   {
-    "id": 157,
+    "id": 158,
     "chapter": "TUẦN 1",
     "q": "Vận động là phương thức tồn tại của vật chất, là thuộc tính cố hữu của vật chất là quan điểm của trường phái triết học nào?",
     "opts": [
@@ -4041,11 +4043,11 @@
         "t": "Chủ nghĩa duy tâm ( B) Chủ nghĩa duy vật thời cổ đại"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Chủ nghĩa duy vật siêu hình"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Chủ nghĩa duy vật biện chứng"
       }
     ],
@@ -4054,7 +4056,7 @@
     ]
   },
   {
-    "id": 158,
+    "id": 159,
     "chapter": "TUẦN 1",
     "q": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về vận động",
     "opts": [
@@ -4080,7 +4082,7 @@
     ]
   },
   {
-    "id": 159,
+    "id": 160,
     "chapter": "TUẦN 1",
     "q": ", Ph.Ăngghen đã chia vận động làm mấy hình thức cơ bàn:",
     "opts": [
@@ -4106,7 +4108,7 @@
     ]
   },
   {
-    "id": 160,
+    "id": 161,
     "chapter": "TUẦN 1",
     "q": "Theo cách phân chia các hình thức vận động của ăngghen ,hình thức nào là thấp nhất ?",
     "opts": [
@@ -4132,7 +4134,7 @@
     ]
   },
   {
-    "id": 161,
+    "id": 162,
     "chapter": "TUẦN 1",
     "q": "theo Cách phân chia các hình thức vận động của Ăngghen, hình thức nào là cao nhất",
     "opts": [
@@ -4158,7 +4160,7 @@
     ]
   },
   {
-    "id": 162,
+    "id": 163,
     "chapter": "TUẦN 1",
     "q": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng?",
     "opts": [
@@ -4184,7 +4186,7 @@
     ]
   },
   {
-    "id": 163,
+    "id": 164,
     "chapter": "TUẦN 1",
     "q": "Quan điểm nào cho rằng, vận động của vật chất là tuyệt đối còn đứng im là tương đối, tạm thời?",
     "opts": [
@@ -4210,7 +4212,7 @@
     ]
   },
   {
-    "id": 164,
+    "id": 165,
     "chapter": "TUẦN 1",
     "q": "Trong các quan điểm sau, đâu là quan điểm của CNDVBC?",
     "opts": [
@@ -4236,7 +4238,7 @@
     ]
   },
   {
-    "id": 165,
+    "id": 166,
     "chapter": "TUẦN 1",
     "q": "Bổ sung để được một câu đúng theo quan điểm duy vật biện chứng: “Không gian và thời gian...”.",
     "opts": [
@@ -4262,7 +4264,7 @@
     ]
   },
   {
-    "id": 166,
+    "id": 167,
     "chapter": "TUẦN 1",
     "q": ", Quan điểm nào cho rằng thế giới thống nhất ở tính vật chất?",
     "opts": [
@@ -4288,7 +4290,7 @@
     ]
   },
   {
-    "id": 167,
+    "id": 168,
     "chapter": "TUẦN 1",
     "q": "Lựa chọn câu đúng nhất theo quan điểm của CNDVBC?",
     "opts": [
@@ -4314,7 +4316,7 @@
     ]
   },
   {
-    "id": 168,
+    "id": 169,
     "chapter": "TUẦN 1",
     "q": "Quan điểm cho rằng ý niệm tuyệt đối” là bản thể sinh ra toàn bộ thế giới hiện thực là:",
     "opts": [
@@ -4340,7 +4342,7 @@
     ]
   },
   {
-    "id": 169,
+    "id": 170,
     "chapter": "TUẦN 1",
     "q": "Quan điểm tuyệt đối hoá vai trò của cảm giác, coi cảm giác là tồn tại duy nhất sinh ra thế giới vật chất, là quan điểm của:",
     "opts": [
@@ -4366,7 +4368,7 @@
     ]
   },
   {
-    "id": 170,
+    "id": 171,
     "chapter": "TUẦN 1",
     "q": "Quan điểm cho rằng ý thức cũng chỉ là một dạng vật chất đặc biệt, do vật chất sinh ra là:",
     "opts": [
@@ -4392,7 +4394,7 @@
     ]
   },
   {
-    "id": 171,
+    "id": 172,
     "chapter": "TUẦN 1",
     "q": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về phản ánh ?",
     "opts": [
@@ -4414,7 +4416,7 @@
     ]
   },
   {
-    "id": 172,
+    "id": 173,
     "chapter": "TUẦN 1",
     "q": "Chọn cụm từ đúng điền vào chỗ trống\" Phản ánh là thuộc tính ....``",
     "opts": [
@@ -4440,7 +4442,7 @@
     ]
   },
   {
-    "id": 173,
+    "id": 174,
     "chapter": "TUẦN 1",
     "q": "Trong các hình thức sau, hình thức phản ánh nào Cao nhất",
     "opts": [
@@ -4466,7 +4468,7 @@
     ]
   },
   {
-    "id": 174,
+    "id": 175,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng ở động vật bậc cao có thể đạt đến hình thức phản ánh nào?",
     "opts": [
@@ -4492,7 +4494,7 @@
     ]
   },
   {
-    "id": 175,
+    "id": 176,
     "chapter": "TUẦN 1",
     "q": "Quan điểm nào cho rằng ý thức là tính thứ nhất, từ đó sinh ra tất cả?",
     "opts": [
@@ -4518,7 +4520,7 @@
     ]
   },
   {
-    "id": 176,
+    "id": 177,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của CNDVBC, nguồn gốc tự nhiên của ý thức gồm những yếu tố nào?",
     "opts": [
@@ -4528,7 +4530,7 @@
       },
       {
         "k": "B",
-        "t": "Thế giới bên ngoài tác động vào bộ óc By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Thế giới bên ngoài tác động vào bộ óc"
       },
       {
         "k": "C",
@@ -4544,7 +4546,7 @@
     ]
   },
   {
-    "id": 177,
+    "id": 178,
     "chapter": "TUẦN 1",
     "q": "Tim đáp án đúng nhất về nguồn gốc ra đời của ý thức:",
     "opts": [
@@ -4557,7 +4559,7 @@
         "t": "Ngôn ngữ. (c.) Nguồn gốc tự nhiên và nguồn gốc xã hội."
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Lao động"
       }
     ],
@@ -4566,7 +4568,7 @@
     ]
   },
   {
-    "id": 178,
+    "id": 179,
     "chapter": "TUẦN 1",
     "q": "Nguồn gốc xã hội của ý thức là:",
     "opts": [
@@ -4592,7 +4594,7 @@
     ]
   },
   {
-    "id": 179,
+    "id": 180,
     "chapter": "TUẦN 1",
     "q": "Để phản ánh khái quát hiện thực khách quan và trao đổi tư tưởng con người cần có cái gì?",
     "opts": [
@@ -4618,7 +4620,7 @@
     ]
   },
   {
-    "id": 180,
+    "id": 181,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng, nguồn gốc trực tiếp và quan trọng nhất quyết định sự ra đời và phát triển của ý thức là:",
     "opts": [
@@ -4644,7 +4646,7 @@
     ]
   },
   {
-    "id": 181,
+    "id": 182,
     "chapter": "TUẦN 1",
     "q": "Quan điểm sau đây thuộc lập trường triết học nào: ý thức là thực thể độc lập, là thực tại duy nhất?",
     "opts": [
@@ -4670,7 +4672,7 @@
     ]
   },
   {
-    "id": 182,
+    "id": 183,
     "chapter": "TUẦN 1",
     "q": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về bản chất của ý thức?",
     "opts": [
@@ -4684,7 +4686,7 @@
       },
       {
         "k": "C",
-        "t": "Ý thức là sự phản ánh sáng tạo hiện thực khách quan vào bộ óc con người By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm) D .ý thức là năng lực của mọi dạng vật chất"
+        "t": "Ý thức là sự phản ánh sáng tạo hiện thực khách quan vào bộ óc con người D .ý thức là năng lực của mọi dạng vật chất"
       }
     ],
     "ans": [
@@ -4692,7 +4694,7 @@
     ]
   },
   {
-    "id": 183,
+    "id": 184,
     "chapter": "TUẦN 1",
     "q": "Đâu là quan điểm của CNDVBC về bản chất của ý thức?",
     "opts": [
@@ -4718,7 +4720,7 @@
     ]
   },
   {
-    "id": 184,
+    "id": 185,
     "chapter": "TUẦN 1",
     "q": "Sự khác nhau cơ bản giữa phản ánh ý thức và các hình thức phản ánh khác của thế giới vật chất là ở chỗ nào?",
     "opts": [
@@ -4744,16 +4746,16 @@
     ]
   },
   {
-    "id": 185,
+    "id": 186,
     "chapter": "TUẦN 1",
     "q": "Theo quan niệm của chủ nghĩa duy vật biện chứng, trong kết cấu của ý thức yếu tố nào là cơ bản và cốt lõi nhất? (A.) Tri thức",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Tình cảm"
       },
       {
-        "k": "D",
+        "k": "B",
         "t": "Ý chí và tư tưởng"
       }
     ],
@@ -4762,7 +4764,7 @@
     ]
   },
   {
-    "id": 186,
+    "id": 187,
     "chapter": "TUẦN 1",
     "q": "Kết cấu theo chiều dọc (chiều sâu) của ý thức gồm những",
     "opts": [
@@ -4788,7 +4790,7 @@
     ]
   },
   {
-    "id": 187,
+    "id": 188,
     "chapter": "TUẦN 1",
     "q": "Quan điểm của CNDVBC về mối quan hệ giữa vật chất và ý thức?",
     "opts": [
@@ -4814,7 +4816,7 @@
     ]
   },
   {
-    "id": 188,
+    "id": 189,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng ý thức tác động đến Vật chất thế nào?",
     "opts": [
@@ -4840,7 +4842,7 @@
     ]
   },
   {
-    "id": 189,
+    "id": 190,
     "chapter": "TUẦN 1",
     "q": "Quan điểm nào tuyệt đối hóa yếu tố vật chất, phủ nhận tính độc lập tương đối của ý thức:",
     "opts": [
@@ -4854,7 +4856,7 @@
       },
       {
         "k": "C",
-        "t": "Chủ nghĩa duy vật siêu hình By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Chủ nghĩa duy vật siêu hình"
       },
       {
         "k": "D",
@@ -4866,7 +4868,7 @@
     ]
   },
   {
-    "id": 190,
+    "id": 191,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng, quan điểm nào sau đây là SAI?",
     "opts": [
@@ -4892,16 +4894,16 @@
     ]
   },
   {
-    "id": 191,
+    "id": 192,
     "chapter": "TUẦN 1",
     "q": ": Đâu là quan điểm của chủ nghĩa duy vật siêu hình ?",
     "opts": [
       {
-        "k": "C",
+        "k": "A",
         "t": "Tuyệt đối hoá vai trò của vật chất, phủ nhân tính độc lập tương đối của ý thức"
       },
       {
-        "k": "D",
+        "k": "B",
         "t": "Vật chất quyết định ý thức, còn ý thức có tính độc lập tương đối và tác động trở lại vật chất."
       }
     ],
@@ -4910,7 +4912,7 @@
     ]
   },
   {
-    "id": 192,
+    "id": 193,
     "chapter": "TUẦN 1",
     "q": ", Quan điểm sau đây thuộc lập trường triết học nào: Trong nhận thức và hoạt động thực tiễn phải lấy hiện thực khách quan làm căn cứ:",
     "opts": [
@@ -4936,7 +4938,7 @@
     ]
   },
   {
-    "id": 193,
+    "id": 194,
     "chapter": "TUẦN 1",
     "q": "Quan điểm triết học nào tách rời vật chất với vận động:",
     "opts": [
@@ -4962,7 +4964,7 @@
     ]
   },
   {
-    "id": 194,
+    "id": 195,
     "chapter": "TUẦN 1",
     "q": "Đâu là quan điểm của chủ nghĩa duy vật biện chứng về phản ánh:",
     "opts": [
@@ -4988,7 +4990,7 @@
     ]
   },
   {
-    "id": 195,
+    "id": 196,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của CNDVBC, nhận định nào sau đây là đúng:",
     "opts": [
@@ -5014,7 +5016,7 @@
     ]
   },
   {
-    "id": 196,
+    "id": 197,
     "chapter": "TUẦN 1",
     "q": ", Quan điểm lịch sử - cụ thể đòi hỏi gì khi nhận thức và tác động vào SV",
     "opts": [
@@ -5040,7 +5042,7 @@
     ]
   },
   {
-    "id": 197,
+    "id": 198,
     "chapter": "TUẦN 1",
     "q": "Vai trò của mối liên hệ đối với sự tồn tại và phát triển của sự việc:",
     "opts": [
@@ -5066,7 +5068,7 @@
     ]
   },
   {
-    "id": 198,
+    "id": 199,
     "chapter": "TUẦN 1",
     "q": "Nêu ý nghĩa phương pháp luận của quan điểm phát triển?",
     "opts": [
@@ -5092,7 +5094,7 @@
     ]
   },
   {
-    "id": 199,
+    "id": 200,
     "chapter": "TUẦN 1",
     "q": "Thêm cụm từ nào vào câu sau để được luận điểm của chủ nghĩa duy vật biện chứng: Nguyên lý về mối liên hệ phổ biến và nguyên lý về sự phát triển có...:",
     "opts": [
@@ -5110,7 +5112,7 @@
       },
       {
         "k": "D",
-        "t": "Tách biệt với nhau tương đối By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Tách biệt với nhau tương đối"
       }
     ],
     "ans": [
@@ -5118,7 +5120,7 @@
     ]
   },
   {
-    "id": 200,
+    "id": 201,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm triết học Mác-Lênin, khẳng định nào sau đây sai?",
     "opts": [
@@ -5144,7 +5146,7 @@
     ]
   },
   {
-    "id": 201,
+    "id": 202,
     "chapter": "TUẦN 1",
     "q": "Bổ sung để được một khẳng định đúng theo quan điểm của chủ nghĩa duy vật biện chứng: «Các sự vật, hiện tượng... »",
     "opts": [
@@ -5170,7 +5172,7 @@
     ]
   },
   {
-    "id": 202,
+    "id": 203,
     "chapter": "TUẦN 1",
     "q": "Cơ sở tạo nên mối liên hệ phổ biến là gì?",
     "opts": [
@@ -5196,7 +5198,7 @@
     ]
   },
   {
-    "id": 203,
+    "id": 204,
     "chapter": "TUẦN 1",
     "q": "Phát triển có tính chất gì?",
     "opts": [
@@ -5222,7 +5224,7 @@
     ]
   },
   {
-    "id": 204,
+    "id": 205,
     "chapter": "TUẦN 1",
     "q": "Theo CNDVBC, sự phân loại các mối liên hệ mang tính:",
     "opts": [
@@ -5248,7 +5250,7 @@
     ]
   },
   {
-    "id": 205,
+    "id": 206,
     "chapter": "TUẦN 1",
     "q": "Theo CNDVBC, khi xem xét sự vật hiện tượng cần tránh:",
     "opts": [
@@ -5274,7 +5276,7 @@
     ]
   },
   {
-    "id": 206,
+    "id": 207,
     "chapter": "TUẦN 1",
     "q": ", Theo CNDVBC, quan điểm phiến diện là:",
     "opts": [
@@ -5300,7 +5302,7 @@
     ]
   },
   {
-    "id": 207,
+    "id": 208,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng, thuật ngụy biện là:",
     "opts": [
@@ -5314,7 +5316,7 @@
       },
       {
         "k": "C",
-        "t": "Đánh tráo các mối liên hệ cơ bản thành không có bản hoặc ngược lại By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Đánh tráo các mối liên hệ cơ bản thành không có bản hoặc ngược lại"
       },
       {
         "k": "D",
@@ -5326,7 +5328,7 @@
     ]
   },
   {
-    "id": 208,
+    "id": 209,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng, phát triển là:",
     "opts": [
@@ -5352,7 +5354,7 @@
     ]
   },
   {
-    "id": 209,
+    "id": 210,
     "chapter": "TUẦN 1",
     "q": ", Tìm phương án sai, theo chủ nghĩa duy vật biện chứng:",
     "opts": [
@@ -5378,7 +5380,7 @@
     ]
   },
   {
-    "id": 210,
+    "id": 211,
     "chapter": "TUẦN 1",
     "q": "Tìm phương án sai, theo CNDVBC, nguyên tắc phát triển là:",
     "opts": [
@@ -5404,7 +5406,7 @@
     ]
   },
   {
-    "id": 211,
+    "id": 212,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng, nguyên tắc lịch sử - cụ thể là:",
     "opts": [
@@ -5430,7 +5432,7 @@
     ]
   },
   {
-    "id": 212,
+    "id": 213,
     "chapter": "TUẦN 1",
     "q": ", Phép biện chứng duy vật có mấy cặp phạm trù cơ bản",
     "opts": [
@@ -5456,7 +5458,7 @@
     ]
   },
   {
-    "id": 213,
+    "id": 214,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng, cái riêng là phạm trù triết học dùng để chỉ ra một sự vật một hiện tượng một quá trình riêng lẻ nhất định",
     "opts": [
@@ -5482,7 +5484,7 @@
     ]
   },
   {
-    "id": 214,
+    "id": 215,
     "chapter": "TUẦN 1",
     "q": ", Theo chủ nghĩa duy vật biện chứng, cái đơn nhất dùng có",
     "opts": [
@@ -5508,13 +5510,13 @@
     ]
   },
   {
-    "id": 215,
+    "id": 216,
     "chapter": "TUẦN 1",
     "q": "Điền vào chỗ trống: VILênin viết: “Cái riêng chỉ tồn tại trong mối liên hệ đưa đến ....",
     "opts": [
       {
         "k": "A",
-        "t": "Cái chung By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Cái chung"
       },
       {
         "k": "B",
@@ -5534,7 +5536,7 @@
     ]
   },
   {
-    "id": 216,
+    "id": 217,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm triết học Mác-Lênin, luận điểm nào sau đây là SAI?",
     "opts": [
@@ -5560,7 +5562,7 @@
     ]
   },
   {
-    "id": 217,
+    "id": 218,
     "chapter": "TUẦN 1",
     "q": ", Theo chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là sai:",
     "opts": [
@@ -5586,7 +5588,7 @@
     ]
   },
   {
-    "id": 218,
+    "id": 219,
     "chapter": "TUẦN 1",
     "q": "Chọn cụm từ thích hợp điền vào chỗ trống: “Cái chung là phạm trù triết học dùng để chỉ ...., được lặp lại trong nhiều sự vật hay quá trình riêng lẻ",
     "opts": [
@@ -5612,7 +5614,7 @@
     ]
   },
   {
-    "id": 219,
+    "id": 220,
     "chapter": "TUẦN 1",
     "q": "Quan điểm của CNDVBC về mối quan hệ giữa cái chung và cái riêng là:",
     "opts": [
@@ -5638,7 +5640,7 @@
     ]
   },
   {
-    "id": 220,
+    "id": 221,
     "chapter": "TUẦN 1",
     "q": "Cái ....... tồn tại trong .............và thông qua cái riêng mà biểu hiện sự tồn tại của mình.",
     "opts": [
@@ -5664,7 +5666,7 @@
     ]
   },
   {
-    "id": 221,
+    "id": 222,
     "chapter": "TUẦN 1",
     "q": ", Công cuộc xây dựng chủ nghĩa xã hội trên thế giới phải xuất phát từ tình hình cụ thể của từng đất nước. Đó là bài học về việc:",
     "opts": [
@@ -5678,7 +5680,7 @@
       },
       {
         "k": "C",
-        "t": "Áp dụng cái riêng phải dựa vào cái chung By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Áp dụng cái riêng phải dựa vào cái chung"
       },
       {
         "k": "D",
@@ -5690,7 +5692,7 @@
     ]
   },
   {
-    "id": 222,
+    "id": 223,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm triết học Mác-Lênin, luận điểm nào sau đây sai?",
     "opts": [
@@ -5716,7 +5718,7 @@
     ]
   },
   {
-    "id": 223,
+    "id": 224,
     "chapter": "TUẦN 1",
     "q": "Điền vào chỗ trống: Cái... là bộ phận nhưng sâu sắc hơn cái...",
     "opts": [
@@ -5742,7 +5744,7 @@
     ]
   },
   {
-    "id": 224,
+    "id": 225,
     "chapter": "TUẦN 1",
     "q": "Theo CNDVBC, ý nghĩa rút ra từ mối quan hệ giữa CC và CR là:",
     "opts": [
@@ -5768,7 +5770,7 @@
     ]
   },
   {
-    "id": 225,
+    "id": 226,
     "chapter": "TUẦN 1",
     "q": "Điền vào chỗ trống: Theo quan điểm của chủ nghĩa duy vật biện chứng nguyên nhân:",
     "opts": [
@@ -5794,7 +5796,7 @@
     ]
   },
   {
-    "id": 226,
+    "id": 227,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng:",
     "opts": [
@@ -5820,7 +5822,7 @@
     ]
   },
   {
-    "id": 227,
+    "id": 228,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm duy vật biện chứng, nguyên nhân là gì?",
     "opts": [
@@ -5846,7 +5848,7 @@
     ]
   },
   {
-    "id": 228,
+    "id": 229,
     "chapter": "TUẦN 1",
     "q": "Trong quan hệ nhân quả, khẳng định nào sau đây sai?",
     "opts": [
@@ -5864,7 +5866,7 @@
       },
       {
         "k": "D",
-        "t": "Nguyên nhân sản sinh ra kết quả By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Nguyên nhân sản sinh ra kết quả"
       }
     ],
     "ans": [
@@ -5872,7 +5874,7 @@
     ]
   },
   {
-    "id": 229,
+    "id": 230,
     "chapter": "TUẦN 1",
     "q": "Nguyên nhân, nguyên cớ và điều kiện có quan hệ như thế nào?",
     "opts": [
@@ -5898,7 +5900,7 @@
     ]
   },
   {
-    "id": 230,
+    "id": 231,
     "chapter": "TUẦN 1",
     "q": "Theo CNDVBC: “Muốn xác định nguyên nhân của một hiện tượng nào đó, chúng ta phải tìm những mối liên hệ giữa những sự kiện xảy ra...??",
     "opts": [
@@ -5924,7 +5926,7 @@
     ]
   },
   {
-    "id": 231,
+    "id": 232,
     "chapter": "TUẦN 1",
     "q": "Điền vào chỗ trống theo quan điểm của chủ nghĩa duy vật biện chứng, sự phù hợp giữa nội dung và hình thức bao giờ cũng là sự phù hợp ......",
     "opts": [
@@ -5933,11 +5935,11 @@
         "t": "Tuyệt đối B Vĩnh viễn"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Tạm thời"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Bất biến"
       }
     ],
@@ -5946,7 +5948,7 @@
     ]
   },
   {
-    "id": 232,
+    "id": 233,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là sai?",
     "opts": [
@@ -5968,7 +5970,7 @@
     ]
   },
   {
-    "id": 233,
+    "id": 234,
     "chapter": "TUẦN 1",
     "q": "Câu tục ngữ “Tốt gỗ hơn tốt nước sơn, xấu người đẹp nết còn hơn đẹp người” nhằm chỉ:",
     "opts": [
@@ -5994,7 +5996,7 @@
     ]
   },
   {
-    "id": 234,
+    "id": 235,
     "chapter": "TUẦN 1",
     "q": "Tìm đáp án sai:",
     "opts": [
@@ -6007,7 +6009,7 @@
         "t": "Hình thức chi phương thức tồn tại, biểu hiện và phát triển của sự vật, hiện tượng (C.) Hình thức quyết định nội dung"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Nội dung quy định hình thức"
       }
     ],
@@ -6016,7 +6018,7 @@
     ]
   },
   {
-    "id": 235,
+    "id": 236,
     "chapter": "TUẦN 1",
     "q": "Mối quan hệ giữa LLSX và QHSX trong một phương thức sản xuất là:",
     "opts": [
@@ -6042,13 +6044,13 @@
     ]
   },
   {
-    "id": 236,
+    "id": 237,
     "chapter": "TUẦN 1",
     "q": "Phép biện chứng duy vật nghiên cứu những quy luật nào?",
     "opts": [
       {
         "k": "A",
-        "t": "Quy luật đặc thù By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Quy luật đặc thù"
       },
       {
         "k": "B",
@@ -6068,7 +6070,7 @@
     ]
   },
   {
-    "id": 237,
+    "id": 238,
     "chapter": "TUẦN 1",
     "q": "Vị trí của quy luật từ những sự thay đổi về lượng dẫn đến những sự thay đổi về chất là:",
     "opts": [
@@ -6094,7 +6096,7 @@
     ]
   },
   {
-    "id": 238,
+    "id": 239,
     "chapter": "TUẦN 1",
     "q": "Đâu là quan điểm của CNDVBC",
     "opts": [
@@ -6120,7 +6122,7 @@
     ]
   },
   {
-    "id": 239,
+    "id": 240,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm triết học Mác-Lênin, luận điểm nào là sai?",
     "opts": [
@@ -6146,7 +6148,7 @@
     ]
   },
   {
-    "id": 240,
+    "id": 241,
     "chapter": "TUẦN 1",
     "q": "Chất của sự vật được quyết định bởi:",
     "opts": [
@@ -6159,7 +6161,7 @@
         "t": "Thuộc tính không cơ bản C  Thuộc tính cơ bản và không cơ bản"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Thuộc tính cơ bản"
       }
     ],
@@ -6168,7 +6170,7 @@
     ]
   },
   {
-    "id": 241,
+    "id": 242,
     "chapter": "TUẦN 1",
     "q": "Sự phân biệt giữa lượng và chất mang tính:",
     "opts": [
@@ -6194,7 +6196,7 @@
     ]
   },
   {
-    "id": 242,
+    "id": 243,
     "chapter": "TUẦN 1",
     "q": "Phạm trù “độ” trong quy luật Lượng - chất được hiểu như thế nào?",
     "opts": [
@@ -6204,7 +6206,7 @@
       },
       {
         "k": "B",
-        "t": "Khoảng giới hạn trong đó sự thay đổi về lượng chưa làm thay đổi căn bản và chất của sự vật, hiện tượng By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Khoảng giới hạn trong đó sự thay đổi về lượng chưa làm thay đổi căn bản và chất của sự vật, hiện tượng"
       },
       {
         "k": "C",
@@ -6220,7 +6222,7 @@
     ]
   },
   {
-    "id": 243,
+    "id": 244,
     "chapter": "TUẦN 1",
     "q": "Đâu là quan điểm của CNDVBC trong các luận điểm sau:",
     "opts": [
@@ -6246,16 +6248,16 @@
     ]
   },
   {
-    "id": 244,
+    "id": 245,
     "chapter": "TUẦN 1",
     "q": "Bước nhảy tạo sự biến đổi về chất xảy ra trong xã hội thường được gọi là gì?",
     "opts": [
       {
-        "k": "C",
+        "k": "A",
         "t": "Cách mạng xã hội"
       },
       {
-        "k": "D",
+        "k": "B",
         "t": "Tuỳ trường hợp cụ thể mà là cải cách, tiến hóa hay cách mạng, xã hội"
       }
     ],
@@ -6264,7 +6266,7 @@
     ]
   },
   {
-    "id": 245,
+    "id": 246,
     "chapter": "TUẦN 1",
     "q": "Nhận định nào sau đây là sai?",
     "opts": [
@@ -6290,7 +6292,7 @@
     ]
   },
   {
-    "id": 246,
+    "id": 247,
     "chapter": "TUẦN 1",
     "q": "Tìm đáp án đúng:",
     "opts": [
@@ -6300,7 +6302,7 @@
       },
       {
         "k": "B",
-        "t": "Sự phân biệt giữa lượng và chất mang tính tương đối By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Sự phân biệt giữa lượng và chất mang tính tương đối"
       },
       {
         "k": "C",
@@ -6316,20 +6318,20 @@
     ]
   },
   {
-    "id": 247,
+    "id": 248,
     "chapter": "TUẦN 1",
     "q": "Thế nào là hai mặt đối lập nhau tạo thành một mâu thuẫn biện chứng. ( A) 2 mặt đối lập tồn tại trong một sự vật, có khuynh hướng biến đổi, trái ngược nhau",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Hai mặt đối lập có chứa những yếu tố thuộc tính khác nhau bên cạnh những yếu tố, thuộc tính giống nhau"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Hai mặt đối lập tồn tại trong hai sự vật khác nhau"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Hai mặt tồn tại trong hai sự vật không liên quan đến nhau"
       }
     ],
@@ -6338,7 +6340,7 @@
     ]
   },
   {
-    "id": 248,
+    "id": 249,
     "chapter": "TUẦN 1",
     "q": "Những mặt đối lập tồn tại ở đâu?",
     "opts": [
@@ -6364,7 +6366,7 @@
     ]
   },
   {
-    "id": 249,
+    "id": 250,
     "chapter": "TUẦN 1",
     "q": "Bổ sung để được một câu đúng theo quan điểm của CNDVBC “Phép BC cho rằng, sự đấu tranh của các mặt đối lập là.....của các mặt đối lập",
     "opts": [
@@ -6390,7 +6392,7 @@
     ]
   },
   {
-    "id": 250,
+    "id": 251,
     "chapter": "TUẦN 1",
     "q": "Quy luật nào là hạt nhân của phép biện chứng duy vật:",
     "opts": [
@@ -6416,7 +6418,7 @@
     ]
   },
   {
-    "id": 251,
+    "id": 252,
     "chapter": "TUẦN 1",
     "q": "Mâu thuẫn nào tồn tại suốt trong quá trình vận động và phát triển của sự vật và hiện tượng",
     "opts": [
@@ -6438,7 +6440,7 @@
     ]
   },
   {
-    "id": 252,
+    "id": 253,
     "chapter": "TUẦN 1",
     "q": "Nhận định nào sau đây sai",
     "opts": [
@@ -6456,7 +6458,7 @@
     ]
   },
   {
-    "id": 253,
+    "id": 254,
     "chapter": "TUẦN 1",
     "q": "Mâu thuẫn nổi lên hàng đầu ở một giai đoạn phát triển của sự vật và quy định các mâu thuẫn khác trong giai đoạn đó gọi là?",
     "opts": [
@@ -6482,7 +6484,7 @@
     ]
   },
   {
-    "id": 254,
+    "id": 255,
     "chapter": "TUẦN 1",
     "q": "Mâu thuẫn đối kháng tồn tại ở đâu?",
     "opts": [
@@ -6508,7 +6510,7 @@
     ]
   },
   {
-    "id": 255,
+    "id": 256,
     "chapter": "TUẦN 1",
     "q": "Nhận định nào sau đây là đúng?",
     "opts": [
@@ -6534,7 +6536,7 @@
     ]
   },
   {
-    "id": 256,
+    "id": 257,
     "chapter": "TUẦN 1",
     "q": ", Theo quan điểm triết học mácxit, nguồn gốc sâu xa gây ra sự vận động, phát triển của sự vật, hiện tượng?",
     "opts": [
@@ -6560,7 +6562,7 @@
     ]
   },
   {
-    "id": 257,
+    "id": 258,
     "chapter": "TUẦN 1",
     "q": "Chọn phương án đúng",
     "opts": [
@@ -6586,7 +6588,7 @@
     ]
   },
   {
-    "id": 258,
+    "id": 259,
     "chapter": "TUẦN 1",
     "q": "Nhận định nào sau đây là quan điểm của chủ nghĩa duy vật biện chứng:",
     "opts": [
@@ -6612,7 +6614,7 @@
     ]
   },
   {
-    "id": 259,
+    "id": 260,
     "chapter": "TUẦN 1",
     "q": "Quy luật mâu thuẫn có vai trò?",
     "opts": [
@@ -6638,7 +6640,7 @@
     ]
   },
   {
-    "id": 260,
+    "id": 261,
     "chapter": "TUẦN 1",
     "q": "Đâu là quan điểm của chủ nghĩa duy vật biện Chứng trong các luận điểm sau",
     "opts": [
@@ -6656,7 +6658,7 @@
       },
       {
         "k": "D",
-        "t": "Các mặt đối lập không thống nhất mà luôn đấu tranh. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Các mặt đối lập không thống nhất mà luôn đấu tranh."
       }
     ],
     "ans": [
@@ -6664,7 +6666,7 @@
     ]
   },
   {
-    "id": 261,
+    "id": 262,
     "chapter": "TUẦN 1",
     "q": "Câu ca dao “Một cây làm chẳng nên non; Ba cây chụm lại nên hòn núi cao”nội dung chính của quy luật?",
     "opts": [
@@ -6690,7 +6692,7 @@
     ]
   },
   {
-    "id": 262,
+    "id": 263,
     "chapter": "TUẦN 1",
     "q": "Câu tục ngữ: “Có công mài sắt, có ngày nên kim” thể hiện nội chính của quy luật nào ?",
     "opts": [
@@ -6716,7 +6718,7 @@
     ]
   },
   {
-    "id": 263,
+    "id": 264,
     "chapter": "TUẦN 1",
     "q": "Khuynh hướng phát triển của sự vật, hiện tượng tuân theo:",
     "opts": [
@@ -6742,7 +6744,7 @@
     ]
   },
   {
-    "id": 264,
+    "id": 265,
     "chapter": "TUẦN 1",
     "q": "Kế thừa biện chứng được hiểu thế nào?",
     "opts": [
@@ -6768,7 +6770,7 @@
     ]
   },
   {
-    "id": 265,
+    "id": 266,
     "chapter": "TUẦN 1",
     "q": "Khẳng định khuynh hướng phát triển theo đường xoáy ốc thuộc về nội dung chính quy luật nào?",
     "opts": [
@@ -6794,7 +6796,7 @@
     ]
   },
   {
-    "id": 266,
+    "id": 267,
     "chapter": "TUẦN 1",
     "q": "Bổ sung để được một câu trả lời đúng: Theo quan điểm triết học Mác-Lênin, nhận thức là ...",
     "opts": [
@@ -6807,8 +6809,8 @@
         "t": "Phản ánh hiện thực khách quan một cách sáng tạo C  . Sao chép nguyên xi hiện thực khách quan vào bộ não con người"
       },
       {
-        "k": "D",
-        "t": "Sự phức hợp của những cảm giác By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "k": "C",
+        "t": "Sự phức hợp của những cảm giác"
       }
     ],
     "ans": [
@@ -6816,7 +6818,7 @@
     ]
   },
   {
-    "id": 267,
+    "id": 268,
     "chapter": "TUẦN 1",
     "q": "Bổ sung để được một định nghĩa đúng: “Theo quan điểm triết học Mác-Lênin, thực tiễn là...",
     "opts": [
@@ -6842,7 +6844,7 @@
     ]
   },
   {
-    "id": 268,
+    "id": 269,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng, hoạt động cơ bản và quan trọng nhất của thực tiễn là gì?",
     "opts": [
@@ -6868,7 +6870,7 @@
     ]
   },
   {
-    "id": 269,
+    "id": 270,
     "chapter": "TUẦN 1",
     "q": "Điển cụm từ còn thiếu vào chỗ trống. Theo quan điểm chủ chủ nghĩa duy vật biện chứng: “Thực tiễn là toàn bộ hoạt động vật chất cảm tính, có ...của con người nhằm cải tạo tự nhiên và xã hội phục vụ nhân loại tiến bộ”",
     "opts": [
@@ -6894,7 +6896,7 @@
     ]
   },
   {
-    "id": 270,
+    "id": 271,
     "chapter": "TUẦN 1",
     "q": "Chọn đáp án sai theo quan điểm của chủ nghĩa duy vật biện chứng:",
     "opts": [
@@ -6920,7 +6922,7 @@
     ]
   },
   {
-    "id": 271,
+    "id": 272,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng, cảm giác là:",
     "opts": [
@@ -6946,7 +6948,7 @@
     ]
   },
   {
-    "id": 272,
+    "id": 273,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng, phán đoán là",
     "opts": [
@@ -6960,7 +6962,7 @@
       },
       {
         "k": "C",
-        "t": "Là hình thức liên kết các khái niệm để khẳng định hay phủ định một thuộc tính nào đó của sự vật By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Là hình thức liên kết các khái niệm để khẳng định hay phủ định một thuộc tính nào đó của sự vật"
       }
     ],
     "ans": [
@@ -6968,7 +6970,7 @@
     ]
   },
   {
-    "id": 273,
+    "id": 274,
     "chapter": "TUẦN 1",
     "q": "Theo chủ nghĩa duy vật biện chứng, suy lý là",
     "opts": [
@@ -6990,7 +6992,7 @@
     ]
   },
   {
-    "id": 274,
+    "id": 275,
     "chapter": "TUẦN 1",
     "q": "Đâu không phải là hình thức tồn tại của thực tiễn",
     "opts": [
@@ -7016,7 +7018,7 @@
     ]
   },
   {
-    "id": 275,
+    "id": 276,
     "chapter": "TUẦN 1",
     "q": "Từ vai trò của thực tiễn đối với nhận thức rút ra nguyên tắc gì trong nhận thức và hoạt động thực tiễn",
     "opts": [
@@ -7038,7 +7040,7 @@
     ]
   },
   {
-    "id": 276,
+    "id": 277,
     "chapter": "TUẦN 1",
     "q": "Hình thức nào là hình thức cao nhất của giai đoạn nhận thức cảm tính",
     "opts": [
@@ -7064,7 +7066,7 @@
     ]
   },
   {
-    "id": 277,
+    "id": 278,
     "chapter": "TUẦN 1",
     "q": "Hình thức nào là hình thức đầu tiên của giai đoạn nhận thức cảm tính",
     "opts": [
@@ -7090,7 +7092,7 @@
     ]
   },
   {
-    "id": 278,
+    "id": 279,
     "chapter": "TUẦN 1",
     "q": "Hình thức nào là hình thức cao nhất của giai đoạn tư duy trừu tượng/ nhận thức lý tính.",
     "opts": [
@@ -7116,7 +7118,7 @@
     ]
   },
   {
-    "id": 279,
+    "id": 280,
     "chapter": "TUẦN 1",
     "q": "Hình thức nào là hình thức đầu tiên của giai đoạn tư duy trừu tượng",
     "opts": [
@@ -7142,7 +7144,7 @@
     ]
   },
   {
-    "id": 280,
+    "id": 281,
     "chapter": "TUẦN 1",
     "q": "Tìm đáp án sai",
     "opts": [
@@ -7168,7 +7170,7 @@
     ]
   },
   {
-    "id": 281,
+    "id": 282,
     "chapter": "TUẦN 1",
     "q": "Tồn tại khách quan là:",
     "opts": [
@@ -7194,7 +7196,7 @@
     ]
   },
   {
-    "id": 282,
+    "id": 283,
     "chapter": "TUẦN 1",
     "q": "Tìm từ thích hợp điền vào chỗ trống: “....tức phạm trù chỉ những mặt, những thuộc tính không những có ở một kết cấu vật chất nhất định, mà còn được lặp lại trong nhiều sự vật, hiện tượng hay quá trình riêng lẻ khác”",
     "opts": [
@@ -7220,7 +7222,7 @@
     ]
   },
   {
-    "id": 283,
+    "id": 284,
     "chapter": "TUẦN 1",
     "q": "Theo nghĩa đen của câu ca dao sau đây: “ Một cây làm chẳng lên non/ Ba cây chụm lại nên hòn núi cao” thể hiện nội dung quy luật nào của phép biện chứng duy vật:",
     "opts": [
@@ -7242,7 +7244,7 @@
     ]
   },
   {
-    "id": 284,
+    "id": 285,
     "chapter": "TUẦN 1",
     "q": "Chủ nghĩa duy tâm cho rằng:",
     "opts": [
@@ -7268,7 +7270,7 @@
     ]
   },
   {
-    "id": 285,
+    "id": 286,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng thì:",
     "opts": [
@@ -7290,7 +7292,7 @@
     ]
   },
   {
-    "id": 286,
+    "id": 287,
     "chapter": "TUẦN 1",
     "q": "Hãy phát hiện nhận định sai về phạm trù Lượng:",
     "opts": [
@@ -7316,7 +7318,7 @@
     ]
   },
   {
-    "id": 287,
+    "id": 288,
     "chapter": "TUẦN 1",
     "q": "Khuynh hướng của sự phát triển theo qđ triết học Mác-Lênin diễn ra theo:",
     "opts": [
@@ -7342,7 +7344,7 @@
     ]
   },
   {
-    "id": 288,
+    "id": 289,
     "chapter": "TUẦN 1",
     "q": "Hãy chỉ ra điểm sai về phủ định biện chứng:",
     "opts": [
@@ -7368,7 +7370,7 @@
     ]
   },
   {
-    "id": 289,
+    "id": 290,
     "chapter": "TUẦN 1",
     "q": "Quan niệm về phạm trù vật chất của các trào lưu triết học duy vật thời cổ đại có đặc điểm gì? (Đáp án nào dưới đây là đúng nhất)",
     "opts": [
@@ -7394,13 +7396,13 @@
     ]
   },
   {
-    "id": 290,
+    "id": 291,
     "chapter": "TUẦN 1",
     "q": "Quan niệm nào sau đây về phạm trù Nguyên nhân là quan niệm đúng nhất?",
     "opts": [
       {
         "k": "A",
-        "t": "Là phạm trù chỉ sự tác động lẫn nhau giữa các mặt trong một sự vật, hiện tượng hoặc giữa các sự vật, hiện tượng với nhau gây ra một biến đổi nhất định nào đó. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Là phạm trù chỉ sự tác động lẫn nhau giữa các mặt trong một sự vật, hiện tượng hoặc giữa các sự vật, hiện tượng với nhau gây ra một biến đổi nhất định nào đó."
       },
       {
         "k": "B",
@@ -7420,7 +7422,7 @@
     ]
   },
   {
-    "id": 291,
+    "id": 292,
     "chapter": "TUẦN 1",
     "q": "Hoạt động thực tiễn khác với hoạt động nhận thức vì:",
     "opts": [
@@ -7446,7 +7448,7 @@
     ]
   },
   {
-    "id": 292,
+    "id": 293,
     "chapter": "TUẦN 1",
     "q": "Hãy điền từ thích hợp để có một định nghĩa đúng: “Kết quả dùng để chỉ những biến đổi xuất hiện do .... giữa các mặt, các yếu tố trong một sự vật, hiện tượng, hoặc giữa các sự vật, hiện tượng”?",
     "opts": [
@@ -7472,7 +7474,7 @@
     ]
   },
   {
-    "id": 293,
+    "id": 294,
     "chapter": "TUẦN 1",
     "q": "Định nghĩa nào về thực tiễn sau đây là đầy đủ và chính xác nhất?",
     "opts": [
@@ -7498,7 +7500,7 @@
     ]
   },
   {
-    "id": 294,
+    "id": 295,
     "chapter": "TUẦN 1",
     "q": "Vì sao trong hoạt động nhận thức, muốn hiểu cái chung thì phải nhận thức từng cái riêng?",
     "opts": [
@@ -7524,7 +7526,7 @@
     ]
   },
   {
-    "id": 295,
+    "id": 296,
     "chapter": "TUẦN 1",
     "q": "Nguồn gốc xã hội của ý thức là gì?",
     "opts": [
@@ -7542,7 +7544,7 @@
       },
       {
         "k": "D",
-        "t": "Chứng tỏ phản ánh ý thức của con người không khác gì trình độ phản ánh tâm lý của động vật. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Chứng tỏ phản ánh ý thức của con người không khác gì trình độ phản ánh tâm lý của động vật."
       }
     ],
     "ans": [
@@ -7550,7 +7552,7 @@
     ]
   },
   {
-    "id": 296,
+    "id": 297,
     "chapter": "TUẦN 1",
     "q": "Hãy phát hiện nhận định đúng nhất về phạm trù cái đơn nhất?",
     "opts": [
@@ -7576,7 +7578,7 @@
     ]
   },
   {
-    "id": 297,
+    "id": 298,
     "chapter": "TUẦN 1",
     "q": "Xác định nội dung cơ bản trong định nghĩa của V.I.Lênin về vật chất:",
     "opts": [
@@ -7602,7 +7604,7 @@
     ]
   },
   {
-    "id": 298,
+    "id": 299,
     "chapter": "TUẦN 1",
     "q": "Thuộc tính cơ bản nhất của vật chất nhờ đó phân biệt vật chất với ý thức đã được V.I.Lênin xác định trong định nghĩa của vật chất là thuộc tính:",
     "opts": [
@@ -7628,7 +7630,7 @@
     ]
   },
   {
-    "id": 299,
+    "id": 300,
     "chapter": "TUẦN 1",
     "q": "Khái niệm nào dùng để chỉ thời điểm mà tại đó sự thay đổi về lượng đã đủ là thay đổi căn bản nhất của sự vật:",
     "opts": [
@@ -7654,7 +7656,7 @@
     ]
   },
   {
-    "id": 300,
+    "id": 301,
     "chapter": "TUẦN 1",
     "q": "Hình thức nào sau đây của thực tiễn là hình thức thực tiễn cơ bản và quyết định nhất?",
     "opts": [
@@ -7680,7 +7682,7 @@
     ]
   },
   {
-    "id": 301,
+    "id": 302,
     "chapter": "TUẦN 1",
     "q": "Con đường biện chứng của sự nhận thức chân lý theo quan niệm của chủ nghĩa duy vật biện chứng diễn ra như thế nào?",
     "opts": [
@@ -7706,7 +7708,7 @@
     ]
   },
   {
-    "id": 302,
+    "id": 303,
     "chapter": "TUẦN 1",
     "q": "Khái niệm nào dùng để chỉ tính quy định vốn có của sự vật, hiện tượng về mặt số lượng các yếu tố cấu thành, quy mô tồn tại của sự vật và tốc độ, nhịp điệu của sự vận động, phát triển của sự vật?",
     "opts": [
@@ -7732,7 +7734,7 @@
     ]
   },
   {
-    "id": 303,
+    "id": 304,
     "chapter": "TUẦN 1",
     "q": "Điểm giống nhau căn bản giữa phủ định và phủ định biện chứng là gì?",
     "opts": [
@@ -7758,7 +7760,7 @@
     ]
   },
   {
-    "id": 304,
+    "id": 305,
     "chapter": "TUẦN 1",
     "q": "Những hình thức nhận thức: cảm giác, tri giác, biểu tượng thuộc giai đoạn nhận thức nào?",
     "opts": [
@@ -7784,7 +7786,7 @@
     ]
   },
   {
-    "id": 305,
+    "id": 306,
     "chapter": "TUẦN 1",
     "q": "Quan niệm nào sau đây về phạm trù Kết quả là quan niệm đúng nhất?",
     "opts": [
@@ -7806,7 +7808,7 @@
     ]
   },
   {
-    "id": 306,
+    "id": 307,
     "chapter": "TUẦN 1",
     "q": "Chọn câu trả lời đúng trong các phương án sau: Một trong những vai trò của thực tiễn đối với nhận thức:",
     "opts": [
@@ -7820,7 +7822,7 @@
       },
       {
         "k": "C",
-        "t": "Tất cả các đáp án đều đúng. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Tất cả các đáp án đều đúng."
       },
       {
         "k": "D",
@@ -7832,7 +7834,7 @@
     ]
   },
   {
-    "id": 307,
+    "id": 308,
     "chapter": "TUẦN 1",
     "q": "Vận động sinh vật học; 4.Vận động hóa học; 5.Vận động xã hội:",
     "opts": [
@@ -7858,7 +7860,7 @@
     ]
   },
   {
-    "id": 308,
+    "id": 309,
     "chapter": "TUẦN 1",
     "q": "Cái.... chỉ tồn tại trong cái... thông qua cái riêng mà biểu hiện sự tồn tại của mình.",
     "opts": [
@@ -7884,7 +7886,7 @@
     ]
   },
   {
-    "id": 309,
+    "id": 310,
     "chapter": "TUẦN 1",
     "q": "Vai trò thực tiễn đối với nhận thức:",
     "opts": [
@@ -7910,7 +7912,7 @@
     ]
   },
   {
-    "id": 310,
+    "id": 311,
     "chapter": "TUẦN 1",
     "q": "Tri thức nào nảy sinh một cách trực tiếp từ thực tiễn lao động sản xuất:",
     "opts": [
@@ -7936,7 +7938,7 @@
     ]
   },
   {
-    "id": 311,
+    "id": 312,
     "chapter": "TUẦN 1",
     "q": "Bản chất của ý thức là gì?",
     "opts": [
@@ -7962,7 +7964,7 @@
     ]
   },
   {
-    "id": 312,
+    "id": 313,
     "chapter": "TUẦN 1",
     "q": "“Muốn thực sự hiểu được sự vật, cần phải nhìn bao quát và nghiên cứu tất cả các mặt, tất cả các mối liên hệ và quan hệ gián tiếp của sự vật đó” (V.I.Lênin). Kết luận này được trực tiếp rút ra từ nội dung nào sau đây:",
     "opts": [
@@ -7972,7 +7974,7 @@
       },
       {
         "k": "B",
-        "t": "Mối quan hệ giữa vật chất với ý thức By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Mối quan hệ giữa vật chất với ý thức"
       },
       {
         "k": "C",
@@ -7988,7 +7990,7 @@
     ]
   },
   {
-    "id": 313,
+    "id": 314,
     "chapter": "TUẦN 1",
     "q": "Khái niệm nào dùng để chỉ sự chuyển hóa về vật chất do sự biến đổi trước đó về lượng tới giới hạn điểm nút?",
     "opts": [
@@ -8014,7 +8016,7 @@
     ]
   },
   {
-    "id": 314,
+    "id": 315,
     "chapter": "TUẦN 1",
     "q": "Quan niệm của chủ nghĩa duy vật biện chứng về “phát triển”:",
     "opts": [
@@ -8040,7 +8042,7 @@
     ]
   },
   {
-    "id": 315,
+    "id": 316,
     "chapter": "TUẦN 1",
     "q": "Nhân tố cơ bản, trực tiếp tạo thành nguồn gốc xã hội của ý thức:",
     "opts": [
@@ -8066,7 +8068,7 @@
     ]
   },
   {
-    "id": 316,
+    "id": 317,
     "chapter": "TUẦN 1",
     "q": "Tư tưởng nôn nóng, đốt cháy giai đoạn là biểu hiện trực tiếp của việc không vận dụng đúng quy luật:",
     "opts": [
@@ -8092,7 +8094,7 @@
     ]
   },
   {
-    "id": 317,
+    "id": 318,
     "chapter": "TUẦN 1",
     "q": "Quy luật nào đóng vai trò hạt nhân của phép biện chứng duy vật?",
     "opts": [
@@ -8102,7 +8104,7 @@
       },
       {
         "k": "B",
-        "t": "Quy luật phủ định của phủ định By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Quy luật phủ định của phủ định"
       },
       {
         "k": "C",
@@ -8118,7 +8120,7 @@
     ]
   },
   {
-    "id": 318,
+    "id": 319,
     "chapter": "TUẦN 1",
     "q": "Quan niệm nào được rút ra từ việc tìm hiểu nguyên lý về sự phát triển của CNDVBC?",
     "opts": [
@@ -8144,7 +8146,7 @@
     ]
   },
   {
-    "id": 319,
+    "id": 320,
     "chapter": "TUẦN 1",
     "q": "Hãy chỉ ra phương án sai:",
     "opts": [
@@ -8170,7 +8172,7 @@
     ]
   },
   {
-    "id": 320,
+    "id": 321,
     "chapter": "TUẦN 1",
     "q": "Những hình thức nhận thức: khái niệm, phán đoán, suy luận thuộc giai đoạn nhận thức nào?",
     "opts": [
@@ -8196,7 +8198,7 @@
     ]
   },
   {
-    "id": 321,
+    "id": 322,
     "chapter": "TUẦN 1",
     "q": "Các mặt đối lập có tác động lẫn nhau, bài trừ, phủ định nhau triết học gọi là gì?",
     "opts": [
@@ -8222,7 +8224,7 @@
     ]
   },
   {
-    "id": 322,
+    "id": 323,
     "chapter": "TUẦN 1",
     "q": "Trong lý luận về mâu thuẫn người ta gọi hai cực dương và âm của thanh nam châm là:",
     "opts": [
@@ -8248,13 +8250,13 @@
     ]
   },
   {
-    "id": 323,
+    "id": 324,
     "chapter": "TUẦN 1",
     "q": "Quan niệm nào sau đây về mặt đối lập biện chứng là quan niệm đúng đắn nhất?",
     "opts": [
       {
         "k": "A",
-        "t": "Các mặt có đặc điểm, khuynh hướng biến đổi ngược chiều nhau By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Các mặt có đặc điểm, khuynh hướng biến đổi ngược chiều nhau"
       },
       {
         "k": "B",
@@ -8274,7 +8276,7 @@
     ]
   },
   {
-    "id": 324,
+    "id": 325,
     "chapter": "TUẦN 1",
     "q": "“Quy luật chuyển hóa từ những sự thay đổi về lượng thành những sự thay đổi về chất và ngược lại” có vị trí như thế nào trong phép biện chứng duy vật?",
     "opts": [
@@ -8300,7 +8302,7 @@
     ]
   },
   {
-    "id": 325,
+    "id": 326,
     "chapter": "TUẦN 1",
     "q": "Chọn câu trả lời đúng nhất : Các tính chất của mối liên hệ là:",
     "opts": [
@@ -8326,7 +8328,7 @@
     ]
   },
   {
-    "id": 326,
+    "id": 327,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng mối liên hệ giữa các sự vật có tính chất gì?",
     "opts": [
@@ -8352,7 +8354,7 @@
     ]
   },
   {
-    "id": 327,
+    "id": 328,
     "chapter": "TUẦN 1",
     "q": "Điền vào chỗ trống: ..... là sự vận động từ thấp đến cao, từ đơn giản đến phức tạp, từ kém hoàn thiện đến hoàn thiện hơn”",
     "opts": [
@@ -8378,7 +8380,7 @@
     ]
   },
   {
-    "id": 328,
+    "id": 329,
     "chapter": "TUẦN 1",
     "q": "Chọn câu trả lời đúng nhất:",
     "opts": [
@@ -8392,7 +8394,7 @@
       },
       {
         "k": "C",
-        "t": "Ý thức là sự phản ánh thế giới khách quan vào bộ óc người một cách thụ động By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Ý thức là sự phản ánh thế giới khách quan vào bộ óc người một cách thụ động"
       },
       {
         "k": "D",
@@ -8404,7 +8406,7 @@
     ]
   },
   {
-    "id": 329,
+    "id": 330,
     "chapter": "TUẦN 1",
     "q": "Trên cơ sở lý luận của nguyên lý nào mà khẳng định: bản chất con người là tổng hòa các mối quan hệ xã hội?",
     "opts": [
@@ -8430,7 +8432,7 @@
     ]
   },
   {
-    "id": 330,
+    "id": 331,
     "chapter": "TUẦN 1",
     "q": "Trong các hoạt động thực tiễn cơ bản, hoạt động nào có vai trò quan trọng nhất?",
     "opts": [
@@ -8456,7 +8458,7 @@
     ]
   },
   {
-    "id": 331,
+    "id": 332,
     "chapter": "TUẦN 1",
     "q": "Hạt nhân chủ yếu của thế giới quan là gì?",
     "opts": [
@@ -8482,7 +8484,7 @@
     ]
   },
   {
-    "id": 332,
+    "id": 333,
     "chapter": "TUẦN 1",
     "q": "Điểm chung trong quan niệm về vật chất của chủ nghĩa duy vật thời cổ đại là:",
     "opts": [
@@ -8508,7 +8510,7 @@
     ]
   },
   {
-    "id": 333,
+    "id": 334,
     "chapter": "TUẦN 1",
     "q": "Nhà triết học nào thời cổ đại cho rằng nước là cơ sở sản sinh ra toàn bộ thế giới?",
     "opts": [
@@ -8534,7 +8536,7 @@
     ]
   },
   {
-    "id": 334,
+    "id": 335,
     "chapter": "TUẦN 1",
     "q": "Thế giới quan khoa học dựa trên lập trường triết học nào?",
     "opts": [
@@ -8560,7 +8562,7 @@
     ]
   },
   {
-    "id": 335,
+    "id": 336,
     "chapter": "TUẦN 1",
     "q": "Triết học có chức năng gì?",
     "opts": [
@@ -8570,7 +8572,7 @@
       },
       {
         "k": "B",
-        "t": "Chức năng thế giới quan By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Chức năng thế giới quan"
       },
       {
         "k": "C",
@@ -8586,7 +8588,7 @@
     ]
   },
   {
-    "id": 336,
+    "id": 337,
     "chapter": "TUẦN 1",
     "q": "Khi khoa học tự nhiên phát hiện ra tia X, ra hiện tượng phóng xạ, ra điện tử là một thành phần cấu tạo nên nguyên tử. Theo Lênin điều đó chứng tỏ gì?",
     "opts": [
@@ -8612,7 +8614,7 @@
     ]
   },
   {
-    "id": 337,
+    "id": 338,
     "chapter": "TUẦN 1",
     "q": "Hoạt động chỉ dựa theo ý muốn chủ quan không dựa vào thực tiễn là lập luận của trường phái nào?",
     "opts": [
@@ -8638,7 +8640,7 @@
     ]
   },
   {
-    "id": 338,
+    "id": 339,
     "chapter": "TUẦN 1",
     "q": "Vấn đề cơ bản của triết học là gì?",
     "opts": [
@@ -8664,7 +8666,7 @@
     ]
   },
   {
-    "id": 339,
+    "id": 340,
     "chapter": "TUẦN 1",
     "q": "Điều kiện kinh tế-xã hội nào dẫn đến sự ra đời của triết học Mác?",
     "opts": [
@@ -8690,7 +8692,7 @@
     ]
   },
   {
-    "id": 340,
+    "id": 341,
     "chapter": "TUẦN 1",
     "q": "Triết học là:",
     "opts": [
@@ -8716,7 +8718,7 @@
     ]
   },
   {
-    "id": 341,
+    "id": 342,
     "chapter": "TUẦN 1",
     "q": "Triết học có chức năng:",
     "opts": [
@@ -8738,7 +8740,7 @@
     ]
   },
   {
-    "id": 342,
+    "id": 343,
     "chapter": "TUẦN 1",
     "q": "“Triết học là khoa học của mọi khoa học” là câu nói của nhà triết gia nào?",
     "opts": [
@@ -8752,7 +8754,7 @@
       },
       {
         "k": "C",
-        "t": "Hêghen By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Hêghen"
       },
       {
         "k": "D",
@@ -8764,7 +8766,7 @@
     ]
   },
   {
-    "id": 343,
+    "id": 344,
     "chapter": "TUẦN 1",
     "q": "“Người ta không thể tắm hai lần trên cùng một dòng sông” là câu nói của nhà triết gia nào?",
     "opts": [
@@ -8790,7 +8792,7 @@
     ]
   },
   {
-    "id": 344,
+    "id": 345,
     "chapter": "TUẦN 1",
     "q": "Thế giới quan là:",
     "opts": [
@@ -8816,7 +8818,7 @@
     ]
   },
   {
-    "id": 345,
+    "id": 346,
     "chapter": "TUẦN 1",
     "q": "Các trình độ phát triển của thế giới quan:",
     "opts": [
@@ -8842,7 +8844,7 @@
     ]
   },
   {
-    "id": 346,
+    "id": 347,
     "chapter": "TUẦN 1",
     "q": "Chọn đáp án đúng nhất điền vào chỗ trống: “Triết học là hệ thống những … chung nhất về thế giới và về … của con người trong thế giới đó.",
     "opts": [
@@ -8851,15 +8853,15 @@
         "t": "Quan điểm lý luận, vị trí"
       },
       {
-        "k": "A",
+        "k": "B",
         "t": "Nội dung, vai trò"
       },
       {
-        "k": "B",
+        "k": "C",
         "t": "Quan điểm, vai trò"
       },
       {
-        "k": "C",
+        "k": "D",
         "t": "Quy luật, vị trí"
       }
     ],
@@ -8868,7 +8870,7 @@
     ]
   },
   {
-    "id": 347,
+    "id": 348,
     "chapter": "TUẦN 1",
     "q": "Triết học ra đời thời gian nào?",
     "opts": [
@@ -8894,7 +8896,7 @@
     ]
   },
   {
-    "id": 348,
+    "id": 349,
     "chapter": "TUẦN 1",
     "q": "C.Mác chỉ ra đâu là hạt nhân hợp lý trong triết học của Hêghen?",
     "opts": [
@@ -8920,7 +8922,7 @@
     ]
   },
   {
-    "id": 349,
+    "id": 350,
     "chapter": "TUẦN 1",
     "q": "Triết học Mác ra đời vào thời gian nào?",
     "opts": [
@@ -8946,7 +8948,7 @@
     ]
   },
   {
-    "id": 350,
+    "id": 351,
     "chapter": "TUẦN 1",
     "q": "Điều kiện kinh tế-xã hội cho sự ra đời của triết học Mác-LêNin?",
     "opts": [
@@ -8972,7 +8974,7 @@
     ]
   },
   {
-    "id": 351,
+    "id": 352,
     "chapter": "TUẦN 1",
     "q": "Nguồn gốc lý luận trực tiếp của chủ nghĩa Mác là:",
     "opts": [
@@ -8998,7 +9000,7 @@
     ]
   },
   {
-    "id": 352,
+    "id": 353,
     "chapter": "TUẦN 1",
     "q": "Phát minh nào trong khoa học tự nhiên nửa đầu thế kỷ XIX vạch ra sự thống nhất giữa thế giới động vật và thực vật?",
     "opts": [
@@ -9024,7 +9026,7 @@
     ]
   },
   {
-    "id": 353,
+    "id": 354,
     "chapter": "TUẦN 1",
     "q": "Khẳng định nào sau đây là đúng",
     "opts": [
@@ -9050,7 +9052,7 @@
     ]
   },
   {
-    "id": 354,
+    "id": 355,
     "chapter": "TUẦN 1",
     "q": "Phát minh nào trong khoa học tự nhiên nửa đầu thế kỷ XIX vạch ra nguồn gốc tự nhiên của con người, chống lại quan điểm tôn giáo ?",
     "opts": [
@@ -9068,7 +9070,7 @@
       },
       {
         "k": "D",
-        "t": "Phát hiện tia X (RơnGen) By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Phát hiện tia X (RơnGen)"
       }
     ],
     "ans": [
@@ -9076,7 +9078,7 @@
     ]
   },
   {
-    "id": 355,
+    "id": 356,
     "chapter": "TUẦN 1",
     "q": "Đối tượng nghiên cứu của triết học Mác -LêNin là những vấn đề nào?",
     "opts": [
@@ -9102,7 +9104,7 @@
     ]
   },
   {
-    "id": 356,
+    "id": 357,
     "chapter": "TUẦN 1",
     "q": "Khái niệm trung tâm mà V.I.Lênin sử dụng để định nghĩa về vật chất là khái niệm nào?",
     "opts": [
@@ -9128,7 +9130,7 @@
     ]
   },
   {
-    "id": 357,
+    "id": 358,
     "chapter": "TUẦN 1",
     "q": "Trong định nghĩa về vật chất của mình, V.I.Lênin cho thuộc tính chung nhất của vật chất là:",
     "opts": [
@@ -9154,7 +9156,7 @@
     ]
   },
   {
-    "id": 358,
+    "id": 359,
     "chapter": "TUẦN 1",
     "q": "Xác định mệnh đề sai:",
     "opts": [
@@ -9180,7 +9182,7 @@
     ]
   },
   {
-    "id": 359,
+    "id": 360,
     "chapter": "TUẦN 1",
     "q": "Sai lầm của các các nhà triết học cổ đại trong quan niệm về vật chất:",
     "opts": [
@@ -9198,7 +9200,7 @@
       },
       {
         "k": "D",
-        "t": "Vật chất tự thân vận động. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Vật chất tự thân vận động."
       }
     ],
     "ans": [
@@ -9206,7 +9208,7 @@
     ]
   },
   {
-    "id": 360,
+    "id": 361,
     "chapter": "TUẦN 1",
     "q": "Theo Ph. Ăngghen, tính thống nhất vật chất của thế giới được chứng minh bởi:",
     "opts": [
@@ -9232,7 +9234,7 @@
     ]
   },
   {
-    "id": 361,
+    "id": 362,
     "chapter": "TUẦN 1",
     "q": "Hạn chế trong quan niệm của các nhà triết học duy vật thời cận đại Tây Âu là ở chỗ:",
     "opts": [
@@ -9258,7 +9260,7 @@
     ]
   },
   {
-    "id": 362,
+    "id": 363,
     "chapter": "TUẦN 1",
     "q": "Nguồn gốc xã hội trực tiếp và quan trọng nhất quyết định sự ra đời và phát triển của ý thức là",
     "opts": [
@@ -9284,7 +9286,7 @@
     ]
   },
   {
-    "id": 363,
+    "id": 364,
     "chapter": "TUẦN 1",
     "q": "Ngôn ngữ đóng vai trò là:",
     "opts": [
@@ -9310,7 +9312,7 @@
     ]
   },
   {
-    "id": 364,
+    "id": 365,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của triết học Mác – Lê nin: ý thức là:",
     "opts": [
@@ -9336,7 +9338,7 @@
     ]
   },
   {
-    "id": 365,
+    "id": 366,
     "chapter": "TUẦN 1",
     "q": "Bản chất của ý thức được thể hiện ở đặc trưng nào?",
     "opts": [
@@ -9346,7 +9348,7 @@
       },
       {
         "k": "B",
-        "t": "Tính sáng tạo By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Tính sáng tạo"
       },
       {
         "k": "C",
@@ -9362,7 +9364,7 @@
     ]
   },
   {
-    "id": 366,
+    "id": 367,
     "chapter": "TUẦN 1",
     "q": "Đâu là nội dung nguyên lý của phép biện chứng duy vật về mối liên hệ phổ biến của các sự vật và hiện tượng?",
     "opts": [
@@ -9388,7 +9390,7 @@
     ]
   },
   {
-    "id": 367,
+    "id": 368,
     "chapter": "TUẦN 1",
     "q": "Yêu cầu của quan điểm toàn diện phải xem xét tất cả các mối liên hệ của sự vật. Yêu cầu này không thực hiện được, nhưng vẫn phải đề ra để làm gì?",
     "opts": [
@@ -9414,7 +9416,7 @@
     ]
   },
   {
-    "id": 368,
+    "id": 369,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng, sự thống nhất của các mặt đối lập có những biểu hiện gì?",
     "opts": [
@@ -9440,7 +9442,7 @@
     ]
   },
   {
-    "id": 369,
+    "id": 370,
     "chapter": "TUẦN 1",
     "q": "Quan niệm nào cho rằng: Cơ sở quyết định các mối liên hệ giữa các sự vật, hiện tượng là cảm giác của con người?",
     "opts": [
@@ -9466,7 +9468,7 @@
     ]
   },
   {
-    "id": 370,
+    "id": 371,
     "chapter": "TUẦN 1",
     "q": "“Cái riêng - Cái chung”, “Nguyên nhân - Kết quả”, “Tất nhiên - Ngẫu nhiên”, “Nội dung - Hình thức”, “Bản chất - Hiện tượng”, “Khả năng - Hiện thực” đó là các… của phép biện chứng duy vật.",
     "opts": [
@@ -9492,7 +9494,7 @@
     ]
   },
   {
-    "id": 371,
+    "id": 372,
     "chapter": "TUẦN 1",
     "q": "Phạm trù triết học nào dùng để chỉ những mặt, những thuộc tính chung, không những có ở một kết cấu vật chất nhất định mà còn được lặp lại trong nhiều sự vật, hiện tượng hay quá trình riêng lẻ khác?",
     "opts": [
@@ -9518,7 +9520,7 @@
     ]
   },
   {
-    "id": 372,
+    "id": 373,
     "chapter": "TUẦN 1",
     "q": "“Đói nghèo” và “Dốt nát”, hiện tượng nào là nguyên nhân, hiện tượng nào là kết quả?",
     "opts": [
@@ -9544,7 +9546,7 @@
     ]
   },
   {
-    "id": 373,
+    "id": 374,
     "chapter": "TUẦN 1",
     "q": "Cái… chỉ tồn tại trong cái… thông qua cái riêng mà biểu hiện sự tồn tại của mình.",
     "opts": [
@@ -9570,7 +9572,7 @@
     ]
   },
   {
-    "id": 374,
+    "id": 375,
     "chapter": "TUẦN 1",
     "q": "Cái… và cái… có thể chuyển hóa lẫn nhau trong quá trình phát triển của sự vật.",
     "opts": [
@@ -9596,7 +9598,7 @@
     ]
   },
   {
-    "id": 375,
+    "id": 376,
     "chapter": "TUẦN 1",
     "q": "Khái niệm Việt Nam là một “cái riêng” thì yếu tố nào sau đây là đơn nhất?",
     "opts": [
@@ -9622,7 +9624,7 @@
     ]
   },
   {
-    "id": 376,
+    "id": 377,
     "chapter": "TUẦN 1",
     "q": "Quan điểm phát triển đòi hỏi phải xem xét sự vật như thế nào?",
     "opts": [
@@ -9648,7 +9650,7 @@
     ]
   },
   {
-    "id": 377,
+    "id": 378,
     "chapter": "TUẦN 1",
     "q": "Giới hạn từ 0oc đến 100oc được gọi là gì trong quy luật lượng - chất?",
     "opts": [
@@ -9674,7 +9676,7 @@
     ]
   },
   {
-    "id": 378,
+    "id": 379,
     "chapter": "TUẦN 1",
     "q": "Trong quy luật mâu thuẫn, tính quy định về chất và tính quy định về lượng được gọi là gì?",
     "opts": [
@@ -9700,7 +9702,7 @@
     ]
   },
   {
-    "id": 379,
+    "id": 380,
     "chapter": "TUẦN 1",
     "q": "Mâu thuẫn nổi lên hàng đầu ở một giai đoạn phát triển nhất định của sự vật, chi phối các mâu thuẫn khác trong giai đoạn đó được gọi là mâu thuẫn gì?",
     "opts": [
@@ -9726,7 +9728,7 @@
     ]
   },
   {
-    "id": 380,
+    "id": 381,
     "chapter": "TUẦN 1",
     "q": "Xác định nguyên nhân của sự phát sáng của dây tóc bóng đèn:",
     "opts": [
@@ -9752,7 +9754,7 @@
     ]
   },
   {
-    "id": 381,
+    "id": 382,
     "chapter": "TUẦN 1",
     "q": "Phạm trù nhằm chỉ những biến đổi xuất hiện do tác động lẫn nhau giữa các mặt trong một sự vật hoặc giữa các sự vật với nhau gây ra, gọi là gì?",
     "opts": [
@@ -9778,7 +9780,7 @@
     ]
   },
   {
-    "id": 382,
+    "id": 383,
     "chapter": "TUẦN 1",
     "q": "Nếu Truyện Kiều là nội dung, vậy khái niệm nào sau đây là hình thức?",
     "opts": [
@@ -9788,7 +9790,7 @@
       },
       {
         "k": "B",
-        "t": "Tác phẩm thơ lục bát By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Tác phẩm thơ lục bát"
       },
       {
         "k": "C",
@@ -9804,7 +9806,7 @@
     ]
   },
   {
-    "id": 383,
+    "id": 384,
     "chapter": "TUẦN 1",
     "q": "Trong mối quan hệ giữa lực lượng sản xuất và quan hệ sản xuất, yếu tố nào là nội dung, yếu tố nào là hình thức?",
     "opts": [
@@ -9830,7 +9832,7 @@
     ]
   },
   {
-    "id": 384,
+    "id": 385,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là SAI ?",
     "opts": [
@@ -9856,7 +9858,7 @@
     ]
   },
   {
-    "id": 385,
+    "id": 386,
     "chapter": "TUẦN 1",
     "q": "Thế nào là mâu thuẫn biện chứng?",
     "opts": [
@@ -9882,7 +9884,7 @@
     ]
   },
   {
-    "id": 386,
+    "id": 387,
     "chapter": "TUẦN 1",
     "q": "Thế nào là độ của sự vật?",
     "opts": [
@@ -9908,7 +9910,7 @@
     ]
   },
   {
-    "id": 387,
+    "id": 388,
     "chapter": "TUẦN 1",
     "q": "Khái niệm nào dùng để chỉ tính quy định khách quan vốn có của các sự vật, là sự thống nhất hữu cơ của các thuộc tính làm cho sự vật là nó:",
     "opts": [
@@ -9934,7 +9936,7 @@
     ]
   },
   {
-    "id": 388,
+    "id": 389,
     "chapter": "TUẦN 1",
     "q": "Khái niệm nào dùng để chỉ tính quy định vốn có của các sự vật, hiện tượng về mặt số lượng, quy mô, trình độ, nhịp điệu của sự vận động và phát triển?",
     "opts": [
@@ -9960,7 +9962,7 @@
     ]
   },
   {
-    "id": 389,
+    "id": 390,
     "chapter": "TUẦN 1",
     "q": "Khái niệm nào dùng để chỉ thời điểm mà tại đó sự thay đổi về lượng đủ làm thay đổi về chất của sự vật?",
     "opts": [
@@ -9986,7 +9988,7 @@
     ]
   },
   {
-    "id": 390,
+    "id": 391,
     "chapter": "TUẦN 1",
     "q": "Khái niệm nào dùng để chỉ sự chuyển hóa về chất do sự biến đổi trước đó về lượng tới giới hạn điểm nút?",
     "opts": [
@@ -10012,7 +10014,7 @@
     ]
   },
   {
-    "id": 391,
+    "id": 392,
     "chapter": "TUẦN 1",
     "q": "Theo nghĩa biện chứng, mâu thuẫn là:",
     "opts": [
@@ -10038,7 +10040,7 @@
     ]
   },
   {
-    "id": 392,
+    "id": 393,
     "chapter": "TUẦN 1",
     "q": "Cái gì được xác định là nguồn gốc và động lực của sự phát triển?",
     "opts": [
@@ -10064,7 +10066,7 @@
     ]
   },
   {
-    "id": 393,
+    "id": 394,
     "chapter": "TUẦN 1",
     "q": "V.I.Lênin khẳng định: “Sự phân đôi của cái thống nhất và sự nhận thức các bộ phận của nó, đó là… của phép biện chứng”.",
     "opts": [
@@ -10090,7 +10092,7 @@
     ]
   },
   {
-    "id": 394,
+    "id": 395,
     "chapter": "TUẦN 1",
     "q": "Nguyên lý cơ bản của phép biện chứng duy vật là nguyên lý nào?",
     "opts": [
@@ -10108,7 +10110,7 @@
       },
       {
         "k": "D",
-        "t": "Nguyên lý về tính liên tục và tính gián đoạn của thể giới vật chất By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Nguyên lý về tính liên tục và tính gián đoạn của thể giới vật chất"
       }
     ],
     "ans": [
@@ -10116,7 +10118,7 @@
     ]
   },
   {
-    "id": 395,
+    "id": 396,
     "chapter": "TUẦN 1",
     "q": "Luận điểm sau đây thuộc lập trường triết học nào: “Mối liên hệ nhân quả là do cảm giác con người quy định”.",
     "opts": [
@@ -10142,7 +10144,7 @@
     ]
   },
   {
-    "id": 396,
+    "id": 397,
     "chapter": "TUẦN 1",
     "q": "Điền cụm từ thích hợp vào câu sau để được khái niệm về hình thức: “Hình thức là hệ thống… giữa các yếu tố của sự vật”.",
     "opts": [
@@ -10168,7 +10170,7 @@
     ]
   },
   {
-    "id": 397,
+    "id": 398,
     "chapter": "TUẦN 1",
     "q": "Hình thức hoạt động thực tiễn nào là quan trọng nhất?",
     "opts": [
@@ -10194,7 +10196,7 @@
     ]
   },
   {
-    "id": 398,
+    "id": 399,
     "chapter": "TUẦN 1",
     "q": "Mục đích của nhận thức?",
     "opts": [
@@ -10220,7 +10222,7 @@
     ]
   },
   {
-    "id": 399,
+    "id": 400,
     "chapter": "TUẦN 1",
     "q": "Tiêu chuẩn của chân lý là gì?",
     "opts": [
@@ -10246,7 +10248,7 @@
     ]
   },
   {
-    "id": 400,
+    "id": 401,
     "chapter": "TUẦN 1",
     "q": "Chân lý có những tính chất nào?",
     "opts": [
@@ -10256,7 +10258,7 @@
       },
       {
         "k": "B",
-        "t": "Chân lý có tính chất tuyệt đối By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Chân lý có tính chất tuyệt đối"
       },
       {
         "k": "C",
@@ -10272,7 +10274,7 @@
     ]
   },
   {
-    "id": 401,
+    "id": 402,
     "chapter": "TUẦN 1",
     "q": "Sự phản ánh trực tiếp khách thể thông qua các giác quan là giai đoạn nhận thức nào?",
     "opts": [
@@ -10298,7 +10300,7 @@
     ]
   },
   {
-    "id": 402,
+    "id": 403,
     "chapter": "TUẦN 1",
     "q": "Sự phản ánh thông qua tư duy trừu tượng, khát quát những đặc tính chung, bản chất sự vật là giai đoạn nhận thức nào?",
     "opts": [
@@ -10324,7 +10326,7 @@
     ]
   },
   {
-    "id": 403,
+    "id": 404,
     "chapter": "TUẦN 1",
     "q": "Nhận thức lý tính biểu hiện dưới những hình thức nào?",
     "opts": [
@@ -10350,7 +10352,7 @@
     ]
   },
   {
-    "id": 404,
+    "id": 405,
     "chapter": "TUẦN 1",
     "q": "Luận điểm: “Từ trực quan sinh động đến tư duy trừu tượng, từ tư duy trừu tượng đến thực tiễn-đó là con đường biện chứng của sự nhận thức chân lý của sự nhận thức hiện thực khách quan” là của nhà triết học nào?",
     "opts": [
@@ -10376,7 +10378,7 @@
     ]
   },
   {
-    "id": 405,
+    "id": 406,
     "chapter": "TUẦN 1",
     "q": "Khái niệm là hình thức nhận thức của giai đoạn nào?",
     "opts": [
@@ -10402,7 +10404,7 @@
     ]
   },
   {
-    "id": 406,
+    "id": 407,
     "chapter": "TUẦN 1",
     "q": "Biểu tượng là hình thức nhận thức của giai đoạn nào?",
     "opts": [
@@ -10428,7 +10430,7 @@
     ]
   },
   {
-    "id": 407,
+    "id": 408,
     "chapter": "TUẦN 1",
     "q": "Thực tiễn là gì?",
     "opts": [
@@ -10442,7 +10444,7 @@
       },
       {
         "k": "C",
-        "t": "Hoạt động lý luận By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Hoạt động lý luận"
       },
       {
         "k": "D",
@@ -10454,7 +10456,7 @@
     ]
   },
   {
-    "id": 408,
+    "id": 409,
     "chapter": "TUẦN 1",
     "q": "Chân lý là:",
     "opts": [
@@ -10480,7 +10482,7 @@
     ]
   },
   {
-    "id": 409,
+    "id": 410,
     "chapter": "TUẦN 1",
     "q": "Vai trò của thực tiễn đối với nhận thức:",
     "opts": [
@@ -10506,7 +10508,7 @@
     ]
   },
   {
-    "id": 410,
+    "id": 411,
     "chapter": "TUẦN 1",
     "q": "Theo Các - Mác, con người phải chứng minh chân lý trong:",
     "opts": [
@@ -10532,7 +10534,7 @@
     ]
   },
   {
-    "id": 411,
+    "id": 412,
     "chapter": "TUẦN 1",
     "q": "Hai yếu tố cơ bản cấu thành quá trình nhận thức gồm:",
     "opts": [
@@ -10558,7 +10560,7 @@
     ]
   },
   {
-    "id": 412,
+    "id": 413,
     "chapter": "TUẦN 1",
     "q": "Đặc trưng cơ bản của hoạt động thực tiễn:",
     "opts": [
@@ -10584,7 +10586,7 @@
     ]
   },
   {
-    "id": 413,
+    "id": 414,
     "chapter": "TUẦN 1",
     "q": "Quá trình nhận thức được bắt đầu từ thực tiễn và kiểm tra trong:",
     "opts": [
@@ -10610,7 +10612,7 @@
     ]
   },
   {
-    "id": 414,
+    "id": 415,
     "chapter": "TUẦN 1",
     "q": "Tri thức chỉ có ý nghĩa khi được áp dụng vào:",
     "opts": [
@@ -10636,7 +10638,7 @@
     ]
   },
   {
-    "id": 415,
+    "id": 416,
     "chapter": "TUẦN 1",
     "q": "Con đường biện chứng của sự nhận thức chân lý theo quan niệm duy vật biện chứng là:",
     "opts": [
@@ -10646,7 +10648,7 @@
       },
       {
         "k": "B",
-        "t": "Đi từ trực quan sinh động đến tư duy trừu tượng By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Đi từ trực quan sinh động đến tư duy trừu tượng"
       },
       {
         "k": "C",
@@ -10662,7 +10664,7 @@
     ]
   },
   {
-    "id": 416,
+    "id": 417,
     "chapter": "TUẦN 1",
     "q": "Tri thức nào nảy sinh một cách trực tiếp từ thực tiễn lao động sản xuất?",
     "opts": [
@@ -10688,7 +10690,7 @@
     ]
   },
   {
-    "id": 417,
+    "id": 418,
     "chapter": "TUẦN 1",
     "q": "Suy lý là hình thức nhận thức của giai đoạn nào?",
     "opts": [
@@ -10714,7 +10716,7 @@
     ]
   },
   {
-    "id": 418,
+    "id": 419,
     "chapter": "TUẦN 1",
     "q": "Tính khách quan của chân lý là chỉ:",
     "opts": [
@@ -10740,7 +10742,7 @@
     ]
   },
   {
-    "id": 419,
+    "id": 420,
     "chapter": "TUẦN 1",
     "q": "Tính tương đối là chân lý là:",
     "opts": [
@@ -10766,7 +10768,7 @@
     ]
   },
   {
-    "id": 420,
+    "id": 421,
     "chapter": "TUẦN 1",
     "q": "Chân lý luôn phản ánh sự vật hiện tượng ở một điều kiện…trong không gian và thời gian xác định.",
     "opts": [
@@ -10792,7 +10794,7 @@
     ]
   },
   {
-    "id": 421,
+    "id": 422,
     "chapter": "TUẦN 1",
     "q": "Trong quá trình nhận thức và hoạt động thực tiễn, chúng ta cần…",
     "opts": [
@@ -10818,7 +10820,7 @@
     ]
   },
   {
-    "id": 422,
+    "id": 423,
     "chapter": "TUẦN 1",
     "q": "Hạn chế quan điểm của chủ nghĩa trước Mác về nhận thức:",
     "opts": [
@@ -10844,7 +10846,7 @@
     ]
   },
   {
-    "id": 423,
+    "id": 424,
     "chapter": "TUẦN 1",
     "q": "Hoạt động thực nghiệm khoa học là hình thức …của hoạt động thực tiễn:",
     "opts": [
@@ -10870,7 +10872,7 @@
     ]
   },
   {
-    "id": 424,
+    "id": 425,
     "chapter": "TUẦN 1",
     "q": "Nhận thức cảm tính và nhận thức lý tính là hai giai đoạn khác nhau về chất nhưng lại…trong quá trình nhận thức:",
     "opts": [
@@ -10896,7 +10898,7 @@
     ]
   },
   {
-    "id": 425,
+    "id": 426,
     "chapter": "TUẦN 1",
     "q": "Mọi tri thức khoa học – kết quả của nhận thức chỉ có ý nghĩa khi nó được áp dụng vào đời sống…một cách trực tiếp hay gián tiếp.",
     "opts": [
@@ -10922,7 +10924,7 @@
     ]
   },
   {
-    "id": 426,
+    "id": 427,
     "chapter": "TUẦN 1",
     "q": "Nhận thức là một …biện chứng có vận động và phát triển.",
     "opts": [
@@ -10948,7 +10950,7 @@
     ]
   },
   {
-    "id": 427,
+    "id": 428,
     "chapter": "TUẦN 1",
     "q": "Xã hội loài người có các loại hình sản xuất cơ bản là:",
     "opts": [
@@ -10974,7 +10976,7 @@
     ]
   },
   {
-    "id": 428,
+    "id": 429,
     "chapter": "TUẦN 1",
     "q": "Sản xuất vật chất là gì?",
     "opts": [
@@ -11000,7 +11002,7 @@
     ]
   },
   {
-    "id": 429,
+    "id": 430,
     "chapter": "TUẦN 1",
     "q": "Sản xuất ra của cải vật chất giữ vai trò là:",
     "opts": [
@@ -11026,7 +11028,7 @@
     ]
   },
   {
-    "id": 430,
+    "id": 431,
     "chapter": "TUẦN 1",
     "q": "Theo C.Mác, các nền kinh tế căn bản được phân biệt với nhau bởi:",
     "opts": [
@@ -11036,7 +11038,7 @@
       },
       {
         "k": "B",
-        "t": "Mục đích của quá trình sản xuất ra của cải vật chất By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Mục đích của quá trình sản xuất ra của cải vật chất"
       },
       {
         "k": "C",
@@ -11052,7 +11054,7 @@
     ]
   },
   {
-    "id": 431,
+    "id": 432,
     "chapter": "TUẦN 1",
     "q": "Tính chất của lực lượng sản xuất thể hiện ở:",
     "opts": [
@@ -11078,7 +11080,7 @@
     ]
   },
   {
-    "id": 432,
+    "id": 433,
     "chapter": "TUẦN 1",
     "q": "Phương thức sản xuất bao gồm:",
     "opts": [
@@ -11104,7 +11106,7 @@
     ]
   },
   {
-    "id": 433,
+    "id": 434,
     "chapter": "TUẦN 1",
     "q": "Nhân tố quyết định nhất trong lực lượng sản xuất là nhân tố:",
     "opts": [
@@ -11130,7 +11132,7 @@
     ]
   },
   {
-    "id": 434,
+    "id": 435,
     "chapter": "TUẦN 1",
     "q": "Tư liệu sản xuất bao gồm:",
     "opts": [
@@ -11156,7 +11158,7 @@
     ]
   },
   {
-    "id": 435,
+    "id": 436,
     "chapter": "TUẦN 1",
     "q": "Yếu tố quan trọng nhất trong tư liệu sản xuất là:",
     "opts": [
@@ -11182,7 +11184,7 @@
     ]
   },
   {
-    "id": 436,
+    "id": 437,
     "chapter": "TUẦN 1",
     "q": "Khái niệm quan hệ sản xuất dùng để chỉ:",
     "opts": [
@@ -11208,7 +11210,7 @@
     ]
   },
   {
-    "id": 437,
+    "id": 438,
     "chapter": "TUẦN 1",
     "q": "Lực lượng sản xuất bao gồm:",
     "opts": [
@@ -11234,7 +11236,7 @@
     ]
   },
   {
-    "id": 438,
+    "id": 439,
     "chapter": "TUẦN 1",
     "q": "Tư liệu lao động bao gồm:",
     "opts": [
@@ -11244,7 +11246,7 @@
       },
       {
         "k": "B",
-        "t": "Đối tượng lao động và phương tiện lao động By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Đối tượng lao động và phương tiện lao động"
       },
       {
         "k": "C",
@@ -11260,7 +11262,7 @@
     ]
   },
   {
-    "id": 439,
+    "id": 440,
     "chapter": "TUẦN 1",
     "q": "Trong quan hệ sản xuất, quan hệ nào giữ vai trò quan trọng nhất?",
     "opts": [
@@ -11286,7 +11288,7 @@
     ]
   },
   {
-    "id": 440,
+    "id": 441,
     "chapter": "TUẦN 1",
     "q": "Trong mối quan hệ giữa lực lượng sản xuất và quan hệ sản xuất:",
     "opts": [
@@ -11312,7 +11314,7 @@
     ]
   },
   {
-    "id": 441,
+    "id": 442,
     "chapter": "TUẦN 1",
     "q": "Trong thực tiễn, muốn phát triển kinh tế phải bắt đầu từ:",
     "opts": [
@@ -11338,7 +11340,7 @@
     ]
   },
   {
-    "id": 442,
+    "id": 443,
     "chapter": "TUẦN 1",
     "q": "Muốn thiết lập một quan hệ sản xuất mới phải căn cứ vào:",
     "opts": [
@@ -11364,7 +11366,7 @@
     ]
   },
   {
-    "id": 443,
+    "id": 444,
     "chapter": "TUẦN 1",
     "q": "Quan hệ sản xuất phù hợp với tính chất và trình độ của lực lượng sản xuất khi:",
     "opts": [
@@ -11390,13 +11392,13 @@
     ]
   },
   {
-    "id": 444,
+    "id": 445,
     "chapter": "TUẦN 1",
     "q": "Thực chất quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng:",
     "opts": [
       {
         "k": "A",
-        "t": "Quan hệ giữa đời sống vật chất và đời sống tinh thần của xã hội By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Quan hệ giữa đời sống vật chất và đời sống tinh thần của xã hội"
       },
       {
         "k": "B",
@@ -11416,7 +11418,7 @@
     ]
   },
   {
-    "id": 445,
+    "id": 446,
     "chapter": "TUẦN 1",
     "q": "Khái niệm cơ sở hạ tầng dùng để chỉ:",
     "opts": [
@@ -11442,7 +11444,7 @@
     ]
   },
   {
-    "id": 446,
+    "id": 447,
     "chapter": "TUẦN 1",
     "q": "Yếu tố nào của kiến trúc thượng tầng thay đổi nhanh chóng khi cơ sở hạ tầng thay đổi?",
     "opts": [
@@ -11468,7 +11470,7 @@
     ]
   },
   {
-    "id": 447,
+    "id": 448,
     "chapter": "TUẦN 1",
     "q": "Trong kiến trúc thượng tầng, yếu tố tác động trực tiếp nhất tới cơ sở hạ tầng:",
     "opts": [
@@ -11494,7 +11496,7 @@
     ]
   },
   {
-    "id": 448,
+    "id": 449,
     "chapter": "TUẦN 1",
     "q": "Mối quan hệ giữa cơ sở hạ tầng và kiến trúc thượng tầng là mối quan hệ:",
     "opts": [
@@ -11520,7 +11522,7 @@
     ]
   },
   {
-    "id": 449,
+    "id": 450,
     "chapter": "TUẦN 1",
     "q": "Yếu tố nào có nhiệm vụ bảo vệ, duy trì và phát triển cơ sở hạ tầng sinh ra nó?",
     "opts": [
@@ -11546,7 +11548,7 @@
     ]
   },
   {
-    "id": 450,
+    "id": 451,
     "chapter": "TUẦN 1",
     "q": "Yếu tố nào trong kiến trúc thượng tầng có quan hệ trực tiếp đến cơ sở hạ tầng?",
     "opts": [
@@ -11572,7 +11574,7 @@
     ]
   },
   {
-    "id": 451,
+    "id": 452,
     "chapter": "TUẦN 1",
     "q": "Yếu tố nào trong kiến trúc thượng tầng có quan hệ gián tiếp đến cơ sở hạ tầng?",
     "opts": [
@@ -11598,7 +11600,7 @@
     ]
   },
   {
-    "id": 452,
+    "id": 453,
     "chapter": "TUẦN 1",
     "q": "Sự tác động của kiến trúc thượng tầng đối với cơ sở hạ tầng là sự tác động:",
     "opts": [
@@ -11624,7 +11626,7 @@
     ]
   },
   {
-    "id": 453,
+    "id": 454,
     "chapter": "TUẦN 1",
     "q": "Nguồn gốc sâu xa của mọi sự vận động, phát triển của xã hội là do:",
     "opts": [
@@ -11650,7 +11652,7 @@
     ]
   },
   {
-    "id": 454,
+    "id": 455,
     "chapter": "TUẦN 1",
     "q": "Trong mối quan hệ giữa cơ sở hạ tầng và kiến trúc thượng tầng của xã hội:",
     "opts": [
@@ -11676,7 +11678,7 @@
     ]
   },
   {
-    "id": 455,
+    "id": 456,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm duy vật lịch sử, trong mối quan hệ giữa tồn tại xã hội và ý thức xã hội:",
     "opts": [
@@ -11702,7 +11704,7 @@
     ]
   },
   {
-    "id": 456,
+    "id": 457,
     "chapter": "TUẦN 1",
     "q": "Yếu tố nào giữ vai trò quyết định trong tồn tại xã hội?",
     "opts": [
@@ -11728,7 +11730,7 @@
     ]
   },
   {
-    "id": 457,
+    "id": 458,
     "chapter": "TUẦN 1",
     "q": "Tồn tại xã hội bao gồm những yếu tố nào?",
     "opts": [
@@ -11754,7 +11756,7 @@
     ]
   },
   {
-    "id": 458,
+    "id": 459,
     "chapter": "TUẦN 1",
     "q": "Ý thức xã hội không phụ thuộc vào tồn tại xã hội một cách thụ động mà có tác động tích cực trở lại tồn tại xã hội, đó là sự thể hiện:",
     "opts": [
@@ -11780,7 +11782,7 @@
     ]
   },
   {
-    "id": 459,
+    "id": 460,
     "chapter": "TUẦN 1",
     "q": "Vai trò của ý thức cá nhân đối với ý thức xã hội:",
     "opts": [
@@ -11790,7 +11792,7 @@
       },
       {
         "k": "B",
-        "t": "Tổng số ý thức cá nhân bằng ý thức xã hội. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Tổng số ý thức cá nhân bằng ý thức xã hội."
       },
       {
         "k": "C",
@@ -11806,7 +11808,7 @@
     ]
   },
   {
-    "id": 460,
+    "id": 461,
     "chapter": "TUẦN 1",
     "q": "Lực lượng sản xuất và Quan hệ sản xuất giống nhau như thế nào?",
     "opts": [
@@ -11832,7 +11834,7 @@
     ]
   },
   {
-    "id": 461,
+    "id": 462,
     "chapter": "TUẦN 1",
     "q": "Quan hệ sản xuất tác động trở lại Lực lượng sản xuất thông qua yếu tố nào của Lực lượng sản xuất?",
     "opts": [
@@ -11858,7 +11860,7 @@
     ]
   },
   {
-    "id": 462,
+    "id": 463,
     "chapter": "TUẦN 1",
     "q": "Hoạt động nào được Mác lựa chọn để bắt đầu nghiên cứu xã hội?",
     "opts": [
@@ -11884,7 +11886,7 @@
     ]
   },
   {
-    "id": 463,
+    "id": 464,
     "chapter": "TUẦN 1",
     "q": "Vai trò của sản xuất vật chất đối với sự tồn tại và phát triển xã hội?",
     "opts": [
@@ -11910,7 +11912,7 @@
     ]
   },
   {
-    "id": 464,
+    "id": 465,
     "chapter": "TUẦN 1",
     "q": "Trong một Phương thức sản xuất, mâu thuẫn giữa Lực lượng sản xuất và Quan hệ sản xuất do nguyên nhân nào?",
     "opts": [
@@ -11936,7 +11938,7 @@
     ]
   },
   {
-    "id": 465,
+    "id": 466,
     "chapter": "TUẦN 1",
     "q": "Chọn phương án đúng nhất khi nói về Quan hệ sản xuất:",
     "opts": [
@@ -11962,13 +11964,13 @@
     ]
   },
   {
-    "id": 466,
+    "id": 467,
     "chapter": "TUẦN 1",
     "q": "Lực lượng sản xuất và Quan hệ sản xuất khác nhau như thế nào?",
     "opts": [
       {
         "k": "A",
-        "t": "Lực lượng sản xuất là quan hệ giữa người với Tự nhiên/ Quan hệ sản xuất là quan hệ giữa người với người trong sản xuất By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Lực lượng sản xuất là quan hệ giữa người với Tự nhiên/ Quan hệ sản xuất là quan hệ giữa người với người trong sản xuất"
       },
       {
         "k": "B",
@@ -11988,7 +11990,7 @@
     ]
   },
   {
-    "id": 467,
+    "id": 468,
     "chapter": "TUẦN 1",
     "q": "Lực lượng sản xuất là gì?",
     "opts": [
@@ -12014,7 +12016,7 @@
     ]
   },
   {
-    "id": 468,
+    "id": 469,
     "chapter": "TUẦN 1",
     "q": "Điền tiếp vào chỗ trống “Mối quan hệ biện chứng giữa Lực lượng sản xuất và Quan hệ sản xuất thể hiện ở _____”",
     "opts": [
@@ -12040,7 +12042,7 @@
     ]
   },
   {
-    "id": 469,
+    "id": 470,
     "chapter": "TUẦN 1",
     "q": "Trong một Phương thức sản xuất, sự phù hợp của Quan hệ sản xuất với Lực lượng sản xuất chỉ là tương đối vì sao?",
     "opts": [
@@ -12066,7 +12068,7 @@
     ]
   },
   {
-    "id": 470,
+    "id": 471,
     "chapter": "TUẦN 1",
     "q": "Công cụ sản xuất là nhân tố  và cách mạng nhất trong Lực lượng sản xuất là vì sao?",
     "opts": [
@@ -12092,7 +12094,7 @@
     ]
   },
   {
-    "id": 471,
+    "id": 472,
     "chapter": "TUẦN 1",
     "q": "Phương thức sản xuất là gì?",
     "opts": [
@@ -12118,7 +12120,7 @@
     ]
   },
   {
-    "id": 472,
+    "id": 473,
     "chapter": "TUẦN 1",
     "q": "Lực lượng sản xuất bao gồm các yếu tố nào sau đây?",
     "opts": [
@@ -12128,7 +12130,7 @@
       },
       {
         "k": "B",
-        "t": "Tư liệu lao động và đối tượng lao động By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Tư liệu lao động và đối tượng lao động"
       },
       {
         "k": "C",
@@ -12144,7 +12146,7 @@
     ]
   },
   {
-    "id": 473,
+    "id": 474,
     "chapter": "TUẦN 1",
     "q": "Biện chứng giữa Lực lượng sản xuất và Quan hệ sản xuất biểu hiện?",
     "opts": [
@@ -12170,7 +12172,7 @@
     ]
   },
   {
-    "id": 474,
+    "id": 475,
     "chapter": "TUẦN 1",
     "q": "Thước đo trình độ của Lực lượng sản xuất là gì?",
     "opts": [
@@ -12196,7 +12198,7 @@
     ]
   },
   {
-    "id": 475,
+    "id": 476,
     "chapter": "TUẦN 1",
     "q": "Trình độ của Lực lượng sản xuất tùy thuộc vào những yếu tố nào?",
     "opts": [
@@ -12222,7 +12224,7 @@
     ]
   },
   {
-    "id": 476,
+    "id": 477,
     "chapter": "TUẦN 1",
     "q": "Lực lượng sản xuất không ngừng phát triển là yếu tố nào quyết định?",
     "opts": [
@@ -12248,7 +12250,7 @@
     ]
   },
   {
-    "id": 477,
+    "id": 478,
     "chapter": "TUẦN 1",
     "q": "Tính vật chất của Quan hệ sản xuất biểu hiện như thế nào?",
     "opts": [
@@ -12266,7 +12268,7 @@
       },
       {
         "k": "D",
-        "t": "Tồn tại chủ quan By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Tồn tại chủ quan"
       }
     ],
     "ans": [
@@ -12274,7 +12276,7 @@
     ]
   },
   {
-    "id": 478,
+    "id": 479,
     "chapter": "TUẦN 1",
     "q": "Lực lượng sản xuất quyết định Quan hệ sản xuất như thế nào?",
     "opts": [
@@ -12300,7 +12302,7 @@
     ]
   },
   {
-    "id": 479,
+    "id": 480,
     "chapter": "TUẦN 1",
     "q": "Hãy chọn cụm từ thích hợp nhất để hoàn chỉnh câu sau : \"_____làm cho sự vận động của lịch sử là sự kế tiếp nhau của các PTSX từ thấp đến cao\"",
     "opts": [
@@ -12326,7 +12328,7 @@
     ]
   },
   {
-    "id": 480,
+    "id": 481,
     "chapter": "TUẦN 1",
     "q": "Tính chất cá nhân hay tính chất xã hội của Lực lượng sản xuất phụ thuộc vào những yếu tố nào?",
     "opts": [
@@ -12352,7 +12354,7 @@
     ]
   },
   {
-    "id": 481,
+    "id": 482,
     "chapter": "TUẦN 1",
     "q": "Sự phù hợp của Quan hệ sản xuất với trình độ Lực lượng sản xuất là gì?",
     "opts": [
@@ -12378,7 +12380,7 @@
     ]
   },
   {
-    "id": 482,
+    "id": 483,
     "chapter": "TUẦN 1",
     "q": "Muốn cho sản xuất được tiến hành, tất yêu phải có những nhân tố nào sau đây?",
     "opts": [
@@ -12404,7 +12406,7 @@
     ]
   },
   {
-    "id": 483,
+    "id": 484,
     "chapter": "TUẦN 1",
     "q": "Điền tiếp vào chỗ trống “Quan hệ sản xuất là quan hệ giữa người với người trong sản xuất thể hiện _____”",
     "opts": [
@@ -12418,7 +12420,7 @@
       },
       {
         "k": "C",
-        "t": "Ở quan hệ trong tổ chức sản xuất/ quan hệ trong phân phối By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Ở quan hệ trong tổ chức sản xuất/ quan hệ trong phân phối"
       },
       {
         "k": "D",
@@ -12430,7 +12432,7 @@
     ]
   },
   {
-    "id": 484,
+    "id": 485,
     "chapter": "TUẦN 1",
     "q": "Câu nói “Trong tương lai khoa học sẽ trở thành Lực lượng sản xuất trực tiếp” là của ai?",
     "opts": [
@@ -12456,7 +12458,7 @@
     ]
   },
   {
-    "id": 485,
+    "id": 486,
     "chapter": "TUẦN 1",
     "q": "Cơ sở hạ tầng của một xã hội nhất định bao gồm?",
     "opts": [
@@ -12482,7 +12484,7 @@
     ]
   },
   {
-    "id": 486,
+    "id": 487,
     "chapter": "TUẦN 1",
     "q": "Tại sao trong một cơ sở hạ tầng nhất định lại có nhiều kiểu Quan hệ sản xuất cùng tồn tại?",
     "opts": [
@@ -12508,7 +12510,7 @@
     ]
   },
   {
-    "id": 487,
+    "id": 488,
     "chapter": "TUẦN 1",
     "q": "Cơ sở hạ tầng là gì?",
     "opts": [
@@ -12534,7 +12536,7 @@
     ]
   },
   {
-    "id": 488,
+    "id": 489,
     "chapter": "TUẦN 1",
     "q": "Cơ sở hạ tầng có những chức năng nào?",
     "opts": [
@@ -12560,7 +12562,7 @@
     ]
   },
   {
-    "id": 489,
+    "id": 490,
     "chapter": "TUẦN 1",
     "q": "Kiến trúc thượng tầng là gì?",
     "opts": [
@@ -12586,13 +12588,13 @@
     ]
   },
   {
-    "id": 490,
+    "id": 491,
     "chapter": "TUẦN 1",
     "q": "Đáp án nào sau đây là đúng khi nói về “Sự phát triển của xã hội là quá trình lịch sử tự nhiên”?",
     "opts": [
       {
         "k": "A",
-        "t": "Là do sự tác động của các quy luật khách quan By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Là do sự tác động của các quy luật khách quan"
       },
       {
         "k": "B",
@@ -12612,7 +12614,7 @@
     ]
   },
   {
-    "id": 491,
+    "id": 492,
     "chapter": "TUẦN 1",
     "q": "Chủ trương Công nghiệp hóa – Hiện đại hóa gắn với phát triển kinh tế tri thức của Đảng cộng sản Việt Nam là nhằm:",
     "opts": [
@@ -12638,7 +12640,7 @@
     ]
   },
   {
-    "id": 492,
+    "id": 493,
     "chapter": "TUẦN 1",
     "q": "Bản chất của xã hội do những quan hệ nào quy định?",
     "opts": [
@@ -12664,7 +12666,7 @@
     ]
   },
   {
-    "id": 493,
+    "id": 494,
     "chapter": "TUẦN 1",
     "q": "Chức năng của Kiến trúc thượng tầng là gì?",
     "opts": [
@@ -12690,7 +12692,7 @@
     ]
   },
   {
-    "id": 494,
+    "id": 495,
     "chapter": "TUẦN 1",
     "q": "Ý thức xã hội là gì?",
     "opts": [
@@ -12716,7 +12718,7 @@
     ]
   },
   {
-    "id": 495,
+    "id": 496,
     "chapter": "TUẦN 1",
     "q": "Tồn tại xã hội là gì?",
     "opts": [
@@ -12742,7 +12744,7 @@
     ]
   },
   {
-    "id": 496,
+    "id": 497,
     "chapter": "TUẦN 1",
     "q": "Cấu trúc của Ý thức xã hội bao gồm:",
     "opts": [
@@ -12768,7 +12770,7 @@
     ]
   },
   {
-    "id": 497,
+    "id": 498,
     "chapter": "TUẦN 1",
     "q": "Tính chất và hiệu quả của tác động của Ý thức xã hội đến Tồn tại xã hội phụ thuộc vào những yếu tố nào?",
     "opts": [
@@ -12778,7 +12780,7 @@
       },
       {
         "k": "B",
-        "t": "Lập trường và vai trò lịch sử của giai cấp đề ra tư tưởng By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Lập trường và vai trò lịch sử của giai cấp đề ra tư tưởng"
       },
       {
         "k": "C",
@@ -12794,7 +12796,7 @@
     ]
   },
   {
-    "id": 498,
+    "id": 499,
     "chapter": "TUẦN 1",
     "q": "Câu dưới đây của ai: “Trong tính hiện thực của nó, bản chất con người là tổng hòa của các quan hệ xã hội”",
     "opts": [
@@ -12820,7 +12822,7 @@
     ]
   },
   {
-    "id": 499,
+    "id": 500,
     "chapter": "TUẦN 1",
     "q": "Tính độc lập tương đối của Ý thức xã hội?",
     "opts": [
@@ -12846,7 +12848,7 @@
     ]
   },
   {
-    "id": 500,
+    "id": 501,
     "chapter": "TUẦN 1",
     "q": "Tính độc lập tương đối của Ý thức xã hội thể hiện qua:",
     "opts": [
@@ -12872,7 +12874,7 @@
     ]
   },
   {
-    "id": 501,
+    "id": 502,
     "chapter": "TUẦN 1",
     "q": "Mối quan hệ biện chứng giữa Tồn tại xã hội và Ý thức xã hội là:",
     "opts": [
@@ -12898,7 +12900,7 @@
     ]
   },
   {
-    "id": 502,
+    "id": 503,
     "chapter": "TUẦN 1",
     "q": "Quan hệ sản xuất bao gồm:",
     "opts": [
@@ -12924,7 +12926,7 @@
     ]
   },
   {
-    "id": 503,
+    "id": 504,
     "chapter": "TUẦN 1",
     "q": "Câu nói sau đây của V.I.Lênin là trong tác phẩm nào: \"Chỉ có đem quy những quan hệ xã hội vào những quan hệ sản xuất, và đem quy những quan hệ sản xuất vào trình độ của những lực lượng sản xuất thì người ta mới có được cơ sở vững chắc để quan niệm sự phát triển của những hình thái xã hội là một quá trình lịch sử - tự nhiên\".",
     "opts": [
@@ -12942,7 +12944,7 @@
       },
       {
         "k": "D",
-        "t": "Không có tác phẩm nào. By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Không có tác phẩm nào."
       }
     ],
     "ans": [
@@ -12950,7 +12952,7 @@
     ]
   },
   {
-    "id": 504,
+    "id": 505,
     "chapter": "TUẦN 1",
     "q": "Trình độ của lực lượng sản xuất thể hiện ở ?",
     "opts": [
@@ -12976,7 +12978,7 @@
     ]
   },
   {
-    "id": 505,
+    "id": 506,
     "chapter": "TUẦN 1",
     "q": "Mối quan hệ giữa lĩnh vực kinh tế và lĩnh vực chính trị của xã hội được khái quát trong quy luật nào?",
     "opts": [
@@ -13002,7 +13004,7 @@
     ]
   },
   {
-    "id": 506,
+    "id": 507,
     "chapter": "TUẦN 1",
     "q": "Chế độ công hữu về tư liệu sản xuất:",
     "opts": [
@@ -13028,7 +13030,7 @@
     ]
   },
   {
-    "id": 507,
+    "id": 508,
     "chapter": "TUẦN 1",
     "q": "Quốc gia nào sau đây trong lịch sử đã từng phát triển bỏ qua một vài hình thái kinh tế- xã hội?",
     "opts": [
@@ -13054,7 +13056,7 @@
     ]
   },
   {
-    "id": 508,
+    "id": 509,
     "chapter": "TUẦN 1",
     "q": "Theo quan điểm duy vật lịch sử, ý kiến sau đây đúng hay sai? Vì sao? “Vì quan hệ sản xuất phải phụ thuộc tất yếu vào trình độ phát triển của lực lượng sản xuất; do vậy, với bất cứ một sự biến đổi nào trong lực lượng sản xuất cũng ngay lập tức dẫn tới sự biến đổi trong quan hệ sản xuất”",
     "opts": [
@@ -13072,7 +13074,7 @@
       },
       {
         "k": "D",
-        "t": "Sai. Vì: trong thực tế không đúng như vậy. TUẦN 1"
+        "t": "Sai. Vì: trong thực tế không đúng như vậy."
       }
     ],
     "ans": [
@@ -13080,7 +13082,7 @@
     ]
   },
   {
-    "id": 509,
+    "id": 510,
     "chapter": "TUẦN 1",
     "q": "Triết học xuất hiện như thế nào?",
     "opts": [
@@ -13106,7 +13108,7 @@
     ]
   },
   {
-    "id": 510,
+    "id": 511,
     "chapter": "TUẦN 1",
     "q": "Quan điểm “Duy vật” cho rằng:",
     "opts": [
@@ -13132,7 +13134,7 @@
     ]
   },
   {
-    "id": 511,
+    "id": 512,
     "chapter": "TUẦN 1",
     "q": "Phát minh khoa học nào sau đây là căn cứ chứng minh cho sự chuyển hóa các hình thức vận động, tính vô cùng,vô tận của thế giới?",
     "opts": [
@@ -13158,7 +13160,7 @@
     ]
   },
   {
-    "id": 512,
+    "id": 513,
     "chapter": "TUẦN 1",
     "q": "Thực tiễn xã hội châu Âu thế kỷ 19 là tiền đề kinh tế - xã hội cho học thuyết Mác ra đời có những đặc điểm nào?",
     "opts": [
@@ -13184,7 +13186,7 @@
     ]
   },
   {
-    "id": 513,
+    "id": 514,
     "chapter": "TUẦN 1",
     "q": "Chọn câu trả lời đúng nhất về “Thế giới quan”?",
     "opts": [
@@ -13210,7 +13212,7 @@
     ]
   },
   {
-    "id": 514,
+    "id": 515,
     "chapter": "TUẦN 1",
     "q": "Các nhà “Khả tri” cho rằng:",
     "opts": [
@@ -13224,7 +13226,7 @@
       },
       {
         "k": "C",
-        "t": "Con người không có khả năng nhận thức thế giới By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Con người không có khả năng nhận thức thế giới"
       },
       {
         "k": "D",
@@ -13236,7 +13238,7 @@
     ]
   },
   {
-    "id": 515,
+    "id": 516,
     "chapter": "TUẦN 1",
     "q": "Triết học là gì?",
     "opts": [
@@ -13262,7 +13264,7 @@
     ]
   },
   {
-    "id": 516,
+    "id": 517,
     "chapter": "TUẦN 1",
     "q": "Lãnh đạo cuộc cách mạng tháng 10 Nga năm 1917 là ai?",
     "opts": [
@@ -13288,7 +13290,7 @@
     ]
   },
   {
-    "id": 517,
+    "id": 518,
     "chapter": "TUẦN 1",
     "q": "Đối tượng của triết học Mác Lênin là gì?",
     "opts": [
@@ -13314,7 +13316,7 @@
     ]
   },
   {
-    "id": 518,
+    "id": 519,
     "chapter": "TUẦN 1",
     "q": "Các nhà “Bất Khả tri” cho rằng:",
     "opts": [
@@ -13340,7 +13342,7 @@
     ]
   },
   {
-    "id": 519,
+    "id": 520,
     "chapter": "TUẦN 1",
     "q": "Phát minh khoa học nào sau đây chứng minh cho quan điểm DVBC về nguồn gốc tự nhiên của loài người?",
     "opts": [
@@ -13366,7 +13368,7 @@
     ]
   },
   {
-    "id": 520,
+    "id": 521,
     "chapter": "TUẦN 1",
     "q": "Triết học Marx trực tiếp kế thừa:",
     "opts": [
@@ -13392,7 +13394,7 @@
     ]
   },
   {
-    "id": 521,
+    "id": 522,
     "chapter": "TUẦN 1",
     "q": "Quan điểm “Duy tâm” cho rằng:",
     "opts": [
@@ -13402,7 +13404,7 @@
       },
       {
         "k": "B",
-        "t": "Con người có khả năng nhận thức thế giới By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Con người có khả năng nhận thức thế giới"
       },
       {
         "k": "C",
@@ -13418,7 +13420,7 @@
     ]
   },
   {
-    "id": 522,
+    "id": 523,
     "chapter": "TUẦN 1",
     "q": "Phương pháp siêu hình là gì?",
     "opts": [
@@ -13437,10 +13439,6 @@
       {
         "k": "D",
         "t": "Các phương án trên đều đúng"
-      },
-      {
-        "k": "D",
-        "t": "Các phương án trên đều đúng"
       }
     ],
     "ans": [
@@ -13448,7 +13446,7 @@
     ]
   },
   {
-    "id": 523,
+    "id": 524,
     "chapter": "TUẦN 1",
     "q": "Phương pháp biện chứng là gì?",
     "opts": [
@@ -13474,7 +13472,7 @@
     ]
   },
   {
-    "id": 524,
+    "id": 525,
     "chapter": "TUẦN 1",
     "q": "Chủ nghĩa Mác – Lê nin là hệ thống quan điểm và học thuyết khoa học do:",
     "opts": [
@@ -13492,7 +13490,7 @@
       },
       {
         "k": "D",
-        "t": "C.Mác và Lê nin sáng lập, Ăng-ghen bổ sung phát triển TUẦN 2"
+        "t": "C.Mác và Lê nin sáng lập, Ăng-ghen bổ sung phát triển"
       }
     ],
     "ans": [
@@ -13500,7 +13498,7 @@
     ]
   },
   {
-    "id": 525,
+    "id": 526,
     "chapter": "TUẦN 2",
     "q": "“Ý thức” được sinh ra và tồn tại ở:",
     "opts": [
@@ -13526,7 +13524,7 @@
     ]
   },
   {
-    "id": 526,
+    "id": 527,
     "chapter": "TUẦN 2",
     "q": "Theo quan điểm duy tâm, Ý thức của con người là:",
     "opts": [
@@ -13552,13 +13550,13 @@
     ]
   },
   {
-    "id": 527,
+    "id": 528,
     "chapter": "TUẦN 2",
     "q": "Chọn đáp án đúng cho sự sắp xếp của các hình thức vận động theo thứ tự từ thấp đến cao?",
     "opts": [
       {
         "k": "A",
-        "t": "1. Vận động cơ học/ 2. Vận động vật lí / 3. Vận động sinh học/ 4. Vận động xã hội/ 5. Vận động hóa học By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "1. Vận động cơ học/ 2. Vận động vật lí / 3. Vận động sinh học/ 4. Vận động xã hội/ 5. Vận động hóa học"
       },
       {
         "k": "B",
@@ -13567,10 +13565,6 @@
       {
         "k": "C",
         "t": "1. Vận động cơ học/ 2. Vận động vật lí / 3. Vận động hóa học/4. Vận động sinh học/ 5. Vận động xã hội"
-      },
-      {
-        "k": "D",
-        "t": "1. Vận động vật lí/ 2. Vận động cơ học/ 3. Vận động sinh học/ 4. Vận động xã hội/ 5. Vận động hóa học"
       }
     ],
     "ans": [
@@ -13578,7 +13572,7 @@
     ]
   },
   {
-    "id": 528,
+    "id": 529,
     "chapter": "TUẦN 2",
     "q": "“Vật chất là lửa” là quan điểm của ai?",
     "opts": [
@@ -13604,7 +13598,7 @@
     ]
   },
   {
-    "id": 529,
+    "id": 530,
     "chapter": "TUẦN 2",
     "q": "Hạn chế chung của các quan niệm trước Mác về vật chất là gì?",
     "opts": [
@@ -13630,7 +13624,7 @@
     ]
   },
   {
-    "id": 530,
+    "id": 531,
     "chapter": "TUẦN 2",
     "q": "Nguyên nhân của cuộc khủng hoảng trong triết học duy vật đầu thế kỉ 20 là gì?",
     "opts": [
@@ -13656,7 +13650,7 @@
     ]
   },
   {
-    "id": 531,
+    "id": 532,
     "chapter": "TUẦN 2",
     "q": "Theo quan điểm “Duy vật biện chứng”, vận động có mấy hình thức?",
     "opts": [
@@ -13682,7 +13676,7 @@
     ]
   },
   {
-    "id": 532,
+    "id": 533,
     "chapter": "TUẦN 2",
     "q": "“Vận động là phương thức tồn tại của vật chất”, điều này có nghĩa là gì?",
     "opts": [
@@ -13708,7 +13702,7 @@
     ]
   },
   {
-    "id": 533,
+    "id": 534,
     "chapter": "TUẦN 2",
     "q": "Chọn phương án đúng khi nói về quan điểm “Duy vật biện chứng”?",
     "opts": [
@@ -13718,7 +13712,7 @@
       },
       {
         "k": "B",
-        "t": "Không gian, thời gian, vận động và vật chất tách rời nhau By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Không gian, thời gian, vận động và vật chất tách rời nhau"
       },
       {
         "k": "C",
@@ -13734,7 +13728,7 @@
     ]
   },
   {
-    "id": 534,
+    "id": 535,
     "chapter": "TUẦN 2",
     "q": "Chọn phương án đúng khi nói về quan điểm “Duy vật siêu hình”?",
     "opts": [
@@ -13760,7 +13754,7 @@
     ]
   },
   {
-    "id": 535,
+    "id": 536,
     "chapter": "TUẦN 2",
     "q": "Chọn đáp án đúng khi nói về “Sự tác động trở lại của ý thức đối với vật chất”?",
     "opts": [
@@ -13786,7 +13780,7 @@
     ]
   },
   {
-    "id": 536,
+    "id": 537,
     "chapter": "TUẦN 2",
     "q": "Ý thức là gì?",
     "opts": [
@@ -13812,7 +13806,7 @@
     ]
   },
   {
-    "id": 537,
+    "id": 538,
     "chapter": "TUẦN 2",
     "q": "Ý thức của con người có chức năng:",
     "opts": [
@@ -13838,7 +13832,7 @@
     ]
   },
   {
-    "id": 538,
+    "id": 539,
     "chapter": "TUẦN 2",
     "q": "Chọn phương án đúng khi nói về “Vận động” theo quan điểm Duy vật biện chứng?",
     "opts": [
@@ -13864,7 +13858,7 @@
     ]
   },
   {
-    "id": 539,
+    "id": 540,
     "chapter": "TUẦN 2",
     "q": "Nội dung nào không có trong định nghĩa Vật chất của Lênin?",
     "opts": [
@@ -13890,7 +13884,7 @@
     ]
   },
   {
-    "id": 540,
+    "id": 541,
     "chapter": "TUẦN 2",
     "q": "Nguồn gốc “Vật chất của ý thức” là gì?",
     "opts": [
@@ -13916,7 +13910,7 @@
     ]
   },
   {
-    "id": 541,
+    "id": 542,
     "chapter": "TUẦN 2",
     "q": "Vật chất có những phương thức và hình thức tồn tại nào?",
     "opts": [
@@ -13926,7 +13920,7 @@
       },
       {
         "k": "B",
-        "t": "Không gian, thời gian By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Không gian, thời gian"
       },
       {
         "k": "C",
@@ -13942,7 +13936,7 @@
     ]
   },
   {
-    "id": 542,
+    "id": 543,
     "chapter": "TUẦN 2",
     "q": "“Vận động là thuộc tính cố hữu của vật chất”, điều này có nghĩa là gì?",
     "opts": [
@@ -13968,7 +13962,7 @@
     ]
   },
   {
-    "id": 543,
+    "id": 544,
     "chapter": "TUẦN 2",
     "q": "Quan niệm cho rằng “Vật chất - vận động - không gian và thời gian tách rời nhau” là lập trường nào?",
     "opts": [
@@ -13994,7 +13988,7 @@
     ]
   },
   {
-    "id": 544,
+    "id": 545,
     "chapter": "TUẦN 2",
     "q": "Sự vật có những đặc tính nào sau đây?",
     "opts": [
@@ -14020,7 +14014,7 @@
     ]
   },
   {
-    "id": 545,
+    "id": 546,
     "chapter": "TUẦN 2",
     "q": "Chọn đáp án đúng nhất để hoàn chỉnh định nghĩa “Vật chất” “Vật chất là …… triết học dùng để chỉ thực tại khách quan……cho con người trong cảm giác, được cảm giác của chúng ta ……, tồn tại …… vào cảm giác”",
     "opts": [
@@ -14046,7 +14040,7 @@
     ]
   },
   {
-    "id": 546,
+    "id": 547,
     "chapter": "TUẦN 2",
     "q": "Đứng im là gì?",
     "opts": [
@@ -14072,7 +14066,7 @@
     ]
   },
   {
-    "id": 547,
+    "id": 548,
     "chapter": "TUẦN 2",
     "q": "Chọn phương án đúng:",
     "opts": [
@@ -14098,7 +14092,7 @@
     ]
   },
   {
-    "id": 548,
+    "id": 549,
     "chapter": "TUẦN 2",
     "q": "Đặc tính cơ bản của vật chất là gì?",
     "opts": [
@@ -14116,7 +14110,7 @@
       },
       {
         "k": "D",
-        "t": "Khách quan By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Khách quan"
       }
     ],
     "ans": [
@@ -14124,7 +14118,7 @@
     ]
   },
   {
-    "id": 549,
+    "id": 550,
     "chapter": "TUẦN 2",
     "q": "Quan hệ giữa vận động và đứng im là gì?",
     "opts": [
@@ -14150,7 +14144,7 @@
     ]
   },
   {
-    "id": 550,
+    "id": 551,
     "chapter": "TUẦN 2",
     "q": "Chọn phương án đúng khi nói về quan điểm “Duy tâm”?",
     "opts": [
@@ -14176,7 +14170,7 @@
     ]
   },
   {
-    "id": 551,
+    "id": 552,
     "chapter": "TUẦN 2",
     "q": "Phản ánh là: (Tìm phương án sai)",
     "opts": [
@@ -14202,7 +14196,7 @@
     ]
   },
   {
-    "id": 552,
+    "id": 553,
     "chapter": "TUẦN 2",
     "q": "Theo quan điểm “Duy vật biện chứng”, không gian là gì?",
     "opts": [
@@ -14228,7 +14222,7 @@
     ]
   },
   {
-    "id": 553,
+    "id": 554,
     "chapter": "TUẦN 2",
     "q": "Bản chất của Ý thức là: (Chọn phương án sai)",
     "opts": [
@@ -14254,7 +14248,7 @@
     ]
   },
   {
-    "id": 554,
+    "id": 555,
     "chapter": "TUẦN 2",
     "q": "Quan điểm “Duy vật biện chứng” cho rằng:",
     "opts": [
@@ -14280,7 +14274,7 @@
     ]
   },
   {
-    "id": 555,
+    "id": 556,
     "chapter": "TUẦN 2",
     "q": "Vật chất là gì ?",
     "opts": [
@@ -14306,7 +14300,7 @@
     ]
   },
   {
-    "id": 556,
+    "id": 557,
     "chapter": "TUẦN 2",
     "q": "“Vật chất là nước” là quan điểm của ai?",
     "opts": [
@@ -14324,7 +14318,7 @@
       },
       {
         "k": "D",
-        "t": "Platon By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Platon"
       }
     ],
     "ans": [
@@ -14332,7 +14326,7 @@
     ]
   },
   {
-    "id": 557,
+    "id": 558,
     "chapter": "TUẦN 2",
     "q": "Chọn đáp án đúng nhất trong các đáp án sau:",
     "opts": [
@@ -14358,7 +14352,7 @@
     ]
   },
   {
-    "id": 558,
+    "id": 559,
     "chapter": "TUẦN 2",
     "q": "Nội dung của“Ý thức” là do đâu?",
     "opts": [
@@ -14384,7 +14378,7 @@
     ]
   },
   {
-    "id": 559,
+    "id": 560,
     "chapter": "TUẦN 2",
     "q": "“Vật chất là nguyên tử” là quan điểm của ai?",
     "opts": [
@@ -14410,7 +14404,7 @@
     ]
   },
   {
-    "id": 560,
+    "id": 561,
     "chapter": "TUẦN 2",
     "q": "Chọn đáp án đúng khi nói về “Không gian và thời gian”?",
     "opts": [
@@ -14436,7 +14430,7 @@
     ]
   },
   {
-    "id": 561,
+    "id": 562,
     "chapter": "TUẦN 2",
     "q": "Mối quan hệ biện chứng giữa “Vật chất” và “Ý thức” thể hiện như thế nào?",
     "opts": [
@@ -14462,7 +14456,7 @@
     ]
   },
   {
-    "id": 562,
+    "id": 563,
     "chapter": "TUẦN 2",
     "q": "Theo quan điểm Duy vật biện chứng “Vật chất” là gì?",
     "opts": [
@@ -14488,7 +14482,7 @@
     ]
   },
   {
-    "id": 563,
+    "id": 564,
     "chapter": "TUẦN 2",
     "q": "Định nghĩa Vật chất của Lênin ra đời năm nào?",
     "opts": [
@@ -14506,7 +14500,7 @@
       },
       {
         "k": "D",
-        "t": "1897 TUẦN 3"
+        "t": "1897"
       }
     ],
     "ans": [
@@ -14514,7 +14508,7 @@
     ]
   },
   {
-    "id": 564,
+    "id": 565,
     "chapter": "TUẦN 3",
     "q": "Quan điểm Biện chứng duy vật cho rằng:",
     "opts": [
@@ -14524,7 +14518,7 @@
       },
       {
         "k": "B",
-        "t": "Các sự vật và hiện tượng có mối liên hệ qua lại, tác động, quy định ảnh hưởng và có thể By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm) chuyển hoá lẫn nhau"
+        "t": "Các sự vật và hiện tượng có mối liên hệ qua lại, tác động, quy định ảnh hưởng và có thể chuyển hoá lẫn nhau"
       },
       {
         "k": "C",
@@ -14540,7 +14534,7 @@
     ]
   },
   {
-    "id": 565,
+    "id": 566,
     "chapter": "TUẦN 3",
     "q": "Quan điểm Duy tâm chủ quan cho rằng:",
     "opts": [
@@ -14566,7 +14560,7 @@
     ]
   },
   {
-    "id": 566,
+    "id": 567,
     "chapter": "TUẦN 3",
     "q": "Chọn đáp án đúng khi nói về Phép biện chứng duy vật?",
     "opts": [
@@ -14592,7 +14586,7 @@
     ]
   },
   {
-    "id": 567,
+    "id": 568,
     "chapter": "TUẦN 3",
     "q": "Tìm phương án sai trong các luận điểm sau:",
     "opts": [
@@ -14618,7 +14612,7 @@
     ]
   },
   {
-    "id": 568,
+    "id": 569,
     "chapter": "TUẦN 3",
     "q": "Mối liên hệ là gì?",
     "opts": [
@@ -14644,7 +14638,7 @@
     ]
   },
   {
-    "id": 569,
+    "id": 570,
     "chapter": "TUẦN 3",
     "q": "Các quan điểm Toàn diện - Lịch sử cụ thể - Phát triển có cơ sở lý luận là gì?",
     "opts": [
@@ -14670,7 +14664,7 @@
     ]
   },
   {
-    "id": 570,
+    "id": 571,
     "chapter": "TUẦN 3",
     "q": "Quan điểm Duy vật biện chứng cho rằng \"Mối quan hệ giữa nội dung và hình thức\" thể hiện ở chỗ:",
     "opts": [
@@ -14680,7 +14674,7 @@
       },
       {
         "k": "B",
-        "t": "Nội dung và hình thức gắn bó không tách rời nhau; một nội dung chỉ có một hình thức nhất định By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Nội dung và hình thức gắn bó không tách rời nhau; một nội dung chỉ có một hình thức nhất định"
       },
       {
         "k": "C",
@@ -14696,7 +14690,7 @@
     ]
   },
   {
-    "id": 571,
+    "id": 572,
     "chapter": "TUẦN 3",
     "q": "Hãy chọn 1 đáp án đúng để điền vào câu sau: \"_____tồn tại trong _____và thông qua cái riêng mà biểu hiện sự tồn tại của mình\"",
     "opts": [
@@ -14722,7 +14716,7 @@
     ]
   },
   {
-    "id": 572,
+    "id": 573,
     "chapter": "TUẦN 3",
     "q": "Chọn đáp án đúng khi nói về Cái riêng và cái chung theo quan điểm Duy vật biện chứng?",
     "opts": [
@@ -14748,7 +14742,7 @@
     ]
   },
   {
-    "id": 573,
+    "id": 574,
     "chapter": "TUẦN 3",
     "q": "Cái riêng là gì?",
     "opts": [
@@ -14774,7 +14768,7 @@
     ]
   },
   {
-    "id": 574,
+    "id": 575,
     "chapter": "TUẦN 3",
     "q": "Theo quan điểm Duy vật biện chứng, Phạm trù là gì?",
     "opts": [
@@ -14800,7 +14794,7 @@
     ]
   },
   {
-    "id": 575,
+    "id": 576,
     "chapter": "TUẦN 3",
     "q": "Cho rằng “Các sự vật vừa tồn tại khách quan, vừa quy định và chuyển hoá lẫn nhau” là quan điểm nào?",
     "opts": [
@@ -14826,7 +14820,7 @@
     ]
   },
   {
-    "id": 576,
+    "id": 577,
     "chapter": "TUẦN 3",
     "q": "Phép biện chứng duy tâm của Hêghen có đặc trưng nào sau đây?",
     "opts": [
@@ -14852,7 +14846,7 @@
     ]
   },
   {
-    "id": 577,
+    "id": 578,
     "chapter": "TUẦN 3",
     "q": "Phát triển là gì?",
     "opts": [
@@ -14878,7 +14872,7 @@
     ]
   },
   {
-    "id": 578,
+    "id": 579,
     "chapter": "TUẦN 3",
     "q": "Phép biện chứng duy vật của Mác có đặc trưng nào sau đây?",
     "opts": [
@@ -14904,7 +14898,7 @@
     ]
   },
   {
-    "id": 579,
+    "id": 580,
     "chapter": "TUẦN 3",
     "q": "Quan niệm Duy vật biên chứng cho rằng:",
     "opts": [
@@ -14930,7 +14924,7 @@
     ]
   },
   {
-    "id": 580,
+    "id": 581,
     "chapter": "TUẦN 3",
     "q": "Chọn đáp án đúng nhất theo quan điểm Duy vật biện chứng?",
     "opts": [
@@ -14956,20 +14950,20 @@
     ]
   },
   {
-    "id": 581,
+    "id": 582,
     "chapter": "TUẦN 3",
     "q": "Phép biện chứng thời cổ đại có đặc trưng nào sau đây?",
     "opts": [
       {
-        "k": "B",
+        "k": "A",
         "t": "Biện chứng của ý niệm tuyệt đối"
       },
       {
-        "k": "C",
+        "k": "B",
         "t": "Thống nhất giữa thế giới quan duy vật biện chứng và phương pháp luận biện chứng duy vật"
       },
       {
-        "k": "D",
+        "k": "C",
         "t": "Ngây thơ chất phác"
       }
     ],
@@ -14978,7 +14972,7 @@
     ]
   },
   {
-    "id": 582,
+    "id": 583,
     "chapter": "TUẦN 3",
     "q": "Quan điểm Duy vật biện chứng cho rằng:",
     "opts": [
@@ -15004,7 +14998,7 @@
     ]
   },
   {
-    "id": 583,
+    "id": 584,
     "chapter": "TUẦN 3",
     "q": "Điền tiếp vào chỗ trống: “Phát triển là sự vận động theo chiều hướng đi lên từ chưa hoàn thiện đến hoàn thiện hơn, đặc trưng của nó là ____”",
     "opts": [
@@ -15030,7 +15024,7 @@
     ]
   },
   {
-    "id": 584,
+    "id": 585,
     "chapter": "TUẦN 3",
     "q": "Nội dung phép Biện chứng duy vật bao gồm:",
     "opts": [
@@ -15056,7 +15050,7 @@
     ]
   },
   {
-    "id": 585,
+    "id": 586,
     "chapter": "TUẦN 3",
     "q": "Cho rằng “Cảm giác là nền tảng của mối liên hệ giữa các sự vật” là quan điểm nào?",
     "opts": [
@@ -15082,7 +15076,7 @@
     ]
   },
   {
-    "id": 586,
+    "id": 587,
     "chapter": "TUẦN 3",
     "q": "Chọn đáp án đúng nhất khi nói về Mối liên hệ?",
     "opts": [
@@ -15108,7 +15102,7 @@
     ]
   },
   {
-    "id": 587,
+    "id": 588,
     "chapter": "TUẦN 3",
     "q": "Chọn đáp án đúng khi nói về Quan điểm siêu hình?",
     "opts": [
@@ -15134,7 +15128,7 @@
     ]
   },
   {
-    "id": 588,
+    "id": 589,
     "chapter": "TUẦN 3",
     "q": "Quan điểm Duy tâm khách quan cho rằng:",
     "opts": [
@@ -15144,7 +15138,7 @@
       },
       {
         "k": "B",
-        "t": "Liên hệ nhân quả có tính khách quan By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Liên hệ nhân quả có tính khách quan"
       },
       {
         "k": "C",
@@ -15160,7 +15154,7 @@
     ]
   },
   {
-    "id": 589,
+    "id": 590,
     "chapter": "TUẦN 3",
     "q": "Phát triển có những tính chất nào?",
     "opts": [
@@ -15186,7 +15180,7 @@
     ]
   },
   {
-    "id": 590,
+    "id": 591,
     "chapter": "TUẦN 3",
     "q": "Cho rằng “Tính thống nhất vật chất của thế giới là cơ sở của mối liên hệ giữa các sự vật hiện tượng” là quan điểm nào?",
     "opts": [
@@ -15212,7 +15206,7 @@
     ]
   },
   {
-    "id": 591,
+    "id": 592,
     "chapter": "TUẦN 3",
     "q": "Quan điểm Duy tâm cho rằng:",
     "opts": [
@@ -15238,7 +15232,7 @@
     ]
   },
   {
-    "id": 592,
+    "id": 593,
     "chapter": "TUẦN 3",
     "q": "Hình thức là gì?",
     "opts": [
@@ -15264,7 +15258,7 @@
     ]
   },
   {
-    "id": 593,
+    "id": 594,
     "chapter": "TUẦN 3",
     "q": "Chọn đáp án đúng khi nói về phép “Biện chứng duy vật”?",
     "opts": [
@@ -15290,7 +15284,7 @@
     ]
   },
   {
-    "id": 594,
+    "id": 595,
     "chapter": "TUẦN 3",
     "q": "Cái đơn nhất là gì?",
     "opts": [
@@ -15316,7 +15310,7 @@
     ]
   },
   {
-    "id": 595,
+    "id": 596,
     "chapter": "TUẦN 3",
     "q": "Đặc điểm của Mối liên hệ là gì?",
     "opts": [
@@ -15342,7 +15336,7 @@
     ]
   },
   {
-    "id": 596,
+    "id": 597,
     "chapter": "TUẦN 3",
     "q": "Nội dung là gì?",
     "opts": [
@@ -15368,7 +15362,7 @@
     ]
   },
   {
-    "id": 597,
+    "id": 598,
     "chapter": "TUẦN 3",
     "q": "Quan điểm Duy vật biện chứng quan cho rằng:",
     "opts": [
@@ -15394,7 +15388,7 @@
     ]
   },
   {
-    "id": 598,
+    "id": 599,
     "chapter": "TUẦN 3",
     "q": "Đáp án nào sau đây là đúng khi nói về “Mâu thuẫn của sự vật” theo quan điểm Duy vật biện chứng?",
     "opts": [
@@ -15420,7 +15414,7 @@
     ]
   },
   {
-    "id": 599,
+    "id": 600,
     "chapter": "TUẦN 3",
     "q": "Điền tiếp vào chỗ trống: “Khi mâu thuẫn xuất hiện thì ___”",
     "opts": [
@@ -15446,7 +15440,7 @@
     ]
   },
   {
-    "id": 600,
+    "id": 601,
     "chapter": "TUẦN 3",
     "q": "Quy luật \"Từ những thay đổi về lượng dẫn đến những thay đổi về chất và ngược lại\" được trình bày bằng những khái niệm nào sau đây?",
     "opts": [
@@ -15472,7 +15466,7 @@
     ]
   },
   {
-    "id": 601,
+    "id": 602,
     "chapter": "TUẦN 3",
     "q": "Tính chất và cách thức của sự phát triển diễn ra như thế nào?",
     "opts": [
@@ -15498,7 +15492,7 @@
     ]
   },
   {
-    "id": 602,
+    "id": 603,
     "chapter": "TUẦN 3",
     "q": "Chất là gì?",
     "opts": [
@@ -15524,7 +15518,7 @@
     ]
   },
   {
-    "id": 603,
+    "id": 604,
     "chapter": "TUẦN 3",
     "q": "Đáp án nào là đúng khi nói về “Chuyển hóa của các mặt đối lập”?",
     "opts": [
@@ -15550,7 +15544,7 @@
     ]
   },
   {
-    "id": 604,
+    "id": 605,
     "chapter": "TUẦN 3",
     "q": "Quy luật Từ những thay đổi về lượng dẫn đến những thay đổi về chất và ngược lại (Quy luật Lượng – Chất) được hình thành từ mối liên hệ nào?",
     "opts": [
@@ -15576,7 +15570,7 @@
     ]
   },
   {
-    "id": 605,
+    "id": 606,
     "chapter": "TUẦN 3",
     "q": "Phân loại quy luật theo lĩnh vực tác động có:",
     "opts": [
@@ -15602,7 +15596,7 @@
     ]
   },
   {
-    "id": 606,
+    "id": 607,
     "chapter": "TUẦN 3",
     "q": "Theo quan điểm Biện chứng duy vật:",
     "opts": [
@@ -15628,13 +15622,13 @@
     ]
   },
   {
-    "id": 607,
+    "id": 608,
     "chapter": "TUẦN 3",
     "q": "Phân loại quy luật theo phạm vi tác động có:",
     "opts": [
       {
         "k": "A",
-        "t": "Quy luật tự nhiên/ quy luật xã hội/ quy luật phổ biến By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Quy luật tự nhiên/ quy luật xã hội/ quy luật phổ biến"
       },
       {
         "k": "B",
@@ -15654,7 +15648,7 @@
     ]
   },
   {
-    "id": 608,
+    "id": 609,
     "chapter": "TUẦN 3",
     "q": "Quy luật Mâu thuẫn có vị trí, vai trò gì?",
     "opts": [
@@ -15680,7 +15674,7 @@
     ]
   },
   {
-    "id": 609,
+    "id": 610,
     "chapter": "TUẦN 3",
     "q": "Bước nhảy chỉ thực hiện khi nào?",
     "opts": [
@@ -15706,7 +15700,7 @@
     ]
   },
   {
-    "id": 610,
+    "id": 611,
     "chapter": "TUẦN 3",
     "q": "Mâu thuẫn là gì?",
     "opts": [
@@ -15732,7 +15726,7 @@
     ]
   },
   {
-    "id": 611,
+    "id": 612,
     "chapter": "TUẦN 3",
     "q": "Quy luật Lượng - Chất có vai trò gì?",
     "opts": [
@@ -15758,7 +15752,7 @@
     ]
   },
   {
-    "id": 612,
+    "id": 613,
     "chapter": "TUẦN 3",
     "q": "Sự vận động phát triển bắt đầu từ đâu?",
     "opts": [
@@ -15784,7 +15778,7 @@
     ]
   },
   {
-    "id": 613,
+    "id": 614,
     "chapter": "TUẦN 3",
     "q": "Chọn đáp án đúng khi nói về Biểu hiện ra bên ngoài của quy luật?",
     "opts": [
@@ -15810,7 +15804,7 @@
     ]
   },
   {
-    "id": 614,
+    "id": 615,
     "chapter": "TUẦN 3",
     "q": "Trong một Độ nhất định thì:",
     "opts": [
@@ -15836,7 +15830,7 @@
     ]
   },
   {
-    "id": 615,
+    "id": 616,
     "chapter": "TUẦN 3",
     "q": "Vì sao trong cuộc sống phải chú ý tích lũy những thay đổi về lượng?",
     "opts": [
@@ -15862,7 +15856,7 @@
     ]
   },
   {
-    "id": 616,
+    "id": 617,
     "chapter": "TUẦN 3",
     "q": "Lượng là gì?",
     "opts": [
@@ -15888,7 +15882,7 @@
     ]
   },
   {
-    "id": 617,
+    "id": 618,
     "chapter": "TUẦN 3",
     "q": "\"Chất và Lượng thống nhất trong một độ” có nghĩa là gì?",
     "opts": [
@@ -15914,7 +15908,7 @@
     ]
   },
   {
-    "id": 618,
+    "id": 619,
     "chapter": "TUẦN 3",
     "q": "Điền tiếp vào chỗ trống “Trong quá trình vận động và phát triển, khi cái mới ra đời thay thế cái cũ chính là ___”",
     "opts": [
@@ -15940,7 +15934,7 @@
     ]
   },
   {
-    "id": 619,
+    "id": 620,
     "chapter": "TUẦN 3",
     "q": "Quy luật là gì?",
     "opts": [
@@ -15966,7 +15960,7 @@
     ]
   },
   {
-    "id": 620,
+    "id": 621,
     "chapter": "TUẦN 3",
     "q": "Quy luật Thống nhất và đấu tranh của các mặt đối lập còn được gọi là gì?",
     "opts": [
@@ -15976,7 +15970,7 @@
       },
       {
         "k": "B",
-        "t": "Quy luật Lượng – Chất By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Quy luật Lượng – Chất"
       },
       {
         "k": "C",
@@ -15984,7 +15978,7 @@
       },
       {
         "k": "D",
-        "t": "Quy luật chung TUẦN 5"
+        "t": "Quy luật chung"
       }
     ],
     "ans": [
@@ -15992,7 +15986,7 @@
     ]
   },
   {
-    "id": 621,
+    "id": 622,
     "chapter": "TUẦN 5",
     "q": "Nhận thức Lý tính là gì?",
     "opts": [
@@ -16018,7 +16012,7 @@
     ]
   },
   {
-    "id": 622,
+    "id": 623,
     "chapter": "TUẦN 5",
     "q": "Nhận thức Lý tính có những hình thức nào?",
     "opts": [
@@ -16044,7 +16038,7 @@
     ]
   },
   {
-    "id": 623,
+    "id": 624,
     "chapter": "TUẦN 5",
     "q": "Loại hình nào sau đây của Thực tiễn là cơ bản nhất?",
     "opts": [
@@ -16070,7 +16064,7 @@
     ]
   },
   {
-    "id": 624,
+    "id": 625,
     "chapter": "TUẦN 5",
     "q": "Thực tiễn có các loại hình nào sau đây?",
     "opts": [
@@ -16096,7 +16090,7 @@
     ]
   },
   {
-    "id": 625,
+    "id": 626,
     "chapter": "TUẦN 5",
     "q": "Khách thể nhận thức là:",
     "opts": [
@@ -16122,7 +16116,7 @@
     ]
   },
   {
-    "id": 626,
+    "id": 627,
     "chapter": "TUẦN 5",
     "q": "Hoàn thành câu dưới đây: “Từ ……. đến tư duy trừu tượng và từ ….. đến thực tiễn. Đó là con đường biện chứng của sự……….., nhận thức hiện thực khách quan”",
     "opts": [
@@ -16148,13 +16142,13 @@
     ]
   },
   {
-    "id": 627,
+    "id": 628,
     "chapter": "TUẦN 5",
     "q": "Chủ thể nhận thức là:",
     "opts": [
       {
         "k": "A",
-        "t": "Con người cụ thể By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Con người cụ thể"
       },
       {
         "k": "B",
@@ -16174,7 +16168,7 @@
     ]
   },
   {
-    "id": 628,
+    "id": 629,
     "chapter": "TUẦN 5",
     "q": "Nhận thức là một quá trình:",
     "opts": [
@@ -16200,7 +16194,7 @@
     ]
   },
   {
-    "id": 629,
+    "id": 630,
     "chapter": "TUẦN 5",
     "q": "Nhận thức cảm tính là gì?",
     "opts": [
@@ -16226,7 +16220,7 @@
     ]
   },
   {
-    "id": 630,
+    "id": 631,
     "chapter": "TUẦN 5",
     "q": "Chọn đáp án đúng khi nói về “Nhận thức” theo quan điểm Duy vật biện chứng:",
     "opts": [
@@ -16252,7 +16246,7 @@
     ]
   },
   {
-    "id": 631,
+    "id": 632,
     "chapter": "TUẦN 5",
     "q": "Nhận thức cảm tính có những hình thức nào?",
     "opts": [
@@ -16278,7 +16272,7 @@
     ]
   },
   {
-    "id": 632,
+    "id": 633,
     "chapter": "TUẦN 5",
     "q": "Theo quan điểm Duy tâm khách quan, Nhận thức là gì?",
     "opts": [
@@ -16304,7 +16298,7 @@
     ]
   },
   {
-    "id": 633,
+    "id": 634,
     "chapter": "TUẦN 5",
     "q": "Theo quan điểm Duy vật biện chứng, Nhận thức là gì?",
     "opts": [
@@ -16330,13 +16324,13 @@
     ]
   },
   {
-    "id": 634,
+    "id": 635,
     "chapter": "TUẦN 5",
     "q": "Theo quan điểm Duy tâm chủ quan, Nhận thức là gì?",
     "opts": [
       {
         "k": "A",
-        "t": "Sự hồi tưởng lại của ý niệm By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Sự hồi tưởng lại của ý niệm"
       },
       {
         "k": "B",
@@ -16356,7 +16350,7 @@
     ]
   },
   {
-    "id": 635,
+    "id": 636,
     "chapter": "TUẦN 5",
     "q": "Theo quan điểm Duy vật siêu hình, Nhận thức là gì?",
     "opts": [
@@ -16382,7 +16376,7 @@
     ]
   },
   {
-    "id": 636,
+    "id": 637,
     "chapter": "TUẦN 5",
     "q": "\" ...., từ tư duy trừu tượng đến thực tiễn\", ở giai đoạn này thực tiễn có vai trò gì?",
     "opts": [
@@ -16408,7 +16402,7 @@
     ]
   },
   {
-    "id": 637,
+    "id": 638,
     "chapter": "TUẦN 5",
     "q": "Vai trò của thực tiễn đối với nhận thức?",
     "opts": [
@@ -16426,7 +16420,7 @@
       },
       {
         "k": "D",
-        "t": "Là động lực của nhận thức/ là cơ sở của nhận thức TUẦN 6"
+        "t": "Là động lực của nhận thức/ là cơ sở của nhận thức"
       }
     ],
     "ans": [
@@ -16434,7 +16428,7 @@
     ]
   },
   {
-    "id": 638,
+    "id": 639,
     "chapter": "TUẦN 6",
     "q": "Hãy chọn cụm từ thích hợp nhất để hoàn chỉnh câu sau : \"_____ làm cho sự vận động của lịch sử là sự kế tiếp nhau của các PTSX từ thấp đến cao\"",
     "opts": [
@@ -16460,7 +16454,7 @@
     ]
   },
   {
-    "id": 639,
+    "id": 640,
     "chapter": "TUẦN 6",
     "q": "Muốn cho sản xuất được tiến hành, tất yếu phải có những nhân tố nào sau đây?",
     "opts": [
@@ -16486,7 +16480,7 @@
     ]
   },
   {
-    "id": 640,
+    "id": 641,
     "chapter": "TUẦN 8",
     "q": "Mối quan hệ biện chứng giữa Tồn tại xã hội và Ý thức xã hội là",
     "opts": [
@@ -16504,7 +16498,7 @@
       },
       {
         "k": "D",
-        "t": "Các phương án trên đều đúng By: Thanh Trà - 50K01.2 (File free hông có mua bán/pass lại nha mấy môm)"
+        "t": "Các phương án trên đều đúng"
       }
     ],
     "ans": [
