@@ -1671,7 +1671,7 @@ function render(){
     return;
   }
   const q=qmap.get(S.deck[S.pos]);
-  if(S.mode==='flash') renderFlash(q); else renderQuiz(q);
+  if(S.mode==='flash' || S.mode==='tuluan') renderFlash(q); else renderQuiz(q);
 }
 
 function formatCloze(text) {
@@ -2048,6 +2048,8 @@ function switchMode(m){
   } else {
     DATA = window.__SUBJECT_DATA[code] || [];
   }
+  qmap.clear();
+  DATA.forEach(q=>qmap.set(q.id,q));
   buildRangeOptions();
   $('tabFlash').classList.toggle('on',m==='flash');
   $('tabQuiz').classList.toggle('on',m==='quiz');
