@@ -1580,14 +1580,14 @@ function buildDeck(opts){
   let ids=[];
   const d=S.deckDef;
   if(d.type==='all') ids=DATA.map(q=>q.id);
-  else if(d.type==='range') ids=DATA.filter(q=>q.id>=d.a&&q.id<=d.b).map(q=>q.id);
+  else if(d.type==='range') ids=DATA.filter(q=>{const n=typeof q.id==='number'?q.id:parseInt(String(q.id).replace(/\D/g,''));return n>=d.a&&n<=d.b;}).map(q=>q.id);
   else if(d.type==='starred') ids=DATA.filter(q=>S.starred.has(q.id)).map(q=>q.id);
   else if(d.type==='wrong') ids=DATA.filter(q=>S.wrong.has(q.id)).map(q=>q.id);
   else if(d.type==='search'){
     const t=d.term.toLowerCase();
-    ids=DATA.filter(q=>q.q.toLowerCase().includes(t)||q.opts.some(o=>o.t.toLowerCase().includes(t))).map(q=>q.id);
+    ids=DATA.filter(q=>q.q.toLowerCase().includes(t)||(q.opts&&q.opts.some(o=>o.t.toLowerCase().includes(t)))||(q.outline&&q.outline.some(o=>o.toLowerCase().includes(t)))).map(q=>q.id);
   }
-  if(S.mode==='flash' && S.hideLearned && d.type!=='starred') ids=ids.filter(id=>!S.learned.has(id));
+  if((S.mode==='flash'||S.mode==='tuluan') && S.hideLearned && d.type!=='starred') ids=ids.filter(id=>!S.learned.has(id));
   if(S.shuffle){
     ids=[...ids];
     for(let i=ids.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]];}
@@ -1634,8 +1634,8 @@ function renderMeta(){
     ? `${cur}/${S.deck.length} · Đúng ${S.runOk} · Sai ${S.runNo}`
     : `${cur}/${S.deck.length}`;
   $('barFill').style.width=(S.deck.length?(S.pos+(S.done?1:0))/S.deck.length*100:0)+'%';
-  $('hideLearnedWrap').style.display=S.mode==='flash'?'flex':'none';
-  $('kbdHint').innerHTML=S.mode==='flash'
+  $('hideLearnedWrap').style.display=(S.mode==='flash'||S.mode==='tuluan')?'flex':'none';
+  $('kbdHint').innerHTML=(S.mode==='flash'||S.mode==='tuluan')
     ? (isTouch
         ? 'Chạm thẻ để lật · Vuốt <span style="color:var(--green);font-weight:800">phải = đã thuộc</span> · Vuốt <span style="color:var(--danger);font-weight:800">trái = chưa thuộc</span>'
         : '<b>Space</b> lật thẻ · <b>←</b><b>→</b> chuyển câu · <b>1</b> chưa thuộc · <b>2</b> đã thuộc · hoặc kéo thẻ sang hai bên')
@@ -1648,7 +1648,7 @@ function qTabHTML(q){
   <button class="starbtn ${S.starred.has(q.id)?'on':''}" data-act="star" aria-label="Đánh dấu câu này">★</button>`;
 }
 function multiBadge(q){
-  return q.ans.length>1?`<div class="qmeta">▸ Câu nhiều đáp án — chọn đủ ${q.ans.length} đáp án</div>`:'';
+  return (q.ans&&q.ans.length>1)?`<div class="qmeta">▸ Câu nhiều đáp án — chọn đủ ${q.ans.length} đáp án</div>`:'';
 }
 function estNote(q){
   return q.est?`<div class="estnote">* File gốc không đánh dấu đáp án câu này — đáp án do Claude bổ sung theo giáo trình.</div>`:'';
@@ -1995,10 +1995,10 @@ document.addEventListener('click',e=>{
     if(act==='restart'){restartRun();return;}
     return;
   }
-  if(optEl&&S.mode==='quiz'&&!S.graded){
+  if(optEl&&S.mode==='quiz'&&S.mode!=='tuluan'&&!S.graded){
     const q=qmap.get(S.deck[S.pos]);
     const k=optEl.dataset.key;
-    if(q.ans.length>1){
+    if(q.ans&&q.ans.length>1){
       S.sel.has(k)?S.sel.delete(k):S.sel.add(k);
       render();
     }else{
@@ -2006,7 +2006,7 @@ document.addEventListener('click',e=>{
     }
     return;
   }
-  if(card&&S.mode==='flash'){
+  if(card&&(S.mode==='flash'||S.mode==='tuluan')){
     if(suppressClick){suppressClick=false;return;}
     S.flipped=!S.flipped;card.classList.toggle('flipped',S.flipped);
   }
@@ -2015,8 +2015,9 @@ document.addEventListener('click',e=>{
 /* tabs — flashcard và trắc nghiệm có tiến trình RIÊNG: lưu câu đang đứng của chế độ cũ,
    mở lại đúng câu đã dừng lần trước của chế độ mới (chưa học lần nào -> câu 1) */
 function gradeTuluan(level){
-  if(!S.deck[S.i]) return;
-  const q = S.deck[S.i];
+  if(!S.deck.length || S.pos >= S.deck.length) return;
+  const q = qmap.get(S.deck[S.pos]);
+  if(!q) return;
   if(level === 0) { // Quen
     S.learned.delete(q.id);
     S.wrong.add(q.id);
@@ -2055,7 +2056,7 @@ function switchMode(m){
   $('tabQuiz').classList.toggle('on',m==='quiz');
   if($('tabTuluan')) $('tabTuluan').classList.toggle('on',m==='tuluan');
   if($('tuluanBtns')) $('tuluanBtns').style.display=m==='tuluan'?'flex':'none';
-  setDeck({type:'all'});
+  buildDeck({keepPos:true,toId:S.mpos[m]});
   render();saveProgress();
 }
 $('tabFlash').onclick=()=>switchMode('flash');
@@ -2095,14 +2096,14 @@ document.addEventListener('keydown',e=>{
   if(currentView!=='quiz')return;
   if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;
   const q=S.deck.length&&!S.done?qmap.get(S.deck[S.pos]):null;
-  if(e.key==='ArrowRight'){e.preventDefault();if(S.mode==='quiz'&&q&&!S.graded)return;advance(1);}
+  if(e.key==='ArrowRight'){e.preventDefault();if(S.mode==='quiz'&&q&&!S.graded)return;if(S.mode==='tuluan')return advance(1);advance(1);}
   else if(e.key==='ArrowLeft'){e.preventDefault();prev();}
-  else if(e.key===' '&&S.mode==='flash'){e.preventDefault();const c=$('card');if(c){S.flipped=!S.flipped;c.classList.toggle('flipped',S.flipped);}}
+  else if(e.key===' '&&(S.mode==='flash'||S.mode==='tuluan')){e.preventDefault();const c=$('card');if(c){S.flipped=!S.flipped;c.classList.toggle('flipped',S.flipped);}}
   else if(e.key==='Enter'){
     e.preventDefault();
     if(S.mode==='quiz'&&q){
       if(S.graded)advance(1);
-      else if(q.ans.length>1&&S.sel.size){grade(q);render();}
+      else if(q.ans&&q.ans.length>1&&S.sel.size){grade(q);render();}
     } else if(S.done){restartRun();}
   }
   else if(/^[1-5]$/.test(e.key)){
@@ -2123,7 +2124,7 @@ document.addEventListener('keydown',e=>{
 /* range options (theo số câu của môn hiện tại) */
 function buildRangeOptions(){
   const sel=$('rangeSel');
-  const max=DATA.length?Math.max(...DATA.map(q=>typeof q.id==='number'?q.id:(parseInt(String(q.id).replace(/\D/g,''))||0))):0;
+  const max=DATA.length?Math.max(...DATA.map(q=>q.id)):0;
   let html=`<option value="all">Toàn bộ (1–${max})</option>`;
   if (KEY && KEY.includes('SMT1005')) {
     const chunks = ["Đề 1", "Đề 2", "Đề 3", "Đề 4", "Đề 5", "Đề 6", "Tuần 2", "Tuần 3", "Tuần 5", "Tuần 6", "Tuần 7", "Tuần 8"];
@@ -2424,7 +2425,7 @@ function renderPortal(){
 function loadSubjectData(code,cb){
   if((window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||loadedData.has(code)){cb(true);return;}
   const sc=document.createElement('script');
-  sc.src='data/'+code.toLowerCase()+'.js?v=' + Date.now();
+  sc.src='data/'+code.toLowerCase()+'.js';
   sc.onload=()=>{loadedData.add(code);cb(!!(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code]));};
   sc.onerror=()=>cb(false);
   document.head.appendChild(sc);
