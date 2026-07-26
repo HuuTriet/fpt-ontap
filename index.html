@@ -2053,7 +2053,7 @@ function switchMode(m){
   $('tabQuiz').classList.toggle('on',m==='quiz');
   if($('tabTuluan')) $('tabTuluan').classList.toggle('on',m==='tuluan');
   if($('tuluanBtns')) $('tuluanBtns').style.display=m==='tuluan'?'flex':'none';
-  buildDeck({keepPos:true,toId:S.mpos[m]});
+  setDeck({type:'all'});
   render();saveProgress();
 }
 $('tabFlash').onclick=()=>switchMode('flash');
@@ -2121,7 +2121,7 @@ document.addEventListener('keydown',e=>{
 /* range options (theo số câu của môn hiện tại) */
 function buildRangeOptions(){
   const sel=$('rangeSel');
-  const max=DATA.length?Math.max(...DATA.map(q=>q.id)):0;
+  const max=DATA.length?Math.max(...DATA.map(q=>typeof q.id==='number'?q.id:(parseInt(String(q.id).replace(/\D/g,''))||0))):0;
   let html=`<option value="all">Toàn bộ (1–${max})</option>`;
   if (KEY && KEY.includes('SMT1005')) {
     const chunks = ["Đề 1", "Đề 2", "Đề 3", "Đề 4", "Đề 5", "Đề 6", "Tuần 2", "Tuần 3", "Tuần 5", "Tuần 6", "Tuần 7", "Tuần 8"];
