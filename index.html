@@ -2049,9 +2049,9 @@ function switchMode(m){
   S.mode=m;
   let code = KEY.replace('fpt-ontap:progress:', '');
   if(m==='tuluan1'){
-    DATA = (window.__SUBJECT_DATA[code + '_TULUAN'] || []).slice(0, 14);
+    DATA = window.__SUBJECT_DATA[code + '_TULUAN_1'] || [];
   } else if(m==='tuluan2'){
-    DATA = (window.__SUBJECT_DATA[code + '_TULUAN'] || []).slice(14);
+    DATA = window.__SUBJECT_DATA[code + '_TULUAN_2'] || [];
   } else {
     DATA = window.__SUBJECT_DATA[code] || [];
   }
