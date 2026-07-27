@@ -2173,13 +2173,8 @@ async function initSubject(code){
   DATA=(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||[];
   let hasTuluan1 = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN_1'];
   let hasTuluan2 = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN_2'];
-  if(hasTuluan1 || hasTuluan2) {
-    if(document.getElementById('tabTuluan1')) document.getElementById('tabTuluan1').style.display = 'inline-flex';
-    if(document.getElementById('tabTuluan2')) document.getElementById('tabTuluan2').style.display = 'inline-flex';
-  } else {
-    if(document.getElementById('tabTuluan1')) document.getElementById('tabTuluan1').style.display = 'none';
-    if(document.getElementById('tabTuluan2')) document.getElementById('tabTuluan2').style.display = 'none';
-  }
+  if(document.getElementById('tabTuluan1')) document.getElementById('tabTuluan1').style.display = (hasTuluan1 && hasTuluan1.length > 0) ? 'inline-flex' : 'none';
+  if(document.getElementById('tabTuluan2')) document.getElementById('tabTuluan2').style.display = (hasTuluan2 && hasTuluan2.length > 0) ? 'inline-flex' : 'none';
   qmap=new Map(DATA.map(q=>[q.id,q]));
   /* reset toàn bộ state cho môn mới */
   S.mode='flash';S.deckDef={type:'all'};S.shuffle=false;S.hideLearned=false;
