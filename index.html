@@ -1674,7 +1674,11 @@ function render(){
     return;
   }
   const q=qmap.get(S.deck[S.pos]);
-  if(S.mode==='flash' || S.mode.startsWith('tuluan')) renderFlash(q); else renderQuiz(q);
+  try {
+    if(S.mode==='flash' || S.mode.startsWith('tuluan')) renderFlash(q); else renderQuiz(q);
+  } catch (e) {
+    st.innerHTML = `<div style="color:red;padding:20px;background:white"><b>Lỗi Render:</b> ${e.message}<br><pre>${e.stack}</pre></div>`;
+  }
 }
 
 function formatCloze(text) {
