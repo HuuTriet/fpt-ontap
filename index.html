@@ -1112,14 +1112,14 @@ select.ctl{padding-right:6px;max-width:48vw}
             <span class="mq__item">585 câu MLN111</span><span class="mq__sep">·</span>
             <span class="mq__item">Flashcard lật thẻ</span><span class="mq__sep">·</span>
             <span class="mq__item">Trắc nghiệm chấm điểm</span><span class="mq__sep">·</span>
-            <span class="mq__item">Ôn lại câu sai</span><span class="mq__sep">·</span>
+            <span class="mq__item label-on-sai">Ôn lại câu sai</span><span class="mq__sep">·</span>
             <span class="mq__item">Mở là học tiếp</span><span class="mq__sep">·</span>
           </span>
           <span class="mq__group mq__group--big" aria-hidden="true">
             <span class="mq__item">585 câu MLN111</span><span class="mq__sep">·</span>
             <span class="mq__item">Flashcard lật thẻ</span><span class="mq__sep">·</span>
             <span class="mq__item">Trắc nghiệm chấm điểm</span><span class="mq__sep">·</span>
-            <span class="mq__item">Ôn lại câu sai</span><span class="mq__sep">·</span>
+            <span class="mq__item label-on-sai">Ôn lại câu sai</span><span class="mq__sep">·</span>
             <span class="mq__item">Mở là học tiếp</span><span class="mq__sep">·</span>
           </span>
         </div>
@@ -1609,7 +1609,7 @@ function deckLabel(){
   if(d.type==='all') return 'Toàn bộ';
   if(d.type==='range') return d.a===d.b?`Câu ${d.a}`:`Câu ${d.a}–${d.b}`;
   if(d.type==='starred') return '★ Câu đánh dấu';
-  if(d.type==='wrong') return '✗ Câu sai';
+  if(d.type==='wrong') return S.mode.startsWith('tuluan') ? '✗ Chưa thuộc' : '✗ Câu sai';
   if(d.type==='search') return `Tìm “${d.term}”`;
   return '';
 }
@@ -2025,6 +2025,9 @@ function gradeTuluan(level){
   if(level === 0) { // Quen
     S.learned.delete(q.id);
     S.wrong.add(q.id);
+    // Đẩy về sau 2 câu để học tiếp
+    let insertIndex = Math.min(S.pos + 3, S.deck.length);
+    S.deck.splice(insertIndex, 0, q.id);
   } else if(level === 1) { // Mo
     S.learned.delete(q.id);
     S.wrong.delete(q.id);
@@ -2034,6 +2037,8 @@ function gradeTuluan(level){
   }
   saveProgress();
   renderHeaderStats();
+  // Cập nhật lại số câu trong deck
+  $('deckName').innerHTML = `${esc(deckLabel())} <span class="n">· ${S.deck.length} câu</span>`;
   // flip card back to front
   S.flipped = false;
   $('card').classList.remove('flipped');
