@@ -3,1757 +3,2051 @@ window.__SUBJECT_DATA['PRM393'] = [
   {
     "id": "PRM393_1",
     "q": "Why is clean architecture beneficial?",
-    "a": [
+    "opts": [
       {
-        "text": "Fewer files",
-        "isCorrect": false
+        "k": "A",
+        "t": "Fewer files"
       },
       {
-        "text": "Easier maintenance and testing",
-        "isCorrect": true
+        "k": "B",
+        "t": "Easier maintenance and testing"
       },
       {
-        "text": "Better Ul",
-        "isCorrect": false
+        "k": "C",
+        "t": "Better Ul"
       },
       {
-        "text": "Faster builds",
-        "isCorrect": false
+        "k": "D",
+        "t": "Faster builds"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_2",
     "q": "What is Dart primarily designed for in the Flutter ecosystem?",
-    "a": [
+    "opts": [
       {
-        "text": "Database management",
-        "isCorrect": false
+        "k": "A",
+        "t": "Database management"
       },
       {
-        "text": "User interface development",
-        "isCorrect": false
+        "k": "B",
+        "t": "User interface development"
       },
       {
-        "text": "General-purpose programming with Ul focus",
-        "isCorrect": true
+        "k": "C",
+        "t": "General-purpose programming with Ul focus"
       },
       {
-        "text": "Network security",
-        "isCorrect": false
+        "k": "D",
+        "t": "Network security"
       }
+    ],
+    "ans": [
+      "C"
     ]
   },
   {
     "id": "PRM393_3",
     "q": "Why is secure authentication critical in mobile apps?",
-    "a": [
+    "opts": [
       {
-        "text": "Ul quality",
-        "isCorrect": false
+        "k": "A",
+        "t": "Ul quality"
       },
       {
-        "text": "Protect user data",
-        "isCorrect": true
+        "k": "B",
+        "t": "Protect user data"
       },
       {
-        "text": "Reduce code",
-        "isCorrect": false
+        "k": "C",
+        "t": "Reduce code"
       },
       {
-        "text": "Improve speed",
-        "isCorrect": false
+        "k": "D",
+        "t": "Improve speed"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_4",
     "q": "Which HTTP method is typically used to retrieve data?",
-    "a": [
+    "opts": [
       {
-        "text": "POST",
-        "isCorrect": true
+        "k": "A",
+        "t": "POST"
       },
       {
-        "text": "PUT",
-        "isCorrect": false
+        "k": "B",
+        "t": "PUT"
       },
       {
-        "text": "GET",
-        "isCorrect": false
+        "k": "C",
+        "t": "GET"
       },
       {
-        "text": "DELETE",
-        "isCorrect": false
+        "k": "D",
+        "t": "DELETE"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_5",
     "q": "What happens if a non-nullable variable is not initialized in Dart?",
-    "a": [
+    "opts": [
       {
-        "text": "The app runs normally",
-        "isCorrect": true
+        "k": "A",
+        "t": "The app runs normally"
       },
       {
-        "text": "A runtime exception occurs",
-        "isCorrect": false
+        "k": "B",
+        "t": "A runtime exception occurs"
       },
       {
-        "text": "A compile-time error occurs",
-        "isCorrect": false
+        "k": "C",
+        "t": "A compile-time error occurs"
       },
       {
-        "text": "The value becomes null automatically",
-        "isCorrect": false
+        "k": "D",
+        "t": "The value becomes null automatically"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_6",
     "q": "Which command builds a release APK?",
-    "a": [
+    "opts": [
       {
-        "text": "flutter run",
-        "isCorrect": false
+        "k": "A",
+        "t": "flutter run"
       },
       {
-        "text": "flutter build apk",
-        "isCorrect": true
+        "k": "B",
+        "t": "flutter build apk"
       },
       {
-        "text": "flutter doctor",
-        "isCorrect": false
+        "k": "C",
+        "t": "flutter doctor"
       },
       {
-        "text": "flutter clean",
-        "isCorrect": false
+        "k": "D",
+        "t": "flutter clean"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_7",
     "q": "Which widget allows overlapping of its child widgets?",
-    "a": [
+    "opts": [
       {
-        "text": "Column",
-        "isCorrect": true
+        "k": "A",
+        "t": "Column"
       },
       {
-        "text": "Row",
-        "isCorrect": false
+        "k": "B",
+        "t": "Row"
       },
       {
-        "text": "Stack",
-        "isCorrect": false
+        "k": "C",
+        "t": "Stack"
       },
       {
-        "text": "Expanded",
-        "isCorrect": false
+        "k": "D",
+        "t": "Expanded"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_8",
     "q": "Which platforms can Flutter applications target using a single codebase?",
-    "a": [
+    "opts": [
       {
-        "text": "Android only",
-        "isCorrect": false
+        "k": "A",
+        "t": "Android only"
       },
       {
-        "text": "iOS only",
-        "isCorrect": false
+        "k": "B",
+        "t": "iOS only"
       },
       {
-        "text": "Android, iOS, web, and desktop",
-        "isCorrect": true
+        "k": "C",
+        "t": "Android, iOS, web, and desktop"
       },
       {
-        "text": "Web servers only",
-        "isCorrect": false
+        "k": "D",
+        "t": "Web servers only"
       }
+    ],
+    "ans": [
+      "C"
     ]
   },
   {
     "id": "PRM393_9",
     "q": "What is the main risk of improper state management?",
-    "a": [
+    "opts": [
       {
-        "text": "Ulinconsisteney",
-        "isCorrect": true
+        "k": "A",
+        "t": "Ulinconsisteney"
       },
       {
-        "text": "Longer compile time",
-        "isCorrect": false
+        "k": "B",
+        "t": "Longer compile time"
       },
       {
-        "text": "Package conflicts",
-        "isCorrect": false
+        "k": "C",
+        "t": "Package conflicts"
       },
       {
-        "text": "Build errors",
-        "isCorrect": false
+        "k": "D",
+        "t": "Build errors"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_10",
     "q": "What does CurvedAnimation provide?",
-    "a": [
+    "opts": [
       {
-        "text": "Layout control",
-        "isCorrect": false
+        "k": "A",
+        "t": "Layout control"
       },
       {
-        "text": "Animation curve behavior",
-        "isCorrect": true
+        "k": "B",
+        "t": "Animation curve behavior"
       },
       {
-        "text": "State updates",
-        "isCorrect": false
+        "k": "C",
+        "t": "State updates"
       },
       {
-        "text": "Navigation",
-        "isCorrect": false
+        "k": "D",
+        "t": "Navigation"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_11",
     "q": "How can data be passed to a new screen?",
-    "a": [
+    "opts": [
       {
-        "text": "Using global variables",
-        "isCorrect": false
+        "k": "A",
+        "t": "Using global variables"
       },
       {
-        "text": "Via constructor arguments",
-        "isCorrect": true
+        "k": "B",
+        "t": "Via constructor arguments"
       },
       {
-        "text": "Using ThemeData",
-        "isCorrect": false
+        "k": "C",
+        "t": "Using ThemeData"
       },
       {
-        "text": "Using Scaffold",
-        "isCorrect": false
+        "k": "D",
+        "t": "Using Scaffold"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_12",
     "q": "What is the purpose of parsing JSON?",
-    "a": [
+    "opts": [
       {
-        "text": "Encrypt data",
-        "isCorrect": false
+        "k": "A",
+        "t": "Encrypt data"
       },
       {
-        "text": "Convert JSON into Dart objects",
-        "isCorrect": true
+        "k": "B",
+        "t": "Convert JSON into Dart objects"
       },
       {
-        "text": "Send requests",
-        "isCorrect": false
+        "k": "C",
+        "t": "Send requests"
       },
       {
-        "text": "Cache responses",
-        "isCorrect": false
+        "k": "D",
+        "t": "Cache responses"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_13",
     "q": "Which phase involves gathering requirements?",
-    "a": [
+    "opts": [
       {
-        "text": "Implementation",
-        "isCorrect": true
+        "k": "A",
+        "t": "Implementation"
       },
       {
-        "text": "Design",
-        "isCorrect": false
+        "k": "B",
+        "t": "Design"
       },
       {
-        "text": "Analysis",
-        "isCorrect": false
+        "k": "C",
+        "t": "Analysis"
       },
       {
-        "text": "Testing",
-        "isCorrect": false
+        "k": "D",
+        "t": "Testing"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_14",
     "q": "Which Flutter tool helps debug network requests?",
-    "a": [
+    "opts": [
       {
-        "text": "DevTools",
-        "isCorrect": true
+        "k": "A",
+        "t": "DevTools"
       },
       {
-        "text": "Inspector",
-        "isCorrect": false
+        "k": "B",
+        "t": "Inspector"
       },
       {
-        "text": "Emulator",
-        "isCorrect": false
+        "k": "C",
+        "t": "Emulator"
       },
       {
-        "text": "Hot reload",
-        "isCorrect": false
+        "k": "D",
+        "t": "Hot reload"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_15",
     "q": "Which Dart feature supports object-oriented programming?",
-    "a": [
+    "opts": [
       {
-        "text": "Widgets",
-        "isCorrect": false
+        "k": "A",
+        "t": "Widgets"
       },
       {
-        "text": "Classes and objects",
-        "isCorrect": true
+        "k": "B",
+        "t": "Classes and objects"
       },
       {
-        "text": "Hot reload",
-        "isCorrect": false
+        "k": "C",
+        "t": "Hot reload"
       },
       {
-        "text": "Layout builders",
-        "isCorrect": false
+        "k": "D",
+        "t": "Layout builders"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_16",
     "q": "Which approach helps reduce unnecessary widget rebuilds?",
-    "a": [
+    "opts": [
       {
-        "text": "Using global variables",
-        "isCorrect": false
+        "k": "A",
+        "t": "Using global variables"
       },
       {
-        "text": "Fine-grained state updates",
-        "isCorrect": true
+        "k": "B",
+        "t": "Fine-grained state updates"
       },
       {
-        "text": "Hot restart",
-        "isCorrect": false
+        "k": "C",
+        "t": "Hot restart"
       },
       {
-        "text": "Large widgets",
-        "isCorrect": false
+        "k": "D",
+        "t": "Large widgets"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_17",
     "q": "Which action best demonstrates Flutter's reactive Ul model?",
-    "a": [
+    "opts": [
       {
-        "text": "Manually updating Ul elements",
-        "isCorrect": false
+        "k": "A",
+        "t": "Manually updating Ul elements"
       },
       {
-        "text": "Rebuilding Ul in response to state changes",
-        "isCorrect": true
+        "k": "B",
+        "t": "Rebuilding Ul in response to state changes"
       },
       {
-        "text": "Editing layout XML",
-        "isCorrect": false
+        "k": "C",
+        "t": "Editing layout XML"
       },
       {
-        "text": "Calling native APIs",
-        "isCorrect": false
+        "k": "D",
+        "t": "Calling native APIs"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_18",
     "q": "Why are const widgets recommended?",
-    "a": [
+    "opts": [
       {
-        "text": "They improve readability",
-        "isCorrect": false
+        "k": "A",
+        "t": "They improve readability"
       },
       {
-        "text": "They reduce rebuild cost",
-        "isCorrect": true
+        "k": "B",
+        "t": "They reduce rebuild cost"
       },
       {
-        "text": "They add state",
-        "isCorrect": false
+        "k": "C",
+        "t": "They add state"
       },
       {
-        "text": "They handle navigation",
-        "isCorrect": false
+        "k": "D",
+        "t": "They handle navigation"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_19",
     "q": "Why should animations be disposed properly?",
-    "a": [
+    "opts": [
       {
-        "text": "Improve Ul",
-        "isCorrect": false
+        "k": "A",
+        "t": "Improve Ul"
       },
       {
-        "text": "Prevent memory leaks",
-        "isCorrect": true
+        "k": "B",
+        "t": "Prevent memory leaks"
       },
       {
-        "text": "Speed up builds",
-        "isCorrect": false
+        "k": "C",
+        "t": "Speed up builds"
       },
       {
-        "text": "Fix layout",
-        "isCorrect": false
+        "k": "D",
+        "t": "Fix layout"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_20",
     "q": "Which Flutter test focuses on Ul components?",
-    "a": [
+    "opts": [
       {
-        "text": "Unit test",
-        "isCorrect": false
+        "k": "A",
+        "t": "Unit test"
       },
       {
-        "text": "Widget test",
-        "isCorrect": true
+        "k": "B",
+        "t": "Widget test"
       },
       {
-        "text": "Integration test",
-        "isCorrect": false
+        "k": "C",
+        "t": "Integration test"
       },
       {
-        "text": "Load test",
-        "isCorrect": false
+        "k": "D",
+        "t": "Load test"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_21",
     "q": "Why should database operations be asynchronous?",
-    "a": [
+    "opts": [
       {
-        "text": "Simplify syntax",
-        "isCorrect": false
+        "k": "A",
+        "t": "Simplify syntax"
       },
       {
-        "text": "Avoid blocking Ul thread",
-        "isCorrect": true
+        "k": "B",
+        "t": "Avoid blocking Ul thread"
       },
       {
-        "text": "Reduce code",
-        "isCorrect": false
+        "k": "C",
+        "t": "Reduce code"
       },
       {
-        "text": "Improve theme",
-        "isCorrect": false
+        "k": "D",
+        "t": "Improve theme"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_22",
     "q": "Why is Chapter 13 considered optional (Plus)?",
-    "a": [
+    "opts": [
       {
-        "text": "Itreplaces core concepts",
-        "isCorrect": false
+        "k": "A",
+        "t": "Itreplaces core concepts"
       },
       {
-        "text": "Apps can work without deep optimization",
-        "isCorrect": true
+        "k": "B",
+        "t": "Apps can work without deep optimization"
       },
       {
-        "text": "It manages navigation",
-        "isCorrect": false
+        "k": "C",
+        "t": "It manages navigation"
       },
       {
-        "text": "It handles authentication",
-        "isCorrect": false
+        "k": "D",
+        "t": "It handles authentication"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_23",
     "q": "Which widget applies a theme to an entire Flutter application?",
-    "a": [
+    "opts": [
       {
-        "text": "Scaffold",
-        "isCorrect": false
+        "k": "A",
+        "t": "Scaffold"
       },
       {
-        "text": "Theme",
-        "isCorrect": false
+        "k": "B",
+        "t": "Theme"
       },
       {
-        "text": "MaterialApp",
-        "isCorrect": true
+        "k": "C",
+        "t": "MaterialApp"
       },
       {
-        "text": "Container",
-        "isCorrect": false
+        "k": "D",
+        "t": "Container"
       }
+    ],
+    "ans": [
+      "C"
     ]
   },
   {
     "id": "PRM393_24",
     "q": "What is the purpose of SliverAppBar?",
-    "a": [
+    "opts": [
       {
-        "text": "Static app bar",
-        "isCorrect": false
+        "k": "A",
+        "t": "Static app bar"
       },
       {
-        "text": "Scrollable flexible app bar",
-        "isCorrect": true
+        "k": "B",
+        "t": "Scrollable flexible app bar"
       },
       {
-        "text": "Bottom navigation",
-        "isCorrect": false
+        "k": "C",
+        "t": "Bottom navigation"
       },
       {
-        "text": "Drawer control",
-        "isCorrect": false
+        "k": "D",
+        "t": "Drawer control"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_25",
     "q": "Which widget is best used to add fixed empty space?",
-    "a": [
+    "opts": [
       {
-        "text": "Padding",
-        "isCorrect": false
+        "k": "A",
+        "t": "Padding"
       },
       {
-        "text": "Expanded",
-        "isCorrect": false
+        "k": "B",
+        "t": "Expanded"
       },
       {
-        "text": "SizedBox",
-        "isCorrect": true
+        "k": "C",
+        "t": "SizedBox"
       },
       {
-        "text": "Container",
-        "isCorrect": false
+        "k": "D",
+        "t": "Container"
       }
+    ],
+    "ans": [
+      "C"
     ]
   },
   {
     "id": "PRM393_26",
     "q": "Which package supports BLoC architecture?",
-    "a": [
+    "opts": [
       {
-        "text": "provider",
-        "isCorrect": false
+        "k": "A",
+        "t": "provider"
       },
       {
-        "text": "flutter_bloc",
-        "isCorrect": true
+        "k": "B",
+        "t": "flutter_bloc"
       },
       {
-        "text": "sqflite",
-        "isCorrect": false
+        "k": "C",
+        "t": "sqflite"
       },
       {
-        "text": "http",
-        "isCorrect": false
+        "k": "D",
+        "t": "http"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_27",
     "q": "Which Flutter widget reacts to authentication state changes?",
-    "a": [
+    "opts": [
       {
-        "text": "FutureBuilder",
-        "isCorrect": false
+        "k": "A",
+        "t": "FutureBuilder"
       },
       {
-        "text": "StreamBullder",
-        "isCorrect": true
+        "k": "B",
+        "t": "StreamBullder"
       },
       {
-        "text": "ListView",
-        "isCorrect": false
+        "k": "C",
+        "t": "ListView"
       },
       {
-        "text": "Form",
-        "isCorrect": false
+        "k": "D",
+        "t": "Form"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_28",
     "q": "What is technical debt?",
-    "a": [
+    "opts": [
       {
-        "text": "Ullag",
-        "isCorrect": false
+        "k": "A",
+        "t": "Ullag"
       },
       {
-        "text": "Future cost of poor design decisions",
-        "isCorrect": true
+        "k": "B",
+        "t": "Future cost of poor design decisions"
       },
       {
-        "text": "Memory usage",
-        "isCorrect": false
+        "k": "C",
+        "t": "Memory usage"
       },
       {
-        "text": "API limit",
-        "isCorrect": false
+        "k": "D",
+        "t": "API limit"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_29",
     "q": "What is implicit animation?",
-    "a": [
+    "opts": [
       {
-        "text": "Manual animation control",
-        "isCorrect": false
+        "k": "A",
+        "t": "Manual animation control"
       },
       {
-        "text": "Animation without controller",
-        "isCorrect": true
+        "k": "B",
+        "t": "Animation without controller"
       },
       {
-        "text": "API animation",
-        "isCorrect": false
+        "k": "C",
+        "t": "API animation"
       },
       {
-        "text": "Navigation animation",
-        "isCorrect": false
+        "k": "D",
+        "t": "Navigation animation"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_30",
     "q": "Which Dart data structure is best suited for storing an ordered collection of items?",
-    "a": [
+    "opts": [
       {
-        "text": "Set",
-        "isCorrect": false
+        "k": "A",
+        "t": "Set"
       },
       {
-        "text": "Map",
-        "isCorrect": false
+        "k": "B",
+        "t": "Map"
       },
       {
-        "text": "List",
-        "isCorrect": true
+        "k": "C",
+        "t": "List"
       },
       {
-        "text": "Queue",
-        "isCorrect": false
+        "k": "D",
+        "t": "Queue"
       }
+    ],
+    "ans": [
+      "C"
     ]
   },
   {
     "id": "PRM393_31",
     "q": "Which Flutter concept supports reactive Ul updates?",
-    "a": [
+    "opts": [
       {
-        "text": "Manual refresh",
-        "isCorrect": false
+        "k": "A",
+        "t": "Manual refresh"
       },
       {
-        "text": "Widget rebuilding",
-        "isCorrect": true
+        "k": "B",
+        "t": "Widget rebuilding"
       },
       {
-        "text": "Hot restart",
-        "isCorrect": false
+        "k": "C",
+        "t": "Hot restart"
       },
       {
-        "text": "Native callbacks",
-        "isCorrect": false
+        "k": "D",
+        "t": "Native callbacks"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_32",
     "q": "Which type of test checks individual functions or classes?",
-    "a": [
+    "opts": [
       {
-        "text": "Widget test",
-        "isCorrect": true
+        "k": "A",
+        "t": "Widget test"
       },
       {
-        "text": "Integration test",
-        "isCorrect": false
+        "k": "B",
+        "t": "Integration test"
       },
       {
-        "text": "Unit test",
-        "isCorrect": false
+        "k": "C",
+        "t": "Unit test"
       },
       {
-        "text": "System test",
-        "isCorrect": false
+        "k": "D",
+        "t": "System test"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_33",
     "q": "What is the role of events in BLoC?",
-    "a": [
+    "opts": [
       {
-        "text": "Store Ul",
-        "isCorrect": false
+        "k": "A",
+        "t": "Store Ul"
       },
       {
-        "text": "Trigger state changes",
-        "isCorrect": true
+        "k": "B",
+        "t": "Trigger state changes"
       },
       {
-        "text": "Render widgets",
-        "isCorrect": false
+        "k": "C",
+        "t": "Render widgets"
       },
       {
-        "text": "Handle layout",
-        "isCorrect": false
+        "k": "D",
+        "t": "Handle layout"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_34",
     "q": "What is the main purpose of hot reload in Flutter?",
-    "a": [
+    "opts": [
       {
-        "text": "Improve runtime performance",
-        "isCorrect": false
+        "k": "A",
+        "t": "Improve runtime performance"
       },
       {
-        "text": "Instantly reflect code changes in Ul",
-        "isCorrect": true
+        "k": "B",
+        "t": "Instantly reflect code changes in Ul"
       },
       {
-        "text": "Publish apps faster",
-        "isCorrect": false
+        "k": "C",
+        "t": "Publish apps faster"
       },
       {
-        "text": "Reduce memory usage",
-        "isCorrect": false
+        "k": "D",
+        "t": "Reduce memory usage"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_35",
     "q": "Why are forms important in mobile applications?",
-    "a": [
+    "opts": [
       {
-        "text": "Ul decoration",
-        "isCorrect": false
+        "k": "A",
+        "t": "Ul decoration"
       },
       {
-        "text": "User data collection",
-        "isCorrect": true
+        "k": "B",
+        "t": "User data collection"
       },
       {
-        "text": "State management",
-        "isCorrect": false
+        "k": "C",
+        "t": "State management"
       },
       {
-        "text": "Navigation",
-        "isCorrect": false
+        "k": "D",
+        "t": "Navigation"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_36",
     "q": "Which method retrieves data from SharedPreferences?",
-    "a": [
+    "opts": [
       {
-        "text": "get()",
-        "isCorrect": true
+        "k": "A",
+        "t": "get()"
       },
       {
-        "text": "read()",
-        "isCorrect": false
+        "k": "B",
+        "t": "read()"
       },
       {
-        "text": "fetch()",
-        "isCorrect": false
+        "k": "C",
+        "t": "fetch()"
       },
       {
-        "text": "load()",
-        "isCorrect": false
+        "k": "D",
+        "t": "load()"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_37",
     "q": "What is the main benefit of Flutter's widget-based architecture?",
-    "a": [
+    "opts": [
       {
-        "text": "Widgets are only used for layout design",
-        "isCorrect": false
+        "k": "A",
+        "t": "Widgets are only used for layout design"
       },
       {
-        "text": "Widgets allow code reuse across platforms",
-        "isCorrect": true
+        "k": "B",
+        "t": "Widgets allow code reuse across platforms"
       },
       {
-        "text": "Widgets automatically manage databases",
-        "isCorrect": false
+        "k": "C",
+        "t": "Widgets automatically manage databases"
       },
       {
-        "text": "Widgets replace backend services",
-        "isCorrect": false
+        "k": "D",
+        "t": "Widgets replace backend services"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_38",
     "q": "Why are widgets lightweight in Flutter?",
-    "a": [
+    "opts": [
       {
-        "text": "They manage system resources",
-        "isCorrect": false
+        "k": "A",
+        "t": "They manage system resources"
       },
       {
-        "text": "They are immutable descriptions",
-        "isCorrect": true
+        "k": "B",
+        "t": "They are immutable descriptions"
       },
       {
-        "text": "They store Ul state",
-        "isCorrect": false
+        "k": "C",
+        "t": "They store Ul state"
       },
       {
-        "text": "They handle rendering directly",
-        "isCorrect": false
+        "k": "D",
+        "t": "They handle rendering directly"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_39",
     "q": "Why should authentication state be centralized?",
-    "a": [
+    "opts": [
       {
-        "text": "Reduce Ul code",
-        "isCorrect": false
+        "k": "A",
+        "t": "Reduce Ul code"
       },
       {
-        "text": "Ensure consistent access control",
-        "isCorrect": true
+        "k": "B",
+        "t": "Ensure consistent access control"
       },
       {
-        "text": "Improve animations",
-        "isCorrect": false
+        "k": "C",
+        "t": "Improve animations"
       },
       {
-        "text": "Simplify layout",
-        "isCorrect": false
+        "k": "D",
+        "t": "Simplify layout"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_40",
     "q": "Which widget can hide user input text when configured for password entry?",
-    "a": [
+    "opts": [
       {
-        "text": "TextField",
-        "isCorrect": true
+        "k": "A",
+        "t": "TextField"
       },
       {
-        "text": "ObscureText",
-        "isCorrect": false
+        "k": "B",
+        "t": "ObscureText"
       },
       {
-        "text": "Securelnput",
-        "isCorrect": false
+        "k": "C",
+        "t": "Securelnput"
       },
       {
-        "text": "PasswordField",
-        "isCorrect": false
+        "k": "D",
+        "t": "PasswordField"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_41",
     "q": "What is Flutter primarily used for?",
-    "a": [
+    "opts": [
       {
-        "text": "Designing databases for mobile apps",
-        "isCorrect": false
+        "k": "A",
+        "t": "Designing databases for mobile apps"
       },
       {
-        "text": "Creating native applications from a single codebase",
-        "isCorrect": true
+        "k": "B",
+        "t": "Creating native applications from a single codebase"
       },
       {
-        "text": "Developing server-side applications only",
-        "isCorrect": false
+        "k": "C",
+        "t": "Developing server-side applications only"
       },
       {
-        "text": "Building operating systems for mobile devices",
-        "isCorrect": false
+        "k": "D",
+        "t": "Building operating systems for mobile devices"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_42",
     "q": "Which method resets all form fields?",
-    "a": [
+    "opts": [
       {
-        "text": "clear()",
-        "isCorrect": false
+        "k": "A",
+        "t": "clear()"
       },
       {
-        "text": "reset()",
-        "isCorrect": true
+        "k": "B",
+        "t": "reset()"
       },
       {
-        "text": "dispose()",
-        "isCorrect": false
+        "k": "C",
+        "t": "dispose()"
       },
       {
-        "text": "remove()",
-        "isCorrect": false
+        "k": "D",
+        "t": "remove()"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_43",
     "q": "Which Dart keyword is used to define a constant value at compile time?",
-    "a": [
+    "opts": [
       {
-        "text": "final",
-        "isCorrect": false
+        "k": "A",
+        "t": "final"
       },
       {
-        "text": "static",
-        "isCorrect": false
+        "k": "B",
+        "t": "static"
       },
       {
-        "text": "const",
-        "isCorrect": true
+        "k": "C",
+        "t": "const"
       },
       {
-        "text": "var",
-        "isCorrect": false
+        "k": "D",
+        "t": "var"
       }
+    ],
+    "ans": [
+      "C"
     ]
   },
   {
     "id": "PRM393_44",
     "q": "What happens after successful login?",
-    "a": [
+    "opts": [
       {
-        "text": "App closes",
-        "isCorrect": false
+        "k": "A",
+        "t": "App closes"
       },
       {
-        "text": "User session starts",
-        "isCorrect": true
+        "k": "B",
+        "t": "User session starts"
       },
       {
-        "text": "Theme changes",
-        "isCorrect": false
+        "k": "C",
+        "t": "Theme changes"
       },
       {
-        "text": "Navigation resets",
-        "isCorrect": false
+        "k": "D",
+        "t": "Navigation resets"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_45",
     "q": "Which step is required before running a Flutter app for the first time?",
-    "a": [
+    "opts": [
       {
-        "text": "Publishing the app",
-        "isCorrect": false
+        "k": "A",
+        "t": "Publishing the app"
       },
       {
-        "text": "Setting up the Flutter SDK",
-        "isCorrect": true
+        "k": "B",
+        "t": "Setting up the Flutter SDK"
       },
       {
-        "text": "Configuring a database",
-        "isCorrect": false
+        "k": "C",
+        "t": "Configuring a database"
       },
       {
-        "text": "Writing backend APIs",
-        "isCorrect": false
+        "k": "D",
+        "t": "Writing backend APIs"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_46",
     "q": "Which widget reacts to async data from local storage?",
-    "a": [
+    "opts": [
       {
-        "text": "FutureBuilder",
-        "isCorrect": true
+        "k": "A",
+        "t": "FutureBuilder"
       },
       {
-        "text": "StreamBullder",
-        "isCorrect": false
+        "k": "B",
+        "t": "StreamBullder"
       },
       {
-        "text": "ListView",
-        "isCorrect": false
+        "k": "C",
+        "t": "ListView"
       },
       {
-        "text": "Provider",
-        "isCorrect": false
+        "k": "D",
+        "t": "Provider"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_47",
     "q": "What does golden testing verify?",
-    "a": [
+    "opts": [
       {
-        "text": "API responses",
-        "isCorrect": false
+        "k": "A",
+        "t": "API responses"
       },
       {
-        "text": "Ul appearance consistency",
-        "isCorrect": true
+        "k": "B",
+        "t": "Ul appearance consistency"
       },
       {
-        "text": "Database state",
-        "isCorrect": false
+        "k": "C",
+        "t": "Database state"
       },
       {
-        "text": "Authentication",
-        "isCorrect": false
+        "k": "D",
+        "t": "Authentication"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_48",
     "q": "Why should state be kept as local as possible?",
-    "a": [
+    "opts": [
       {
-        "text": "Better animations",
-        "isCorrect": false
+        "k": "A",
+        "t": "Better animations"
       },
       {
-        "text": "Reduce unnecessary rebuilds",
-        "isCorrect": true
+        "k": "B",
+        "t": "Reduce unnecessary rebuilds"
       },
       {
-        "text": "Simplify UI",
-        "isCorrect": false
+        "k": "C",
+        "t": "Simplify UI"
       },
       {
-        "text": "Improve navigation",
-        "isCorrect": false
+        "k": "D",
+        "t": "Improve navigation"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_49",
     "q": "What is the benefit of composing widgets in Flutter?",
-    "a": [
+    "opts": [
       {
-        "text": "Faster compilation",
-        "isCorrect": false
+        "k": "A",
+        "t": "Faster compilation"
       },
       {
-        "text": "Better code reuse and Ul consistency",
-        "isCorrect": true
+        "k": "B",
+        "t": "Better code reuse and Ul consistency"
       },
       {
-        "text": "Reduced memory usage",
-        "isCorrect": false
+        "k": "C",
+        "t": "Reduced memory usage"
       },
       {
-        "text": "Automatic navigation",
-        "isCorrect": false
+        "k": "D",
+        "t": "Automatic navigation"
       }
+    ],
+    "ans": [
+      "B"
     ]
   },
   {
     "id": "PRM393_50",
     "q": "Which status code indicates server error?",
-    "a": [
+    "opts": [
       {
-        "text": "200",
-        "isCorrect": true
+        "k": "A",
+        "t": "200"
       },
       {
-        "text": "301",
-        "isCorrect": false
+        "k": "B",
+        "t": "301"
       },
       {
-        "text": "404",
-        "isCorrect": false
+        "k": "C",
+        "t": "404"
       },
       {
-        "text": "500",
-        "isCorrect": false
+        "k": "D",
+        "t": "500"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_51",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Route protection",
-        "isCorrect": true
+        "k": "A",
+        "t": "Route protection"
       },
       {
-        "text": "Middleware",
-        "isCorrect": false
+        "k": "B",
+        "t": "Middleware"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_52",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Improve animations",
-        "isCorrect": true
+        "k": "A",
+        "t": "Improve animations"
       },
       {
-        "text": "Change layout",
-        "isCorrect": false
+        "k": "B",
+        "t": "Change layout"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_53",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Manage navigation history",
-        "isCorrect": true
+        "k": "A",
+        "t": "Manage navigation history"
       },
       {
-        "text": "Render Ul pixels",
-        "isCorrect": false
+        "k": "B",
+        "t": "Render Ul pixels"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_54",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "lt replaces the operating system",
-        "isCorrect": true
+        "k": "A",
+        "t": "lt replaces the operating system"
       },
       {
-        "text": "It runs backend business logic",
-        "isCorrect": false
+        "k": "B",
+        "t": "It runs backend business logic"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_55",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Using native Ul components only",
-        "isCorrect": true
+        "k": "A",
+        "t": "Using native Ul components only"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_56",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Column",
-        "isCorrect": true
+        "k": "A",
+        "t": "Column"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_57",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Large widget trees",
-        "isCorrect": true
+        "k": "A",
+        "t": "Large widget trees"
       },
       {
-        "text": "Global state",
-        "isCorrect": false
+        "k": "B",
+        "t": "Global state"
       },
       {
-        "text": "Frequent rebuilds",
-        "isCorrect": false
+        "k": "C",
+        "t": "Frequent rebuilds"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_58",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Theme consistency",
-        "isCorrect": true
+        "k": "A",
+        "t": "Theme consistency"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_59",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Faster execution",
-        "isCorrect": true
+        "k": "A",
+        "t": "Faster execution"
       },
       {
-        "text": "Better animations",
-        "isCorrect": false
+        "k": "B",
+        "t": "Better animations"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_60",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "On every frame",
-        "isCorrect": true
+        "k": "A",
+        "t": "On every frame"
       },
       {
-        "text": "Only when app restarts",
-        "isCorrect": false
+        "k": "B",
+        "t": "Only when app restarts"
       },
       {
-        "text": "Only during hot restart",
-        "isCorrect": false
+        "k": "C",
+        "t": "Only during hot restart"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_61",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Animation",
-        "isCorrect": true
+        "k": "A",
+        "t": "Animation"
       },
       {
-        "text": "Theme",
-        "isCorrect": false
+        "k": "B",
+        "t": "Theme"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_62",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Improve animations",
-        "isCorrect": true
+        "k": "A",
+        "t": "Improve animations"
       },
       {
-        "text": "Store data",
-        "isCorrect": false
+        "k": "B",
+        "t": "Store data"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_63",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Memory usage",
-        "isCorrect": true
+        "k": "A",
+        "t": "Memory usage"
       },
       {
-        "text": "Theme control",
-        "isCorrect": false
+        "k": "B",
+        "t": "Theme control"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_64",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "shared_preferences",
-        "isCorrect": true
+        "k": "A",
+        "t": "shared_preferences"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_65",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Rendering Ul components",
-        "isCorrect": true
+        "k": "A",
+        "t": "Rendering Ul components"
       },
       {
-        "text": "Managing asynchronous tasks",
-        "isCorrect": false
+        "k": "B",
+        "t": "Managing asynchronous tasks"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_66",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Emulator",
-        "isCorrect": true
+        "k": "A",
+        "t": "Emulator"
       },
       {
-        "text": "Hot reload",
-        "isCorrect": false
+        "k": "B",
+        "t": "Hot reload"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_67",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "A database table",
-        "isCorrect": true
+        "k": "A",
+        "t": "A database table"
       },
       {
-        "text": "A network request",
-        "isCorrect": false
+        "k": "B",
+        "t": "A network request"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_68",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Bottom navigation",
-        "isCorrect": true
+        "k": "A",
+        "t": "Bottom navigation"
       },
       {
-        "text": "Drawer control",
-        "isCorrect": false
+        "k": "B",
+        "t": "Drawer control"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_69",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "State management",
-        "isCorrect": true
+        "k": "A",
+        "t": "State management"
       },
       {
-        "text": "Routing",
-        "isCorrect": false
+        "k": "B",
+        "t": "Routing"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_70",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Cache-Control",
-        "isCorrect": true
+        "k": "A",
+        "t": "Cache-Control"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_71",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Validation rules",
-        "isCorrect": true
+        "k": "A",
+        "t": "Validation rules"
       },
       {
-        "text": "Layout constraints",
-        "isCorrect": false
+        "k": "B",
+        "t": "Layout constraints"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_72",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "lt replaces native languages",
-        "isCorrect": true
+        "k": "A",
+        "t": "lt replaces native languages"
       },
       {
-        "text": "It does not support asynchronous programming",
-        "isCorrect": false
+        "k": "B",
+        "t": "It does not support asynchronous programming"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_73",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Application state",
-        "isCorrect": true
+        "k": "A",
+        "t": "Application state"
       },
       {
-        "text": "Rendered pixels",
-        "isCorrect": false
+        "k": "B",
+        "t": "Rendered pixels"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_74",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Controllers",
-        "isCorrect": true
+        "k": "A",
+        "t": "Controllers"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_75",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Database layer",
-        "isCorrect": true
+        "k": "A",
+        "t": "Database layer"
       },
       {
-        "text": "Animation helper",
-        "isCorrect": false
+        "k": "B",
+        "t": "Animation helper"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_76",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Configuring authentication",
-        "isCorrect": true
+        "k": "A",
+        "t": "Configuring authentication"
       },
       {
-        "text": "Optimizing database queries",
-        "isCorrect": false
+        "k": "B",
+        "t": "Optimizing database queries"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_77",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Hardcoding secrets",
-        "isCorrect": true
+        "k": "A",
+        "t": "Hardcoding secrets"
       },
       {
-        "text": "Skipping validation",
-        "isCorrect": false
+        "k": "B",
+        "t": "Skipping validation"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_78",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Itreplaces authentication",
-        "isCorrect": true
+        "k": "A",
+        "t": "Itreplaces authentication"
       },
       {
-        "text": "It handles APIs",
-        "isCorrect": false
+        "k": "B",
+        "t": "It handles APIs"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_79",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Handle state changes",
-        "isCorrect": true
+        "k": "A",
+        "t": "Handle state changes"
       },
       {
-        "text": "Control animations",
-        "isCorrect": false
+        "k": "B",
+        "t": "Control animations"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_80",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "initSstate()",
-        "isCorrect": true
+        "k": "A",
+        "t": "initSstate()"
       },
       {
-        "text": "dispose()",
-        "isCorrect": false
+        "k": "B",
+        "t": "dispose()"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_81",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "provider",
-        "isCorrect": true
+        "k": "A",
+        "t": "provider"
       },
       {
-        "text": "http",
-        "isCorrect": false
+        "k": "B",
+        "t": "http"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_82",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Improve animations",
-        "isCorrect": true
+        "k": "A",
+        "t": "Improve animations"
       },
       {
-        "text": "Change theme",
-        "isCorrect": false
+        "k": "B",
+        "t": "Change theme"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_83",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Theme management",
-        "isCorrect": true
+        "k": "A",
+        "t": "Theme management"
       },
       {
-        "text": "Authentication",
-        "isCorrect": false
+        "k": "B",
+        "t": "Authentication"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_84",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Column",
-        "isCorrect": true
+        "k": "A",
+        "t": "Column"
       },
       {
-        "text": "FutureBuilder",
-        "isCorrect": false
+        "k": "B",
+        "t": "FutureBuilder"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_85",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Provider",
-        "isCorrect": true
+        "k": "A",
+        "t": "Provider"
       },
       {
-        "text": "Form",
-        "isCorrect": false
+        "k": "B",
+        "t": "Form"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_86",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Hot reload",
-        "isCorrect": true
+        "k": "A",
+        "t": "Hot reload"
       },
       {
-        "text": "Layout constraints",
-        "isCorrect": false
+        "k": "B",
+        "t": "Layout constraints"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_87",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Theme update",
-        "isCorrect": true
+        "k": "A",
+        "t": "Theme update"
       },
       {
-        "text": "Navigation reset",
-        "isCorrect": false
+        "k": "B",
+        "t": "Navigation reset"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_88",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Caching API responses",
-        "isCorrect": true
+        "k": "A",
+        "t": "Caching API responses"
       },
       {
-        "text": "Using global state",
-        "isCorrect": false
+        "k": "B",
+        "t": "Using global state"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_89",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Faster builds",
-        "isCorrect": true
+        "k": "A",
+        "t": "Faster builds"
       },
       {
-        "text": "Ulreuse",
-        "isCorrect": false
+        "k": "B",
+        "t": "Ulreuse"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_90",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "ListView",
-        "isCorrect": true
+        "k": "A",
+        "t": "ListView"
       },
       {
-        "text": "Provider",
-        "isCorrect": false
+        "k": "B",
+        "t": "Provider"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_91",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Database ID",
-        "isCorrect": true
+        "k": "A",
+        "t": "Database ID"
       },
       {
-        "text": "Theme value",
-        "isCorrect": false
+        "k": "B",
+        "t": "Theme value"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_92",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "UIllayout",
-        "isCorrect": true
+        "k": "A",
+        "t": "UIllayout"
       },
       {
-        "text": "State logic",
-        "isCorrect": false
+        "k": "B",
+        "t": "State logic"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_93",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Futures",
-        "isCorrect": true
+        "k": "A",
+        "t": "Futures"
       },
       {
-        "text": "Streams",
-        "isCorrect": false
+        "k": "B",
+        "t": "Streams"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_94",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "AnimatedAlign",
-        "isCorrect": true
+        "k": "A",
+        "t": "AnimatedAlign"
       },
       {
-        "text": "AnimatedSize",
-        "isCorrect": false
+        "k": "B",
+        "t": "AnimatedSize"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_95",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "It blocks Ul thread",
-        "isCorrect": true
+        "k": "A",
+        "t": "It blocks Ul thread"
       },
       {
-        "text": "It causes memory leaks",
-        "isCorrect": false
+        "k": "B",
+        "t": "It causes memory leaks"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_96",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Ul separation",
-        "isCorrect": true
+        "k": "A",
+        "t": "Ul separation"
       },
       {
-        "text": "Mocking only",
-        "isCorrect": false
+        "k": "B",
+        "t": "Mocking only"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_97",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "Child order",
-        "isCorrect": true
+        "k": "A",
+        "t": "Child order"
       },
       {
-        "text": "Widget size",
-        "isCorrect": false
+        "k": "B",
+        "t": "Widget size"
       }
+    ],
+    "ans": [
+      "A"
     ]
   },
   {
     "id": "PRM393_98",
     "q": "Failed to parse question",
-    "a": [
+    "opts": [
       {
-        "text": "FTP",
-        "isCorrect": true
+        "k": "A",
+        "t": "FTP"
       },
       {
-        "text": "ZIP",
-        "isCorrect": false
+        "k": "B",
+        "t": "ZIP"
       }
+    ],
+    "ans": [
+      "A"
     ]
   }
 ];
