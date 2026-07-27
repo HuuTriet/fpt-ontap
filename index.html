@@ -923,6 +923,7 @@ select.ctl{padding-right:6px;max-width:48vw}
 .cloze { background: #3D5872; color: transparent; padding: 0 4px; border-radius: 4px; cursor: pointer; transition: all 0.2s; user-select: none; }
 .cloze.revealed { background: #E4F2E9; color: #1E6E45; }
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -1791,18 +1792,34 @@ function isRunCorrect(q){
 function renderSummary(){
   const total=S.runOk+S.runNo;
   const pct=total?Math.round(S.runOk/total*100):0;
+  const showScore = total > 0;
   $('stage').innerHTML=`
-  <div class="summary anim-pop">
+  <div class="summary anim-pop" style="text-align:center;">
     <div class="burst" id="burst"></div>
-    <h2>Kết quả lượt ôn</h2>
-    <div class="score"><span id="scoreNum">0</span><small>%</small></div>
-    <div class="sumline"><span class="ok">✓ Đúng ${S.runOk}</span> · <span class="no">✗ Sai ${S.runNo}</span> · ${total}/${Math.max(S.deck.length,total)} câu</div>
-    <div class="actions" style="margin-top:6px">
+    <h2 style="color:var(--green); font-size:1.6rem; margin-bottom: 10px;">🎉 Chúc mừng bạn đã học xong! 🎉</h2>
+    <img src="cat-flower.png" alt="Chúc mừng" style="width:220px; height:auto; margin: 10px auto 20px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display:block; object-fit: cover;">
+    ${showScore ? `<div class="score"><span id="scoreNum">0</span><small>%</small></div>
+    <div class="sumline"><span class="ok">✓ Đúng ${S.runOk}</span> · <span class="no">✗ Sai ${S.runNo}</span> · ${total}/${Math.max(S.deck.length,total)} câu</div>` : ''}
+    <div class="actions" style="margin-top:20px; justify-content:center; gap: 10px;">
       ${S.wrong.size?`<button class="btn red" data-act="gowrong">Ôn lại câu sai (${S.wrong.size})</button>`:''}
-      <button class="btn gold" data-act="restart">Làm lại bộ này</button>
+      <button class="btn gold" data-act="restart">Học lại toàn bộ</button>
     </div>
   </div>`;
-  countUp($('scoreNum'),pct,()=>{ if(pct>=80) starBurst(); });
+  
+  if (showScore) {
+      countUp($('scoreNum'),pct,()=>{ if(pct>=80) starBurst(); });
+  } else {
+      starBurst();
+  }
+
+  if(window.confetti) {
+      confetti({
+          particleCount: 200,
+          spread: 90,
+          origin: { y: 0.6 },
+          colors: ['#008DDE', '#F37124', '#53B848', '#E11B22', '#FFD700']
+      });
+  }
 }
 function countUp(el,to,done){
   if(prefersReduced){el.textContent=to;done&&done();return;}
