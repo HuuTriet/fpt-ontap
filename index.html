@@ -1935,8 +1935,8 @@ function loadAnswerState(){
 function advance(dir){
   S.anim=dir>=0?'right':'left';
   if(S.pos>=S.deck.length-1){
-    if(S.mode==='quiz'){S.done=true;}
-    else{S.anim='pop';toast('Hết bộ thẻ — xáo trộn và ôn lại nhé!');}
+    S.done=true;
+    S.pos++;
   } else S.pos++;
   S.flipped=false;S.fresh=true;loadAnswerState();render();saveProgress();
 }
