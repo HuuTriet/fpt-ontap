@@ -1628,6 +1628,7 @@ function renderHeaderStats(){
   $('chipWrong').disabled=S.wrong.size===0;
   $('chipStar').classList.toggle('on',S.deckDef.type==='starred');
   $('chipWrong').classList.toggle('on',S.deckDef.type==='wrong');
+  $('chipWrong').style.display = S.mode.startsWith('tuluan') ? 'none' : 'inline-flex';
 }
 function renderMeta(){
   $('deckName').innerHTML=`${esc(deckLabel())} <span class="n">· ${S.deck.length} câu</span>`;
@@ -2069,6 +2070,9 @@ function switchMode(m){
   if(S.mode===m)return;
   S.mpos[S.mode]=S.deck.length?S.deck[S.pos]:null;
   S.mode=m;
+  if(m.startsWith('tuluan') && S.deckDef.type === 'wrong') {
+    S.deckDef = {type: 'all'};
+  }
   let code = KEY.replace('fpt-ontap:progress:', '');
   if(m==='tuluan1'){
     DATA = window.__SUBJECT_DATA[code + '_TULUAN_1'] || [];
