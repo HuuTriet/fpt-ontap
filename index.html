@@ -1479,7 +1479,8 @@ select.ctl{padding-right:6px;max-width:48vw}
 <nav class="tabs" aria-label="Chế độ học">
   <button class="tab on" id="tabFlash"><span class="tk">■</span>Flashcard</button>
   <button class="tab" id="tabQuiz"><span class="tk">■</span>Trắc nghiệm</button>
-  <button class="tab" id="tabTuluan" style="display:none"><span class="tk">■</span>Tự luận</button>
+  <button class="tab" id="tabTuluan1" style="display:none"><span class="tk">■</span>Tự luận (CH 1-2)</button>
+  <button class="tab" id="tabTuluan2" style="display:none"><span class="tk">■</span>Tự luận (CH 3-5)</button>
 </nav>
 
 <div class="controls">
@@ -1587,7 +1588,7 @@ function buildDeck(opts){
     const t=d.term.toLowerCase();
     ids=DATA.filter(q=>q.q.toLowerCase().includes(t)||(q.opts&&q.opts.some(o=>o.t.toLowerCase().includes(t)))||(q.outline&&q.outline.some(o=>o.toLowerCase().includes(t)))).map(q=>q.id);
   }
-  if((S.mode==='flash'||S.mode==='tuluan') && S.hideLearned && d.type!=='starred') ids=ids.filter(id=>!S.learned.has(id));
+  if((S.mode==='flash'||S.mode.startsWith('tuluan')) && S.hideLearned && d.type!=='starred') ids=ids.filter(id=>!S.learned.has(id));
   if(S.shuffle){
     ids=[...ids];
     for(let i=ids.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]];}
@@ -1634,8 +1635,8 @@ function renderMeta(){
     ? `${cur}/${S.deck.length} · Đúng ${S.runOk} · Sai ${S.runNo}`
     : `${cur}/${S.deck.length}`;
   $('barFill').style.width=(S.deck.length?(S.pos+(S.done?1:0))/S.deck.length*100:0)+'%';
-  $('hideLearnedWrap').style.display=(S.mode==='flash'||S.mode==='tuluan')?'flex':'none';
-  $('kbdHint').innerHTML=(S.mode==='flash'||S.mode==='tuluan')
+  $('hideLearnedWrap').style.display=(S.mode==='flash'||S.mode.startsWith('tuluan'))?'flex':'none';
+  $('kbdHint').innerHTML=(S.mode==='flash'||S.mode.startsWith('tuluan'))
     ? (isTouch
         ? 'Chạm thẻ để lật · Vuốt <span style="color:var(--green);font-weight:800">phải = đã thuộc</span> · Vuốt <span style="color:var(--danger);font-weight:800">trái = chưa thuộc</span>'
         : '<b>Space</b> lật thẻ · <b>←</b><b>→</b> chuyển câu · <b>1</b> chưa thuộc · <b>2</b> đã thuộc · hoặc kéo thẻ sang hai bên')
@@ -1671,14 +1672,14 @@ function render(){
     return;
   }
   const q=qmap.get(S.deck[S.pos]);
-  if(S.mode==='flash' || S.mode==='tuluan') renderFlash(q); else renderQuiz(q);
+  if(S.mode==='flash' || S.mode.startsWith('tuluan')) renderFlash(q); else renderQuiz(q);
 }
 
 function formatCloze(text) {
     return text.replace(/\[\[(.*?)\]\]/g, '<span class="cloze" data-cloze="1">$1</span>');
   }
   function renderFlash(q){
-  if(S.mode==='tuluan'){
+  if(S.mode.startsWith('tuluan')){
     $('stage').innerHTML=`
     <div class="cardbox">
       <div class="swipetag known">Đã thuộc ✓</div>
@@ -2008,7 +2009,7 @@ document.addEventListener('click',e=>{
     }
     return;
   }
-  if(card&&(S.mode==='flash'||S.mode==='tuluan')){
+  if(card&&(S.mode==='flash'||S.mode.startsWith('tuluan'))){
     if(suppressClick){suppressClick=false;return;}
     if(e.target.closest('.cloze')||e.target.closest('#btnTlQuen')||e.target.closest('#btnTlMo')||e.target.closest('#btnTlThuoc')||e.target.closest('#tuluanBtns'))return;
     S.flipped=!S.flipped;card.classList.toggle('flipped',S.flipped);
@@ -2047,24 +2048,31 @@ function switchMode(m){
   S.mpos[S.mode]=S.deck.length?S.deck[S.pos]:null;
   S.mode=m;
   let code = KEY.replace('fpt-ontap:progress:', '');
-  if(m==='tuluan'){
-    DATA = window.__SUBJECT_DATA[code + '_TULUAN'] || [];
+  if(m==='tuluan1'){
+    DATA = (window.__SUBJECT_DATA[code + '_TULUAN'] || []).slice(0, 14);
+  } else if(m==='tuluan2'){
+    DATA = (window.__SUBJECT_DATA[code + '_TULUAN'] || []).slice(14);
   } else {
     DATA = window.__SUBJECT_DATA[code] || [];
   }
   qmap.clear();
-  DATA.forEach(q=>qmap.set(q.id,q));
+  DATA.forEach((q,i) => {
+    if(m.startsWith('tuluan')) q._realIndex = i;
+    qmap.set(q.id,q);
+  });
   buildRangeOptions();
   $('tabFlash').classList.toggle('on',m==='flash');
   $('tabQuiz').classList.toggle('on',m==='quiz');
-  if($('tabTuluan')) $('tabTuluan').classList.toggle('on',m==='tuluan');
-  if($('tuluanBtns')) $('tuluanBtns').style.display=m==='tuluan'?'flex':'none';
+  if($('tabTuluan1')) $('tabTuluan1').classList.toggle('on',m==='tuluan1');
+  if($('tabTuluan2')) $('tabTuluan2').classList.toggle('on',m==='tuluan2');
+  if($('tuluanBtns')) $('tuluanBtns').style.display=m.startsWith('tuluan')?'flex':'none';
   buildDeck({keepPos:true,toId:S.mpos[m]});
   render();saveProgress();
 }
 $('tabFlash').onclick=()=>switchMode('flash');
 $('tabQuiz').onclick=()=>switchMode('quiz');
-if($('tabTuluan')) $('tabTuluan').onclick=()=>switchMode('tuluan');
+if($('tabTuluan1')) $('tabTuluan1').onclick=()=>switchMode('tuluan1');
+if($('tabTuluan2')) $('tabTuluan2').onclick=()=>switchMode('tuluan2');
 /* controls */
 $('rangeSel').onchange=e=>{
   const v=e.target.value;
@@ -2099,9 +2107,9 @@ document.addEventListener('keydown',e=>{
   if(currentView!=='quiz')return;
   if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;
   const q=S.deck.length&&!S.done?qmap.get(S.deck[S.pos]):null;
-  if(e.key==='ArrowRight'){e.preventDefault();if(S.mode==='quiz'&&q&&!S.graded)return;if(S.mode==='tuluan')return advance(1);advance(1);}
+  if(e.key==='ArrowRight'){e.preventDefault();if(S.mode==='quiz'&&q&&!S.graded)return;if(S.mode.startsWith('tuluan'))return advance(1);advance(1);}
   else if(e.key==='ArrowLeft'){e.preventDefault();prev();}
-  else if(e.key===' '&&(S.mode==='flash'||S.mode==='tuluan')){e.preventDefault();const c=$('card');if(c){S.flipped=!S.flipped;c.classList.toggle('flipped',S.flipped);}}
+  else if(e.key===' '&&(S.mode==='flash'||S.mode.startsWith('tuluan'))){e.preventDefault();const c=$('card');if(c){S.flipped=!S.flipped;c.classList.toggle('flipped',S.flipped);}}
   else if(e.key==='Enter'){
     e.preventDefault();
     if(S.mode==='quiz'&&q){
@@ -2129,10 +2137,8 @@ function buildRangeOptions(){
   const sel=$('rangeSel');
   const max=DATA.length;
   let html='';
-  if (S.mode === 'tuluan') {
+  if (S.mode.startsWith('tuluan')) {
     html = `<option value="all">Toàn bộ (1–${max})</option>`;
-    html += '<option value="r1-14">Phần 1: Triết học, Vật chất, Ý thức (Câu 1-14)</option>';
-    html += '<option value="r15-' + data.length + '">Phần 2: Biện chứng, Quy luật, CNDVLS (Câu 15-' + data.length + ')</option>';
   } else if (KEY && KEY.includes('SMT1005')) {
     html = `<option value="all">Toàn bộ (1–${max})</option>`;
     const chunks = ["Đề 1", "Đề 2", "Đề 3", "Đề 4", "Đề 5", "Đề 6", "Tuần 2", "Tuần 3", "Tuần 5", "Tuần 6", "Tuần 7", "Tuần 8"];
@@ -2167,9 +2173,11 @@ async function initSubject(code){
   DATA=(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||[];
   let DATA_TULUAN = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN'];
   if(DATA_TULUAN && DATA_TULUAN.length > 0) {
-    if(document.getElementById('tabTuluan')) document.getElementById('tabTuluan').style.display = 'inline-flex';
+    if(document.getElementById('tabTuluan1')) document.getElementById('tabTuluan1').style.display = 'inline-flex';
+    if(document.getElementById('tabTuluan2')) document.getElementById('tabTuluan2').style.display = 'inline-flex';
   } else {
-    if(document.getElementById('tabTuluan')) document.getElementById('tabTuluan').style.display = 'none';
+    if(document.getElementById('tabTuluan1')) document.getElementById('tabTuluan1').style.display = 'none';
+    if(document.getElementById('tabTuluan2')) document.getElementById('tabTuluan2').style.display = 'none';
   }
   qmap=new Map(DATA.map(q=>[q.id,q]));
   /* reset toàn bộ state cho môn mới */
