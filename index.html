@@ -2127,9 +2127,14 @@ document.addEventListener('keydown',e=>{
 /* range options (theo số câu của môn hiện tại) */
 function buildRangeOptions(){
   const sel=$('rangeSel');
-  const max=DATA.length?Math.max(...DATA.map(q=>q.id)):0;
-  let html=`<option value="all">Toàn bộ (1–${max})</option>`;
-  if (KEY && KEY.includes('SMT1005')) {
+  const max=DATA.length;
+  let html='';
+  if (S.mode === 'tuluan') {
+    html = `<option value="all">Toàn bộ (1–${max})</option>`;
+    html += '<option value="r1-14">Phần 1: Triết học, Vật chất, Ý thức (Câu 1-14)</option>';
+    html += '<option value="r15-' + data.length + '">Phần 2: Biện chứng, Quy luật, CNDVLS (Câu 15-' + data.length + ')</option>';
+  } else if (KEY && KEY.includes('SMT1005')) {
+    html = `<option value="all">Toàn bộ (1–${max})</option>`;
     const chunks = ["Đề 1", "Đề 2", "Đề 3", "Đề 4", "Đề 5", "Đề 6", "Tuần 2", "Tuần 3", "Tuần 5", "Tuần 6", "Tuần 7", "Tuần 8"];
     let start = 1;
     let chunkSize = Math.ceil(max / chunks.length);
@@ -2141,6 +2146,7 @@ function buildRangeOptions(){
        start = end + 1;
     }
   } else {
+    html = `<option value="all">Toàn bộ (1–${max})</option>`;
     for(let a=1;a<=max;a+=50){
       const b=Math.min(a+49,max);
       html+=`<option value="r${a}-${b}">Câu ${a}–${b}</option>`;
