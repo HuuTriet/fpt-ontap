@@ -2203,17 +2203,32 @@ async function initSubject(code){
   if(document.getElementById('tabTuluan2')) document.getElementById('tabTuluan2').style.display = (hasTuluan2 && hasTuluan2.length > 0) ? 'inline-flex' : 'none';
   qmap=new Map(DATA.map(q=>[q.id,q]));
   /* reset toàn bộ state cho môn mới */
-  S.mode='flash';S.deckDef={type:'all'};S.shuffle=false;S.hideLearned=false;
+  let defaultMode = 'flash';
+  if (DATA.length === 0 && hasTuluan1 && hasTuluan1.length > 0) {
+      defaultMode = 'tuluan1';
+  } else if (DATA.length === 0 && hasTuluan2 && hasTuluan2.length > 0) {
+      defaultMode = 'tuluan2';
+  }
+  S.mode = defaultMode; S.deckDef={type:'all'};S.shuffle=false;S.hideLearned=false;
   S.deck=[];S.pos=0;S.flipped=false;S.sel=new Set();S.graded=false;
   S.runOk=0;S.runNo=0;S.done=false;
   S.learned=new Set();S.starred=new Set();S.wrong=new Set();
   S.anim='pop';S.fresh=true;S.mem={};S.answers={};S.mpos={flash:null,quiz:null};
   /* header theo môn */
-  $('qTitle').textContent=subj.code+' · '+DATA.length+' câu';
+  const titleCountText = DATA.length > 0 ? DATA.length + ' câu' : 'Tự luận';
+  $('qTitle').textContent=subj.code+' · '+titleCountText;
   $('qSub').textContent=subj.fullName||subj.name||'';
   $('stTotal').textContent=DATA.length;
   $('curSubj').textContent=subj.name||subj.code;
-  $('tabFlash').classList.add('on');$('tabQuiz').classList.remove('on');
+  
+  $('tabFlash').style.display = DATA.length > 0 ? 'inline-flex' : 'none';
+  $('tabQuiz').style.display = DATA.length > 0 ? 'inline-flex' : 'none';
+  
+  $('tabFlash').classList.toggle('on', S.mode === 'flash');
+  $('tabQuiz').classList.toggle('on', S.mode === 'quiz');
+  if($('tabTuluan1')) $('tabTuluan1').classList.toggle('on', S.mode === 'tuluan1');
+  if($('tabTuluan2')) $('tabTuluan2').classList.toggle('on', S.mode === 'tuluan2');
+  
   $('shuffleChk').checked=false;$('hideLearnedChk').checked=false;
   buildRangeOptions();
   const p=await loadProgress();
@@ -2223,7 +2238,22 @@ async function initSubject(code){
     S.learned=new Set(p.learned||[]);S.starred=new Set(p.starred||[]);S.wrong=new Set(p.wrong||[]);
     S.hideLearned=!!p.hideLearned;$('hideLearnedChk').checked=S.hideLearned;
     if(p.shuffle){S.shuffle=true;$('shuffleChk').checked=true;}
-    if(p.mode==='quiz'){S.mode='quiz';$('tabQuiz').classList.add('on');$('tabFlash').classList.remove('on');}
+    if(p.mode && DATA.length > 0) {
+        if(p.mode==='quiz'){S.mode='quiz';$('tabQuiz').classList.add('on');$('tabFlash').classList.remove('on');}
+        else if(p.mode.startsWith('tuluan')) { S.mode = p.mode; } // if it's tuluan, keep it even if DATA>0 (wait, I should just set S.mode to p.mode and update tabs)
+    }
+    // Better logic: if DATA.length == 0, force it to stay in tuluan
+    if(p.mode) {
+        if(DATA.length === 0 && !p.mode.startsWith('tuluan')) {
+            // keep the default tuluan mode assigned above
+        } else {
+            S.mode = p.mode;
+        }
+        $('tabFlash').classList.toggle('on', S.mode === 'flash');
+        $('tabQuiz').classList.toggle('on', S.mode === 'quiz');
+        if($('tabTuluan1')) $('tabTuluan1').classList.toggle('on', S.mode === 'tuluan1');
+        if($('tabTuluan2')) $('tabTuluan2').classList.toggle('on', S.mode === 'tuluan2');
+    }
     if(p.deckDef&&p.deckDef.type){S.deckDef=p.deckDef;}
   }
   buildDeck();
