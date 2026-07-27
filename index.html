@@ -2190,85 +2190,103 @@ function buildRangeOptions(){
 /* init một môn (gọi từ router) */
 let subjGen=0;
 async function initSubject(code){
-  /* saveProgress() debounce 400ms và đọc S/KEY lúc TIMER CHẠY, không phải lúc đặt hẹn.
-     Huỷ save đang chờ của môn cũ, nếu không nó sẽ ghi state vừa reset đè lên KEY môn mới. */
   const gen=++subjGen;
   clearTimeout(saveTimer);clearTimeout(flingTimer);
   const subj=SUBJECTS.find(s=>s.code===code)||{code:code,name:code};
   KEY='fpt-ontap:progress:'+code;
-  DATA=(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||[];
+  let DATA_FLASH = (window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||[];
   let hasTuluan1 = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN_1'];
   let hasTuluan2 = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN_2'];
+  
   if(document.getElementById('tabTuluan1')) document.getElementById('tabTuluan1').style.display = (hasTuluan1 && hasTuluan1.length > 0) ? 'inline-flex' : 'none';
   if(document.getElementById('tabTuluan2')) document.getElementById('tabTuluan2').style.display = (hasTuluan2 && hasTuluan2.length > 0) ? 'inline-flex' : 'none';
-  qmap=new Map(DATA.map(q=>[q.id,q]));
-  /* reset toàn bộ state cho môn mới */
+  
   let defaultMode = 'flash';
-  if (DATA.length === 0 && hasTuluan1 && hasTuluan1.length > 0) {
+  if (DATA_FLASH.length === 0 && hasTuluan1 && hasTuluan1.length > 0) {
       defaultMode = 'tuluan1';
-  } else if (DATA.length === 0 && hasTuluan2 && hasTuluan2.length > 0) {
+  } else if (DATA_FLASH.length === 0 && hasTuluan2 && hasTuluan2.length > 0) {
       defaultMode = 'tuluan2';
   }
+  
   S.mode = defaultMode; S.deckDef={type:'all'};S.shuffle=false;S.hideLearned=false;
   S.deck=[];S.pos=0;S.flipped=false;S.sel=new Set();S.graded=false;
   S.runOk=0;S.runNo=0;S.done=false;
   S.learned=new Set();S.starred=new Set();S.wrong=new Set();
   S.anim='pop';S.fresh=true;S.mem={};S.answers={};S.mpos={flash:null,quiz:null};
-  /* header theo môn */
-  const titleCountText = DATA.length > 0 ? DATA.length + ' câu' : 'Tự luận';
+  
+  if(S.mode === 'tuluan1') DATA = hasTuluan1 || [];
+  else if(S.mode === 'tuluan2') DATA = hasTuluan2 || [];
+  else DATA = DATA_FLASH;
+  
+  qmap=new Map();
+  DATA.forEach((q,i) => {
+    if(S.mode.startsWith('tuluan')) q._realIndex = i;
+    qmap.set(q.id,q);
+  });
+  
+  const titleCountText = DATA_FLASH.length > 0 ? DATA_FLASH.length + ' câu' : 'Tự luận';
   $('qTitle').textContent=subj.code+' · '+titleCountText;
   $('qSub').textContent=subj.fullName||subj.name||'';
-  $('stTotal').textContent=DATA.length;
+  $('stTotal').textContent=DATA_FLASH.length > 0 ? DATA_FLASH.length : DATA.length;
   $('curSubj').textContent=subj.name||subj.code;
   
-  $('tabFlash').style.display = DATA.length > 0 ? 'inline-flex' : 'none';
-  $('tabQuiz').style.display = DATA.length > 0 ? 'inline-flex' : 'none';
+  $('tabFlash').style.display = DATA_FLASH.length > 0 ? 'inline-flex' : 'none';
+  $('tabQuiz').style.display = DATA_FLASH.length > 0 ? 'inline-flex' : 'none';
   
   $('tabFlash').classList.toggle('on', S.mode === 'flash');
   $('tabQuiz').classList.toggle('on', S.mode === 'quiz');
   if($('tabTuluan1')) $('tabTuluan1').classList.toggle('on', S.mode === 'tuluan1');
   if($('tabTuluan2')) $('tabTuluan2').classList.toggle('on', S.mode === 'tuluan2');
+  if($('tuluanBtns')) $('tuluanBtns').style.display=S.mode.startsWith('tuluan')?'flex':'none';
   
   $('shuffleChk').checked=false;$('hideLearnedChk').checked=false;
   buildRangeOptions();
   const p=await loadProgress();
-  /* đổi môn lần nữa trong lúc await -> bỏ kết quả cũ, tránh nạp progress môn A vào KEY môn B */
   if(gen!==subjGen) return;
   if(p){
     S.learned=new Set(p.learned||[]);S.starred=new Set(p.starred||[]);S.wrong=new Set(p.wrong||[]);
     S.hideLearned=!!p.hideLearned;$('hideLearnedChk').checked=S.hideLearned;
     if(p.shuffle){S.shuffle=true;$('shuffleChk').checked=true;}
-    if(p.mode && DATA.length > 0) {
-        if(p.mode==='quiz'){S.mode='quiz';$('tabQuiz').classList.add('on');$('tabFlash').classList.remove('on');}
-        else if(p.mode.startsWith('tuluan')) { S.mode = p.mode; } // if it's tuluan, keep it even if DATA>0 (wait, I should just set S.mode to p.mode and update tabs)
-    }
-    // Better logic: if DATA.length == 0, force it to stay in tuluan
     if(p.mode) {
-        if(DATA.length === 0 && !p.mode.startsWith('tuluan')) {
-            // keep the default tuluan mode assigned above
-        } else {
-            S.mode = p.mode;
+        let wantMode = p.mode;
+        if(DATA_FLASH.length === 0 && !wantMode.startsWith('tuluan')) {
+            wantMode = defaultMode;
+        }
+        if (wantMode !== S.mode) {
+            S.mode = wantMode;
+            if(S.mode === 'tuluan1') DATA = hasTuluan1 || [];
+            else if(S.mode === 'tuluan2') DATA = hasTuluan2 || [];
+            else DATA = DATA_FLASH;
+            qmap.clear();
+            DATA.forEach((q,i) => {
+              if(S.mode.startsWith('tuluan')) q._realIndex = i;
+              qmap.set(q.id,q);
+            });
+            buildRangeOptions();
         }
         $('tabFlash').classList.toggle('on', S.mode === 'flash');
         $('tabQuiz').classList.toggle('on', S.mode === 'quiz');
         if($('tabTuluan1')) $('tabTuluan1').classList.toggle('on', S.mode === 'tuluan1');
         if($('tabTuluan2')) $('tabTuluan2').classList.toggle('on', S.mode === 'tuluan2');
+        if($('tuluanBtns')) $('tuluanBtns').style.display=S.mode.startsWith('tuluan')?'flex':'none';
     }
-    if(p.deckDef&&p.deckDef.type){S.deckDef=p.deckDef;}
+    if(p.deckDef&&p.deckDef.type){
+        if (S.mode.startsWith('tuluan') && p.deckDef.type === 'wrong') {
+            S.deckDef = {type: 'all'};
+        } else {
+            S.deckDef=p.deckDef;
+        }
+    }
   }
   buildDeck();
-  /* khôi phục đúng thứ tự đã xáo của phiên trước, nếu vẫn đúng bộ câu hiện tại
-     (cùng số lượng + cùng tập id) — nếu không, giữ thứ tự vừa xáo mới. */
   if(p&&p.shuffle&&Array.isArray(p.deck)&&p.deck.length===S.deck.length){
     const cur=new Set(S.deck);
     if(p.deck.every(id=>cur.has(id))) S.deck=p.deck.slice();
   }
   if(p&&Number.isInteger(p.pos)&&p.pos>0&&p.pos<S.deck.length){S.pos=p.pos;S.anim='pop';}
-  /* vị trí riêng từng chế độ (sau buildDeck vì buildDeck không-keepPos xoá mpos);
-     save cũ không có mpos -> chế độ kia bắt đầu từ câu 1, đúng tinh thần tiến trình tách rời */
   if(p&&p.mpos&&typeof p.mpos==='object'){
-    S.mpos.flash=qmap.has(p.mpos.flash)?p.mpos.flash:null;
-    S.mpos.quiz=qmap.has(p.mpos.quiz)?p.mpos.quiz:null;
+    S.mpos = Object.assign({flash:null, quiz:null}, p.mpos);
+    if(S.mode && S.mpos[S.mode] && !qmap.has(S.mpos[S.mode])) S.mpos[S.mode] = null;
   }
   if(p){
     if(p.answers&&typeof p.answers==='object')S.answers=p.answers;
