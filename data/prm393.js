@@ -1,7 +1,7 @@
 window.__SUBJECT_DATA = window.__SUBJECT_DATA || {};
 window.__SUBJECT_DATA['PRM393'] = [
   {
-    "id": "PRM393_1",
+    "id": 1,
     "q": "Why is clean architecture beneficial?",
     "opts": [
       {
@@ -26,7 +26,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_2",
+    "id": 2,
     "q": "What is Dart primarily designed for in the Flutter ecosystem?",
     "opts": [
       {
@@ -51,7 +51,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_3",
+    "id": 3,
     "q": "Why is secure authentication critical in mobile apps?",
     "opts": [
       {
@@ -76,7 +76,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_4",
+    "id": 4,
     "q": "Which HTTP method is typically used to retrieve data?",
     "opts": [
       {
@@ -101,7 +101,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_5",
+    "id": 5,
     "q": "What happens if a non-nullable variable is not initialized in Dart?",
     "opts": [
       {
@@ -126,7 +126,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_6",
+    "id": 6,
     "q": "Which command builds a release APK?",
     "opts": [
       {
@@ -151,7 +151,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_7",
+    "id": 7,
     "q": "Which widget allows overlapping of its child widgets?",
     "opts": [
       {
@@ -176,7 +176,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_8",
+    "id": 8,
     "q": "Which platforms can Flutter applications target using a single codebase?",
     "opts": [
       {
@@ -201,7 +201,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_9",
+    "id": 9,
     "q": "What is the main risk of improper state management?",
     "opts": [
       {
@@ -226,7 +226,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_10",
+    "id": 10,
     "q": "What does CurvedAnimation provide?",
     "opts": [
       {
@@ -251,7 +251,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_11",
+    "id": 11,
     "q": "How can data be passed to a new screen?",
     "opts": [
       {
@@ -276,7 +276,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_12",
+    "id": 12,
     "q": "What is the purpose of parsing JSON?",
     "opts": [
       {
@@ -301,7 +301,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_13",
+    "id": 13,
     "q": "Which phase involves gathering requirements?",
     "opts": [
       {
@@ -326,7 +326,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_14",
+    "id": 14,
     "q": "Which Flutter tool helps debug network requests?",
     "opts": [
       {
@@ -351,7 +351,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_15",
+    "id": 15,
     "q": "Which Dart feature supports object-oriented programming?",
     "opts": [
       {
@@ -376,7 +376,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_16",
+    "id": 16,
     "q": "Which approach helps reduce unnecessary widget rebuilds?",
     "opts": [
       {
@@ -401,7 +401,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_17",
+    "id": 17,
     "q": "Which action best demonstrates Flutter's reactive Ul model?",
     "opts": [
       {
@@ -426,7 +426,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_18",
+    "id": 18,
     "q": "Why are const widgets recommended?",
     "opts": [
       {
@@ -451,7 +451,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_19",
+    "id": 19,
     "q": "Why should animations be disposed properly?",
     "opts": [
       {
@@ -476,7 +476,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_20",
+    "id": 20,
     "q": "Which Flutter test focuses on Ul components?",
     "opts": [
       {
@@ -501,7 +501,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_21",
+    "id": 21,
     "q": "Why should database operations be asynchronous?",
     "opts": [
       {
@@ -526,7 +526,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_22",
+    "id": 22,
     "q": "Why is Chapter 13 considered optional (Plus)?",
     "opts": [
       {
@@ -551,7 +551,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_23",
+    "id": 23,
     "q": "Which widget applies a theme to an entire Flutter application?",
     "opts": [
       {
@@ -576,7 +576,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_24",
+    "id": 24,
     "q": "What is the purpose of SliverAppBar?",
     "opts": [
       {
@@ -601,7 +601,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_25",
+    "id": 25,
     "q": "Which widget is best used to add fixed empty space?",
     "opts": [
       {
@@ -626,7 +626,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_26",
+    "id": 26,
     "q": "Which package supports BLoC architecture?",
     "opts": [
       {
@@ -651,7 +651,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_27",
+    "id": 27,
     "q": "Which Flutter widget reacts to authentication state changes?",
     "opts": [
       {
@@ -676,7 +676,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_28",
+    "id": 28,
     "q": "What is technical debt?",
     "opts": [
       {
@@ -701,7 +701,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_29",
+    "id": 29,
     "q": "What is implicit animation?",
     "opts": [
       {
@@ -726,7 +726,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_30",
+    "id": 30,
     "q": "Which Dart data structure is best suited for storing an ordered collection of items?",
     "opts": [
       {
@@ -751,7 +751,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_31",
+    "id": 31,
     "q": "Which Flutter concept supports reactive Ul updates?",
     "opts": [
       {
@@ -776,7 +776,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_32",
+    "id": 32,
     "q": "Which type of test checks individual functions or classes?",
     "opts": [
       {
@@ -801,7 +801,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_33",
+    "id": 33,
     "q": "What is the role of events in BLoC?",
     "opts": [
       {
@@ -826,7 +826,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_34",
+    "id": 34,
     "q": "What is the main purpose of hot reload in Flutter?",
     "opts": [
       {
@@ -851,7 +851,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_35",
+    "id": 35,
     "q": "Why are forms important in mobile applications?",
     "opts": [
       {
@@ -876,7 +876,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_36",
+    "id": 36,
     "q": "Which method retrieves data from SharedPreferences?",
     "opts": [
       {
@@ -901,7 +901,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_37",
+    "id": 37,
     "q": "What is the main benefit of Flutter's widget-based architecture?",
     "opts": [
       {
@@ -926,7 +926,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_38",
+    "id": 38,
     "q": "Why are widgets lightweight in Flutter?",
     "opts": [
       {
@@ -951,7 +951,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_39",
+    "id": 39,
     "q": "Why should authentication state be centralized?",
     "opts": [
       {
@@ -976,7 +976,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_40",
+    "id": 40,
     "q": "Which widget can hide user input text when configured for password entry?",
     "opts": [
       {
@@ -1001,7 +1001,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_41",
+    "id": 41,
     "q": "What is Flutter primarily used for?",
     "opts": [
       {
@@ -1026,7 +1026,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_42",
+    "id": 42,
     "q": "Which method resets all form fields?",
     "opts": [
       {
@@ -1051,7 +1051,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_43",
+    "id": 43,
     "q": "Which Dart keyword is used to define a constant value at compile time?",
     "opts": [
       {
@@ -1076,7 +1076,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_44",
+    "id": 44,
     "q": "What happens after successful login?",
     "opts": [
       {
@@ -1101,7 +1101,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_45",
+    "id": 45,
     "q": "Which step is required before running a Flutter app for the first time?",
     "opts": [
       {
@@ -1126,7 +1126,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_46",
+    "id": 46,
     "q": "Which widget reacts to async data from local storage?",
     "opts": [
       {
@@ -1151,7 +1151,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_47",
+    "id": 47,
     "q": "What does golden testing verify?",
     "opts": [
       {
@@ -1176,7 +1176,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_48",
+    "id": 48,
     "q": "Why should state be kept as local as possible?",
     "opts": [
       {
@@ -1201,7 +1201,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_49",
+    "id": 49,
     "q": "What is the benefit of composing widgets in Flutter?",
     "opts": [
       {
@@ -1226,7 +1226,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_50",
+    "id": 50,
     "q": "Which status code indicates server error?",
     "opts": [
       {
@@ -1251,7 +1251,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_51",
+    "id": 51,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1268,7 +1268,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_52",
+    "id": 52,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1285,7 +1285,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_53",
+    "id": 53,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1302,7 +1302,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_54",
+    "id": 54,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1319,7 +1319,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_55",
+    "id": 55,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1332,7 +1332,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_56",
+    "id": 56,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1345,7 +1345,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_57",
+    "id": 57,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1366,7 +1366,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_58",
+    "id": 58,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1379,7 +1379,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_59",
+    "id": 59,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1396,7 +1396,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_60",
+    "id": 60,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1417,7 +1417,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_61",
+    "id": 61,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1434,7 +1434,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_62",
+    "id": 62,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1451,7 +1451,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_63",
+    "id": 63,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1468,7 +1468,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_64",
+    "id": 64,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1481,7 +1481,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_65",
+    "id": 65,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1498,7 +1498,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_66",
+    "id": 66,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1515,7 +1515,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_67",
+    "id": 67,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1532,7 +1532,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_68",
+    "id": 68,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1549,7 +1549,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_69",
+    "id": 69,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1566,7 +1566,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_70",
+    "id": 70,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1579,7 +1579,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_71",
+    "id": 71,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1596,7 +1596,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_72",
+    "id": 72,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1613,7 +1613,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_73",
+    "id": 73,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1630,7 +1630,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_74",
+    "id": 74,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1643,7 +1643,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_75",
+    "id": 75,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1660,7 +1660,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_76",
+    "id": 76,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1677,7 +1677,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_77",
+    "id": 77,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1694,7 +1694,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_78",
+    "id": 78,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1711,7 +1711,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_79",
+    "id": 79,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1728,7 +1728,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_80",
+    "id": 80,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1745,7 +1745,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_81",
+    "id": 81,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1762,7 +1762,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_82",
+    "id": 82,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1779,7 +1779,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_83",
+    "id": 83,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1796,7 +1796,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_84",
+    "id": 84,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1813,7 +1813,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_85",
+    "id": 85,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1830,7 +1830,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_86",
+    "id": 86,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1847,7 +1847,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_87",
+    "id": 87,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1864,7 +1864,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_88",
+    "id": 88,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1881,7 +1881,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_89",
+    "id": 89,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1898,7 +1898,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_90",
+    "id": 90,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1915,7 +1915,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_91",
+    "id": 91,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1932,7 +1932,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_92",
+    "id": 92,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1949,7 +1949,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_93",
+    "id": 93,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1966,7 +1966,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_94",
+    "id": 94,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -1983,7 +1983,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_95",
+    "id": 95,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -2000,7 +2000,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_96",
+    "id": 96,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -2017,7 +2017,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_97",
+    "id": 97,
     "q": "Failed to parse question",
     "opts": [
       {
@@ -2034,7 +2034,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     ]
   },
   {
-    "id": "PRM393_98",
+    "id": 98,
     "q": "Failed to parse question",
     "opts": [
       {
