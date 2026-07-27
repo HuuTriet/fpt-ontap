@@ -2171,8 +2171,9 @@ async function initSubject(code){
   const subj=SUBJECTS.find(s=>s.code===code)||{code:code,name:code};
   KEY='fpt-ontap:progress:'+code;
   DATA=(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||[];
-  let DATA_TULUAN = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN'];
-  if(DATA_TULUAN && DATA_TULUAN.length > 0) {
+  let hasTuluan1 = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN_1'];
+  let hasTuluan2 = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN_2'];
+  if(hasTuluan1 || hasTuluan2) {
     if(document.getElementById('tabTuluan1')) document.getElementById('tabTuluan1').style.display = 'inline-flex';
     if(document.getElementById('tabTuluan2')) document.getElementById('tabTuluan2').style.display = 'inline-flex';
   } else {
