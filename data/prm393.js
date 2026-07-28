@@ -1247,581 +1247,877 @@ window.__SUBJECT_DATA['PRM393'] = [
       }
     ],
     "ans": [
-      "A"
+      "D"
     ]
   },
   {
     "id": 51,
-    "q": "Failed to parse question",
+    "q": "Which widget pattern protects authenticated routes?",
     "opts": [
       {
         "k": "A",
-        "t": "Route protection"
+        "t": "Navigator"
       },
       {
         "k": "B",
+        "t": "Guard"
+      },
+      {
+        "k": "C",
+        "t": "Route protection"
+      },
+      {
+        "k": "D",
         "t": "Middleware"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 52,
-    "q": "Failed to parse question",
+    "q": "Why are tests important for refactoring?",
     "opts": [
       {
         "k": "A",
-        "t": "Improve animations"
+        "t": "Reduce Ul work"
       },
       {
         "k": "B",
+        "t": "Ensure changes don't break functionality"
+      },
+      {
+        "k": "C",
+        "t": "Improve animations"
+      },
+      {
+        "k": "D",
         "t": "Change layout"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 53,
-    "q": "Failed to parse question",
+    "q": "What is the role of BuildContext in Flutter?",
     "opts": [
       {
         "k": "A",
-        "t": "Manage navigation history"
+        "t": "A. Store application data"
       },
       {
         "k": "B",
+        "t": "Locate widgets in the widget tree"
+      },
+      {
+        "k": "C",
+        "t": "Manage navigation history"
+      },
+      {
+        "k": "D",
         "t": "Render Ul pixels"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 54,
-    "q": "Failed to parse question",
+    "q": "What role does the Flutter framework play in application development?",
     "opts": [
       {
         "k": "A",
-        "t": "lt replaces the operating system"
+        "t": "[como tamer | ute Croke : A. It manages database servers"
       },
       {
         "k": "B",
+        "t": "It provides Ul components and rendering logic"
+      },
+      {
+        "k": "C",
+        "t": "lt replaces the operating system"
+      },
+      {
+        "k": "D",
         "t": "It runs backend business logic"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 55,
-    "q": "Failed to parse question",
+    "q": "How is the Flutter Ul constructed internally?",
     "opts": [
       {
         "k": "A",
+        "t": "A. Using XML layout files"
+      },
+      {
+        "k": "B",
+        "t": "Using HTML and CSS"
+      },
+      {
+        "k": "C",
+        "t": "Using a hierarchical widget tree"
+      },
+      {
+        "k": "D",
         "t": "Using native Ul components only"
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
     "id": 56,
-    "q": "Failed to parse question",
+    "q": "Which widget enables custom scroll effects in Flutter?",
     "opts": [
       {
         "k": "A",
+        "t": "ListView"
+      },
+      {
+        "k": "B",
+        "t": "SingleChildScrollView"
+      },
+      {
+        "k": "C",
+        "t": "CustomScrollView"
+      },
+      {
+        "k": "D",
         "t": "Column"
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
     "id": 57,
-    "q": "Failed to parse question",
+    "q": "Which practice improves rendering performance?",
     "opts": [
       {
         "k": "A",
-        "t": "Large widget trees"
+        "t": "A. Large widget trees D. Frequent rebuilds"
       },
       {
         "k": "B",
-        "t": "Global state"
+        "t": "Option B"
       },
       {
         "k": "C",
-        "t": "Frequent rebuilds"
+        "t": "Global state"
+      },
+      {
+        "k": "D",
+        "t": "B. Splitting widgets"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 58,
-    "q": "Failed to parse question",
+    "q": "What does an integration test verify?",
     "opts": [
       {
         "k": "A",
+        "t": "Single function"
+      },
+      {
+        "k": "B",
+        "t": "Widget rendering"
+      },
+      {
+        "k": "C",
+        "t": "End-to-end app behavior"
+      },
+      {
+        "k": "D",
         "t": "Theme consistency"
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
     "id": 59,
-    "q": "Failed to parse question",
+    "q": "Why is separating Ul and state logic recommended?",
     "opts": [
       {
         "k": "A",
-        "t": "Faster execution"
+        "t": "= A. Reduce code size"
       },
       {
         "k": "B",
+        "t": "Improve maintainability"
+      },
+      {
+        "k": "C",
+        "t": "Faster execution"
+      },
+      {
+        "k": "D",
         "t": "Better animations"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 60,
-    "q": "Failed to parse question",
+    "q": "When does Flutter rebuild the widget tree?",
     "opts": [
       {
         "k": "A",
-        "t": "On every frame"
+        "t": "A. On every frame"
       },
       {
         "k": "B",
-        "t": "Only when app restarts"
+        "t": "When state changes"
       },
       {
         "k": "C",
+        "t": "Only when app restarts"
+      },
+      {
+        "k": "D",
         "t": "Only during hot restart"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 61,
-    "q": "Failed to parse question",
+    "q": "Which concept does BLoC heavily rely on?",
     "opts": [
       {
         "k": "A",
-        "t": "Animation"
+        "t": "Future D. Theme"
       },
       {
         "k": "B",
-        "t": "Theme"
+        "t": "Option B"
+      },
+      {
+        "k": "C",
+        "t": "Animation"
+      },
+      {
+        "k": "D",
+        "t": "B. Stream"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 62,
-    "q": "Failed to parse question",
+    "q": "Why is version control critical?",
     "opts": [
       {
         "k": "A",
-        "t": "Improve animations"
+        "t": "¢ A. Ul changes"
       },
       {
         "k": "B",
+        "t": "Track and manage code changes"
+      },
+      {
+        "k": "C",
+        "t": "Improve animations"
+      },
+      {
+        "k": "D",
         "t": "Store data"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 63,
-    "q": "Failed to parse question",
+    "q": "Why is immutability important in BLoC states?",
     "opts": [
       {
         "k": "A",
-        "t": "Memory usage"
+        "t": "Ul speed"
       },
       {
         "k": "B",
+        "t": "Predictable state changes"
+      },
+      {
+        "k": "C",
+        "t": "Memory usage"
+      },
+      {
+        "k": "D",
         "t": "Theme control"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 64,
-    "q": "Failed to parse question",
+    "q": "Which Flutter plugin provides SQLite support?",
     "opts": [
       {
         "k": "A",
+        "t": "= A. hive"
+      },
+      {
+        "k": "B",
+        "t": "moor"
+      },
+      {
+        "k": "C",
+        "t": "sqflite"
+      },
+      {
+        "k": "D",
         "t": "shared_preferences"
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
     "id": 65,
-    "q": "Failed to parse question",
+    "q": "What is the main benefit of using Maps in Dart?",
     "opts": [
       {
         "k": "A",
-        "t": "Rendering Ul components"
+        "t": "= A. Storing values without keys"
       },
       {
         "k": "B",
+        "t": "Storing key-value pairs"
+      },
+      {
+        "k": "C",
+        "t": "Rendering Ul components"
+      },
+      {
+        "k": "D",
         "t": "Managing asynchronous tasks"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 66,
-    "q": "Failed to parse question",
+    "q": "Which tool helps analyze Ul performance in Flutter?",
     "opts": [
       {
         "k": "A",
-        "t": "Emulator"
+        "t": "= A. Inspector"
       },
       {
         "k": "B",
+        "t": "DevTools"
+      },
+      {
+        "k": "C",
+        "t": "Emulator"
+      },
+      {
+        "k": "D",
         "t": "Hot reload"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 67,
-    "q": "Failed to parse question",
+    "q": "What does a Dart class primarily represent?",
     "opts": [
       {
         "k": "A",
-        "t": "A database table"
+        "t": "= A. A Ul widget only"
       },
       {
         "k": "B",
+        "t": "A blueprint for creating objects"
+      },
+      {
+        "k": "C",
+        "t": "A database table"
+      },
+      {
+        "k": "D",
         "t": "A network request"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 68,
-    "q": "Failed to parse question",
+    "q": "What is the purpose of SliverAppBar?",
     "opts": [
       {
         "k": "A",
-        "t": "Bottom navigation"
+        "t": "A. Static app bar"
       },
       {
         "k": "B",
+        "t": "Scrollable flexible app bar"
+      },
+      {
+        "k": "C",
+        "t": "Bottom navigation"
+      },
+      {
+        "k": "D",
         "t": "Drawer control"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 69,
-    "q": "Failed to parse question",
+    "q": "What is Hive mainly used for?",
     "opts": [
       {
         "k": "A",
-        "t": "State management"
+        "t": "A. Remote database"
       },
       {
         "k": "B",
+        "t": "Lightweight local NoSQL storage"
+      },
+      {
+        "k": "C",
+        "t": "State management"
+      },
+      {
+        "k": "D",
         "t": "Routing"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 70,
-    "q": "Failed to parse question",
+    "q": "Which HTTP header is commonly used for authorization?",
     "opts": [
       {
         "k": "A",
+        "t": "A. Content-Type"
+      },
+      {
+        "k": "B",
+        "t": "Accept"
+      },
+      {
+        "k": "C",
+        "t": "Authorization"
+      },
+      {
+        "k": "D",
         "t": "Cache-Control"
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
     "id": 71,
-    "q": "Failed to parse question",
+    "q": "What does TextEditingController manage?",
     "opts": [
       {
         "k": "A",
-        "t": "Validation rules"
+        "t": "Theme"
       },
       {
         "k": "B",
+        "t": "Text input value"
+      },
+      {
+        "k": "C",
+        "t": "Validation rules"
+      },
+      {
+        "k": "D",
         "t": "Layout constraints"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 72,
-    "q": "Failed to parse question",
+    "q": "Why is Dart considered suitable for Flutter development?",
     "opts": [
       {
         "k": "A",
-        "t": "lt replaces native languages"
+        "t": "ltis only used for backend systems"
       },
       {
         "k": "B",
+        "t": "It supports both Ul and application logic efficiuntly"
+      },
+      {
+        "k": "C",
+        "t": "lt replaces native languages"
+      },
+      {
+        "k": "D",
         "t": "It does not support asynchronous programming"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 73,
-    "q": "Failed to parse question",
+    "q": "What does the build() method return in a widget?",
     "opts": [
       {
         "k": "A",
-        "t": "Application state"
+        "t": "Ascreen"
       },
       {
         "k": "B",
+        "t": "A widget tree describing the Ul"
+      },
+      {
+        "k": "C",
+        "t": "Application state"
+      },
+      {
+        "k": "D",
         "t": "Rendered pixels"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 74,
-    "q": "Failed to parse question",
+    "q": "What represents the output of a BLoC?",
     "opts": [
       {
         "k": "A",
+        "t": "= A. Events"
+      },
+      {
+        "k": "B",
+        "t": "Widgets"
+      },
+      {
+        "k": "C",
+        "t": "States"
+      },
+      {
+        "k": "D",
         "t": "Controllers"
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
     "id": 75,
-    "q": "Failed to parse question",
+    "q": "What is Cubit in BLoC?",
     "opts": [
       {
         "k": "A",
-        "t": "Database layer"
+        "t": "A. Ul widget"
       },
       {
         "k": "B",
+        "t": "Simplified BLoC without events"
+      },
+      {
+        "k": "C",
+        "t": "Database layer"
+      },
+      {
+        "k": "D",
         "t": "Animation helper"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 76,
-    "q": "Failed to parse question",
+    "q": "Which activity is typically performed after creating a new Flutter project?",
     "opts": [
       {
         "k": "A",
-        "t": "Configuring authentication"
+        "t": "A. Deploying to app stores"
       },
       {
         "k": "B",
+        "t": "Running the default app on a device"
+      },
+      {
+        "k": "C",
+        "t": "Configuring authentication"
+      },
+      {
+        "k": "D",
         "t": "Optimizing database queries"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 77,
-    "q": "Failed to parse question",
+    "q": "Which practice improves deployment security?",
     "opts": [
       {
         "k": "A",
-        "t": "Hardcoding secrets"
+        "t": "Debug builds"
       },
       {
         "k": "B",
+        "t": "Secure signing keys"
+      },
+      {
+        "k": "C",
+        "t": "Hardcoding secrets"
+      },
+      {
+        "k": "D",
         "t": "Skipping validation"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 78,
-    "q": "Failed to parse question",
+    "q": "Why is Chapter 14 considered optional (Plus)?",
     "opts": [
       {
         "k": "A",
-        "t": "Itreplaces authentication"
+        "t": "A. Deployment is Ul logic"
       },
       {
         "k": "B",
+        "t": "Apps can be tested without publishing"
+      },
+      {
+        "k": "C",
+        "t": "lt replaces authentication"
+      },
+      {
+        "k": "D",
         "t": "It handles APIs"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 79,
-    "q": "Failed to parse question",
+    "q": "What is the primary purpose of ThemeData in Flutter?",
     "opts": [
       {
         "k": "A",
-        "t": "Handle state changes"
+        "t": "Manage navigation"
       },
       {
         "k": "B",
+        "t": "Define application-wide visual styles"
+      },
+      {
+        "k": "C",
+        "t": "Handle state changes"
+      },
+      {
+        "k": "D",
         "t": "Control animations"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 80,
-    "q": "Failed to parse question",
+    "q": "Which method is used to update the Ul when state changes?",
     "opts": [
       {
         "k": "A",
-        "t": "initSstate()"
+        "t": "build)"
       },
       {
         "k": "B",
+        "t": "setState()"
+      },
+      {
+        "k": "C",
+        "t": "initState()"
+      },
+      {
+        "k": "D",
         "t": "dispose()"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 81,
-    "q": "Failed to parse question",
+    "q": "Which Flutter package is commonly used for simple key-value storage?",
     "opts": [
       {
         "k": "A",
-        "t": "provider"
+        "t": "sqflite"
       },
       {
         "k": "B",
+        "t": "shared_preferences"
+      },
+      {
+        "k": "C",
+        "t": "provider"
+      },
+      {
+        "k": "D",
         "t": "http"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 82,
-    "q": "Failed to parse question",
+    "q": "Why should architecture be decided early?",
     "opts": [
       {
         "k": "A",
-        "t": "Improve animations"
+        "t": "Avoid Ul work"
       },
       {
         "k": "B",
+        "t": "Reduce refactoring cost"
+      },
+      {
+        "k": "C",
+        "t": "Improve animations"
+      },
+      {
+        "k": "D",
         "t": "Change theme"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 83,
-    "q": "Failed to parse question",
+    "q": "What is pagination used for?",
     "opts": [
       {
         "k": "A",
-        "t": "Theme management"
+        "t": "Ul animation"
       },
       {
         "k": "B",
+        "t": "Handling large datasets efficiently"
+      },
+      {
+        "k": "C",
+        "t": "Theme management"
+      },
+      {
+        "k": "D",
         "t": "Authentication"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 84,
-    "q": "Failed to parse question",
+    "q": "Which widget helps avoid rebuilding unchanged Ul parts?",
     "opts": [
       {
         "k": "A",
-        "t": "Column"
+        "t": "A. Container"
       },
       {
         "k": "B",
+        "t": "RepaintBoundary"
+      },
+      {
+        "k": "C",
+        "t": "Column"
+      },
+      {
+        "k": "D",
         "t": "FutureBuilder"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 85,
-    "q": "Failed to parse question",
+    "q": "Which widget is used to handle asynchronous API responses in UI?",
     "opts": [
       {
         "k": "A",
-        "t": "Provider"
+        "t": "FutureBuilder"
       },
       {
         "k": "B",
+        "t": "ListView"
+      },
+      {
+        "k": "C",
+        "t": "Provider"
+      },
+      {
+        "k": "D",
         "t": "Form"
       }
     ],
@@ -1831,82 +2127,122 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 86,
-    "q": "Failed to parse question",
+    "q": "Which Dart feature helps organize code into reusable libraries?",
     "opts": [
       {
         "k": "A",
-        "t": "Hot reload"
+        "t": "Widgets"
       },
       {
         "k": "B",
+        "t": "Packages and imports"
+      },
+      {
+        "k": "C",
+        "t": "Hot reload"
+      },
+      {
+        "k": "D",
         "t": "Layout constraints"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 87,
-    "q": "Failed to parse question",
+    "q": "What is refresh token used for?",
     "opts": [
       {
         "k": "A",
-        "t": "Theme update"
+        "t": "Ulrefresh"
       },
       {
         "k": "B",
+        "t": "Extend session without re-login"
+      },
+      {
+        "k": "C",
+        "t": "Theme update"
+      },
+      {
+        "k": "D",
         "t": "Navigation reset"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 88,
-    "q": "Failed to parse question",
+    "q": "What is rebuild scope optimization in Flutter?",
     "opts": [
       {
         "k": "A",
-        "t": "Caching API responses"
+        "t": "A. Reducing widget tree depth"
       },
       {
         "k": "B",
+        "t": "Limiting rebuild to affected widgets"
+      },
+      {
+        "k": "C",
+        "t": "Caching API responses"
+      },
+      {
+        "k": "D",
         "t": "Using global state"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 89,
-    "q": "Failed to parse question",
+    "q": "Why is BLoC suitable for large teams?",
     "opts": [
       {
         "k": "A",
-        "t": "Faster builds"
+        "t": "Less code"
       },
       {
         "k": "B",
+        "t": "Standardized architecture"
+      },
+      {
+        "k": "C",
+        "t": "Faster builds"
+      },
+      {
+        "k": "D",
         "t": "Ulreuse"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 90,
-    "q": "Failed to parse question",
+    "q": "Which widget reacts to async data from local storage?",
     "opts": [
       {
         "k": "A",
-        "t": "ListView"
+        "t": "A. FutureBuilder"
       },
       {
         "k": "B",
+        "t": "StreamBuilder"
+      },
+      {
+        "k": "C",
+        "t": "ListView"
+      },
+      {
+        "k": "D",
         "t": "Provider"
       }
     ],
@@ -1916,65 +2252,97 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 91,
-    "q": "Failed to parse question",
+    "q": "What is a token in authentication systems?",
     "opts": [
       {
         "k": "A",
-        "t": "Database ID"
+        "t": "Ulkey"
       },
       {
         "k": "B",
+        "t": "Temporary access credential"
+      },
+      {
+        "k": "C",
+        "t": "Database ID"
+      },
+      {
+        "k": "D",
         "t": "Theme value"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 92,
-    "q": "Failed to parse question",
+    "q": "What does a Tween define?",
     "opts": [
       {
         "k": "A",
-        "t": "UIllayout"
+        "t": "Animation speed"
       },
       {
         "k": "B",
+        "t": "Value range for animation"
+      },
+      {
+        "k": "C",
+        "t": "Ullayout"
+      },
+      {
+        "k": "D",
         "t": "State logic"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 93,
-    "q": "Failed to parse question",
+    "q": "Which Dart feature allows defining reusable, type-safe components?",
     "opts": [
       {
         "k": "A",
-        "t": "Futures"
+        "t": "Mixins"
       },
       {
         "k": "B",
+        "t": "Generics"
+      },
+      {
+        "k": "C",
+        "t": "Futures"
+      },
+      {
+        "k": "D",
         "t": "Streams"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 94,
-    "q": "Failed to parse question",
+    "q": "Which widget animates between two widgets?",
     "opts": [
       {
         "k": "A",
-        "t": "AnimatedAlign"
+        "t": "A. AnimatedSwitcher"
       },
       {
         "k": "B",
+        "t": "AnimatedOpacity"
+      },
+      {
+        "k": "C",
+        "t": "AnimatedAlign"
+      },
+      {
+        "k": "D",
         "t": "AnimatedSize"
       }
     ],
@@ -1984,70 +2352,102 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 95,
-    "q": "Failed to parse question",
+    "q": "Why should setState() be called sparingly?",
     "opts": [
       {
         "k": "A",
-        "t": "It blocks Ul thread"
+        "t": "ltincreases app size"
       },
       {
         "k": "B",
+        "t": "It may trigger unnecessary rebuilds"
+      },
+      {
+        "k": "C",
+        "t": "It blocks Ul thread"
+      },
+      {
+        "k": "D",
         "t": "It causes memory leaks"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 96,
-    "q": "Failed to parse question",
+    "q": "What is test isolation?",
     "opts": [
       {
         "k": "A",
-        "t": "Ul separation"
+        "t": "Running all tests together"
       },
       {
         "k": "B",
+        "t": "Independence of test cases"
+      },
+      {
+        "k": "C",
+        "t": "Ul separation"
+      },
+      {
+        "k": "D",
         "t": "Mocking only"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 97,
-    "q": "Failed to parse question",
+    "q": "What does crossAxisAlignment control?",
     "opts": [
       {
         "k": "A",
-        "t": "Child order"
+        "t": "Vertical alignment in Column"
       },
       {
         "k": "B",
+        "t": "Horizontal alignment in Column"
+      },
+      {
+        "k": "C",
+        "t": "Child order"
+      },
+      {
+        "k": "D",
         "t": "Widget size"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   },
   {
     "id": 98,
-    "q": "Failed to parse question",
+    "q": "Which tool is commonly used for version control?",
     "opts": [
       {
         "k": "A",
-        "t": "FTP"
+        "t": "SVN"
       },
       {
         "k": "B",
+        "t": "Git"
+      },
+      {
+        "k": "C",
+        "t": "FTP"
+      },
+      {
+        "k": "D",
         "t": "ZIP"
       }
     ],
     "ans": [
-      "A"
+      "B"
     ]
   }
 ];
