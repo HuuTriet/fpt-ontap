@@ -2557,7 +2557,7 @@ function renderPortal(){
 function loadSubjectData(code,cb){
   if((window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||loadedData.has(code)){cb(true);return;}
   const sc=document.createElement('script');
-  sc.src='data/'+code.toLowerCase()+'.js?v='+Date.now();
+  sc.src='data/'+code.toLowerCase()+'.js';
   sc.onload=()=>{loadedData.add(code);cb(!!(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code]));};
   sc.onerror=()=>cb(false);
   document.head.appendChild(sc);
