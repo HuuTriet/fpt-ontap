@@ -1628,24 +1628,6 @@ function cleanOptText(t, k){
 }
 function repairQuestion(q){
   if(!q) return q;
-  if(q.id===57 && q.opts){
-    q.opts=[
-      {k:"A",t:"Large widget trees"},
-      {k:"B",t:"Splitting widgets"},
-      {k:"C",t:"Global state"},
-      {k:"D",t:"Frequent rebuilds"}
-    ];
-    q.ans=["B"];
-  }
-  if(q.id===61 && q.opts){
-    q.opts=[
-      {k:"A",t:"Future"},
-      {k:"B",t:"Stream"},
-      {k:"C",t:"Animation"},
-      {k:"D",t:"Theme"}
-    ];
-    q.ans=["B"];
-  }
   if(q.opts&&Array.isArray(q.opts)){
     q.opts.forEach(o=>{ if(o.t) o.t=cleanOptText(o.t,o.k); });
   }

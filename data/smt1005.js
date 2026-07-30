@@ -3345,15 +3345,19 @@ window.__SUBJECT_DATA['SMT1005'] = [
       },
       {
         "k": "B",
-        "t": "Chủ nghĩa duy vật siêu hình © Chủ nghĩa duy tâm"
+        "t": "Chủ nghĩa duy vật siêu hình"
       },
       {
         "k": "C",
-        "t": "chủ nghĩa duy vật thời cổ đại"
+        "t": "Chủ nghĩa duy tâm"
+      },
+      {
+        "k": "D",
+        "t": "Chủ nghĩa duy vật cổ đại"
       }
     ],
     "ans": [
-      "D"
+      "C"
     ]
   },
   {
@@ -3363,19 +3367,23 @@ window.__SUBJECT_DATA['SMT1005'] = [
     "opts": [
       {
         "k": "A",
-        "t": "vật chất với vật thể"
+        "t": "Đồng nhất vật chất với vật thể"
       },
       {
         "k": "B",
-        "t": "Làm nền tảng cho quan niệm duy tâm phát triển C  Kìm hãm sự phát triển tư tưởng khoa học về thế giới."
+        "t": "Làm nền tảng cho quan niệm duy tâm phát triển"
       },
       {
         "k": "C",
         "t": "Chống quan niệm duy tâm tôn giáo và thúc đẩy sự phát triển tư tưởng khoa học về thế giới."
+      },
+      {
+        "k": "D",
+        "t": "Kìm hãm sự phát triển tư tưởng khoa học về thế giới."
       }
     ],
     "ans": [
-      "D"
+      "C"
     ]
   },
   {
@@ -4557,15 +4565,19 @@ window.__SUBJECT_DATA['SMT1005'] = [
       },
       {
         "k": "B",
-        "t": "Ngôn ngữ. (c.) Nguồn gốc tự nhiên và nguồn gốc xã hội."
+        "t": "Ngôn ngữ"
       },
       {
         "k": "C",
+        "t": "Nguồn gốc tự nhiên và nguồn gốc xã hội."
+      },
+      {
+        "k": "D",
         "t": "Lao động"
       }
     ],
     "ans": [
-      "D"
+      "C"
     ]
   },
   {
@@ -4901,15 +4913,23 @@ window.__SUBJECT_DATA['SMT1005'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Tuyệt đối hoá vai trò của vật chất, phủ nhân tính độc lập tương đối của ý thức"
+        "t": "Tuyệt đối hoá vai trò của vật chất, phủ nhận tính độc lập tương đối của ý thức"
       },
       {
         "k": "B",
         "t": "Vật chất quyết định ý thức, còn ý thức có tính độc lập tương đối và tác động trở lại vật chất."
+      },
+      {
+        "k": "C",
+        "t": "Ý thức quyết định vật chất"
+      },
+      {
+        "k": "D",
+        "t": "Cả A, B, C đều sai"
       }
     ],
     "ans": [
-      "C"
+      "A"
     ]
   },
   {
@@ -6007,15 +6027,19 @@ window.__SUBJECT_DATA['SMT1005'] = [
       },
       {
         "k": "B",
-        "t": "Hình thức chi phương thức tồn tại, biểu hiện và phát triển của sự vật, hiện tượng (C.) Hình thức quyết định nội dung"
+        "t": "Hình thức chỉ phương thức tồn tại, biểu hiện và phát triển của sự vật, hiện tượng"
       },
       {
         "k": "C",
+        "t": "Hình thức quyết định nội dung"
+      },
+      {
+        "k": "D",
         "t": "Nội dung quy định hình thức"
       }
     ],
     "ans": [
-      "D"
+      "C"
     ]
   },
   {
@@ -6159,15 +6183,19 @@ window.__SUBJECT_DATA['SMT1005'] = [
       },
       {
         "k": "B",
-        "t": "Thuộc tính không cơ bản C  Thuộc tính cơ bản và không cơ bản"
+        "t": "Thuộc tính không cơ bản"
       },
       {
         "k": "C",
         "t": "Thuộc tính cơ bản"
+      },
+      {
+        "k": "D",
+        "t": "Thuộc tính cơ bản và không cơ bản"
       }
     ],
     "ans": [
-      "D"
+      "C"
     ]
   },
   {
@@ -6259,11 +6287,19 @@ window.__SUBJECT_DATA['SMT1005'] = [
       },
       {
         "k": "B",
-        "t": "Tuỳ trường hợp cụ thể mà là cải cách, tiến hóa hay cách mạng, xã hội"
+        "t": "Cải cách xã hội"
+      },
+      {
+        "k": "C",
+        "t": "Tiến hóa xã hội"
+      },
+      {
+        "k": "D",
+        "t": "Tuỳ trường hợp cụ thể mà là cải cách, tiến hóa hay cách mạng xã hội"
       }
     ],
     "ans": [
-      "C"
+      "A"
     ]
   },
   {
@@ -14966,10 +15002,14 @@ window.__SUBJECT_DATA['SMT1005'] = [
       {
         "k": "C",
         "t": "Ngây thơ chất phác"
+      },
+      {
+        "k": "D",
+        "t": "Khoa học và hiện đại"
       }
     ],
     "ans": [
-      "D"
+      "C"
     ]
   },
   {
