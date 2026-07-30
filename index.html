@@ -2480,6 +2480,7 @@ function pfToggleCollapse(btn){
   }
 }
 function renderPortal(){
+  document.querySelectorAll('.lp-hero .reveal-l, .lp-hero .reveal-r').forEach(el=>el.classList.add('in-view'));
   const q=pfNorm(pfQuery.trim());
   const groupOf=s=>GROUPS.find(g=>g.key===s.group)||GROUPS[GROUPS.length-1];
   const schoolOf=s=>SCHOOLS.find(sc=>sc.key===s.school)||SCHOOLS[0];
@@ -2688,7 +2689,7 @@ if('IntersectionObserver' in window && !lpReduce){
 }
 function pfRevealScan(){
   if(!lpObserver){ lpRevealAll(); return; }
-  document.querySelectorAll('.reveal:not(.in-view)').forEach(el=>lpObserver.observe(el));
+  document.querySelectorAll('.reveal:not(.in-view),.reveal-l:not(.in-view),.reveal-r:not(.in-view),.reveal-s:not(.in-view)').forEach(el=>lpObserver.observe(el));
 }
 pfRevealScan();
 
