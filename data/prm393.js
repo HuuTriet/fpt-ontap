@@ -14,7 +14,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "C",
-        "t": "Better Ul"
+        "t": "Better UI"
       },
       {
         "k": "D",
@@ -39,7 +39,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "C",
-        "t": "General-purpose programming with Ul focus"
+        "t": "General-purpose programming with UI focus"
       },
       {
         "k": "D",
@@ -56,7 +56,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Ul quality"
+        "t": "UI quality"
       },
       {
         "k": "B",
@@ -97,7 +97,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
@@ -122,7 +122,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
@@ -172,7 +172,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
@@ -206,7 +206,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Ulinconsisteney"
+        "t": "UI inconsistency"
       },
       {
         "k": "B",
@@ -322,7 +322,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
@@ -402,15 +402,15 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 17,
-    "q": "Which action best demonstrates Flutter's reactive Ul model?",
+    "q": "Which action best demonstrates Flutter's reactive UI model?",
     "opts": [
       {
         "k": "A",
-        "t": "Manually updating Ul elements"
+        "t": "Manually updating UI elements"
       },
       {
         "k": "B",
-        "t": "Rebuilding Ul in response to state changes"
+        "t": "Rebuilding UI in response to state changes"
       },
       {
         "k": "C",
@@ -456,7 +456,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Improve Ul"
+        "t": "Improve UI"
       },
       {
         "k": "B",
@@ -477,7 +477,7 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 20,
-    "q": "Which Flutter test focuses on Ul components?",
+    "q": "Which Flutter test focuses on UI components?",
     "opts": [
       {
         "k": "A",
@@ -510,7 +510,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "B",
-        "t": "Avoid blocking Ul thread"
+        "t": "Avoid blocking UI thread"
       },
       {
         "k": "C",
@@ -660,7 +660,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "B",
-        "t": "StreamBullder"
+        "t": "StreamBuilder"
       },
       {
         "k": "C",
@@ -752,7 +752,7 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 31,
-    "q": "Which Flutter concept supports reactive Ul updates?",
+    "q": "Which Flutter concept supports reactive UI updates?",
     "opts": [
       {
         "k": "A",
@@ -797,7 +797,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       }
     ],
     "ans": [
-      "A"
+      "C"
     ]
   },
   {
@@ -806,7 +806,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Store Ul"
+        "t": "Store UI"
       },
       {
         "k": "B",
@@ -835,7 +835,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "B",
-        "t": "Instantly reflect code changes in Ul"
+        "t": "Instantly reflect code changes in UI"
       },
       {
         "k": "C",
@@ -856,7 +856,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Ul decoration"
+        "t": "UI decoration"
       },
       {
         "k": "B",
@@ -939,7 +939,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "C",
-        "t": "They store Ul state"
+        "t": "They store UI state"
       },
       {
         "k": "D",
@@ -956,7 +956,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Reduce Ul code"
+        "t": "Reduce UI code"
       },
       {
         "k": "B",
@@ -989,7 +989,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "C",
-        "t": "Securelnput"
+        "t": "SecureInput"
       },
       {
         "k": "D",
@@ -1135,7 +1135,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "B",
-        "t": "StreamBullder"
+        "t": "StreamBuilder"
       },
       {
         "k": "C",
@@ -1160,7 +1160,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "B",
-        "t": "Ul appearance consistency"
+        "t": "UI appearance consistency"
       },
       {
         "k": "C",
@@ -1210,7 +1210,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "B",
-        "t": "Better code reuse and Ul consistency"
+        "t": "Better code reuse and UI consistency"
       },
       {
         "k": "C",
@@ -1281,7 +1281,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Reduce Ul work"
+        "t": "Reduce UI work"
       },
       {
         "k": "B",
@@ -1306,7 +1306,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. Store application data"
+        "t": "Store application data"
       },
       {
         "k": "B",
@@ -1318,7 +1318,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "D",
-        "t": "Render Ul pixels"
+        "t": "Render UI pixels"
       }
     ],
     "ans": [
@@ -1331,15 +1331,15 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "[como tamer | ute Croke : A. It manages database servers"
+        "t": "It manages database servers"
       },
       {
         "k": "B",
-        "t": "It provides Ul components and rendering logic"
+        "t": "It provides UI components and rendering logic"
       },
       {
         "k": "C",
-        "t": "lt replaces the operating system"
+        "t": "It replaces the operating system"
       },
       {
         "k": "D",
@@ -1352,11 +1352,11 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 55,
-    "q": "How is the Flutter Ul constructed internally?",
+    "q": "How is the Flutter UI constructed internally?",
     "opts": [
       {
         "k": "A",
-        "t": "A. Using XML layout files"
+        "t": "Using XML layout files"
       },
       {
         "k": "B",
@@ -1368,7 +1368,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "D",
-        "t": "Using native Ul components only"
+        "t": "Using native UI components only"
       }
     ],
     "ans": [
@@ -1406,11 +1406,11 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. Large widget trees D. Frequent rebuilds"
+        "t": "Large widget trees"
       },
       {
         "k": "B",
-        "t": "Option B"
+        "t": "Splitting widgets"
       },
       {
         "k": "C",
@@ -1418,7 +1418,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "D",
-        "t": "B. Splitting widgets"
+        "t": "Frequent rebuilds"
       }
     ],
     "ans": [
@@ -1452,11 +1452,11 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 59,
-    "q": "Why is separating Ul and state logic recommended?",
+    "q": "Why is separating UI and state logic recommended?",
     "opts": [
       {
         "k": "A",
-        "t": "= A. Reduce code size"
+        "t": "Reduce code size"
       },
       {
         "k": "B",
@@ -1481,7 +1481,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. On every frame"
+        "t": "On every frame"
       },
       {
         "k": "B",
@@ -1506,11 +1506,11 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Future D. Theme"
+        "t": "Future"
       },
       {
         "k": "B",
-        "t": "Option B"
+        "t": "Stream"
       },
       {
         "k": "C",
@@ -1518,7 +1518,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "D",
-        "t": "B. Stream"
+        "t": "Theme"
       }
     ],
     "ans": [
@@ -1531,7 +1531,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "¢ A. Ul changes"
+        "t": "UI changes"
       },
       {
         "k": "B",
@@ -1556,7 +1556,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Ul speed"
+        "t": "UI speed"
       },
       {
         "k": "B",
@@ -1581,7 +1581,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "= A. hive"
+        "t": "hive"
       },
       {
         "k": "B",
@@ -1606,7 +1606,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "= A. Storing values without keys"
+        "t": "Storing values without keys"
       },
       {
         "k": "B",
@@ -1614,7 +1614,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "C",
-        "t": "Rendering Ul components"
+        "t": "Rendering UI components"
       },
       {
         "k": "D",
@@ -1627,11 +1627,11 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 66,
-    "q": "Which tool helps analyze Ul performance in Flutter?",
+    "q": "Which tool helps analyze UI performance in Flutter?",
     "opts": [
       {
         "k": "A",
-        "t": "= A. Inspector"
+        "t": "Inspector"
       },
       {
         "k": "B",
@@ -1656,7 +1656,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "= A. A Ul widget only"
+        "t": "A UI widget only"
       },
       {
         "k": "B",
@@ -1681,7 +1681,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. Static app bar"
+        "t": "Static app bar"
       },
       {
         "k": "B",
@@ -1706,7 +1706,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. Remote database"
+        "t": "Remote database"
       },
       {
         "k": "B",
@@ -1731,7 +1731,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. Content-Type"
+        "t": "Content-Type"
       },
       {
         "k": "B",
@@ -1781,15 +1781,15 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "ltis only used for backend systems"
+        "t": "It is only used for backend systems"
       },
       {
         "k": "B",
-        "t": "It supports both Ul and application logic efficiuntly"
+        "t": "It supports both UI and application logic efficiently"
       },
       {
         "k": "C",
-        "t": "lt replaces native languages"
+        "t": "It replaces native languages"
       },
       {
         "k": "D",
@@ -1806,11 +1806,11 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Ascreen"
+        "t": "A screen"
       },
       {
         "k": "B",
-        "t": "A widget tree describing the Ul"
+        "t": "A widget tree describing the UI"
       },
       {
         "k": "C",
@@ -1831,7 +1831,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "= A. Events"
+        "t": "Events"
       },
       {
         "k": "B",
@@ -1856,7 +1856,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. Ul widget"
+        "t": "UI widget"
       },
       {
         "k": "B",
@@ -1881,7 +1881,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. Deploying to app stores"
+        "t": "Deploying to app stores"
       },
       {
         "k": "B",
@@ -1931,7 +1931,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. Deployment is Ul logic"
+        "t": "Deployment is UI logic"
       },
       {
         "k": "B",
@@ -1939,7 +1939,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "C",
-        "t": "lt replaces authentication"
+        "t": "It replaces authentication"
       },
       {
         "k": "D",
@@ -1977,11 +1977,11 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 80,
-    "q": "Which method is used to update the Ul when state changes?",
+    "q": "Which method is used to update the UI when state changes?",
     "opts": [
       {
         "k": "A",
-        "t": "build)"
+        "t": "build()"
       },
       {
         "k": "B",
@@ -2031,7 +2031,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Avoid Ul work"
+        "t": "Avoid UI work"
       },
       {
         "k": "B",
@@ -2056,7 +2056,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "Ul animation"
+        "t": "UI animation"
       },
       {
         "k": "B",
@@ -2077,11 +2077,11 @@ window.__SUBJECT_DATA['PRM393'] = [
   },
   {
     "id": 84,
-    "q": "Which widget helps avoid rebuilding unchanged Ul parts?",
+    "q": "Which widget helps avoid rebuilding unchanged UI parts?",
     "opts": [
       {
         "k": "A",
-        "t": "A. Container"
+        "t": "Container"
       },
       {
         "k": "B",
@@ -2181,7 +2181,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. Reducing widget tree depth"
+        "t": "Reducing widget tree depth"
       },
       {
         "k": "B",
@@ -2231,7 +2231,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. FutureBuilder"
+        "t": "FutureBuilder"
       },
       {
         "k": "B",
@@ -2331,7 +2331,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "A. AnimatedSwitcher"
+        "t": "AnimatedSwitcher"
       },
       {
         "k": "B",
@@ -2356,7 +2356,7 @@ window.__SUBJECT_DATA['PRM393'] = [
     "opts": [
       {
         "k": "A",
-        "t": "ltincreases app size"
+        "t": "It increases app size"
       },
       {
         "k": "B",
@@ -2364,7 +2364,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "C",
-        "t": "It blocks Ul thread"
+        "t": "It blocks UI thread"
       },
       {
         "k": "D",
@@ -2389,7 +2389,7 @@ window.__SUBJECT_DATA['PRM393'] = [
       },
       {
         "k": "C",
-        "t": "Ul separation"
+        "t": "UI separation"
       },
       {
         "k": "D",

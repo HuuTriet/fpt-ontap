@@ -1,5 +1,4 @@
-window.__SUBJECT_DATA = window.__SUBJECT_DATA || {};
-window.__SUBJECT_DATA['MLN122'] = [
+[
   {
     "id": 1,
     "q": "Biểu hiện mới của sự phân chia thị trường giữa các liên minh độc quyền đó là",
@@ -12719,4 +12718,4 @@ window.__SUBJECT_DATA['MLN122'] = [
       "A"
     ]
   }
-];
+]

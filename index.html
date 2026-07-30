@@ -1616,8 +1616,39 @@ function deckLabel(){
 }
 
 /* ================= RENDER ================= */
-const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function cleanOptText(t, k){
+  if(!t||typeof t!=='string') return '';
+  let r=t.trim();
+  if(/^C\.\s*Mác/i.test(r) || /^A\.\s*Smith/i.test(r) || /^V\.I\.\s*Lênin/i.test(r) || /^Ph\.\s*Ăng/i.test(r)) return r;
+  r=r.replace(/^\[.*?:\s*[A-D]\.\s*/i,'').replace(/^[\=\¢\•\:\-]\s*/,'').replace(/^[A-D][\.\:\-]\s+/,'').replace(/^[A-D][\.\:\-]\s+/,'');
+  return r.trim();
+}
+function repairQuestion(q){
+  if(!q) return q;
+  if(q.id===57 && q.opts){
+    q.opts=[
+      {k:"A",t:"Large widget trees"},
+      {k:"B",t:"Splitting widgets"},
+      {k:"C",t:"Global state"},
+      {k:"D",t:"Frequent rebuilds"}
+    ];
+    q.ans=["B"];
+  }
+  if(q.id===61 && q.opts){
+    q.opts=[
+      {k:"A",t:"Future"},
+      {k:"B",t:"Stream"},
+      {k:"C",t:"Animation"},
+      {k:"D",t:"Theme"}
+    ];
+    q.ans=["B"];
+  }
+  if(q.opts&&Array.isArray(q.opts)){
+    q.opts.forEach(o=>{ if(o.t) o.t=cleanOptText(o.t,o.k); });
+  }
+  return q;
+}
 
 function renderHeaderStats(){
   $('stLearned').textContent=S.learned.size;
@@ -1673,7 +1704,7 @@ function render(){
     st.innerHTML=`<div class="empty anim-pop">Không có câu nào trong bộ này.<br><span style="font-weight:600;font-size:.85rem">Thử đổi phạm vi, tắt “Ẩn câu đã thuộc”, hoặc tìm từ khóa khác.</span></div>`;
     return;
   }
-  const q=qmap.get(S.deck[S.pos]);
+  const q=repairQuestion(qmap.get(S.deck[S.pos]));
   try {
     if(S.mode==='flash' || S.mode.startsWith('tuluan')) renderFlash(q); else renderQuiz(q);
   } catch (e) {
@@ -1685,6 +1716,7 @@ function formatCloze(text) {
     return text.replace(/\[\[(.*?)\]\]/g, '<span class="cloze" data-cloze="1">$1</span>');
   }
   function renderFlash(q){
+  q=repairQuestion(q);
   if(S.mode.startsWith('tuluan')){
     $('stage').innerHTML=`
     <div class="cardbox">
@@ -1730,15 +1762,15 @@ function formatCloze(text) {
         <div class="qtext">${esc(q.q)}</div>
         ${multiBadge(q)}
         <div class="othopts" style="border-top:none;padding-top:10px;color:var(--ink-2)">
-          ${q.opts.map(o=>`<div><span>${o.k}.</span> ${esc(o.t)}</div>`).join('')}
+          ${q.opts.map(o=>`<div><span>${o.k}.</span> ${esc(cleanOptText(o.t, o.k))}</div>`).join('')}
         </div>
         <div class="hintflip">Bấm vào thẻ để xem đáp án</div>
       </div>
       <div class="face back">
         ${qTabHTML(q)}
         <div class="stamp">Đáp án</div>
-        ${ansOpts.map(o=>`<div class="ansbig"><div class="anskey">${o.k}</div><div class="anstext">${esc(o.t)}</div></div>`).join('')}
-        ${others.length?`<div class="othopts">${others.map(o=>`<div><span>${o.k}.</span> ${esc(o.t)}</div>`).join('')}</div>`:''}
+        ${ansOpts.map(o=>`<div class="ansbig"><div class="anskey">${o.k}</div><div class="anstext">${esc(cleanOptText(o.t, o.k))}</div></div>`).join('')}
+        ${others.length?`<div class="othopts">${others.map(o=>`<div><span>${o.k}.</span> ${esc(cleanOptText(o.t, o.k))}</div>`).join('')}</div>`:''}
         ${noteHTML(q)} ${estNote(q)}
         <div class="hintflip">Bấm để lật lại</div>
       </div>
@@ -1754,6 +1786,7 @@ function formatCloze(text) {
 }
 
 function renderQuiz(q){
+  q=repairQuestion(q);
   const multi=q.ans.length>1;
   const ansSet=new Set(q.ans);
   const fresh=S.fresh&&!S.graded;S.fresh=false;
@@ -1772,7 +1805,7 @@ function renderQuiz(q){
           else cls+=' dim';
         }
         return `<button class="${cls}" data-key="${o.k}" ${S.graded?'disabled':''}>
-          <span class="k">${o.k}</span><span>${esc(o.t)}</span></button>`;
+          <span class="k">${o.k}</span><span>${esc(cleanOptText(o.t, o.k))}</span></button>`;
       }).join('')}
     </div>
     <div class="verdict ${S.graded?(isRunCorrect(q)?'ok':'no'):''}" id="verdict">
@@ -2524,7 +2557,7 @@ function renderPortal(){
 function loadSubjectData(code,cb){
   if((window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||loadedData.has(code)){cb(true);return;}
   const sc=document.createElement('script');
-  sc.src='data/'+code.toLowerCase()+'.js';
+  sc.src='data/'+code.toLowerCase()+'.js?v='+Date.now();
   sc.onload=()=>{loadedData.add(code);cb(!!(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code]));};
   sc.onerror=()=>cb(false);
   document.head.appendChild(sc);
@@ -3048,6 +3081,7 @@ route();
 </script>
 <script src="data/mln111.js"></script>
 <script src="data/mln122.js"></script>
+<script src="data/prm393.js"></script>
 <script src="data/smt1005.js"></script>
   <script src="data/smt1006.js"></script>
 
