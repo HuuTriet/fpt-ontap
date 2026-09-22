@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <script>document.documentElement.className='js';try{if(location.pathname.slice(-11)==='/index.html')history.replaceState(null,'',location.pathname.slice(0,-10)+location.search+location.hash);}catch(e){}</script>
 <title>FPT Ôn Tập — Cổng ôn tập đa môn</title>
-<link rel="canonical" href="https://huutriet.github.io/fpt-ontap/">
+<link rel="canonical" href="./">
 <meta name="description" content="Cổng ôn tập đa môn FPT — chọn môn để vào quiz/flashcard ngay trong một web. Nền tảng ôn nhiều môn, liên tục cập nhật.">
 <meta name="theme-color" content="#0651A0">
 <meta property="og:title" content="FPT Ôn Tập — Cổng ôn tập đa môn">
@@ -768,12 +768,14 @@ select.ctl{padding-right:6px;max-width:48vw}
   --mq-bg:var(--surface-2,#EEF4FB); /* dải băng sáng, đồng bộ tông trang */
   position:relative;overflow:hidden;background:var(--mq-bg);padding-block:18px;
   border-top:.5px solid var(--mq-rule);border-bottom:.5px solid var(--mq-rule);
-  -webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);
-          mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent);
+  contain:content;
 }
+.mq::before,.mq::after{content:"";position:absolute;top:0;bottom:0;width:72px;z-index:3;pointer-events:none}
+.mq::before{left:0;background:linear-gradient(to right,var(--mq-bg),transparent)}
+.mq::after{right:0;background:linear-gradient(to left,var(--mq-bg),transparent)}
 .mq__row{overflow:hidden}
 .mq__row+.mq__row{margin-top:12px}
-.mq__track{display:flex;width:max-content;flex:none;will-change:transform}
+.mq__track{display:flex;width:max-content;flex:none;will-change:transform;transform:translateZ(0)}
 .mq__track--left{animation:mqLeft 34s linear infinite}
 .mq__track--right{animation:mqRight 40s linear infinite}
 .mq__track--big{animation-duration:48s}
@@ -786,8 +788,8 @@ select.ctl{padding-right:6px;max-width:48vw}
 .mq__sep{color:var(--mq-sep);font-size:15px;padding-inline:3px;user-select:none}
 .mq__group--big,.mq__group--big .mq__item{font-size:24px;font-weight:500}
 .mq__group--big .mq__sep{font-size:22px}
-@keyframes mqLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes mqRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes mqLeft{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes mqRight{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
 @media (prefers-reduced-motion:reduce){.mq__track{animation:none}}
 
 /* ===================== FLIP-ON-SCROLL CARDS ===================== */
@@ -891,10 +893,107 @@ select.ctl{padding-right:6px;max-width:48vw}
   .lp-btn-light:hover{transform:translateY(-2px)}
   .lp-btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
 }
-/* focus ring sáng trên nền tối (mục 11 — contrast ≥3:1): CTA cuối nền gradient đậm + footer nền --ink.
-   Ring trắng + halo tối mảnh để tách khỏi mọi nền. */
 .lp-cta-final :focus-visible,
 .lp-footer :focus-visible{outline-color:#fff;box-shadow:0 0 0 5px rgba(16,36,58,.45)}
+
+/* ===== 21st.dev EFFECT 1: SCROLL PIN VIDEO REVEAL (MỞ RỘNG MẶT NẠ TRÒN) ===== */
+.lp-pin-section{position:relative;background:linear-gradient(180deg,var(--bg) 0%,#0A1C32 14%,#071526 50%,#0A1C32 86%,var(--bg) 100%);color:#f3f7fa;overflow:visible;min-height:320vh;isolation:isolate}
+.lp-pin-wrapper{position:sticky;top:0;height:100vh;height:100svh;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  background:#071526;z-index:1}
+.lp-pin-box{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  will-change:clip-path;clip-path:circle(10% at 50% 50%);background:#071526;overflow:hidden;transform:translateZ(0)}
+
+/* Rotor Circular Badge từ 21st.dev */
+.lp-pin-rotor-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:clamp(130px,18vw,190px);height:clamp(130px,18vw,190px);z-index:10;pointer-events:none;
+  will-change:transform,opacity}
+.lp-pin-rotor-img{width:100%;height:100%;display:block;animation:lpSpinBadge 18s linear infinite;filter:drop-shadow(0 4px 12px rgba(0,0,0,.65))}
+@keyframes lpSpinBadge{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* Glassmorphic Play Icon */
+.lp-pin-center-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:11;pointer-events:none;will-change:opacity,transform}
+.lp-pin-glass-disc{width:clamp(50px,6vw,64px);height:clamp(50px,6vw,64px);border-radius:50%;
+  background:rgba(255,255,255,.22);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1.5px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 30px rgba(0,0,0,.45)}
+.lp-pin-play-img{width:clamp(16px,2.2vw,22px);height:auto;display:block;filter:brightness(0) invert(1)}
+
+/* Video hiển thị bên trong khung */
+.lp-pin-video{width:100%;height:100%;object-fit:cover;display:block;background:#071526;transform:translateZ(0);backface-visibility:hidden}
+
+/* ===== 21st.dev EFFECT 2: GLYPH PORTAL (CAMERA ZOOM XUYÊN CHỮ FPT ÔN TẬP MỞ RA FOOTER) ===== */
+.lp-gp-section{position:relative;background:#ffffff;color:var(--ink);overflow:visible;isolation:isolate;min-height:220vh}
+.lp-gp-viewport{position:absolute;inset:0 auto auto 0;height:100vh;height:100svh;width:0;pointer-events:none;visibility:hidden}
+.lp-gp-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:clip;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#ffffff}
+.lp-gp-field{position:absolute;inset:0;background:#ffffff;opacity:1;pointer-events:none}
+.lp-gp-ambient-bg{position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,rgba(0,141,222,.06),transparent 65%),
+             radial-gradient(circle at 80% 80%,rgba(83,184,72,.04),transparent 60%),
+             radial-gradient(circle at 20% 80%,rgba(243,113,36,.04),transparent 60%),
+             linear-gradient(180deg,#ffffff 0%,#f8fafc 100%)}
+
+.lp-gp-art{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2;will-change:transform}
+
+/* Khung nội dung Footer nối tiếp portal */
+.lp-gp-content{position:relative;z-index:30;width:100%;margin-top:calc(0.9 * 100vh);background:transparent;
+  opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s ease;will-change:opacity,transform}
+
+/* ===== FOOTER TAPED DESIGN (CARD NỔI BĂNG DÍNH THEO COMPONENT 21st.dev) ===== */
+.lp-footer-premium{background:#f4f8fc;color:var(--ink);position:relative;overflow:visible;padding-block:var(--sp-6) var(--sp-8);border-top:1px solid rgba(6,81,160,.08)}
+.lp-footer-taped-wrap{max-width:1160px;margin:0 auto;padding:0 var(--sp-4);position:relative}
+
+/* Floating White Taped Card */
+.lp-foot-tape-card{position:relative;background:#ffffff;color:#10243a;
+  border-radius:24px;padding:clamp(28px,4.5vw,52px);
+  box-shadow:0 20px 50px rgba(6,81,160,.08),0 2px 8px rgba(16,36,58,.06);
+  border:1px solid rgba(6,81,160,.12);
+  display:grid;grid-template-columns:1fr;gap:var(--sp-6)}
+@media(min-width:860px){.lp-foot-tape-card{grid-template-columns:1.5fr 1fr 1.1fr;gap:var(--sp-7)}}
+
+/* Băng dính (Tape SVG) ở 2 góc card */
+.lp-tape{position:absolute;z-index:25;pointer-events:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.15))}
+.lp-tape-tl{top:-18px;left:-20px;width:95px;height:48px;transform:scale(.9)}
+.lp-tape-tr{top:-18px;right:-20px;width:95px;height:48px;transform:rotate(90deg) scale(.9)}
+@media(max-width:767px){.lp-tape{display:none}}
+
+.lp-foot-tape-card .lp-foot-desc{color:#3d5872;font-size:var(--fs-sm);line-height:1.65;margin-top:12px;font-weight:450}
+.lp-foot-tape-card .lp-foot-status{display:inline-flex;align-items:center;gap:8px;background:rgba(83,184,72,.12);
+  border:1px solid rgba(83,184,72,.3);border-radius:var(--r-pill);padding:5px 14px;font-size:var(--fs-xs);
+  font-weight:700;color:#1b6814;width:fit-content;margin-top:10px}
+.lp-foot-dot{width:8px;height:8px;border-radius:50%;background:#53B848;box-shadow:0 0 8px #53B848;animation:lpPulse 2s infinite}
+@keyframes lpPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+
+.lp-foot-tape-card h4{font-size:var(--fs-xs);font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#0651A0;margin-bottom:var(--sp-4)}
+.lp-foot-tape-card .lp-foot-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.lp-foot-tape-card .lp-foot-link{color:#3d5872;font-size:var(--fs-sm);font-weight:550;text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;transition:color var(--dur-fast),transform var(--dur-fast)}
+.lp-foot-tape-card .lp-foot-link:hover{color:#0651A0;transform:translateX(3px)}
+.lp-foot-tape-card .lp-foot-link svg{width:14px;height:14px;opacity:.6;transition:transform var(--dur-fast),opacity var(--dur-fast)}
+.lp-foot-tape-card .lp-foot-link:hover svg{opacity:1;transform:translateX(2px)}
+
+/* Badges "sắp có" */
+.lp-badge-soon{display:inline-flex;align-items:center;padding:2px 8px;font-size:11px;font-weight:700;
+  border-radius:12px;background:#eef5fc;color:#0651A0;border:1px solid #c7dcf1;
+  margin-left:6px;line-height:1.2}
+.lp-badge-soon.tilt-l{transform:rotate(-3deg)}
+.lp-badge-soon.tilt-r{transform:rotate(3deg)}
+
+/* Thanh dưới card */
+.lp-foot-taped-sub{margin-top:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-3);
+  color:#3d5872;font-size:var(--fs-sm)}
+@media(min-width:768px){
+  .lp-foot-taped-sub{flex-direction:row;justify-content:space-between;align-items:center}
+}
+.lp-foot-taped-sub a{color:#0651A0;text-decoration:none;font-weight:600;transition:color var(--dur-fast)}
+.lp-foot-taped-sub a:hover{color:#008DDE;text-decoration:underline}
+.lp-foot-sub-links{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.lp-foot-socials{display:flex;align-items:center;gap:12px}
+.lp-foot-socials a{display:inline-flex;align-items:center;justify-content:center;color:#0651A0;
+  width:38px;height:38px;border-radius:50%;background:#ffffff;
+  border:1px solid #D6E2EF;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:background var(--dur-fast),color var(--dur-fast),transform var(--dur-fast)}
+.lp-foot-socials a:hover{background:#0651A0;color:#fff;transform:translateY(-2px)}
+.lp-foot-socials svg{width:18px;height:18px}
+
 
 /* ===================== REDUCED-MOTION: tắt HẾT motion mới ===================== */
 @media (prefers-reduced-motion:reduce){
@@ -917,12 +1016,30 @@ select.ctl{padding-right:6px;max-width:48vw}
   /* ảnh: bỏ blur-up/fade, hiện thẳng (không animate) */
   .lp-media>img.lp-real{transition:none !important;opacity:1 !important}
   .lp-mock.lp-has-real .lp-mock-imgslot img{animation:none !important;filter:none !important;opacity:1 !important}
+  /* 21st.dev reductions */
+  .lp-pin-section{min-height:auto !important}
+  .lp-pin-wrapper{position:relative !important;height:auto !important}
+  .lp-pin-box{clip-path:none !important;height:440px !important}
+  .lp-badge-rotor{display:none !important}
+  .lp-pin-center-icon{display:none !important}
+  .lp-pin-caption{opacity:1 !important;transform:none !important;position:relative !important;bottom:auto !important;left:auto !important;padding:24px !important}
+  .lp-gp-pin{position:relative !important;height:auto !important}
+  .lp-gp-content{margin-top:0 !important;opacity:1 !important;pointer-events:auto !important}
+  .lp-gp-caption{display:none !important}
+  .lp-gp-art{display:none !important}
 }
+/* Lenis smooth scrolling styles */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
 </style>
 <style>
 .cloze { background: #3D5872; color: transparent; padding: 0 4px; border-radius: 4px; cursor: pointer; transition: all 0.2s; user-select: none; }
 .cloze.revealed { background: #E4F2E9; color: #1E6E45; }
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="assets/lenis.min.js"></script>
 </head>
 <body>
 
@@ -1112,14 +1229,14 @@ select.ctl{padding-right:6px;max-width:48vw}
             <span class="mq__item">585 câu MLN111</span><span class="mq__sep">·</span>
             <span class="mq__item">Flashcard lật thẻ</span><span class="mq__sep">·</span>
             <span class="mq__item">Trắc nghiệm chấm điểm</span><span class="mq__sep">·</span>
-            <span class="mq__item">Ôn lại câu sai</span><span class="mq__sep">·</span>
+            <span class="mq__item label-on-sai">Ôn lại câu sai</span><span class="mq__sep">·</span>
             <span class="mq__item">Mở là học tiếp</span><span class="mq__sep">·</span>
           </span>
           <span class="mq__group mq__group--big" aria-hidden="true">
             <span class="mq__item">585 câu MLN111</span><span class="mq__sep">·</span>
             <span class="mq__item">Flashcard lật thẻ</span><span class="mq__sep">·</span>
             <span class="mq__item">Trắc nghiệm chấm điểm</span><span class="mq__sep">·</span>
-            <span class="mq__item">Ôn lại câu sai</span><span class="mq__sep">·</span>
+            <span class="mq__item label-on-sai">Ôn lại câu sai</span><span class="mq__sep">·</span>
             <span class="mq__item">Mở là học tiếp</span><span class="mq__sep">·</span>
           </span>
         </div>
@@ -1147,6 +1264,32 @@ select.ctl{padding-right:6px;max-width:48vw}
         <div class="pf-shelf" id="pfGrid"></div>
       </div>
     </section>
+
+    <!-- ===== 21st.dev EFFECT 1: SHOWCASE PIN REVEAL (MỞ RỘNG MẶT NẠ TRÒN + BADGE XOAY 360) ===== -->
+    <section class="lp-pin-section" id="lpPinReveal" aria-label="Video trải nghiệm FPT">
+      <div class="lp-pin-wrapper" id="lpPinWrapper">
+        <div class="lp-pin-box" id="lpPinBox">
+          <!-- Rotating Circular Text Badge (21st.dev) -->
+          <div class="lp-pin-rotor-wrap" aria-hidden="true">
+            <img src="assets/img/badge-rotor.png" alt="Huy hiệu xoay tròn" class="lp-pin-rotor-img">
+          </div>
+
+          <!-- Centered Glassmorphic Play Icon -->
+          <div class="lp-pin-center-icon" aria-hidden="true">
+            <div class="lp-pin-glass-disc">
+              <img src="assets/img/play-icon.png" alt="Phát video" class="lp-pin-play-img">
+            </div>
+          </div>
+
+          <!-- Media: High-res Campus Video (Video Project 1) -->
+          <video class="lp-pin-video" id="lpPinVideo" autoplay muted loop playsinline preload="metadata" poster="assets/img/campus-life.jpg">
+            <source src="assets/video/video-project-1.mp4" type="video/mp4">
+            <source src="assets/video/campus-reveal.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
 
     <!-- ===== TÍNH NĂNG: thẻ lật-khi-cuộn ===== -->
     <section class="lp-features lp-section" aria-labelledby="lpFeatH">
@@ -1306,6 +1449,7 @@ select.ctl{padding-right:6px;max-width:48vw}
       </div>
     </section>
 
+
     <!-- ===== STATS STRIP ===== -->
     <section class="lp-statband" aria-label="Số liệu">
       <div class="lp-wrap lp-statband-in">
@@ -1403,10 +1547,10 @@ select.ctl{padding-right:6px;max-width:48vw}
       </div>
     </section>
 
-    <!-- ===== DẢI CTA CUỐI ===== -->
+    <!-- ===== DẢI CTA CUỐI TRANG (SẴN SÀNG BỨT PHÁ) ===== -->
     <section class="lp-cta-final" aria-labelledby="lpFinalH">
       <div class="lp-wrap lp-cta-final-in">
-        <h2 id="lpFinalH" class="reveal">Sẵn sàng ôn tập chưa?</h2>
+        <h2 id="lpFinalH" class="reveal">Sẵn sàng bứt phá điểm số chưa?</h2>
         <p class="reveal">Chọn môn, bật flashcard hoặc trắc nghiệm, và để tiến độ tự lo phần còn lại.</p>
         <div class="lp-cta-row reveal">
           <a href="#pfGrid" class="lp-btn lp-btn-light lp-magnetic lp-ripple-host">Bắt đầu ngay</a>
@@ -1414,50 +1558,163 @@ select.ctl{padding-right:6px;max-width:48vw}
         </div>
       </div>
     </section>
+
+    <!-- ===== 21st.dev EFFECT 2: GLYPH PORTAL (CAMERA ZOOM XUYÊN CHỮ FPT MỞ RA FOOTER) ===== -->
   </main>
 
-  <footer class="lp-footer" aria-label="Chân trang">
-    <div class="lp-wrap lp-footer-in">
-      <div>
-        <div class="lp-foot-logo">
-          <!-- gradient riêng (lpFptGradFoot) + <defs> ngay trong SVG này: không phụ thuộc <defs> của header -->
-          <svg class="lp-logo-svg" viewBox="0 0 168 38" role="img" aria-label="FPT Ôn Tập" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="lpFptGradFoot" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#0651A0"/><stop offset=".26" stop-color="#008DDE"/>
-                <stop offset=".52" stop-color="#53B848"/><stop offset=".78" stop-color="#F37124"/>
-                <stop offset="1" stop-color="#E11B22"/>
-              </linearGradient>
-            </defs>
-            <text x="0" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="800" fill="url(#lpFptGradFoot)">FPT</text>
-            <text x="60" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="700" fill="#FFFFFF">Ôn Tập</text>
-          </svg>
-        </div>
-        <p style="margin-top:12px">Cổng ôn tập đa môn dành cho sinh viên FPT — flashcard, trắc nghiệm, lưu tiến độ, tất cả gói trong một web tĩnh.</p>
+  <section class="lp-gp-section" id="gpSection" aria-label="FPT Ôn Tập">
+    <div class="lp-gp-viewport" aria-hidden="true"></div>
+
+    <div class="lp-gp-pin" data-gp-pin>
+      <!-- Background field nền trắng -->
+      <div class="lp-gp-field" data-gp-field aria-hidden="true">
+        <div class="lp-gp-ambient-bg"></div>
       </div>
-      <div>
-        <h4>Liên kết</h4>
-        <ul>
-          <li><a href="#pfGrid">Danh sách môn</a></li>
-          <li><a href="cau-chuyen.html">Câu chuyện FPT</a></li>
-          <li><a href="#lpFeatH">Tính năng</a></li>
-          <li><a href="https://fpt.com/en/terms-of-use" rel="noopener">Điều khoản sử dụng FPT</a></li>
-        </ul>
-        <p style="margin-top:10px"><span class="lp-foot-badge">Dự án cá nhân · phi thương mại</span></p>
-      </div>
-      <div>
-        <h4>Về dự án</h4>
-        <p>Thực hiện bởi <strong style="color:#fff">HuuTriet</strong>.</p>
-      </div>
+
+      <!-- SVG Art với live typography "FPT Ôn Tập" chuẩn 100% theo logo navbar -->
+      <svg class="lp-gp-art" data-gp-art aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="gpFptGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0651A0"/>
+            <stop offset="26%" stop-color="#008DDE"/>
+            <stop offset="52%" stop-color="#53B848"/>
+            <stop offset="78%" stop-color="#F37124"/>
+            <stop offset="100%" stop-color="#E11B22"/>
+          </linearGradient>
+        </defs>
+        <g data-gp-zoom-group style="will-change: transform; transform-origin: 0 0;">
+          <text data-gp-fpt font-family="'Be Vietnam Pro', Inter, sans-serif" font-weight="900" fill="url(#gpFptGrad)">FPT</text>
+          <text data-gp-ontap font-family="'Be Vietnam Pro', Inter, sans-serif" font-weight="800" fill="#0651A0">Ôn Tập</text>
+        </g>
+      </svg>
     </div>
-    <div class="lp-wrap lp-legal">
-      Đây là dự án của sinh viên (phi thương mại, phục vụ học tập). FPT, FPT University, FPT Education là thương hiệu của FPT Corporation.
-      Sản phẩm KHÔNG được FPT chính thức bảo trợ (not officially endorsed). © FPT Corporation cho các thương hiệu FPT.
-      Trước khi công bố rộng rãi, nên xin phép bằng văn bản từ bộ phận Truyền thông/Thương hiệu FPT University.
-      Tham chiếu: <a href="https://fpt.com/en/terms-of-use" rel="noopener">fpt.com/en/terms-of-use</a>.
-    </div>
-  </footer>
-</div>
+
+    <!-- NỘI DUNG MỞ RA KHI ZOOM XUYÊN CHỮ: CHÂN TRANG TAPED CAO CẤP -->
+    <div class="lp-gp-content" id="gpContent" data-gp-content tabIndex="-1">
+      <!-- FOOTER TAPED DESIGN (THEO THIẾT KẾ 21st.dev VỚI BẢNG MÀU FPT) -->
+      <footer class="lp-footer lp-footer-premium" aria-label="Chân trang">
+        <div class="lp-wrap lp-footer-taped-wrap">
+          <div class="lp-foot-tape-card">
+            <!-- Băng dính góc trên bên trái -->
+            <div class="lp-tape lp-tape-tl" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="95" height="80" viewBox="0 0 95 80" fill="none">
+                <path d="M1 45L70.282 5L88.282 36.1769L19 76.1769L1 45Z" fill="#D6E2EF" fill-opacity="0.85"/>
+              </svg>
+            </div>
+            <!-- Băng dính góc trên bên phải (xoay 90 độ) -->
+            <div class="lp-tape lp-tape-tr" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="95" height="80" viewBox="0 0 95 80" fill="none">
+                <path d="M1 45L70.282 5L88.282 36.1769L19 76.1769L1 45Z" fill="#D6E2EF" fill-opacity="0.85"/>
+              </svg>
+            </div>
+
+            <!-- Cột 1: Thương hiệu, mô tả & trạng thái hệ thống -->
+            <div class="lp-foot-col lp-foot-col-brand">
+              <div class="lp-foot-logo">
+                <svg class="lp-logo-svg" viewBox="0 0 168 38" role="img" aria-label="FPT Ôn Tập" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="lpFptGradFoot" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#0651A0"/><stop offset=".26" stop-color="#008DDE"/>
+                      <stop offset=".52" stop-color="#53B848"/><stop offset=".78" stop-color="#F37124"/>
+                      <stop offset="1" stop-color="#E11B22"/>
+                    </linearGradient>
+                  </defs>
+                  <text x="0" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="800" fill="url(#lpFptGradFoot)">FPT</text>
+                  <text x="60" y="28" font-family="'Be Vietnam Pro',Inter,system-ui,sans-serif" font-size="27" font-weight="700" fill="#0651A0">Ôn Tập</text>
+                </svg>
+              </div>
+              <p class="lp-foot-desc">Cổng ôn tập đa môn sinh viên FPT — flashcard lật thẻ, trắc nghiệm tức thì, tự động lưu tiến độ, tất cả gói gọn trong một web tĩnh mượt mà.</p>
+              <span class="lp-foot-status">
+                <span class="lp-foot-dot" aria-hidden="true"></span>
+                Hệ thống ôn tập hoạt động 24/7 · Web tĩnh
+              </span>
+            </div>
+
+            <!-- Cột 2: Tài nguyên ôn tập -->
+            <div class="lp-foot-col">
+              <h4>Tài nguyên ôn tập</h4>
+              <ul class="lp-foot-links">
+                <li>
+                  <a class="lp-foot-link" href="#pfGrid">
+                    <span>Danh sách môn học</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="lp-foot-link" href="cau-chuyen.html">
+                    <span>Câu chuyện FPT</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="lp-foot-link" href="#lpFeatH">
+                    <span>Tính năng cốt lõi</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <span class="lp-foot-link" style="opacity:.65;cursor:default">
+                    <span>Đề thi thử</span>
+                    <span class="lp-badge-soon tilt-l">sắp có</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="lp-foot-link" style="opacity:.65;cursor:default">
+                    <span>Flashcard AI</span>
+                    <span class="lp-badge-soon tilt-r">sắp có</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Cột 3: Môn học sẵn sàng & sắp có -->
+            <div class="lp-foot-col">
+              <h4>Môn học</h4>
+              <ul class="lp-foot-links">
+                <li>
+                  <a class="lp-foot-link" href="#mon=MLN111">
+                    <span>MLN111 · Triết học Mác – Lênin</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="lp-foot-link" href="#mon=MLN122">
+                    <span>MLN122 · Kinh tế chính trị</span>
+                  </a>
+                </li>
+                <li>
+                  <span class="lp-foot-link" style="opacity:.7;cursor:default">
+                    <span>PRM393 · Android Kotlin</span>
+                    <span class="lp-badge-soon tilt-l">sắp có</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="lp-foot-link" style="opacity:.7;cursor:default">
+                    <span>SMT1005 · Đổi mới sáng tạo</span>
+                    <span class="lp-badge-soon tilt-r">sắp có</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Thanh dưới card: bản quyền + mạng xã hội & liên kết -->
+          <div class="lp-foot-taped-sub">
+            <div class="lp-foot-sub-links">
+              <span>© 2026 FPT Ôn Tập · Nền tảng học tập sinh viên FPT</span>
+              <a href="cau-chuyen.html">Câu chuyện FPT</a>
+            </div>
+
+            <div class="lp-foot-socials">
+              <a href="https://fpt.edu.vn" target="_blank" rel="noopener" aria-label="FPT Education">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </a>
+            </div>
+          </div>
+        </div><!-- end lp-footer-taped-wrap -->
+      </footer><!-- end lp-footer -->
+  </div><!-- end gpContent -->
+</section><!-- end gpSection -->
+</div><!-- end portalView -->
 
 <div id="quizView" hidden>
 <div class="pf-backbar"><button class="pf-back" id="backBtn">← Danh sách môn</button><span class="pf-cur" id="curSubj"></span></div>
@@ -1479,7 +1736,8 @@ select.ctl{padding-right:6px;max-width:48vw}
 <nav class="tabs" aria-label="Chế độ học">
   <button class="tab on" id="tabFlash"><span class="tk">■</span>Flashcard</button>
   <button class="tab" id="tabQuiz"><span class="tk">■</span>Trắc nghiệm</button>
-  <button class="tab" id="tabTuluan" style="display:none"><span class="tk">■</span>Tự luận</button>
+  <button class="tab" id="tabTuluan1" style="display:none"><span class="tk">■</span>Tự luận (Phần 1)</button>
+  <button class="tab" id="tabTuluan2" style="display:none"><span class="tk">■</span>Tự luận (Phần 2)</button>
 </nav>
 
 <div class="controls">
@@ -1509,12 +1767,14 @@ select.ctl{padding-right:6px;max-width:48vw}
 <p class="kbd" id="kbdHint"></p>
 
 <div class="settings"><button class="linkbtn" id="resetBtn">Xóa toàn bộ tiến độ học</button></div>
-<footer style="max-width:760px;margin:8px auto 28px;padding:0 16px;text-align:center;font-weight:700;font-size:.78rem;letter-spacing:.5px;color:var(--ink-2)">★ Thực hiện bởi <span style="color:var(--fpt-blue)">HuuTriet</span></footer>
+<footer style="max-width:760px;margin:8px auto 28px;padding:0 16px;text-align:center;font-weight:700;font-size:.78rem;letter-spacing:.5px;color:var(--ink-2)">★ FPT Ôn Tập · <span style="color:var(--fpt-blue)">Phi thương mại</span></footer>
 </div><!-- /quizView -->
 
 <div class="toast" id="toast" role="status"></div>
 
 <script>
+const $ = id => document.getElementById(id);
+const pf = $;
 let DATA = [];
 /* ================= STATE ================= */
 let qmap = new Map();
@@ -1580,14 +1840,14 @@ function buildDeck(opts){
   let ids=[];
   const d=S.deckDef;
   if(d.type==='all') ids=DATA.map(q=>q.id);
-  else if(d.type==='range') ids=DATA.filter(q=>q.id>=d.a&&q.id<=d.b).map(q=>q.id);
+  else if(d.type==='range') ids=DATA.filter(q=>{const n=typeof q.id==='number'?q.id:parseInt(String(q.id).replace(/\D/g,''));return n>=d.a&&n<=d.b;}).map(q=>q.id);
   else if(d.type==='starred') ids=DATA.filter(q=>S.starred.has(q.id)).map(q=>q.id);
   else if(d.type==='wrong') ids=DATA.filter(q=>S.wrong.has(q.id)).map(q=>q.id);
   else if(d.type==='search'){
     const t=d.term.toLowerCase();
-    ids=DATA.filter(q=>q.q.toLowerCase().includes(t)||q.opts.some(o=>o.t.toLowerCase().includes(t))).map(q=>q.id);
+    ids=DATA.filter(q=>q.q.toLowerCase().includes(t)||(q.opts&&q.opts.some(o=>o.t.toLowerCase().includes(t)))||(q.outline&&q.outline.some(o=>o.toLowerCase().includes(t)))).map(q=>q.id);
   }
-  if(S.mode==='flash' && S.hideLearned && d.type!=='starred') ids=ids.filter(id=>!S.learned.has(id));
+  if((S.mode==='flash'||S.mode.startsWith('tuluan')) && S.hideLearned && d.type!=='starred') ids=ids.filter(id=>!S.learned.has(id));
   if(S.shuffle){
     ids=[...ids];
     for(let i=ids.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]];}
@@ -1608,14 +1868,27 @@ function deckLabel(){
   if(d.type==='all') return 'Toàn bộ';
   if(d.type==='range') return d.a===d.b?`Câu ${d.a}`:`Câu ${d.a}–${d.b}`;
   if(d.type==='starred') return '★ Câu đánh dấu';
-  if(d.type==='wrong') return '✗ Câu sai';
+  if(d.type==='wrong') return S.mode.startsWith('tuluan') ? '✗ Chưa thuộc' : '✗ Câu sai';
   if(d.type==='search') return `Tìm “${d.term}”`;
   return '';
 }
 
 /* ================= RENDER ================= */
-const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function cleanOptText(t, k){
+  if(!t||typeof t!=='string') return '';
+  let r=t.trim();
+  if(/^C\.\s*Mác/i.test(r) || /^A\.\s*Smith/i.test(r) || /^V\.I\.\s*Lênin/i.test(r) || /^Ph\.\s*Ăng/i.test(r)) return r;
+  r=r.replace(/^\[.*?:\s*[A-D]\.\s*/i,'').replace(/^[\=\¢\•\:\-]\s*/,'').replace(/^[A-D][\.\:\-]\s+/,'').replace(/^[A-D][\.\:\-]\s+/,'');
+  return r.trim();
+}
+function repairQuestion(q){
+  if(!q) return q;
+  if(q.opts&&Array.isArray(q.opts)){
+    q.opts.forEach(o=>{ if(o.t) o.t=cleanOptText(o.t,o.k); });
+  }
+  return q;
+}
 
 function renderHeaderStats(){
   $('stLearned').textContent=S.learned.size;
@@ -1626,6 +1899,7 @@ function renderHeaderStats(){
   $('chipWrong').disabled=S.wrong.size===0;
   $('chipStar').classList.toggle('on',S.deckDef.type==='starred');
   $('chipWrong').classList.toggle('on',S.deckDef.type==='wrong');
+  $('chipWrong').style.display = S.mode.startsWith('tuluan') ? 'none' : 'inline-flex';
 }
 function renderMeta(){
   $('deckName').innerHTML=`${esc(deckLabel())} <span class="n">· ${S.deck.length} câu</span>`;
@@ -1634,8 +1908,8 @@ function renderMeta(){
     ? `${cur}/${S.deck.length} · Đúng ${S.runOk} · Sai ${S.runNo}`
     : `${cur}/${S.deck.length}`;
   $('barFill').style.width=(S.deck.length?(S.pos+(S.done?1:0))/S.deck.length*100:0)+'%';
-  $('hideLearnedWrap').style.display=S.mode==='flash'?'flex':'none';
-  $('kbdHint').innerHTML=S.mode==='flash'
+  $('hideLearnedWrap').style.display=(S.mode==='flash'||S.mode.startsWith('tuluan'))?'flex':'none';
+  $('kbdHint').innerHTML=(S.mode==='flash'||S.mode.startsWith('tuluan'))
     ? (isTouch
         ? 'Chạm thẻ để lật · Vuốt <span style="color:var(--green);font-weight:800">phải = đã thuộc</span> · Vuốt <span style="color:var(--danger);font-weight:800">trái = chưa thuộc</span>'
         : '<b>Space</b> lật thẻ · <b>←</b><b>→</b> chuyển câu · <b>1</b> chưa thuộc · <b>2</b> đã thuộc · hoặc kéo thẻ sang hai bên')
@@ -1648,7 +1922,7 @@ function qTabHTML(q){
   <button class="starbtn ${S.starred.has(q.id)?'on':''}" data-act="star" aria-label="Đánh dấu câu này">★</button>`;
 }
 function multiBadge(q){
-  return q.ans.length>1?`<div class="qmeta">▸ Câu nhiều đáp án — chọn đủ ${q.ans.length} đáp án</div>`:'';
+  return (q.ans&&q.ans.length>1)?`<div class="qmeta">▸ Câu nhiều đáp án — chọn đủ ${q.ans.length} đáp án</div>`:'';
 }
 function estNote(q){
   return q.est?`<div class="estnote">* File gốc không đánh dấu đáp án câu này — đáp án do Claude bổ sung theo giáo trình.</div>`:'';
@@ -1670,15 +1944,20 @@ function render(){
     st.innerHTML=`<div class="empty anim-pop">Không có câu nào trong bộ này.<br><span style="font-weight:600;font-size:.85rem">Thử đổi phạm vi, tắt “Ẩn câu đã thuộc”, hoặc tìm từ khóa khác.</span></div>`;
     return;
   }
-  const q=qmap.get(S.deck[S.pos]);
-  if(S.mode==='flash') renderFlash(q); else renderQuiz(q);
+  const q=repairQuestion(qmap.get(S.deck[S.pos]));
+  try {
+    if(S.mode==='flash' || S.mode.startsWith('tuluan')) renderFlash(q); else renderQuiz(q);
+  } catch (e) {
+    st.innerHTML = `<div style="color:red;padding:20px;background:white"><b>Lỗi Render:</b> ${e.message}<br><pre>${e.stack}</pre></div>`;
+  }
 }
 
 function formatCloze(text) {
-    return text.replace(/\[\[(.*?)\]\]/g, '<span class="cloze" onclick="this.classList.toggle(\'revealed\')">$1</span>');
+    return text.replace(/\[\[(.*?)\]\]/g, '<span class="cloze" data-cloze="1">$1</span>');
   }
   function renderFlash(q){
-  if(S.mode==='tuluan'){
+  q=repairQuestion(q);
+  if(S.mode.startsWith('tuluan')){
     $('stage').innerHTML=`
     <div class="cardbox">
       <div class="swipetag known">Đã thuộc ✓</div>
@@ -1723,15 +2002,15 @@ function formatCloze(text) {
         <div class="qtext">${esc(q.q)}</div>
         ${multiBadge(q)}
         <div class="othopts" style="border-top:none;padding-top:10px;color:var(--ink-2)">
-          ${q.opts.map(o=>`<div><span>${o.k}.</span> ${esc(o.t)}</div>`).join('')}
+          ${q.opts.map(o=>`<div><span>${o.k}.</span> ${esc(cleanOptText(o.t, o.k))}</div>`).join('')}
         </div>
         <div class="hintflip">Bấm vào thẻ để xem đáp án</div>
       </div>
       <div class="face back">
         ${qTabHTML(q)}
         <div class="stamp">Đáp án</div>
-        ${ansOpts.map(o=>`<div class="ansbig"><div class="anskey">${o.k}</div><div class="anstext">${esc(o.t)}</div></div>`).join('')}
-        ${others.length?`<div class="othopts">${others.map(o=>`<div><span>${o.k}.</span> ${esc(o.t)}</div>`).join('')}</div>`:''}
+        ${ansOpts.map(o=>`<div class="ansbig"><div class="anskey">${o.k}</div><div class="anstext">${esc(cleanOptText(o.t, o.k))}</div></div>`).join('')}
+        ${others.length?`<div class="othopts">${others.map(o=>`<div><span>${o.k}.</span> ${esc(cleanOptText(o.t, o.k))}</div>`).join('')}</div>`:''}
         ${noteHTML(q)} ${estNote(q)}
         <div class="hintflip">Bấm để lật lại</div>
       </div>
@@ -1747,6 +2026,7 @@ function formatCloze(text) {
 }
 
 function renderQuiz(q){
+  q=repairQuestion(q);
   const multi=q.ans.length>1;
   const ansSet=new Set(q.ans);
   const fresh=S.fresh&&!S.graded;S.fresh=false;
@@ -1765,7 +2045,7 @@ function renderQuiz(q){
           else cls+=' dim';
         }
         return `<button class="${cls}" data-key="${o.k}" ${S.graded?'disabled':''}>
-          <span class="k">${o.k}</span><span>${esc(o.t)}</span></button>`;
+          <span class="k">${o.k}</span><span>${esc(cleanOptText(o.t, o.k))}</span></button>`;
       }).join('')}
     </div>
     <div class="verdict ${S.graded?(isRunCorrect(q)?'ok':'no'):''}" id="verdict">
@@ -1790,18 +2070,34 @@ function isRunCorrect(q){
 function renderSummary(){
   const total=S.runOk+S.runNo;
   const pct=total?Math.round(S.runOk/total*100):0;
+  const showScore = total > 0;
   $('stage').innerHTML=`
-  <div class="summary anim-pop">
+  <div class="summary anim-pop" style="text-align:center;">
     <div class="burst" id="burst"></div>
-    <h2>Kết quả lượt ôn</h2>
-    <div class="score"><span id="scoreNum">0</span><small>%</small></div>
-    <div class="sumline"><span class="ok">✓ Đúng ${S.runOk}</span> · <span class="no">✗ Sai ${S.runNo}</span> · ${total}/${Math.max(S.deck.length,total)} câu</div>
-    <div class="actions" style="margin-top:6px">
+    <h2 style="color:var(--green); font-size:1.6rem; margin-bottom: 10px;">🎉 Chúc mừng bạn đã học xong! 🎉</h2>
+    <img src="cat-flower.png" alt="Chúc mừng" style="width:220px; height:auto; margin: 10px auto 20px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display:block; object-fit: cover;">
+    ${showScore ? `<div class="score"><span id="scoreNum">0</span><small>%</small></div>
+    <div class="sumline"><span class="ok">✓ Đúng ${S.runOk}</span> · <span class="no">✗ Sai ${S.runNo}</span> · ${total}/${Math.max(S.deck.length,total)} câu</div>` : ''}
+    <div class="actions" style="margin-top:20px; justify-content:center; gap: 10px;">
       ${S.wrong.size?`<button class="btn red" data-act="gowrong">Ôn lại câu sai (${S.wrong.size})</button>`:''}
-      <button class="btn gold" data-act="restart">Làm lại bộ này</button>
+      <button class="btn gold" data-act="restart">Học lại toàn bộ</button>
     </div>
   </div>`;
-  countUp($('scoreNum'),pct,()=>{ if(pct>=80) starBurst(); });
+  
+  if (showScore) {
+      countUp($('scoreNum'),pct,()=>{ if(pct>=80) starBurst(); });
+  } else {
+      starBurst();
+  }
+
+  if(window.confetti) {
+      confetti({
+          particleCount: 200,
+          spread: 90,
+          origin: { y: 0.6 },
+          colors: ['#008DDE', '#F37124', '#53B848', '#E11B22', '#FFD700']
+      });
+  }
 }
 function countUp(el,to,done){
   if(prefersReduced){el.textContent=to;done&&done();return;}
@@ -1840,6 +2136,7 @@ function attachSwipe(){
   card.addEventListener('pointerdown',e=>{
     if(e.button!==undefined&&e.button>0)return;
     if(e.target.closest('.starbtn'))return;
+    if(e.target.closest('#tuluanBtns')||e.target.closest('.cloze'))return;
     sx=e.clientX;sy=e.clientY;dx=dy=0;active=true;horiz=null;
     try{card.setPointerCapture(e.pointerId);}catch(_){}
   });
@@ -1915,8 +2212,8 @@ function loadAnswerState(){
 function advance(dir){
   S.anim=dir>=0?'right':'left';
   if(S.pos>=S.deck.length-1){
-    if(S.mode==='quiz'){S.done=true;}
-    else{S.anim='pop';toast('Hết bộ thẻ — xáo trộn và ôn lại nhé!');}
+    S.done=true;
+    S.pos++;
   } else S.pos++;
   S.flipped=false;S.fresh=true;loadAnswerState();render();saveProgress();
 }
@@ -1970,6 +2267,7 @@ function syncRangeSel(){
 }
 
 document.addEventListener('click',e=>{
+  if(e.target.closest('.cloze')){e.target.closest('.cloze').classList.toggle('revealed');e.stopPropagation();return;}
   if(currentView!=='quiz')return;
   const actEl=e.target.closest('[data-act]');
   const optEl=e.target.closest('.opt');
@@ -1995,10 +2293,10 @@ document.addEventListener('click',e=>{
     if(act==='restart'){restartRun();return;}
     return;
   }
-  if(optEl&&S.mode==='quiz'&&!S.graded){
+  if(optEl&&S.mode==='quiz'&&S.mode!=='tuluan'&&!S.graded){
     const q=qmap.get(S.deck[S.pos]);
     const k=optEl.dataset.key;
-    if(q.ans.length>1){
+    if(q.ans&&q.ans.length>1){
       S.sel.has(k)?S.sel.delete(k):S.sel.add(k);
       render();
     }else{
@@ -2006,8 +2304,9 @@ document.addEventListener('click',e=>{
     }
     return;
   }
-  if(card&&S.mode==='flash'){
+  if(card&&(S.mode==='flash'||S.mode.startsWith('tuluan'))){
     if(suppressClick){suppressClick=false;return;}
+    if(e.target.closest('.cloze')||e.target.closest('#btnTlQuen')||e.target.closest('#btnTlMo')||e.target.closest('#btnTlThuoc')||e.target.closest('#tuluanBtns'))return;
     S.flipped=!S.flipped;card.classList.toggle('flipped',S.flipped);
   }
 });
@@ -2015,11 +2314,15 @@ document.addEventListener('click',e=>{
 /* tabs — flashcard và trắc nghiệm có tiến trình RIÊNG: lưu câu đang đứng của chế độ cũ,
    mở lại đúng câu đã dừng lần trước của chế độ mới (chưa học lần nào -> câu 1) */
 function gradeTuluan(level){
-  if(!S.deck[S.i]) return;
-  const q = S.deck[S.i];
+  if(!S.deck.length || S.pos >= S.deck.length) return;
+  const q = qmap.get(S.deck[S.pos]);
+  if(!q) return;
   if(level === 0) { // Quen
     S.learned.delete(q.id);
     S.wrong.add(q.id);
+    // Đẩy về sau 2 câu để học tiếp
+    let insertIndex = Math.min(S.pos + 3, S.deck.length);
+    S.deck.splice(insertIndex, 0, q.id);
   } else if(level === 1) { // Mo
     S.learned.delete(q.id);
     S.wrong.delete(q.id);
@@ -2029,6 +2332,8 @@ function gradeTuluan(level){
   }
   saveProgress();
   renderHeaderStats();
+  // Cập nhật lại số câu trong deck
+  $('deckName').innerHTML = `${esc(deckLabel())} <span class="n">· ${S.deck.length} câu</span>`;
   // flip card back to front
   S.flipped = false;
   $('card').classList.remove('flipped');
@@ -2042,23 +2347,35 @@ function switchMode(m){
   if(S.mode===m)return;
   S.mpos[S.mode]=S.deck.length?S.deck[S.pos]:null;
   S.mode=m;
+  if(m.startsWith('tuluan') && S.deckDef.type === 'wrong') {
+    S.deckDef = {type: 'all'};
+  }
   let code = KEY.replace('fpt-ontap:progress:', '');
-  if(m==='tuluan'){
-    DATA = window.__SUBJECT_DATA[code + '_TULUAN'] || [];
+  if(m==='tuluan1'){
+    DATA = window.__SUBJECT_DATA[code + '_TULUAN_1'] || [];
+  } else if(m==='tuluan2'){
+    DATA = window.__SUBJECT_DATA[code + '_TULUAN_2'] || [];
   } else {
     DATA = window.__SUBJECT_DATA[code] || [];
   }
+  qmap.clear();
+  DATA.forEach((q,i) => {
+    if(m.startsWith('tuluan')) q._realIndex = i;
+    qmap.set(q.id,q);
+  });
   buildRangeOptions();
   $('tabFlash').classList.toggle('on',m==='flash');
   $('tabQuiz').classList.toggle('on',m==='quiz');
-  if($('tabTuluan')) $('tabTuluan').classList.toggle('on',m==='tuluan');
-  if($('tuluanBtns')) $('tuluanBtns').style.display=m==='tuluan'?'flex':'none';
+  if($('tabTuluan1')) $('tabTuluan1').classList.toggle('on',m==='tuluan1');
+  if($('tabTuluan2')) $('tabTuluan2').classList.toggle('on',m==='tuluan2');
+  if($('tuluanBtns')) $('tuluanBtns').style.display=m.startsWith('tuluan')?'flex':'none';
   buildDeck({keepPos:true,toId:S.mpos[m]});
   render();saveProgress();
 }
 $('tabFlash').onclick=()=>switchMode('flash');
 $('tabQuiz').onclick=()=>switchMode('quiz');
-if($('tabTuluan')) $('tabTuluan').onclick=()=>switchMode('tuluan');
+if($('tabTuluan1')) $('tabTuluan1').onclick=()=>switchMode('tuluan1');
+if($('tabTuluan2')) $('tabTuluan2').onclick=()=>switchMode('tuluan2');
 /* controls */
 $('rangeSel').onchange=e=>{
   const v=e.target.value;
@@ -2093,14 +2410,14 @@ document.addEventListener('keydown',e=>{
   if(currentView!=='quiz')return;
   if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;
   const q=S.deck.length&&!S.done?qmap.get(S.deck[S.pos]):null;
-  if(e.key==='ArrowRight'){e.preventDefault();if(S.mode==='quiz'&&q&&!S.graded)return;advance(1);}
+  if(e.key==='ArrowRight'){e.preventDefault();if(S.mode==='quiz'&&q&&!S.graded)return;if(S.mode.startsWith('tuluan'))return advance(1);advance(1);}
   else if(e.key==='ArrowLeft'){e.preventDefault();prev();}
-  else if(e.key===' '&&S.mode==='flash'){e.preventDefault();const c=$('card');if(c){S.flipped=!S.flipped;c.classList.toggle('flipped',S.flipped);}}
+  else if(e.key===' '&&(S.mode==='flash'||S.mode.startsWith('tuluan'))){e.preventDefault();const c=$('card');if(c){S.flipped=!S.flipped;c.classList.toggle('flipped',S.flipped);}}
   else if(e.key==='Enter'){
     e.preventDefault();
     if(S.mode==='quiz'&&q){
       if(S.graded)advance(1);
-      else if(q.ans.length>1&&S.sel.size){grade(q);render();}
+      else if(q.ans&&q.ans.length>1&&S.sel.size){grade(q);render();}
     } else if(S.done){restartRun();}
   }
   else if(/^[1-5]$/.test(e.key)){
@@ -2121,9 +2438,12 @@ document.addEventListener('keydown',e=>{
 /* range options (theo số câu của môn hiện tại) */
 function buildRangeOptions(){
   const sel=$('rangeSel');
-  const max=DATA.length?Math.max(...DATA.map(q=>q.id)):0;
-  let html=`<option value="all">Toàn bộ (1–${max})</option>`;
-  if (KEY && KEY.includes('SMT1005')) {
+  const max=DATA.length;
+  let html='';
+  if (S.mode.startsWith('tuluan')) {
+    html = `<option value="all">Toàn bộ (1–${max})</option>`;
+  } else if (KEY && KEY.includes('SMT1005')) {
+    html = `<option value="all">Toàn bộ (1–${max})</option>`;
     const chunks = ["Đề 1", "Đề 2", "Đề 3", "Đề 4", "Đề 5", "Đề 6", "Tuần 2", "Tuần 3", "Tuần 5", "Tuần 6", "Tuần 7", "Tuần 8"];
     let start = 1;
     let chunkSize = Math.ceil(max / chunks.length);
@@ -2135,6 +2455,7 @@ function buildRangeOptions(){
        start = end + 1;
     }
   } else {
+    html = `<option value="all">Toàn bộ (1–${max})</option>`;
     for(let a=1;a<=max;a+=50){
       const b=Math.min(a+49,max);
       html+=`<option value="r${a}-${b}">Câu ${a}–${b}</option>`;
@@ -2146,57 +2467,103 @@ function buildRangeOptions(){
 /* init một môn (gọi từ router) */
 let subjGen=0;
 async function initSubject(code){
-  /* saveProgress() debounce 400ms và đọc S/KEY lúc TIMER CHẠY, không phải lúc đặt hẹn.
-     Huỷ save đang chờ của môn cũ, nếu không nó sẽ ghi state vừa reset đè lên KEY môn mới. */
   const gen=++subjGen;
   clearTimeout(saveTimer);clearTimeout(flingTimer);
   const subj=SUBJECTS.find(s=>s.code===code)||{code:code,name:code};
   KEY='fpt-ontap:progress:'+code;
-  DATA=(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||[];
-  let DATA_TULUAN = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN'];
-  if(DATA_TULUAN && DATA_TULUAN.length > 0) {
-    if(document.getElementById('tabTuluan')) document.getElementById('tabTuluan').style.display = 'inline-flex';
-  } else {
-    if(document.getElementById('tabTuluan')) document.getElementById('tabTuluan').style.display = 'none';
+  let DATA_FLASH = (window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||[];
+  let hasTuluan1 = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN_1'];
+  let hasTuluan2 = window.__SUBJECT_DATA && window.__SUBJECT_DATA[code + '_TULUAN_2'];
+  
+  if(document.getElementById('tabTuluan1')) document.getElementById('tabTuluan1').style.display = (hasTuluan1 && hasTuluan1.length > 0) ? 'inline-flex' : 'none';
+  if(document.getElementById('tabTuluan2')) document.getElementById('tabTuluan2').style.display = (hasTuluan2 && hasTuluan2.length > 0) ? 'inline-flex' : 'none';
+  
+  let defaultMode = 'flash';
+  if (DATA_FLASH.length === 0 && hasTuluan1 && hasTuluan1.length > 0) {
+      defaultMode = 'tuluan1';
+  } else if (DATA_FLASH.length === 0 && hasTuluan2 && hasTuluan2.length > 0) {
+      defaultMode = 'tuluan2';
   }
-  qmap=new Map(DATA.map(q=>[q.id,q]));
-  /* reset toàn bộ state cho môn mới */
-  S.mode='flash';S.deckDef={type:'all'};S.shuffle=false;S.hideLearned=false;
+  
+  S.mode = defaultMode; S.deckDef={type:'all'};S.shuffle=false;S.hideLearned=false;
   S.deck=[];S.pos=0;S.flipped=false;S.sel=new Set();S.graded=false;
   S.runOk=0;S.runNo=0;S.done=false;
   S.learned=new Set();S.starred=new Set();S.wrong=new Set();
   S.anim='pop';S.fresh=true;S.mem={};S.answers={};S.mpos={flash:null,quiz:null};
-  /* header theo môn */
-  $('qTitle').textContent=subj.code+' · '+DATA.length+' câu';
+  
+  if(S.mode === 'tuluan1') DATA = hasTuluan1 || [];
+  else if(S.mode === 'tuluan2') DATA = hasTuluan2 || [];
+  else DATA = DATA_FLASH;
+  
+  qmap=new Map();
+  DATA.forEach((q,i) => {
+    if(S.mode.startsWith('tuluan')) q._realIndex = i;
+    qmap.set(q.id,q);
+  });
+  
+  const titleCountText = DATA_FLASH.length > 0 ? DATA_FLASH.length + ' câu' : 'Tự luận';
+  $('qTitle').textContent=subj.code+' · '+titleCountText;
   $('qSub').textContent=subj.fullName||subj.name||'';
-  $('stTotal').textContent=DATA.length;
+  $('stTotal').textContent=DATA_FLASH.length > 0 ? DATA_FLASH.length : DATA.length;
   $('curSubj').textContent=subj.name||subj.code;
-  $('tabFlash').classList.add('on');$('tabQuiz').classList.remove('on');
+  
+  $('tabFlash').style.display = DATA_FLASH.length > 0 ? 'inline-flex' : 'none';
+  $('tabQuiz').style.display = DATA_FLASH.length > 0 ? 'inline-flex' : 'none';
+  
+  $('tabFlash').classList.toggle('on', S.mode === 'flash');
+  $('tabQuiz').classList.toggle('on', S.mode === 'quiz');
+  if($('tabTuluan1')) $('tabTuluan1').classList.toggle('on', S.mode === 'tuluan1');
+  if($('tabTuluan2')) $('tabTuluan2').classList.toggle('on', S.mode === 'tuluan2');
+  if($('tuluanBtns')) $('tuluanBtns').style.display=S.mode.startsWith('tuluan')?'flex':'none';
+  
   $('shuffleChk').checked=false;$('hideLearnedChk').checked=false;
   buildRangeOptions();
   const p=await loadProgress();
-  /* đổi môn lần nữa trong lúc await -> bỏ kết quả cũ, tránh nạp progress môn A vào KEY môn B */
   if(gen!==subjGen) return;
   if(p){
     S.learned=new Set(p.learned||[]);S.starred=new Set(p.starred||[]);S.wrong=new Set(p.wrong||[]);
     S.hideLearned=!!p.hideLearned;$('hideLearnedChk').checked=S.hideLearned;
     if(p.shuffle){S.shuffle=true;$('shuffleChk').checked=true;}
-    if(p.mode==='quiz'){S.mode='quiz';$('tabQuiz').classList.add('on');$('tabFlash').classList.remove('on');}
-    if(p.deckDef&&p.deckDef.type){S.deckDef=p.deckDef;}
+    if(p.mode) {
+        let wantMode = p.mode;
+        if(DATA_FLASH.length === 0 && !wantMode.startsWith('tuluan')) {
+            wantMode = defaultMode;
+        }
+        if (wantMode !== S.mode) {
+            S.mode = wantMode;
+            if(S.mode === 'tuluan1') DATA = hasTuluan1 || [];
+            else if(S.mode === 'tuluan2') DATA = hasTuluan2 || [];
+            else DATA = DATA_FLASH;
+            qmap.clear();
+            DATA.forEach((q,i) => {
+              if(S.mode.startsWith('tuluan')) q._realIndex = i;
+              qmap.set(q.id,q);
+            });
+            buildRangeOptions();
+        }
+        $('tabFlash').classList.toggle('on', S.mode === 'flash');
+        $('tabQuiz').classList.toggle('on', S.mode === 'quiz');
+        if($('tabTuluan1')) $('tabTuluan1').classList.toggle('on', S.mode === 'tuluan1');
+        if($('tabTuluan2')) $('tabTuluan2').classList.toggle('on', S.mode === 'tuluan2');
+        if($('tuluanBtns')) $('tuluanBtns').style.display=S.mode.startsWith('tuluan')?'flex':'none';
+    }
+    if(p.deckDef&&p.deckDef.type){
+        if (S.mode.startsWith('tuluan') && p.deckDef.type === 'wrong') {
+            S.deckDef = {type: 'all'};
+        } else {
+            S.deckDef=p.deckDef;
+        }
+    }
   }
   buildDeck();
-  /* khôi phục đúng thứ tự đã xáo của phiên trước, nếu vẫn đúng bộ câu hiện tại
-     (cùng số lượng + cùng tập id) — nếu không, giữ thứ tự vừa xáo mới. */
   if(p&&p.shuffle&&Array.isArray(p.deck)&&p.deck.length===S.deck.length){
     const cur=new Set(S.deck);
     if(p.deck.every(id=>cur.has(id))) S.deck=p.deck.slice();
   }
   if(p&&Number.isInteger(p.pos)&&p.pos>0&&p.pos<S.deck.length){S.pos=p.pos;S.anim='pop';}
-  /* vị trí riêng từng chế độ (sau buildDeck vì buildDeck không-keepPos xoá mpos);
-     save cũ không có mpos -> chế độ kia bắt đầu từ câu 1, đúng tinh thần tiến trình tách rời */
   if(p&&p.mpos&&typeof p.mpos==='object'){
-    S.mpos.flash=qmap.has(p.mpos.flash)?p.mpos.flash:null;
-    S.mpos.quiz=qmap.has(p.mpos.quiz)?p.mpos.quiz:null;
+    S.mpos = Object.assign({flash:null, quiz:null}, p.mpos);
+    if(S.mode && S.mpos[S.mode] && !qmap.has(S.mpos[S.mode])) S.mpos[S.mode] = null;
   }
   if(p){
     if(p.answers&&typeof p.answers==='object')S.answers=p.answers;
@@ -2215,8 +2582,7 @@ const SCHOOLS = [
   { key:'FPT', badge:'FPT', name:'Đại học FPT',
     sub:'Chương trình đại học chính quy — FPT University' },
   { key:'DUE', badge:'DUE', name:'Đại học Kinh tế – Đại học Đà Nẵng',
-    sub:'University of Economics – The University of Danang',
-    teaser:'Các môn ĐH Kinh tế Đà Nẵng đang được chuẩn bị — sắp có.' }
+    sub:'University of Economics – The University of Danang' }
 ];
 /* Ngăn cấp 2: KHỐI KIẾN THỨC theo khung chương trình đào tạo (đại cương → cơ sở → chuyên ngành). */
 const GROUPS = [
@@ -2240,6 +2606,10 @@ const SUBJECTS = [
     school:'DUE', group:'lyluan',
     description:'645 câu trắc nghiệm + flashcard. Tổng hợp các bộ đề thi thử, kiểm tra cuối kỳ.',
     status:'available', accent:'#F37124', emoji:'⚖️', iconKey:'law', questionCount:645, gradient:['#F37124','#E11B22'] },
+  { code:'SMT1006', name:'Kinh tế chính trị Mác – Lênin', fullName:'Kinh tế chính trị Mác – Lênin (SMT1006)',
+    school:'DUE', group:'lyluan',
+    description:'Tổng hợp phần Tự Luận. Vuốt thẻ, ôn tập tự luận có che chữ.',
+    status:'available', accent:'#008DDE', emoji:'💰', iconKey:'law', questionCount:10, gradient:['#008DDE','#0651A0'] },
   { code:'MAS291', name:'Thống kê & Xác suất', fullName:'Statistics & Probability (MAS291)', semester:'Kỳ 5',
     school:'FPT', group:'toan',
     description:'Ôn xác suất, phân phối, kiểm định giả thuyết, hồi quy.',
@@ -2255,12 +2625,16 @@ const SUBJECTS = [
   { code:'SWP391', name:'Đồ án phần mềm', fullName:'Software Development Project (SWP391)', semester:'Kỳ 5',
     school:'FPT', group:'chuyen',
     description:'Ôn quy trình phát triển phần mềm, SDLC, UML, Agile/Scrum.',
-    status:'coming-soon', accent:'#F37124', emoji:'🛠️', iconKey:'project', gradient:['#F37124','#E11B22'] }
+    status:'coming-soon', accent:'#F37124', emoji:'🛠️', iconKey:'project', gradient:['#F37124','#E11B22'] },
+  { code:'PRM393', name:'Lập trình Mobile (Cross-Platform)', fullName:'Developing Cross-Platform Mobile Application (PRM393)', semester:'Kỳ 6',
+    school:'FPT', group:'chuyen',
+    description:'98 câu trắc nghiệm. Ôn tập kiến thức phát triển ứng dụng di động đa nền tảng.',
+    status:'available', accent:'#2E9E5B', emoji:'📱', iconKey:'project', questionCount:98, gradient:['#2E9E5B','#53B848'] }
 ];
 
 let currentView='portal';
 const loadedData=new Set();
-const pf=id=>document.getElementById(id);
+/* pf is defined in script 0 */
 const pfNorm=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase();
 function pfHexToRgb(hex){let h=hex.replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');const n=parseInt(h,16);return{r:(n>>16)&255,g:(n>>8)&255,b:n&255};}
 function pfTextOn(hex){const{r,g,b}=pfHexToRgb(hex);return (0.299*r+0.587*g+0.114*b)/255>0.6?'var(--ink)':'#ffffff';}
@@ -2345,6 +2719,7 @@ function pfToggleCollapse(btn){
   }
 }
 function renderPortal(){
+  document.querySelectorAll('.lp-hero .reveal-l, .lp-hero .reveal-r').forEach(el=>el.classList.add('in-view'));
   const q=pfNorm(pfQuery.trim());
   const groupOf=s=>GROUPS.find(g=>g.key===s.group)||GROUPS[GROUPS.length-1];
   const schoolOf=s=>SCHOOLS.find(sc=>sc.key===s.school)||SCHOOLS[0];
@@ -2364,7 +2739,7 @@ function renderPortal(){
     const hits=SUBJECTS.filter(s=>schoolOf(s).key===sc.key).filter(match);
     if(!hits.length && !(sc.teaser && pfFilter==='all' && !q)) return;
     const sec=document.createElement('section');
-    sec.className='pf-school reveal';
+    sec.className='pf-school reveal in-view';
     sec.setAttribute('aria-label',sc.name);
     const scId='pfsc-'+sc.key;
     const h=document.createElement('h3');
@@ -2399,7 +2774,10 @@ function renderPortal(){
       const gBox=pfCollapseBox(gId,groupClosed);
       const grid=document.createElement('div');
       grid.className='pf-grid';
-      gs.forEach(s=>grid.appendChild(pfCard(s,idx++)));
+      gs.forEach(s=>{
+        const card = pfCard(s,idx++);
+        grid.appendChild(card);
+      });
       gBox.firstChild.appendChild(grid);
       gd.appendChild(gBox);
       scIn.appendChild(gd);
@@ -2422,7 +2800,8 @@ function renderPortal(){
 function loadSubjectData(code,cb){
   if((window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code])||loadedData.has(code)){cb(true);return;}
   const sc=document.createElement('script');
-  sc.src='data/'+code.toLowerCase()+'.js';
+  const isWeb=location.protocol.startsWith('http');
+  sc.src='data/'+code.toLowerCase()+'.js'+(isWeb?'?v=20260730_v2':'');
   sc.onload=()=>{loadedData.add(code);cb(!!(window.__SUBJECT_DATA&&window.__SUBJECT_DATA[code]));};
   sc.onerror=()=>cb(false);
   document.head.appendChild(sc);
@@ -2486,43 +2865,56 @@ pf('pfGrid').addEventListener('click',e=>{
   const soon=e.target.closest('[data-status="coming-soon"]');
   if(soon) toast('Môn này sắp có — chưa mở.');
 });
-/* ---- hover-to-open cho ngăn NHÓM: rê vào chỉ MỞ (không bao giờ đóng ngăn khác khi rê —
-   mở chỉ đẩy nội dung phía dưới con trỏ xuống nên header đang rê không trôi, không mất vị trí);
-   rời hẳn khu vực #pfGrid mới đóng tất cả (có trễ, quay lại kịp thì hủy). Touch: tap toggle.
-   Bàn phím: head nhóm nằm NGOÀI vùng ẩn nên Tab tới được, Enter mở — không cần auto-open. ---- */
-(function(){
-  const wrap=pf('pfGrid'); if(!wrap)return;
-  if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
-  const busy=()=>!!pfQuery.trim()||pfFilter!=='all';   /* đang tìm/lọc: forceOpen, đừng tự đóng */
-  let closeAllT=0;
-  function closeAllGroups(){
-    if(busy())return;
-    wrap.querySelectorAll('.pf-group-head[aria-expanded="true"]').forEach(h=>pfToggleCollapse(h));
-  }
-  /* pointerenter/leave không bubble -> delegation bằng capture, lọc theo target */
-  wrap.addEventListener('pointerenter',e=>{
-    const t=e.target;
-    if(t===wrap){ clearTimeout(closeAllT); return; }   /* quay lại khu vực môn: hủy hẹn đóng */
-    if(t.classList&&t.classList.contains('pf-group')){
-      clearTimeout(closeAllT);
-      t._hovO=setTimeout(()=>{                          /* hover-intent 60ms: lướt ngang không mở nhầm */
-        const h=t.querySelector('.pf-group-head');
-        if(h&&h.getAttribute('aria-expanded')!=='true') pfToggleCollapse(h);
-      },60);
+
+/* ---- hover-to-open cho thanh đề (nhóm môn):
+   - Rê chuột vào thanh đề: TỰ ĐỘNG MỞ ra mượt mà.
+   - KHÔNG CÓ CƠ CHẾ TỰ ĐÓNG: mở ra thì giữ nguyên khi rời chuột.
+   - Muốn đóng: người dùng tự bấm tay vào icon chevron / thanh đề để toggle đóng. ---- */
+(function initHoverToOpen(){
+  const wrap = pf('pfGrid'); if(!wrap) return;
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+
+  let manualCloseBtn = null;
+  let manualCloseTime = 0;
+
+  wrap.addEventListener('click', e => {
+    const btn = e.target.closest('.pf-group-head');
+    if(btn){
+      setTimeout(() => {
+        if(btn.getAttribute('aria-expanded') === 'false'){
+          manualCloseBtn = btn;
+          manualCloseTime = Date.now();
+        }
+      }, 0);
     }
-  },true);
-  wrap.addEventListener('pointerleave',e=>{
-    const t=e.target;
-    if(t===wrap){ clearTimeout(closeAllT); closeAllT=setTimeout(closeAllGroups,350); return; }
-    /* rời 1 nhóm: CHỈ hủy intent đang chờ, không đóng gì (giữ layout đứng yên khi rê xuống mục dưới) */
-    if(t.classList&&t.classList.contains('pf-group')) clearTimeout(t._hovO);
-  },true);
-  /* bàn phím lượn trong grid thì đừng để timer đóng chen ngang; Tab thoát hẳn grid -> đóng như rời chuột */
-  wrap.addEventListener('focusin',()=>clearTimeout(closeAllT));
-  wrap.addEventListener('focusout',e=>{
-    if(e.relatedTarget&&wrap.contains(e.relatedTarget))return;
-    clearTimeout(closeAllT); closeAllT=setTimeout(closeAllGroups,350);
   });
+
+  wrap.addEventListener('pointerenter', e => {
+    const t = e.target;
+    const group = t.closest ? t.closest('.pf-group') : null;
+    if(group){
+      const btn = group.querySelector('.pf-group-head');
+      if(btn && btn.getAttribute('aria-expanded') !== 'true'){
+        if(btn === manualCloseBtn && (Date.now() - manualCloseTime < 600)) return;
+
+        clearTimeout(group._hovO);
+        group._hovO = setTimeout(() => {
+          if(btn.getAttribute('aria-expanded') !== 'true'){
+            pfToggleCollapse(btn);
+          }
+        }, 60);
+      }
+    }
+  }, true);
+
+  wrap.addEventListener('pointerleave', e => {
+    const t = e.target;
+    const group = t.closest ? t.closest('.pf-group') : null;
+    if(group && group._hovO){
+      clearTimeout(group._hovO);
+    }
+    // Không tự đóng khi rời chuột
+  }, true);
 })();
 pf('backBtn').addEventListener('click',()=>{ location.hash=''; });
 
@@ -2553,7 +2945,7 @@ if('IntersectionObserver' in window && !lpReduce){
 }
 function pfRevealScan(){
   if(!lpObserver){ lpRevealAll(); return; }
-  document.querySelectorAll('.reveal:not(.in-view)').forEach(el=>lpObserver.observe(el));
+  document.querySelectorAll('.reveal:not(.in-view),.reveal-l:not(.in-view),.reveal-r:not(.in-view),.reveal-s:not(.in-view)').forEach(el=>lpObserver.observe(el));
 }
 pfRevealScan();
 
@@ -2707,8 +3099,8 @@ pf('pfTotal').textContent=SUBJECTS.length;
     if(nav) nav.classList.toggle('lp-scrolled', sc>8);
     // back-to-top hiện khi cuộn xuống
     if(toTop) toTop.classList.toggle('show', sc>420);
-    // parallax theo cuộn: chỉ cần truyền độ cuộn vào hero (CSS nhân hệ số nhỏ)
-    if(hero && !lpReduce){ hero.style.setProperty('--sy', sc+'px'); }
+    // parallax theo cuộn: chỉ cập nhật khi hero còn trong màn hình để tối ưu hiệu năng
+    if(hero && !lpReduce && sc < 1100){ hero.style.setProperty('--sy', sc+'px'); }
   }
   function onScroll(){ if(!raf) raf=requestAnimationFrame(read); }
   if(!lpReduce){
@@ -2941,12 +3333,304 @@ pf('pfTotal').textContent=SUBJECTS.length;
   });
 })();
 
+// ===== 21st.dev EFFECT 1: SHOWCASE PIN VIDEO REVEAL CONTROLLER (TỐI ƯU 60FPS) =====
+(function initHeroScrollVideoReveal(){
+  const section = document.getElementById('lpPinReveal');
+  if(!section) return;
+  const pinBox = document.getElementById('lpPinBox');
+  const rotor = section.querySelector('.lp-pin-rotor-wrap');
+  const icon = section.querySelector('.lp-pin-center-icon');
+  const video = document.getElementById('lpPinVideo');
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    if (pinBox) pinBox.style.clipPath = 'none';
+    return;
+  }
+
+  // Tự động phát video muted
+  if (video) {
+    video.muted = true;
+    video.play().catch(function(){});
+  }
+
+  let ticking = false;
+  let cachedTotalDist = 0;
+  let lastR = -1;
+
+  function measure(){
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const secH = section.offsetHeight || 0;
+    cachedTotalDist = Math.max(secH - vh, 1);
+  }
+  measure();
+
+  function update(){
+    ticking = false;
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const secRect = section.getBoundingClientRect();
+
+    // Kiểm tra vùng nhìn: ngoài tầm nhìn thì pause video và thoát ngay
+    if(secRect.bottom < -100 || secRect.top > vh + 100){
+      if(video && !video.paused) video.pause();
+      return;
+    }
+
+    // Video đang trong tầm nhìn
+    if(video && video.paused){
+      video.play().catch(function(){});
+    }
+
+    if(cachedTotalDist <= 0) return;
+
+    // Tiến trình p bắt đầu từ 0 khi section chạm đỉnh
+    const p = Math.min(Math.max(-secRect.top / cachedTotalDist, 0), 1);
+
+    // Bán kính khởi điểm: 10% trên desktop, 15% trên mobile
+    const isMobile = window.innerWidth < 640;
+    const baseR = isMobile ? 15 : 10;
+    const maxR = 145;
+    
+    // Đường cong mở rộng:
+    // Từ p = 0 đến 0.08: giữ vòng tròn ban đầu với huy hiệu quay
+    // Từ p = 0.08 đến 0.82: mở rộng mượt mà, cảm giác cuộn đầm chắc
+    // Từ p = 0.82 đến 1.0: video full màn hình (unclip) để người dùng ngắm trọn vẹn
+    let r;
+    if (p <= 0.08) {
+      r = baseR;
+    } else if (p < 0.82) {
+      const normP = (p - 0.08) / 0.74;
+      const easeCurve = normP < 0.5 ? 2 * normP * normP : 1 - Math.pow(-2 * normP + 2, 2) / 2;
+      r = baseR + (maxR - baseR) * easeCurve;
+    } else {
+      r = maxR;
+    }
+
+    if (p >= 0.82) {
+      if (lastR !== 999) {
+        lastR = 999;
+        if (pinBox) pinBox.style.clipPath = 'none';
+      }
+    } else {
+      if (Math.abs(r - lastR) > 0.15) {
+        lastR = r;
+        if (pinBox) pinBox.style.clipPath = 'circle(' + r.toFixed(2) + '% at 50% 50%)';
+      }
+    }
+
+    // Mờ dần huy hiệu và nút play theo nhịp cuộn mượt mà
+    const fade = Math.max(0, 1 - p * 2.8);
+    if (icon) {
+      icon.style.opacity = fade.toFixed(3);
+      icon.style.transform = 'translate3d(-50%, -50%, 0) scale(' + Math.max(0.65, 1 - p * 0.7).toFixed(2) + ')';
+    }
+    if (rotor) {
+      rotor.style.opacity = fade.toFixed(3);
+      rotor.style.transform = 'translate3d(-50%, -50%, 0) rotate(' + (p * 540).toFixed(1) + 'deg)';
+    }
+  }
+
+  function requestTick(){
+    if(!ticking){
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll', requestTick, {passive: true});
+  window.addEventListener('resize', function(){
+    measure();
+    requestTick();
+  }, {passive: true});
+  requestTick();
+})();
+
+// ===== 21st.dev EFFECT 2: GLYPH PORTAL CONTROLLER (CAMERA ZOOM HỌC INTERMOL) =====
+(function initGlyphPortal(){
+  const section = document.getElementById('gpSection');
+  if(!section) return;
+
+  const artSvg = section.querySelector('[data-gp-art]');
+  const fptText = section.querySelector('[data-gp-fpt]');
+  const onTapText = section.querySelector('[data-gp-ontap]');
+  const zoomGroup = section.querySelector('[data-gp-zoom-group]');
+  const content = document.getElementById('gpContent');
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion){
+    section.setAttribute('data-gp-entered','true');
+    if(content){
+      content.style.opacity = '1';
+      content.style.pointerEvents = 'auto';
+      content.style.transform = 'none';
+    }
+    return;
+  }
+
+  let vw = window.innerWidth, vh = window.innerHeight;
+  let textCenter = { x: 0, y: 0 };
+  let cachedTotalDist = 0;
+  let ticking = false;
+
+  function layout(){
+    vw = window.innerWidth;
+    vh = window.innerHeight;
+    artSvg.setAttribute('viewBox', '0 0 ' + vw + ' ' + vh);
+
+    // Kích cỡ responsive cho typography "FPT Ôn Tập" (chuẩn tỷ lệ logo)
+    const fontSize = Math.min(vw * 0.086, vh * 0.14, 96);
+    const cx = vw / 2;
+    const cy = vh / 2 + fontSize * 0.35;
+    const gap = fontSize * 0.28;
+
+    if(fptText) fptText.setAttribute('font-size', fontSize);
+    if(onTapText) onTapText.setAttribute('font-size', fontSize);
+
+    // Đo độ dài thực tế để căn giữa tuyệt đối
+    const fptW = (fptText && fptText.getComputedTextLength) ? fptText.getComputedTextLength() : fontSize * 2.2;
+    const onTapW = (onTapText && onTapText.getComputedTextLength) ? onTapText.getComputedTextLength() : fontSize * 4.2;
+    const totalW = fptW + gap + onTapW;
+    const startX = cx - totalW / 2;
+
+    if(fptText){
+      fptText.setAttribute('x', startX);
+      fptText.setAttribute('y', cy);
+    }
+    if(onTapText){
+      onTapText.setAttribute('x', startX + fptW + gap);
+      onTapText.setAttribute('y', cy);
+    }
+
+    textCenter = { x: cx, y: vh / 2 };
+    cachedTotalDist = (section.offsetHeight || (vh * 1.9)) - vh;
+    update();
+  }
+
+  function update(){
+    ticking = false;
+    const secRect = section.getBoundingClientRect();
+    if(secRect.bottom < -100 || secRect.top > vh + 100) return;
+
+    if(cachedTotalDist <= 0) return;
+
+    // Tiến trình cuộn từ 0 (bắt đầu ghim) tới 1 (hoàn thành)
+    const p = Math.min(Math.max(-secRect.top / cachedTotalDist, 0), 1);
+
+    // Thuật toán zoom mũ mượt mà (smooth exponential zoom) học từ Intermol
+    const t = Math.min(Math.max(p / 0.72, 0), 1);
+    const eased = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const startScale = 1;
+    const endScale = 48;
+    const scale = Math.exp(Math.log(startScale) + Math.log(endScale / startScale) * eased);
+
+    const tx = (vw / 2) - textCenter.x * scale;
+    const ty = (vh / 2) - textCenter.y * scale;
+
+    if(zoomGroup){
+      zoomGroup.style.transform = 'translate3d(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px,0) scale(' + scale.toFixed(4) + ')';
+    }
+
+    // Mờ dần typography khi phóng to cực đại để mở ra nền sạch tinh tế cho chân trang
+    const textFade = p < 0.52 ? 1 : Math.max(0, 1 - (p - 0.52) / 0.18);
+    if(artSvg) artSvg.style.opacity = textFade.toFixed(3);
+
+    // Giai đoạn mở ra Chân trang Taped: không bị che khuất bởi CTA
+    if(p < 0.65){
+      section.removeAttribute('data-gp-entered');
+      if(content){
+        content.style.opacity = '0';
+        content.style.pointerEvents = 'none';
+        content.style.transform = 'translate3d(0, 24px, 0)';
+      }
+    } else {
+      section.setAttribute('data-gp-entered', 'true');
+      const exitP = Math.min(1, (p - 0.65) / 0.25);
+      if(content){
+        content.style.opacity = exitP.toFixed(3);
+        content.style.transform = 'translate3d(0, ' + ((1 - exitP) * 24).toFixed(1) + 'px, 0)';
+        if(exitP > 0.6) content.style.pointerEvents = 'auto';
+      }
+    }
+  }
+
+  // Xử lý khi nhảy trực tiếp tới hash chân trang (#gpContent hoặc #footer)
+  if (window.location.hash === '#gpContent' || window.location.hash === '#footer') {
+    if (content) {
+      content.style.opacity = '1';
+      content.style.pointerEvents = 'auto';
+      content.style.transform = 'none';
+    }
+  }
+
+  function requestTick(){
+    if(!ticking){
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll', requestTick, {passive: true});
+  window.addEventListener('resize', function(){
+    layout();
+    requestTick();
+  }, {passive: true});
+
+  layout();
+  requestTick();
+})();
+
+// ===== LENIS MOMENTUM SMOOTH SCROLL (SOFT, MƯỢT 60-120FPS, ZERO DELAY) =====
+let lenis = null;
+(function initSmoothScroll(){
+  if(typeof Lenis === 'undefined') return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  lenis = new Lenis({
+    duration: 0.85,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 1.0,
+    touchMultiplier: 1.5,
+    infinite: false,
+  });
+
+  function raf(time){
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+})();
+
+// ===== SMOOTH ANCHOR SCROLLING (TÍCH HỢP LENIS) =====
+(function initAnchorScroll(){
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId.length > 1 && !targetId.includes('=')) {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          if (lenis) {
+            lenis.scrollTo(targetEl, { offset: 0, duration: 1.0 });
+          } else {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+    });
+  });
+})();
+
 renderPortal();
 route();
 </script>
 <script src="data/mln111.js"></script>
 <script src="data/mln122.js"></script>
+<script src="data/prm393.js"></script>
 <script src="data/smt1005.js"></script>
+  <script src="data/smt1006.js"></script>
 
 </body>
 </html>

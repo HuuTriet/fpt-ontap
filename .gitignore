@@ -1,2 +1,10 @@
 /src/
 /dist/
+node_modules/
+package-lock.json
+parse.js
+parse_tuluan.js
+*.tmp
+*.log
+Bạn đang làm việc với vai trò Senio.md
+server.js
