@@ -325,32 +325,35 @@ select.ctl{padding-right:6px;max-width:48vw}
 
 /* ---- NAV sticky ---- */
 .lp-nav{position:sticky;top:0;z-index:100;background:var(--surface);
-  border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm);
+  transition:background var(--dur) var(--ease-soft),box-shadow var(--dur) var(--ease-soft)}
 @supports ((-webkit-backdrop-filter:blur(8px)) or (backdrop-filter:blur(8px))){
-  .lp-nav{background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(140%) blur(8px);backdrop-filter:saturate(140%) blur(8px)}
+  .lp-nav{background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(140%) blur(10px);backdrop-filter:saturate(140%) blur(10px)}
 }
-.lp-nav-in{display:flex;align-items:center;gap:var(--sp-3);min-height:38px;
-  padding-block:3px;padding-top:max(3px,env(safe-area-inset-top))}
-.lp-brand{display:inline-flex;align-items:center;gap:6px;text-decoration:none;min-height:28px}
-.lp-logo-svg{height:22px;width:auto;display:block}
-.lp-logo-img{height:24px;width:auto;display:none}
-.lp-tag{font-size:0.68rem;font-weight:600;color:var(--ink-2);
-  border:1px solid var(--line);border-radius:var(--r-pill);padding:1px 7px;white-space:nowrap}
-.lp-nav-r{margin-left:auto;display:flex;align-items:center;gap:2px}
-.lp-nav-r a{display:inline-flex;align-items:center;min-height:28px;padding:0 9px;border-radius:var(--r-pill);
-  font-size:0.8rem;font-weight:600;color:var(--ink-2);text-decoration:none;transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
+.lp-nav-in{display:flex;align-items:center;gap:var(--sp-3);min-height:52px;
+  padding-block:8px;padding-top:max(8px,env(safe-area-inset-top));
+  transition:min-height var(--dur) var(--ease-soft),padding-block var(--dur) var(--ease-soft)}
+.lp-brand{display:inline-flex;align-items:center;gap:6px;text-decoration:none;min-height:32px}
+.lp-logo-svg{height:26px;width:auto;display:block;transition:height var(--dur) var(--ease-soft)}
+.lp-logo-img{height:26px;width:auto;display:none}
+.lp-tag{font-size:0.72rem;font-weight:600;color:var(--ink-2);letter-spacing:.02em;
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:2px 9px;white-space:nowrap}
+.lp-nav-r{margin-left:auto;display:flex;align-items:center;gap:4px}
+.lp-nav-r a{display:inline-flex;align-items:center;min-height:32px;padding:0 11px;border-radius:var(--r-pill);
+  font-size:0.84rem;font-weight:600;color:var(--ink-2);text-decoration:none;transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
 @media (hover:hover) and (pointer:fine){.lp-nav-r a:hover{color:var(--fpt-blue);background:var(--surface-2)}}
 .lp-nav-r a:active{transform:scale(.97)}
+.lp-brand:focus-visible,.lp-nav-r a:focus-visible{outline:2px solid var(--fpt-blue);outline-offset:3px;border-radius:var(--r-pill)}
 /* ---- NAV mobile: thu gọn cho vừa màn nhỏ (chống tràn/cắt) ---- */
 @media(max-width:640px){
-  .lp-nav-in{gap:6px;min-height:36px;padding-block:2px}
-  .lp-logo-svg{height:20px}
+  .lp-nav-in{gap:8px;min-height:44px;padding-block:5px}
+  .lp-logo-svg{height:22px}
   .lp-tag{display:none}
-  .lp-nav-r{gap:0}
-  .lp-nav-r a{padding:0 5px;font-size:.74rem;min-height:26px}
-  .lp-nav-r a[href="#lpFeatH"]{display:none}
+  .lp-nav-r{gap:2px}
+  .lp-nav-r a{padding:0 7px;font-size:.78rem;min-height:28px}
 }
-@media(max-width:460px){ .lp-nav-r a[href="#pfGrid"]{display:none} }
+@media(max-width:380px){ .lp-nav-r a[href="#pfGrid"]{display:none} }
+#pfGrid,[id="pfGrid"],#lpGridH,[aria-labelledby="lpGridH"],#lpFeatH,[id="lpFeatH"]{scroll-margin-top:56px}
 
 /* ---- HERO ---- */
 .lp-hero{position:relative;overflow:hidden;background:var(--surface)}
@@ -657,12 +660,12 @@ select.ctl{padding-right:6px;max-width:48vw}
 /* 4) Nav đổi trạng thái khi cuốn (thu gọn + bóng mượt) */
 .lp-nav{transition:box-shadow var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
 .lp-nav-in{transition:min-height var(--dur) var(--ease-soft),padding-block var(--dur) var(--ease-soft)}
-.lp-nav.lp-scrolled{box-shadow:0 6px 18px rgba(16,36,58,.12)}
+.lp-nav.lp-scrolled{box-shadow:0 4px 16px rgba(16,36,58,.08)}
 @supports ((-webkit-backdrop-filter:blur(8px)) or (backdrop-filter:blur(8px))){
-  .lp-nav.lp-scrolled{background:rgba(255,255,255,.92)}
+  .lp-nav.lp-scrolled{background:rgba(255,255,255,.94)}
 }
-.lp-nav.lp-scrolled .lp-nav-in{min-height:34px;padding-block:2px}
-.lp-nav.lp-scrolled .lp-logo-svg{height:19px;transition:height var(--dur) var(--ease-soft)}
+.lp-nav.lp-scrolled .lp-nav-in{min-height:44px;padding-block:5px}
+.lp-nav.lp-scrolled .lp-logo-svg{height:22px;transition:height var(--dur) var(--ease-soft)}
 .lp-logo-svg{transition:height var(--dur) var(--ease-soft)}
 
 /* 5) Nút lên đầu trang */
@@ -695,7 +698,7 @@ select.ctl{padding-right:6px;max-width:48vw}
 
 /* 8) Micro-interaction: gạch chân động cho nav link + footer link */
 .lp-nav-r a{position:relative}
-.lp-nav-r a::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:2px;
+.lp-nav-r a::after{content:"";position:absolute;left:10px;right:10px;bottom:4px;height:2px;
   background:var(--fpt-blue);border-radius:2px;transform:scaleX(0);transform-origin:0 50%;
   transition:transform var(--dur) var(--ease-soft)}
 @media (hover:hover) and (pointer:fine){.lp-nav-r a:hover::after{transform:scaleX(1)}}
@@ -1089,7 +1092,6 @@ html.lenis, html.lenis body { height: auto; }
       <span class="lp-tag">Dự án cá nhân</span>
       <nav class="lp-nav-r" aria-label="Liên kết">
         <a href="#pfGrid">Các môn</a>
-        <a href="#lpFeatH">Tính năng</a>
         <a href="cau-chuyen.html">Câu chuyện FPT</a>
       </nav>
     </div>
