@@ -148,25 +148,7 @@ img,svg{max-width:100%}
 .cs-progress{position:fixed;left:0;top:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;
   z-index:120;pointer-events:none;background:linear-gradient(90deg,#0651A0,#008DDE,#53B848,#F37124,#E11B22)}
 
-/* ===== NAV DỌC THEO SECTION (bên phải) ===== */
-.cs-dots{position:fixed;right:max(14px,env(safe-area-inset-right));top:50%;transform:translateY(-50%);
-  z-index:90;display:flex;flex-direction:column;gap:6px;padding:8px}
-.cs-dot{position:relative;width:34px;height:34px;display:flex;align-items:center;justify-content:flex-end;
-  text-decoration:none}
-.cs-dot::before{content:"";width:9px;height:9px;border-radius:50%;border:2px solid var(--ink-2);background:transparent;
-  opacity:.5;transition:transform var(--dur) var(--ease-spring),opacity var(--dur),background var(--dur),border-color var(--dur)}
-.cs-dot.on::before{background:var(--fpt-orange);border-color:var(--fpt-orange);opacity:1;transform:scale(1.5)}
-.cs-dot-lbl{position:absolute;right:30px;top:50%;transform:translate(8px,-50%) scale(.92);
-  white-space:nowrap;font-size:var(--fs-xs);font-weight:700;color:var(--ink);
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);
-  padding:3px 10px;box-shadow:var(--shadow-sm);opacity:0;pointer-events:none;
-  transition:opacity var(--dur) var(--ease-soft),transform var(--dur) var(--ease-out)}
-@media (hover:hover) and (pointer:fine){
-  .cs-dot:hover::before{opacity:1;transform:scale(1.35)}
-  .cs-dot:hover .cs-dot-lbl{opacity:1;transform:translate(0,-50%) scale(1)}
-}
-.cs-dot:focus-visible .cs-dot-lbl{opacity:1;transform:translate(0,-50%) scale(1)}
-@media (max-width:920px){.cs-dots{display:none}}
+
 
 /* ===== SECTION CHUNG ===== */
 .cs-sec{position:relative;padding-block:var(--sp-sec);
@@ -660,17 +642,7 @@ html.lenis, html.lenis body { height: auto; }
 <!-- thanh tiến trình đọc -->
 <div class="cs-progress" id="csProgress" aria-hidden="true"></div>
 
-<!-- nav dọc theo section -->
-<nav class="cs-dots" id="csDots" aria-label="Điều hướng nhanh theo phần">
-  <a class="cs-dot" href="#hero" data-dot="hero" aria-label="Mở đầu"><span class="cs-dot-lbl">Mở đầu</span></a>
-  <a class="cs-dot" href="#origin" data-dot="origin" aria-label="Khởi nguồn"><span class="cs-dot-lbl">Khởi nguồn</span></a>
-  <a class="cs-dot" href="#vision" data-dot="vision" aria-label="Hoài bão"><span class="cs-dot-lbl">Hoài bão</span></a>
-  <a class="cs-dot" href="#journey" data-dot="journey" aria-label="Hành trình"><span class="cs-dot-lbl">Hành trình</span></a>
-  <a class="cs-dot" href="#life" data-dot="life" aria-label="Sức sống sinh viên"><span class="cs-dot-lbl">Sức sống</span></a>
-  <a class="cs-dot" href="#stats" data-dot="stats" aria-label="Thành tựu"><span class="cs-dot-lbl">Thành tựu</span></a>
-  <a class="cs-dot" href="#trust" data-dot="trust" aria-label="Uy tín"><span class="cs-dot-lbl">Uy tín</span></a>
-  <a class="cs-dot" href="#end" data-dot="end" aria-label="Kết"><span class="cs-dot-lbl">Tiếp tục</span></a>
-</nav>
+
 
 <!-- ===== NAV sticky (đồng bộ tuyệt đối với portal index.html) ===== -->
 <header class="cs-nav" id="csNav" aria-label="Thanh điều hướng">
@@ -1345,32 +1317,7 @@ html.lenis, html.lenis body { height: auto; }
     read();
   })();
 
-  /* ===== (I) NAV DỌC — highlight section + cuộn mượt ===== */
-  (function(){
-    var dots=Array.prototype.slice.call(document.querySelectorAll('.cs-dot'));
-    if(!dots.length)return;
-    dots.forEach(function(d){
-      d.addEventListener('click',function(e){
-        var id=d.getAttribute('href').slice(1), sec=document.getElementById(id);
-        if(!sec)return;
-        e.preventDefault();
-        if(window.lenis){
-          window.lenis.scrollTo(sec, { offset: -50, duration: 1.0 });
-        } else {
-          sec.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
-        }
-        try{history.replaceState(null,'','#'+id);}catch(_){}
-      });
-    });
-    if(!hasIO)return;
-    function setActive(id){ dots.forEach(function(d){ d.classList.toggle('on',d.getAttribute('data-dot')===id); }); }
-    var secObs=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting) setActive(en.target.id); });
-    },{threshold:0,rootMargin:'-45% 0px -45% 0px'});
-    ['hero','origin','vision','journey','life','stats','trust','end'].forEach(function(id){
-      var s=document.getElementById(id); if(s) secObs.observe(s);
-    });
-  })();
+
 
   /* ===== (J) COUNT-UP số liệu — CHỈ 1 LẦN, định dạng vi-VN ===== */
   (function(){
