@@ -329,25 +329,25 @@ select.ctl{padding-right:6px;max-width:48vw}
 @supports ((-webkit-backdrop-filter:blur(8px)) or (backdrop-filter:blur(8px))){
   .lp-nav{background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(140%) blur(8px);backdrop-filter:saturate(140%) blur(8px)}
 }
-.lp-nav-in{display:flex;align-items:center;gap:var(--sp-4);min-height:48px;
-  padding-block:5px;padding-top:max(5px,env(safe-area-inset-top))}
-.lp-brand{display:inline-flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:36px}
-.lp-logo-svg{height:28px;width:auto;display:block}
-.lp-logo-img{height:30px;width:auto;display:none}
-.lp-tag{font-size:0.72rem;font-weight:600;color:var(--ink-2);
-  border:1px solid var(--line);border-radius:var(--r-pill);padding:2px 8px;white-space:nowrap}
-.lp-nav-r{margin-left:auto;display:flex;align-items:center;gap:4px}
-.lp-nav-r a{display:inline-flex;align-items:center;min-height:36px;padding:0 10px;border-radius:var(--r-pill);
-  font-size:0.84rem;font-weight:600;color:var(--ink-2);text-decoration:none;transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
+.lp-nav-in{display:flex;align-items:center;gap:var(--sp-3);min-height:38px;
+  padding-block:3px;padding-top:max(3px,env(safe-area-inset-top))}
+.lp-brand{display:inline-flex;align-items:center;gap:6px;text-decoration:none;min-height:28px}
+.lp-logo-svg{height:22px;width:auto;display:block}
+.lp-logo-img{height:24px;width:auto;display:none}
+.lp-tag{font-size:0.68rem;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:1px 7px;white-space:nowrap}
+.lp-nav-r{margin-left:auto;display:flex;align-items:center;gap:2px}
+.lp-nav-r a{display:inline-flex;align-items:center;min-height:28px;padding:0 9px;border-radius:var(--r-pill);
+  font-size:0.8rem;font-weight:600;color:var(--ink-2);text-decoration:none;transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
 @media (hover:hover) and (pointer:fine){.lp-nav-r a:hover{color:var(--fpt-blue);background:var(--surface-2)}}
 .lp-nav-r a:active{transform:scale(.97)}
 /* ---- NAV mobile: thu gọn cho vừa màn nhỏ (chống tràn/cắt) ---- */
 @media(max-width:640px){
-  .lp-nav-in{gap:var(--sp-2);min-height:44px;padding-block:4px}
-  .lp-logo-svg{height:24px}
+  .lp-nav-in{gap:6px;min-height:36px;padding-block:2px}
+  .lp-logo-svg{height:20px}
   .lp-tag{display:none}
   .lp-nav-r{gap:0}
-  .lp-nav-r a{padding:0 6px;font-size:.76rem;min-height:32px}
+  .lp-nav-r a{padding:0 5px;font-size:.74rem;min-height:26px}
   .lp-nav-r a[href="#lpFeatH"]{display:none}
 }
 @media(max-width:460px){ .lp-nav-r a[href="#pfGrid"]{display:none} }
@@ -661,8 +661,8 @@ select.ctl{padding-right:6px;max-width:48vw}
 @supports ((-webkit-backdrop-filter:blur(8px)) or (backdrop-filter:blur(8px))){
   .lp-nav.lp-scrolled{background:rgba(255,255,255,.92)}
 }
-.lp-nav.lp-scrolled .lp-nav-in{min-height:44px;padding-block:3px}
-.lp-nav.lp-scrolled .lp-logo-svg{height:25px;transition:height var(--dur) var(--ease-soft)}
+.lp-nav.lp-scrolled .lp-nav-in{min-height:34px;padding-block:2px}
+.lp-nav.lp-scrolled .lp-logo-svg{height:19px;transition:height var(--dur) var(--ease-soft)}
 .lp-logo-svg{transition:height var(--dur) var(--ease-soft)}
 
 /* 5) Nút lên đầu trang */
