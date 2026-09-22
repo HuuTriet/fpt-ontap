@@ -99,21 +99,21 @@ img,svg{max-width:100%}
     -webkit-backdrop-filter:saturate(150%) blur(10px);backdrop-filter:saturate(150%) blur(10px)}
 }
 .cs-nav.is-float{box-shadow:var(--shadow-md)}
-.cs-nav-in{display:flex;align-items:center;gap:var(--sp-4);min-height:62px;max-width:1180px;margin:0 auto;
-  padding-inline:clamp(18px,5vw,40px);padding-block:var(--sp-2);padding-top:max(var(--sp-2),env(safe-area-inset-top))}
-.cs-brand{display:inline-flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:44px}
-.cs-logo-svg{height:34px;width:auto;display:block}
-.cs-logo-img{height:36px;width:auto;display:none}
-.cs-tag{font-size:var(--fs-xs);font-weight:700;color:var(--ink-2);letter-spacing:.04em;
-  border:1px solid var(--line);border-radius:var(--r-pill);padding:3px 11px;white-space:nowrap}
-.cs-nav-r{margin-left:auto;display:flex;align-items:center;gap:var(--sp-2)}
-.cs-nav-r a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:0 13px;border-radius:var(--r-pill);
-  font-size:var(--fs-sm);font-weight:600;color:var(--ink-2);text-decoration:none;
+.cs-nav-in{display:flex;align-items:center;gap:var(--sp-4);min-height:48px;max-width:1180px;margin:0 auto;
+  padding-inline:clamp(18px,5vw,40px);padding-block:5px;padding-top:max(5px,env(safe-area-inset-top))}
+.cs-brand{display:inline-flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:36px}
+.cs-logo-svg{height:28px;width:auto;display:block}
+.cs-logo-img{height:30px;width:auto;display:none}
+.cs-tag{font-size:0.72rem;font-weight:700;color:var(--ink-2);letter-spacing:.04em;
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:2px 8px;white-space:nowrap}
+.cs-nav-r{margin-left:auto;display:flex;align-items:center;gap:4px}
+.cs-nav-r a{position:relative;display:inline-flex;align-items:center;min-height:36px;padding:0 10px;border-radius:var(--r-pill);
+  font-size:0.84rem;font-weight:600;color:var(--ink-2);text-decoration:none;
   transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
-.cs-nav-r a::after{content:"";position:absolute;left:13px;right:13px;bottom:6px;height:2px;
+.cs-nav-r a::after{content:"";position:absolute;left:10px;right:10px;bottom:4px;height:2px;
   background:var(--fpt-blue);border-radius:2px;transform:scaleX(0);transform-origin:left center;
   transition:transform 240ms var(--ease-out)}
-.cs-nav-cta{color:#fff!important;background:var(--fpt-orange);box-shadow:var(--shadow-brand);font-weight:700!important}
+.cs-nav-cta{color:#fff!important;background:var(--fpt-orange);box-shadow:var(--shadow-brand);font-weight:700!important;min-height:36px!important;padding:0 14px!important;font-size:0.84rem!important}
 .cs-nav-cta::after{display:none}
 @media (hover:hover) and (pointer:fine){
   .cs-nav-r a:not(.cs-nav-cta):hover{color:var(--fpt-blue);background:var(--surface-2)}
@@ -124,9 +124,9 @@ img,svg{max-width:100%}
 @media (max-width:560px){
   .cs-nav-r a:not(.cs-nav-cta){display:none}
   .cs-tag{display:none}
-  .cs-nav-in{gap:var(--sp-2)}
-  .cs-logo-svg{height:27px}
-  .cs-nav-cta{white-space:nowrap;padding:0 14px}
+  .cs-nav-in{gap:var(--sp-2);min-height:44px;padding-block:4px}
+  .cs-logo-svg{height:24px}
+  .cs-nav-cta{white-space:nowrap;padding:0 12px;min-height:32px;font-size:0.78rem!important}
 }
 
 /* ===== THANH TIẾN TRÌNH ĐỌC (trên cùng) ===== */
@@ -416,12 +416,18 @@ img,svg{max-width:100%}
 .cs-figure-badge{position:absolute;top:var(--sp-4);left:var(--sp-4);z-index:1;
   background:rgba(255,255,255,.92);color:var(--fpt-blue);font-size:var(--fs-xs);font-weight:800;
   letter-spacing:.04em;border-radius:var(--r-pill);padding:5px 12px;box-shadow:var(--shadow-sm)}
+@media(max-width:640px){
+  .cs-figure-cap{padding:10px 14px;font-size:.82rem;line-height:1.35}
+  .cs-figure-badge{top:10px;left:10px;padding:4px 10px;font-size:.7rem}
+}
 
 /* ===== SỨC SỐNG SINH VIÊN ===== */
 .cs-life{background:linear-gradient(180deg,var(--surface-2),var(--surface));border-top:1px solid var(--line)}
 .cs-life-grid{margin-top:var(--sp-6);display:grid;gap:var(--sp-6);grid-template-columns:1fr;align-items:center}
 @media(min-width:840px){.cs-life-grid{grid-template-columns:1.05fr .95fr;gap:var(--sp-8)}}
-.cs-life .cs-figure{aspect-ratio:4/3}
+.cs-life .cs-figure{aspect-ratio:1/1;max-height:500px}
+.cs-life .cs-figure>img{object-position:center 15%}
+@media(min-width:840px){.cs-life .cs-figure{aspect-ratio:1/1.04;max-height:520px}}
 .cs-life-chips{margin-top:var(--sp-5);display:flex;flex-wrap:wrap;gap:var(--sp-2)}
 .cs-chip{font-size:var(--fs-xs);font-weight:700;color:var(--fpt-blue);
   background:color-mix(in srgb,var(--fpt-blue) 8%,transparent);border:1px solid color-mix(in srgb,var(--fpt-blue) 18%,var(--line));
@@ -879,7 +885,7 @@ img,svg{max-width:100%}
   <section class="cs-sec cs-life" id="life" aria-labelledby="csLifeH">
     <div class="wrap">
       <div class="cs-life-grid">
-        <figure class="cs-figure cs-rev-l" data-img-slot="assets/img/campus-life.jpg" data-alt="Sinh viên FPT thuyết trình dự án nhóm trên giảng đường">
+        <figure class="cs-figure cs-rev-l" data-img-slot="assets/img/tunel123.png" data-alt="Sinh viên FPT thuyết trình dự án nhóm trên giảng đường">
           <span class="cs-figure-badge">Đời sống campus</span>
           <figcaption class="cs-figure-cap">Học qua dự án, làm việc nhóm và thuyết trình — tinh thần “học để làm” của sinh viên FPT.</figcaption>
         </figure>

@@ -329,25 +329,25 @@ select.ctl{padding-right:6px;max-width:48vw}
 @supports ((-webkit-backdrop-filter:blur(8px)) or (backdrop-filter:blur(8px))){
   .lp-nav{background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(140%) blur(8px);backdrop-filter:saturate(140%) blur(8px)}
 }
-.lp-nav-in{display:flex;align-items:center;gap:var(--sp-4);min-height:60px;
-  padding-block:var(--sp-2);padding-top:max(var(--sp-2),env(safe-area-inset-top))}
-.lp-brand{display:inline-flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:44px}
-.lp-logo-svg{height:34px;width:auto;display:block}
-.lp-logo-img{height:36px;width:auto;display:none}
-.lp-tag{font-size:var(--fs-xs);font-weight:600;color:var(--ink-2);
-  border:1px solid var(--line);border-radius:var(--r-pill);padding:3px 10px;white-space:nowrap}
-.lp-nav-r{margin-left:auto;display:flex;align-items:center;gap:var(--sp-2)}
-.lp-nav-r a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--r-pill);
-  font-size:var(--fs-sm);font-weight:600;color:var(--ink-2);text-decoration:none;transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
+.lp-nav-in{display:flex;align-items:center;gap:var(--sp-4);min-height:48px;
+  padding-block:5px;padding-top:max(5px,env(safe-area-inset-top))}
+.lp-brand{display:inline-flex;align-items:center;gap:var(--sp-2);text-decoration:none;min-height:36px}
+.lp-logo-svg{height:28px;width:auto;display:block}
+.lp-logo-img{height:30px;width:auto;display:none}
+.lp-tag{font-size:0.72rem;font-weight:600;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:2px 8px;white-space:nowrap}
+.lp-nav-r{margin-left:auto;display:flex;align-items:center;gap:4px}
+.lp-nav-r a{display:inline-flex;align-items:center;min-height:36px;padding:0 10px;border-radius:var(--r-pill);
+  font-size:0.84rem;font-weight:600;color:var(--ink-2);text-decoration:none;transition:color var(--dur) var(--ease-soft),background var(--dur) var(--ease-soft)}
 @media (hover:hover) and (pointer:fine){.lp-nav-r a:hover{color:var(--fpt-blue);background:var(--surface-2)}}
 .lp-nav-r a:active{transform:scale(.97)}
 /* ---- NAV mobile: thu gọn cho vừa màn nhỏ (chống tràn/cắt) ---- */
 @media(max-width:640px){
-  .lp-nav-in{gap:var(--sp-2);min-height:54px}
-  .lp-logo-svg{height:27px}
+  .lp-nav-in{gap:var(--sp-2);min-height:44px;padding-block:4px}
+  .lp-logo-svg{height:24px}
   .lp-tag{display:none}
   .lp-nav-r{gap:0}
-  .lp-nav-r a{padding:0 8px;font-size:.78rem;min-height:40px}
+  .lp-nav-r a{padding:0 6px;font-size:.76rem;min-height:32px}
   .lp-nav-r a[href="#lpFeatH"]{display:none}
 }
 @media(max-width:460px){ .lp-nav-r a[href="#pfGrid"]{display:none} }
@@ -661,8 +661,8 @@ select.ctl{padding-right:6px;max-width:48vw}
 @supports ((-webkit-backdrop-filter:blur(8px)) or (backdrop-filter:blur(8px))){
   .lp-nav.lp-scrolled{background:rgba(255,255,255,.92)}
 }
-.lp-nav.lp-scrolled .lp-nav-in{min-height:50px;padding-block:var(--sp-1)}
-.lp-nav.lp-scrolled .lp-logo-svg{height:30px;transition:height var(--dur) var(--ease-soft)}
+.lp-nav.lp-scrolled .lp-nav-in{min-height:44px;padding-block:3px}
+.lp-nav.lp-scrolled .lp-logo-svg{height:25px;transition:height var(--dur) var(--ease-soft)}
 .lp-logo-svg{transition:height var(--dur) var(--ease-soft)}
 
 /* 5) Nút lên đầu trang */
@@ -1282,7 +1282,7 @@ html.lenis, html.lenis body { height: auto; }
           </div>
 
           <!-- Media: High-res Campus Video (Video Project 1) -->
-          <video class="lp-pin-video" id="lpPinVideo" autoplay muted loop playsinline preload="metadata" poster="assets/img/campus-life.jpg">
+          <video class="lp-pin-video" id="lpPinVideo" autoplay muted loop playsinline preload="metadata" poster="assets/img/feature-3.jpg">
             <source src="assets/video/video-project-1.mp4" type="video/mp4">
             <source src="assets/video/campus-reveal.mp4" type="video/mp4">
           </video>
@@ -1626,7 +1626,7 @@ html.lenis, html.lenis body { height: auto; }
               <p class="lp-foot-desc">Cổng ôn tập đa môn sinh viên FPT — flashcard lật thẻ, trắc nghiệm tức thì, tự động lưu tiến độ, tất cả gói gọn trong một web tĩnh mượt mà.</p>
               <span class="lp-foot-status">
                 <span class="lp-foot-dot" aria-hidden="true"></span>
-                Hệ thống ôn tập hoạt động 24/7 · Web tĩnh
+                Hệ thống ôn tập hoạt động 24/7 · Cả khi không có internet
               </span>
             </div>
 
